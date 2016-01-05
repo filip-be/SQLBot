@@ -4,7 +4,7 @@
  *
  * Created on 13 czerwiec 2014, 17:28
  */
-
+#pragma once
 #ifndef MORFEUSZ2_H
 #define	MORFEUSZ2_H
 
@@ -13,7 +13,7 @@
 #include <list>
 #include <set>
 
-#ifndef __WIN32
+#ifndef WIN32 
 #define DLLIMPORT
 #else
 /* A Windows system.  Need to define DLLIMPORT. */
