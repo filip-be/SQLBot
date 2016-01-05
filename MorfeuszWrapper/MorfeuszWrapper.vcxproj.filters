@@ -24,6 +24,9 @@
     <ClInclude Include="resource.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="morfeusz2_c.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MorfeuszWrapper.cpp">
@@ -48,5 +51,11 @@
     <Image Include="app.ico">
       <Filter>Resource Files</Filter>
     </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="jmorfeusz.dll" />
+    <None Include="libmorfeusz2.dll.a" />
+    <None Include="libwinpthread-1.dll" />
+    <None Include="morfeusz2.dll" />
   </ItemGroup>
 </Project>

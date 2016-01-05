@@ -1,8 +1,10 @@
 ﻿using Cindalnet.SQLBot.View;
 using MaterialSkin;
+using Microsoft.Win32.SafeHandles;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -27,14 +29,16 @@ namespace Cindalnet.SQLBot.Presenter
             View.ProcessMessage += View_ProcessMessage;
         }
 
-        void View_ProcessMessage(object sender, EventArgs e)
+
+
+        unsafe void View_ProcessMessage(object sender, EventArgs e)
         {
             Console.WriteLine(View.Query);
-            View.Response = "Pytanie: " + View.Query;
-            View.Query = "";
-            View.Response = "Odpowiedź...";
+            View.Response = View.Query;
 
-            
+            View.Response = Model.QueryParser.ParseQuery(View.Query);
+
+            View.Query = "";
         }
 
         public void view_Closed(object sender, EventArgs e)
