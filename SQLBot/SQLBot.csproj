@@ -136,6 +136,7 @@
       <LastGenOutput>Tramwaje.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
+    <None Include="db\cdn_tramwaje.dacpac" />
     <None Include="Properties\DataSources\Cindalnet.SQLBot.Database.Linie.datasource" />
     <None Include="Properties\DataSources\Cindalnet.SQLBot.Database.Przyjazd.datasource" />
     <None Include="Properties\DataSources\Cindalnet.SQLBot.Database.Przystanek.datasource" />
