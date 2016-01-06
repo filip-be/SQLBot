@@ -29,14 +29,9 @@
         private void InitializeComponent()
         {
             this.panelMain = new System.Windows.Forms.TableLayoutPanel();
-            this.panelQuestion = new System.Windows.Forms.TableLayoutPanel();
-            this.buttonAsk = new MaterialSkin.Controls.MaterialRaisedButton();
-            this.textQuestion = new MaterialSkin.Controls.MaterialSingleLineTextField();
-            this.listAnswers = new MaterialSkin.Controls.MaterialListView();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.tabControl = new MaterialSkin.Controls.MaterialTabControl();
+            this.tabSelector = new MaterialSkin.Controls.MaterialTabSelector();
             this.panelMain.SuspendLayout();
-            this.panelQuestion.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelMain
@@ -48,111 +43,57 @@
             this.panelMain.ColumnCount = 1;
             this.panelMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.panelMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.panelMain.Controls.Add(this.panelQuestion, 0, 1);
-            this.panelMain.Controls.Add(this.listAnswers, 0, 0);
-            this.panelMain.Location = new System.Drawing.Point(12, 70);
+            this.panelMain.Controls.Add(this.tabControl, 0, 1);
+            this.panelMain.Controls.Add(this.tabSelector, 0, 0);
+            this.panelMain.Location = new System.Drawing.Point(0, 64);
+            this.panelMain.Margin = new System.Windows.Forms.Padding(0);
             this.panelMain.Name = "panelMain";
             this.panelMain.RowCount = 2;
+            this.panelMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
             this.panelMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.panelMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.panelMain.Size = new System.Drawing.Size(645, 284);
+            this.panelMain.Size = new System.Drawing.Size(562, 307);
             this.panelMain.TabIndex = 0;
             // 
-            // panelQuestion
+            // tabControl
             // 
-            this.panelQuestion.ColumnCount = 2;
-            this.panelQuestion.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.panelQuestion.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
-            this.panelQuestion.Controls.Add(this.buttonAsk, 1, 0);
-            this.panelQuestion.Controls.Add(this.textQuestion, 0, 0);
-            this.panelQuestion.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelQuestion.Location = new System.Drawing.Point(0, 254);
-            this.panelQuestion.Margin = new System.Windows.Forms.Padding(0);
-            this.panelQuestion.Name = "panelQuestion";
-            this.panelQuestion.RowCount = 1;
-            this.panelQuestion.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.panelQuestion.Size = new System.Drawing.Size(645, 30);
-            this.panelQuestion.TabIndex = 0;
-            // 
-            // buttonAsk
-            // 
-            this.buttonAsk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonAsk.Depth = 0;
-            this.buttonAsk.Location = new System.Drawing.Point(548, 3);
-            this.buttonAsk.MouseState = MaterialSkin.MouseState.HOVER;
-            this.buttonAsk.Name = "buttonAsk";
-            this.buttonAsk.Primary = true;
-            this.buttonAsk.Size = new System.Drawing.Size(94, 23);
-            this.buttonAsk.TabIndex = 0;
-            this.buttonAsk.Text = "Zapytaj";
-            this.buttonAsk.UseVisualStyleBackColor = true;
-            this.buttonAsk.Click += new System.EventHandler(this.buttonAsk_Click);
-            // 
-            // textQuestion
-            // 
-            this.textQuestion.AcceptsReturn = false;
-            this.textQuestion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.textQuestion.Depth = 0;
-            this.textQuestion.Hint = "Czego chcesz się dowiedzieć?";
-            this.textQuestion.Location = new System.Drawing.Point(3, 3);
-            this.textQuestion.MaxLength = 32767;
-            this.textQuestion.MouseState = MaterialSkin.MouseState.HOVER;
-            this.textQuestion.Name = "textQuestion";
-            this.textQuestion.PasswordChar = '\0';
-            this.textQuestion.SelectedText = "";
-            this.textQuestion.SelectionLength = 0;
-            this.textQuestion.SelectionStart = 0;
-            this.textQuestion.Size = new System.Drawing.Size(539, 23);
-            this.textQuestion.TabIndex = 1;
-            this.textQuestion.TabStop = false;
-            this.textQuestion.UseSystemPasswordChar = false;
-            // 
-            // listAnswers
-            // 
-            this.listAnswers.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.tabControl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.listAnswers.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.listAnswers.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader1,
-            this.columnHeader2});
-            this.listAnswers.Depth = 0;
-            this.listAnswers.FitToWidth = true;
-            this.listAnswers.Font = new System.Drawing.Font("Roboto", 10.15F);
-            this.listAnswers.FullRowSelect = true;
-            this.listAnswers.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
-            this.listAnswers.Location = new System.Drawing.Point(3, 3);
-            this.listAnswers.MouseLocation = new System.Drawing.Point(-1, -1);
-            this.listAnswers.MouseState = MaterialSkin.MouseState.OUT;
-            this.listAnswers.Name = "listAnswers";
-            this.listAnswers.OwnerDraw = true;
-            this.listAnswers.Size = new System.Drawing.Size(639, 248);
-            this.listAnswers.TabIndex = 1;
-            this.listAnswers.UseCompatibleStateImageBehavior = false;
-            this.listAnswers.View = System.Windows.Forms.View.Details;
+            this.tabControl.Depth = 0;
+            this.tabControl.Location = new System.Drawing.Point(0, 25);
+            this.tabControl.Margin = new System.Windows.Forms.Padding(0);
+            this.tabControl.MouseState = MaterialSkin.MouseState.HOVER;
+            this.tabControl.Name = "tabControl";
+            this.tabControl.SelectedIndex = 0;
+            this.tabControl.Size = new System.Drawing.Size(562, 282);
+            this.tabControl.TabIndex = 0;
             // 
-            // columnHeader1
+            // tabSelector
             // 
-            this.columnHeader1.Text = "ColumnHeader";
-            this.columnHeader1.Width = 105;
-            // 
-            // columnHeader2
-            // 
-            this.columnHeader2.Width = 534;
+            this.tabSelector.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tabSelector.BaseTabControl = this.tabControl;
+            this.tabSelector.Depth = 0;
+            this.tabSelector.Location = new System.Drawing.Point(0, 0);
+            this.tabSelector.Margin = new System.Windows.Forms.Padding(0);
+            this.tabSelector.MouseState = MaterialSkin.MouseState.HOVER;
+            this.tabSelector.Name = "tabSelector";
+            this.tabSelector.Size = new System.Drawing.Size(562, 25);
+            this.tabSelector.TabIndex = 1;
+            this.tabSelector.Text = "materialTabSelector1";
             // 
             // CFormMain
             // 
-            this.AcceptButton = this.buttonAsk;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(669, 366);
+            this.ClientSize = new System.Drawing.Size(563, 380);
             this.Controls.Add(this.panelMain);
             this.Name = "CFormMain";
             this.Text = "SQLBot";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.CFormMain_FormClosing);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.CFormMain_FormClosed);
             this.panelMain.ResumeLayout(false);
-            this.panelQuestion.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -160,12 +101,10 @@
         #endregion
 
         private System.Windows.Forms.TableLayoutPanel panelMain;
-        private System.Windows.Forms.TableLayoutPanel panelQuestion;
-        private MaterialSkin.Controls.MaterialRaisedButton buttonAsk;
-        private MaterialSkin.Controls.MaterialSingleLineTextField textQuestion;
-        private MaterialSkin.Controls.MaterialListView listAnswers;
-        private System.Windows.Forms.ColumnHeader columnHeader1;
-        private System.Windows.Forms.ColumnHeader columnHeader2;
+        private MaterialSkin.Controls.MaterialTabControl tabControl;
+        private MaterialSkin.Controls.MaterialTabSelector tabSelector;
+
+
     }
 }
 

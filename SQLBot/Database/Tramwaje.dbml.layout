@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11.25, 8.5" name="Tramwaje">
+  <DataContextMoniker Name="/TramwajeDataContext" />
+  <nestedChildShapes>
+    <classShape Id="d2557a17-ae33-488d-a101-0be21a73c47b" absoluteBounds="0.75, 1.125, 2, 1.3862939453125007">
+      <DataClassMoniker Name="/TramwajeDataContext/Linie" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e3199475-4005-4d95-b386-b1b4233f1605" absoluteBounds="0.76500000000000012, 1.585, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="775f7de8-0e96-48c6-8080-6a6d54510cf7" absoluteBounds="9, 0.875, 2, 1.7708968098958327">
+      <DataClassMoniker Name="/TramwajeDataContext/Przyjazd" />
+      <nestedChildShapes>
+        <elementListCompartment Id="6f3f4f80-eaa1-4230-8e83-4630ea32ff16" absoluteBounds="9.015, 1.335, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="4e3be17f-a872-4ba3-a10b-3e24222451ee" absoluteBounds="6.25, 1, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/TramwajeDataContext/Przystanek" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b3d25463-34c5-48d1-81f4-bd242d914c95" absoluteBounds="6.2650000000000006, 1.46, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(8.25 : 1.78929768880208); (9 : 1.78929768880208)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/TramwajeDataContext/Przystanek/Przystanek_Przyjazd" />
+      <nodes>
+        <classShapeMoniker Id="4e3be17f-a872-4ba3-a10b-3e24222451ee" />
+        <classShapeMoniker Id="775f7de8-0e96-48c6-8080-6a6d54510cf7" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="59649dad-15c5-4255-a5a8-c0a774a28d29" absoluteBounds="3.5, 0.875, 2, 1.7708968098958327">
+      <DataClassMoniker Name="/TramwajeDataContext/WariantTrasy" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a3205d66-61ce-4eb2-aaf1-5982b9eac044" absoluteBounds="3.515, 1.335, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5.5 : 1.78929768880208); (6.25 : 1.78929768880208)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/TramwajeDataContext/WariantTrasy/WariantTrasy_Przystanek" />
+      <nodes>
+        <classShapeMoniker Id="59649dad-15c5-4255-a5a8-c0a774a28d29" />
+        <classShapeMoniker Id="4e3be17f-a872-4ba3-a10b-3e24222451ee" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 1.81814697265625); (3.5 : 1.81814697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/TramwajeDataContext/Linie/Linie_WariantTrasy" />
+      <nodes>
+        <classShapeMoniker Id="d2557a17-ae33-488d-a101-0be21a73c47b" />
+        <classShapeMoniker Id="59649dad-15c5-4255-a5a8-c0a774a28d29" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

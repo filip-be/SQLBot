@@ -22,5 +22,16 @@ namespace Cindalnet.SQLBot.Properties {
                 return defaultInstance;
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=FILIPBE\\CINDALNET;Initial Catalog=cdn_tramwaje;User ID=sa;Password=cd" +
+            "n_sql")]
+        public string cdn_tramwajeConnectionString {
+            get {
+                return ((string)(this["cdn_tramwajeConnectionString"]));
+            }
+        }
     }
 }

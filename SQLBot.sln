@@ -13,11 +13,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MaterialSkin", "MaterialSki
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AIMLbot", "AIMLbot\AIMLbot.csproj", "{9C87D82C-0E27-4995-A2CB-72BCB84EF2E2}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "aiml", "aiml", "{B67CBB07-C36E-49D2-8BB0-02DB5A0FBDBE}"
-	ProjectSection(SolutionItems) = preProject
-		aiml\Default.aiml = aiml\Default.aiml
-	EndProjectSection
-EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MorfeuszWrapper", "MorfeuszWrapper\MorfeuszWrapper.vcxproj", "{5D60AE4A-7D86-416B-853D-E3A46CBC5CBC}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MorfeuszWrapperTst", "MorfeuszWrapperTst\MorfeuszWrapperTst.vcxproj", "{875E2EFF-E34D-481E-81E1-815DD241E241}"

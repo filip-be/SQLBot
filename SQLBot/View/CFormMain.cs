@@ -18,30 +18,6 @@ namespace Cindalnet.SQLBot.View
             InitializeComponent();
         }
 
-        public string Query
-        {
-            get
-            { 
-                return textQuestion.Text;
-            }
-            set
-            {
-                if (textQuestion.Text == value)
-                    return;
-                textQuestion.Text = value;
-            }
-        }
-
-        public string Response
-        {
-            set
-            {
-                listAnswers.Items.Add(new ListViewItem(value)); 
-            }
-        }
-
-        public event EventHandler ProcessMessage;
-
         public Form FormControl
         {
             get { return this; }
@@ -67,12 +43,6 @@ namespace Cindalnet.SQLBot.View
             remove { }
         }
 
-        private void buttonAsk_Click(object sender, EventArgs e)
-        {
-            if (ProcessMessage != null)
-                ProcessMessage(this, e);
-        }
-
         private void CFormMain_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (ViewClosing != null)
@@ -83,6 +53,65 @@ namespace Cindalnet.SQLBot.View
         {
             if (ViewClosed != null)
                 ViewClosed(this, e);
+        }
+
+        public void AddMaterialPanelTab(MaterialPanel panel, bool focus = false)
+        {
+            TabPage newTab = new TabPage(panel.Text);
+            panel.Dock = DockStyle.Fill;
+            panel.Parent = newTab;
+            newTab.Controls.Add(panel);
+            tabControl.TabPages.Add(newTab);
+            if (focus)
+                tabControl.SelectedTab = newTab;
+        }
+
+        public void AddMaterialPanelTab(MaterialForm form, bool focus = false)
+        {
+            TabPage newTab = new TabPage(form.Text);
+            form.Dock = DockStyle.Fill;
+            form.Parent = newTab;
+            newTab.Controls.Add(form);
+            tabControl.TabPages.Add(newTab);
+            if (focus)
+                tabControl.SelectedTab = newTab;
+        }
+
+        public bool RemoveMaterialPanelTab(string panelText)
+        {
+            int tabIndex = 0;
+            
+            foreach (TabPage tab in this.tabControl.TabPages)
+            {
+                if (tab.Text == panelText)
+                {
+                    int tabSelectedIndex = this.tabControl.SelectedIndex;
+
+                    this.tabControl.TabPages.Remove(tab);
+
+                    if (tabSelectedIndex >= tabIndex && tabIndex > 0)
+                    {
+                        this.tabControl.SelectTab(tabIndex - 1);
+                    }
+                    else
+                    {
+                        this.tabControl.SelectTab(tabSelectedIndex);
+                    }
+                    return true;
+                }
+                tabIndex++;
+            }
+            return false;
+        }
+
+        public bool RemoveMaterialPanelTab(MaterialForm form)
+        {
+            return RemoveMaterialPanelTab(form.Text);
+        }
+
+        public bool RemoveMaterialPanelTab(MaterialPanel panel)
+        {
+            return RemoveMaterialPanelTab(panel.Text);
         }
     }
 }

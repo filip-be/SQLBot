@@ -26,19 +26,26 @@ namespace Cindalnet.SQLBot.Presenter
             View.PropertyChanged += view_PropertyChanged;
             View.ViewClosed += view_Closed;
 
-            View.ProcessMessage += View_ProcessMessage;
-        }
+            try
+            {
+                PresenterManage pManage = new PresenterManage();
+                pManage.MaterialSkinManager = MaterialSkinManager;
+                pManage.MaterialForm.Parent = View.FormControl;
+                View.AddMaterialPanelTab(pManage.MaterialForm, true);
+                pManage.ViewClosed += OnTabClosed;
+            }catch(Exception)
+            { }
 
-
-
-        unsafe void View_ProcessMessage(object sender, EventArgs e)
-        {
-            Console.WriteLine(View.Query);
-            View.Response = View.Query;
-
-            View.Response = Model.QueryParser.ParseQuery(View.Query);
-
-            View.Query = "";
+            try
+            {
+                PresenterChat pChat = new PresenterChat();
+                pChat.MaterialSkinManager = MaterialSkinManager;
+                pChat.MaterialForm.Parent = View.FormControl;
+                View.AddMaterialPanelTab(pChat.MaterialForm, false);
+                pChat.ViewClosed += OnTabClosed;
+            }
+            catch (Exception)
+            { }
         }
 
         public void view_Closed(object sender, EventArgs e)
@@ -64,6 +71,14 @@ namespace Cindalnet.SQLBot.Presenter
         public void view_Cancel(object sender, EventArgs e)
         {
             //
+        }
+
+        private void OnTabClosed(object sender, EventArgs e)
+        {
+            if (sender is PresenterForm)
+            {
+                View.RemoveMaterialPanelTab(((PresenterForm)sender).MaterialForm);
+            }
         }
     }
 }

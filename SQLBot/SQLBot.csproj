@@ -26,18 +26,20 @@
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
+    <PlatformTarget>x86</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <Prefer32Bit>false</Prefer32Bit>
+    <Prefer32Bit>true</Prefer32Bit>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -48,15 +50,37 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Database\Tramwaje.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Tramwaje.dbml</DependentUpon>
+    </Compile>
     <Compile Include="Model\MorfeuszDllWrapper.cs" />
     <Compile Include="Model\QueryParser.cs" />
     <Compile Include="Presenter\IPresenter.cs" />
+    <Compile Include="Presenter\OverlayBackgroundWorker.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Presenter\PresenterChat.cs" />
     <Compile Include="Presenter\PresenterForm.cs" />
     <Compile Include="Presenter\PresenterMain.cs" />
+    <Compile Include="Presenter\PresenterManage.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="View\CFormChat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\CFormChat.Designer.cs">
+      <DependentUpon>CFormChat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\CFormLoading.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\CFormLoading.Designer.cs">
+      <DependentUpon>CFormLoading.cs</DependentUpon>
     </Compile>
     <Compile Include="View\CFormMain.cs">
       <SubType>Form</SubType>
@@ -66,18 +90,57 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="View\CFormManage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\CFormManage.Designer.cs">
+      <DependentUpon>CFormManage.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\IForm.cs" />
+    <Compile Include="View\IFormChat.cs" />
     <Compile Include="View\IFormMain.cs" />
+    <Compile Include="View\IFormManage.cs" />
     <Compile Include="View\IView.cs" />
+    <Compile Include="View\MaterialPanel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\MaterialPanel.Designer.cs">
+      <DependentUpon>MaterialPanel.cs</DependentUpon>
+    </Compile>
+    <None Include="Database\Tramwaje.dbml.layout">
+      <DependentUpon>Tramwaje.dbml</DependentUpon>
+    </None>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\CFormChat.resx">
+      <DependentUpon>CFormChat.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\CFormMain.resx">
       <DependentUpon>CFormMain.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\CFormManage.resx">
+      <DependentUpon>CFormManage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\MaterialPanel.resx">
+      <DependentUpon>MaterialPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="aiml\Default.aiml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="app.config" />
+    <None Include="Database\Tramwaje.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>Tramwaje.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\DataSources\Cindalnet.SQLBot.Database.Linie.datasource" />
+    <None Include="Properties\DataSources\Cindalnet.SQLBot.Database.Przyjazd.datasource" />
+    <None Include="Properties\DataSources\Cindalnet.SQLBot.Database.Przystanek.datasource" />
+    <None Include="Properties\DataSources\Cindalnet.SQLBot.Database.TramwajeDataContext.datasource" />
+    <None Include="Properties\DataSources\Cindalnet.SQLBot.Database.WariantTrasy.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -104,6 +167,27 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="config\DefaultPredicates.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="config\GenderSubstitutions.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="config\Person2Substitutions.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="config\PersonSubstitutions.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="config\Settings.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="config\Splitters.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="config\Substitutions.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="jmorfeusz.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -113,6 +197,52 @@
     <Content Include="morfeusz2.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="xml\0001.xml" />
+    <Content Include="xml\0002.xml" />
+    <Content Include="xml\0003.xml" />
+    <Content Include="xml\0004.xml" />
+    <Content Include="xml\0005.xml" />
+    <Content Include="xml\0006.xml" />
+    <Content Include="xml\0007.xml" />
+    <Content Include="xml\0008.xml" />
+    <Content Include="xml\0009.xml" />
+    <Content Include="xml\000a.xml" />
+    <Content Include="xml\000c.xml" />
+    <Content Include="xml\000d.xml" />
+    <Content Include="xml\000k.xml" />
+    <Content Include="xml\000l.xml" />
+    <Content Include="xml\000n.xml" />
+    <Content Include="xml\000p.xml" />
+    <Content Include="xml\0010.xml" />
+    <Content Include="xml\0011.xml" />
+    <Content Include="xml\0014.xml" />
+    <Content Include="xml\0015.xml" />
+    <Content Include="xml\0017.xml" />
+    <Content Include="xml\0020.xml" />
+    <Content Include="xml\0023.xml" />
+    <Content Include="xml\0024.xml" />
+    <Content Include="xml\0031.xml" />
+    <Content Include="xml\0032.xml" />
+    <Content Include="xml\0033.xml" />
+    <Content Include="xml\0100.xml" />
+    <Content Include="xml\0101.xml" />
+    <Content Include="xml\0102.xml" />
+    <Content Include="xml\0103.xml" />
+    <Content Include="xml\0104.xml" />
+    <Content Include="xml\0105.xml" />
+    <Content Include="xml\0107.xml" />
+    <Content Include="xml\0109.xml" />
+    <Content Include="xml\0110.xml" />
+    <Content Include="xml\0112.xml" />
+    <Content Include="xml\0113.xml" />
+    <Content Include="xml\0114.xml" />
+    <Content Include="xml\0115.xml" />
+    <Content Include="xml\0116.xml" />
+    <None Include="Resources\Loading.bmp" />
+    <Content Include="Resources\Loading.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

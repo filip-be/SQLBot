@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MaterialSkin.Controls;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,18 +8,11 @@ namespace Cindalnet.SQLBot.View
 {
     public interface IFormMain : IForm
     {
-        /// <summary>
-        /// Zapytanie użytkownika
-        /// </summary>
-        string Query { get; set; }
-        /// <summary>
-        /// Odpowiedź systemu
-        /// </summary>
-        string Response { set; }
+        void AddMaterialPanelTab(MaterialForm form, bool focus = false);
+        void AddMaterialPanelTab(MaterialPanel panel, bool focus = false);
 
-        /// <summary>
-        /// Żądanie odpowiedzi przez użytkownika
-        /// </summary>
-        event EventHandler ProcessMessage;
+        bool RemoveMaterialPanelTab(string panelText);
+        bool RemoveMaterialPanelTab(MaterialForm form);
+        bool RemoveMaterialPanelTab(MaterialPanel panel);
     }
 }
