@@ -63,8 +63,12 @@
     </Compile>
     <Compile Include="Presenter\PresenterChat.cs" />
     <Compile Include="Presenter\PresenterForm.cs" />
+    <Compile Include="Presenter\PresenterLinie.cs" />
     <Compile Include="Presenter\PresenterMain.cs" />
     <Compile Include="Presenter\PresenterManage.cs" />
+    <Compile Include="Presenter\PresenterPrzystanek.cs" />
+    <Compile Include="Presenter\PresenterWariant.cs" />
+    <Compile Include="Presenter\PresenterPrzyjazd.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -75,6 +79,12 @@
     </Compile>
     <Compile Include="View\CFormChat.Designer.cs">
       <DependentUpon>CFormChat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\CFormListView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\CFormListView.Designer.cs">
+      <DependentUpon>CFormListView.cs</DependentUpon>
     </Compile>
     <Compile Include="View\CFormLoading.cs">
       <SubType>Form</SubType>
@@ -100,6 +110,7 @@
     <Compile Include="View\IFormChat.cs" />
     <Compile Include="View\IFormMain.cs" />
     <Compile Include="View\IFormManage.cs" />
+    <Compile Include="View\IFormListView.cs" />
     <Compile Include="View\IView.cs" />
     <Compile Include="View\MaterialPanel.cs">
       <SubType>Form</SubType>
@@ -117,6 +128,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\CFormChat.resx">
       <DependentUpon>CFormChat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\CFormListView.resx">
+      <DependentUpon>CFormListView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\CFormMain.resx">
       <DependentUpon>CFormMain.cs</DependentUpon>

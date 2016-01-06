@@ -46,6 +46,69 @@ namespace Cindalnet.SQLBot.Presenter
             }
             catch (Exception)
             { }
+
+            try
+            {
+                PresenterLinie pLinie = new PresenterLinie();
+                pLinie.FormText = "Linie";
+                pLinie.MaterialSkinManager = MaterialSkinManager;
+                pLinie.MaterialForm.Parent = View.FormControl;
+                View.AddMaterialPanelTab(pLinie.MaterialForm, false);
+                pLinie.ViewClosed += OnTabClosed;
+                pLinie.DisplayWariant += pLinie_DisplayWariant;
+            }
+            catch (Exception)
+            { }
+        }
+
+        void pLinie_DisplayWariant(object sender, EventArgs e)
+        {
+            try
+            {
+                Database.Linie linia = ((PresenterLinie)sender).Linia;
+                PresenterWariant pWariant = new PresenterWariant(linia);
+                pWariant.FormText = "Linia " + linia.Nazwa.Trim();
+                pWariant.MaterialSkinManager = MaterialSkinManager;
+                pWariant.MaterialForm.Parent = View.FormControl;
+                View.AddMaterialPanelTab(pWariant.MaterialForm, false);
+                pWariant.ViewClosed += OnTabClosed;
+                pWariant.DisplayPrzystanek += pWariant_DisplayPrzystanek;
+            }
+            catch (Exception)
+            { }
+        }
+
+        void pWariant_DisplayPrzystanek(object sender, EventArgs e)
+        {
+            try
+            {
+                Database.WariantTrasy wariant = ((PresenterWariant)sender).Wariant;
+                PresenterPrzystanek pPrzystanek = new PresenterPrzystanek(wariant);
+                pPrzystanek.FormText = "Linia " + wariant.Linie.Nazwa.Trim() + " - " + wariant.Nazwa.Trim();
+                pPrzystanek.MaterialSkinManager = MaterialSkinManager;
+                pPrzystanek.MaterialForm.Parent = View.FormControl;
+                View.AddMaterialPanelTab(pPrzystanek.MaterialForm, false);
+                pPrzystanek.ViewClosed += OnTabClosed;
+                pPrzystanek.DisplayPrzyjazd += pWariant_DisplayPrzyjazd;
+            }
+            catch (Exception)
+            { }
+        }
+
+        private void pWariant_DisplayPrzyjazd(object sender, EventArgs e)
+        {
+            try
+            {
+                Database.Przystanek przystanek = ((PresenterPrzystanek)sender).Przystanek;
+                PresenterPrzyjazd pPrzyjazd = new PresenterPrzyjazd(przystanek);
+                pPrzyjazd.FormText = "Linia " + przystanek.WariantTrasy.Linie.Nazwa.Trim() + " - " + przystanek.WariantTrasy.Nazwa.Trim() + " - " + przystanek.Nazwa.Trim();
+                pPrzyjazd.MaterialSkinManager = MaterialSkinManager;
+                pPrzyjazd.MaterialForm.Parent = View.FormControl;
+                View.AddMaterialPanelTab(pPrzyjazd.MaterialForm, false);
+                pPrzyjazd.ViewClosed += OnTabClosed;
+            }
+            catch (Exception)
+            { }
         }
 
         public void view_Closed(object sender, EventArgs e)
