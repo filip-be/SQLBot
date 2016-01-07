@@ -22,12 +22,12 @@ namespace Cindalnet.SQLBot.Model
             ChatBot.isAcceptingUserInput = true;
         }
 
-        public unsafe string ParseQuery(string query)
+        public string ParseQuery(string query)
         {
             string res;
             try
             {
-                Cindalnet.SQLBot.Model.MorfeuszDllWrapper.InterpMorf []items = MorfeuszDllWrapper.ParseQuery(query);
+                query = MorfParse(query);
 
                 Request chatRequest = new Request(query, ChatUser, ChatBot);
                 Result chatRes = ChatBot.Chat(chatRequest);
@@ -37,6 +37,25 @@ namespace Cindalnet.SQLBot.Model
             }catch(Exception ex)
             {
                 res = "Wystąpił błąd podczas przetwarzania zapytania: " + ex.Message;
+            }
+            return res;
+        }
+
+        public string MorfParse(string Query)
+        {
+            string res = null;
+            Cindalnet.SQLBot.Model.MorfeuszDllWrapper.InterpMorf[] items = MorfeuszDllWrapper.ParseQuery(Query);
+            int k = -1;
+            foreach(var item in items)
+            {   // Bierzemy pod uwagę pierwszą interpretację słowa
+                if(k != item.k)
+                {   // Zamiana rzeczowników na ich formy podstawowe
+                    if (item.interp.StartsWith("subst"))
+                        res += item.haslo + " ";
+                    else
+                        res += item.forma + " ";
+                    k = item.k;
+                }
             }
             return res;
         }

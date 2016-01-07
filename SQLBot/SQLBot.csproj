@@ -118,6 +118,38 @@
     <Compile Include="View\MaterialPanel.Designer.cs">
       <DependentUpon>MaterialPanel.cs</DependentUpon>
     </Compile>
+    <None Include="aiml\AIMLBot_AI.aiml" />
+    <None Include="aiml\AIMLBot_Atomic.aiml" />
+    <None Include="aiml\AIMLBot_Biography.aiml" />
+    <None Include="aiml\AIMLBot_Bot.aiml" />
+    <None Include="aiml\AIMLBot_Botmaster.aiml" />
+    <None Include="aiml\AIMLBot_Client.aiml" />
+    <None Include="aiml\AIMLBot_Computers.aiml" />
+    <None Include="aiml\AIMLBot_CustomTagTest.aiml" />
+    <None Include="aiml\AIMLBot_Default.aiml" />
+    <None Include="aiml\AIMLBot_Emotion.aiml" />
+    <None Include="aiml\AIMLBot_Food.aiml" />
+    <None Include="aiml\AIMLBot_Geography.aiml" />
+    <None Include="aiml\AIMLBot_History.aiml" />
+    <None Include="aiml\AIMLBot_Inquiry.aiml" />
+    <None Include="aiml\AIMLBot_Interjection.aiml" />
+    <None Include="aiml\AIMLBot_IU.aiml" />
+    <None Include="aiml\AIMLBot_Knowledge.aiml" />
+    <None Include="aiml\AIMLBot_Literature.aiml" />
+    <None Include="aiml\AIMLBot_Money.aiml" />
+    <None Include="aiml\AIMLBot_Movies.aiml" />
+    <None Include="aiml\AIMLBot_Music.aiml" />
+    <None Include="aiml\AIMLBot_Personality.aiml" />
+    <None Include="aiml\AIMLBot_Philosophy.aiml" />
+    <None Include="aiml\AIMLBot_Pickup.aiml" />
+    <None Include="aiml\AIMLBot_Predicates.aiml" />
+    <None Include="aiml\AIMLBot_Reduce.aiml" />
+    <None Include="aiml\AIMLBot_Reductions.aiml" />
+    <None Include="aiml\AIMLBot_Salutations.aiml" />
+    <None Include="aiml\AIMLBot_Science.aiml" />
+    <None Include="aiml\AIMLBot_Stack.aiml" />
+    <None Include="aiml\AIMLBot_Stories.aiml" />
+    <None Include="aiml\AIMLBot_That.aiml" />
     <None Include="Database\Tramwaje.dbml.layout">
       <DependentUpon>Tramwaje.dbml</DependentUpon>
     </None>
@@ -182,6 +214,13 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="config\AIMLBot_DefaultPredicates.xml" />
+    <Content Include="config\AIMLBot_GenderSubstitutions.xml" />
+    <Content Include="config\AIMLBot_Person2Substitutions.xml" />
+    <Content Include="config\AIMLBot_PersonSubstitutions.xml" />
+    <Content Include="config\AIMLBot_Settings.xml" />
+    <Content Include="config\AIMLBot_Splitters.xml" />
+    <Content Include="config\AIMLBot_Substitutions.xml" />
     <Content Include="config\DefaultPredicates.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

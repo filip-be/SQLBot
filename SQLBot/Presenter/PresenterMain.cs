@@ -44,8 +44,10 @@ namespace Cindalnet.SQLBot.Presenter
                 View.AddMaterialPanelTab(pChat.MaterialForm, false);
                 pChat.ViewClosed += OnTabClosed;
             }
-            catch (Exception)
-            { }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
 
             try
             {
