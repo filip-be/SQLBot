@@ -50,6 +50,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Database\Tramwaje.cs">
+      <DependentUpon>Tramwaje.dbml</DependentUpon>
+    </Compile>
     <Compile Include="Database\Tramwaje.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
