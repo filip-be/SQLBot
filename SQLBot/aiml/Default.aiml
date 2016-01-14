@@ -19,32 +19,69 @@
       </random>
     </template>
   </category>
+
   <category>
-    <pattern>
-      Poka¿ *
-    </pattern>
+    <pattern>Czym dojadê do *</pattern>
     <template>
-      <random>
-        <li>Z którego przystanku?</li>
-        <li>Sk¹d?</li>
-      </random>
+      Sk¹d chcesz jechaæ?
+      <think>
+        <set name="cel">
+          <star/>
+        </set>
+      </think>
+    </template>
+  </category>
+
+  <category>
+    <pattern>Czym dojadê na *</pattern>
+    <template>
+      <srai>
+        Czym dojadê do <star/>?
+      </srai>
     </template>
   </category>
   <category>
-    <pattern>*</pattern>
+    <pattern>Jak dojechaæ na *</pattern>
+    <template>
+      <srai>
+        Czym dojadê do <star/>?
+      </srai>
+    </template>
+  </category>
+  <category>
+    <pattern>Jak dojechaæ do *</pattern>
+    <template>
+      <srai>
+        Czym dojadê do <star/>?
+      </srai>
+    </template>
+  </category>
+  <category>
+    <pattern>Jak * dojechaæ na *</pattern>
+    <template>
+      <srai>Czym dojadê do <star index="2"/>?
+    </srai>
+    </template>
+  </category>
+  <category>
+    <pattern>Jak * dojechaæ do *</pattern>
+    <template>
+      <srai>
+        Czym dojadê do <star index="2"/>?
+      </srai>
+    </template>
+  </category>
+  
+  <category>
+    <pattern>Z *</pattern>
     <that>
-      <li>Z którego przystanku</li>
-      <li>Sk¹d?</li>
+      Sk¹d chcesz jechaæ?
     </that>
     <template>
-      <random>
-        <li>Until my last breath.</li>
-        <li>I want to live forever.</li>
-        <li>I can go on talking indefinitely.</li>
-      </random>
+      Sprawdzam jak dojechaæ z <set name="start">
+        <star/>
+      </set> do <get name="cel"/>.
     </template>
   </category>
-  <topic name="time">
-    
-  </topic>
+  
 </aiml>

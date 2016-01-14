@@ -27,7 +27,7 @@ namespace Cindalnet.SQLBot.Model
             string res;
             try
             {
-                query = MorfParse(query);
+                //query = MorfParse(query);
 
                 Request chatRequest = new Request(query, ChatUser, ChatBot);
                 Result chatRes = ChatBot.Chat(chatRequest);
