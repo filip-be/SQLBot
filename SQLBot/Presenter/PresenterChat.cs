@@ -1,4 +1,5 @@
-﻿using Cindalnet.SQLBot.Model;
+﻿using Cindalnet.SQLBot.Database;
+using Cindalnet.SQLBot.Model;
 using Cindalnet.SQLBot.View;
 using MaterialSkin;
 using System;

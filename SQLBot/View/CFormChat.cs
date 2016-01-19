@@ -31,6 +31,7 @@ namespace Cindalnet.SQLBot.View
                 if (textQuestion.Text == value)
                     return;
                 textQuestion.Text = value;
+                textQuestion.SelectAll();
             }
         }
 

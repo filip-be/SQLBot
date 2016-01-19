@@ -38,13 +38,14 @@ namespace Cindalnet.SQLBot.Presenter
                 foreach (var tramXML in TramXMLFile.Root.Descendants("linia"))
                 {
                     Linie linia = new Linie();
-                    linia.Nazwa = tramXML.Attribute("nazwa").Value;
-                    linia.Typ = tramXML.Attribute("typ").Value;
+                    linia.Nazwa = tramXML.Attribute("nazwa").Value.Trim();
+                    if(tramXML.Attribute("typ").Value != null)
+                        linia.Typ = tramXML.Attribute("typ").Value.Trim();
                     foreach (var wariantXML in tramXML.Descendants("wariant"))
                     {
                         WariantTrasy wariant = new WariantTrasy();
                         wariant.Linie = linia;
-                        wariant.Nazwa = wariantXML.Attribute("nazwa").Value;
+                        wariant.Nazwa = wariantXML.Attribute("nazwa").Value.Trim();
                         // BISKUPIN - POŚWIĘTNE
                         int pPos = wariant.Nazwa.IndexOf("-");
                         wariant.Start = wariant.Nazwa.Substring(0, pPos - 1);
@@ -53,8 +54,8 @@ namespace Cindalnet.SQLBot.Presenter
                         {
                             Przystanek przystanek = new Przystanek();
                             przystanek.WariantTrasy = wariant;
-                            przystanek.Nazwa = przystanekXML.Attribute("nazwa").Value;
-                            przystanek.Ulica = przystanekXML.Attribute("ulica").Value;
+                            przystanek.Nazwa = przystanekXML.Attribute("nazwa").Value.Trim();
+                            przystanek.Ulica = przystanekXML.Attribute("ulica").Value.Trim();
                             foreach(var dzienXML in przystanekXML.Descendants("dzien"))
                             {
                                 foreach (var godzXML in dzienXML.Descendants("godz"))
@@ -62,9 +63,9 @@ namespace Cindalnet.SQLBot.Presenter
                                     foreach (var minXML in godzXML.Descendants("min"))
                                     {
                                         Przyjazd przyjazd = new Przyjazd();
-                                        przyjazd.Dzień = dzienXML.Attribute("nazwa").Value;
-                                        przyjazd.Godzina = int.Parse(godzXML.Attribute("h").Value);
-                                        przyjazd.Minuta = int.Parse(minXML.Attribute("m").Value);
+                                        przyjazd.Dzień = dzienXML.Attribute("nazwa").Value.Trim();
+                                        przyjazd.Godzina = int.Parse(godzXML.Attribute("h").Value.Trim());
+                                        przyjazd.Minuta = int.Parse(minXML.Attribute("m").Value.Trim());
                                         przyjazd.Przystanek = przystanek;
 
                                         przystanek.Przyjazds.Add(przyjazd);
