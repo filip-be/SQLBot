@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{9DC85CF3-99E4-44ED-8D3A-30353772CC78}</ProjectGuid>
+    <ProjectGuid>{89BCFA8A-D9A4-4EAB-97E3-84D3CFB8E54E}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Cindalnet.SQLBot</RootNamespace>
@@ -50,13 +50,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Database\Tramwaje.cs">
-      <DependentUpon>Tramwaje.dbml</DependentUpon>
-    </Compile>
-    <Compile Include="Database\Tramwaje.designer.cs">
+    <Compile Include="Database\BazaRelacyjna.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Tramwaje.dbml</DependentUpon>
+      <DependentUpon>BazaRelacyjna.dbml</DependentUpon>
     </Compile>
     <Compile Include="Model\MorfeuszDllWrapper.cs" />
     <Compile Include="Model\QueryParser.cs" />
@@ -66,12 +63,7 @@
     </Compile>
     <Compile Include="Presenter\PresenterChat.cs" />
     <Compile Include="Presenter\PresenterForm.cs" />
-    <Compile Include="Presenter\PresenterLinie.cs" />
     <Compile Include="Presenter\PresenterMain.cs" />
-    <Compile Include="Presenter\PresenterManage.cs" />
-    <Compile Include="Presenter\PresenterPrzystanek.cs" />
-    <Compile Include="Presenter\PresenterWariant.cs" />
-    <Compile Include="Presenter\PresenterPrzyjazd.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -103,16 +95,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="View\CFormManage.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\CFormManage.Designer.cs">
-      <DependentUpon>CFormManage.cs</DependentUpon>
-    </Compile>
     <Compile Include="View\IForm.cs" />
     <Compile Include="View\IFormChat.cs" />
     <Compile Include="View\IFormMain.cs" />
-    <Compile Include="View\IFormManage.cs" />
     <Compile Include="View\IFormListView.cs" />
     <Compile Include="View\IView.cs" />
     <Compile Include="View\MaterialPanel.cs">
@@ -153,8 +138,13 @@
     <None Include="aiml\AIMLBot_Stack.aiml" />
     <None Include="aiml\AIMLBot_Stories.aiml" />
     <None Include="aiml\AIMLBot_That.aiml" />
-    <None Include="Database\Tramwaje.dbml.layout">
-      <DependentUpon>Tramwaje.dbml</DependentUpon>
+    <None Include="Database\BazaRelacyjna.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>BazaRelacyjna.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Database\BazaRelacyjna.dbml.layout">
+      <DependentUpon>BazaRelacyjna.dbml</DependentUpon>
     </None>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -170,9 +160,6 @@
     <EmbeddedResource Include="View\CFormMain.resx">
       <DependentUpon>CFormMain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\CFormManage.resx">
-      <DependentUpon>CFormManage.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="View\MaterialPanel.resx">
       <DependentUpon>MaterialPanel.cs</DependentUpon>
     </EmbeddedResource>
@@ -180,17 +167,6 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="app.config" />
-    <None Include="Database\Tramwaje.dbml">
-      <Generator>MSLinqToSQLGenerator</Generator>
-      <LastGenOutput>Tramwaje.designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="db\cdn_tramwaje.dacpac" />
-    <None Include="Properties\DataSources\Cindalnet.SQLBot.Database.Linie.datasource" />
-    <None Include="Properties\DataSources\Cindalnet.SQLBot.Database.Przyjazd.datasource" />
-    <None Include="Properties\DataSources\Cindalnet.SQLBot.Database.Przystanek.datasource" />
-    <None Include="Properties\DataSources\Cindalnet.SQLBot.Database.TramwajeDataContext.datasource" />
-    <None Include="Properties\DataSources\Cindalnet.SQLBot.Database.WariantTrasy.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -201,7 +177,10 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="db\" />
+    <Folder Include="Properties\DataSources\" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\AIMLbot\AIMLbot.csproj">
       <Project>{9c87d82c-0e27-4995-a2cb-72bcb84ef2e2}</Project>
@@ -245,15 +224,11 @@
     <Content Include="config\Substitutions.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="jmorfeusz.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    <Content Include="jmorfeusz.dll" />
     <Content Include="libwinpthread-1.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="morfeusz2.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    <Content Include="morfeusz2.dll" />
     <Content Include="xml\0001.xml" />
     <Content Include="xml\0002.xml" />
     <Content Include="xml\0003.xml" />

@@ -33,5 +33,16 @@ namespace Cindalnet.SQLBot.Properties {
                 return ((string)(this["cdn_tramwajeConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=FILIPBE\\CINDALNET2;Initial Catalog=BazaRelacyjna;User ID=sa;Password=" +
+            "sql")]
+        public string BazaRelacyjnaConnectionString {
+            get {
+                return ((string)(this["BazaRelacyjnaConnectionString"]));
+            }
+        }
     }
 }

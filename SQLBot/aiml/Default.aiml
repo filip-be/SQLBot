@@ -9,252 +9,116 @@
 <!-- Annotated Version updated September 2003 -->
   
 <!--
-Jak dojadê *
-Jak dojechaæ na dworzec?
-Jak siê dostaæ do placu grunwaldzkiego?
 
-zgubi³em siê
-Czy ten tramwaj zatrzymuje siê w/na XXX?
-Czy ten tramwaj jedzie do/na XXX?
-Ile trwa podró¿ do XX?
-Jak d³ugo muszê jechaæ?
-Jak d³ugo jedzie?
-
-O której odje¿d¿a XXX?
-
-
-Przepraszam nie rozumiem
 -->
   
   <category>
     <pattern>*</pattern>
     <template>
       <random>
-        <li>Przepraszam, nie rozumiem, czy mo¿esz mi powiedzieæ sk¹d chcesz jechaæ?</li>
         <li>Co masz na myœli?</li>
         <li>Czy mo¿esz to wyjaœniæ innymi s³owami?</li>
-        <li>S³ucham?</li>
-        <li>Czy mo¿esz pisaæ pe³nymi zdaniami?</li>
+        <li>Przepraszam, nie rozumiem, czy wyœwietliæ jakieœ dane?</li>
+        <li>S³ucham? Mo¿e chcesz zobaczyæ jakieœ dane?</li>
       </random>
-    </template>
-  </category>
-
-  <category>
-    <pattern>jak dojadê do *</pattern>
-    <template>
-      Z jakiego przystanku chcesz wyruszyæ?
       <think>
-        <set name="end">
-          <star/>
-        </set>
-        <set name="topic">HOW</set>
+        <set name="topic">dane|tak|nie</set>"
       </think>
     </template>
   </category>
-  <category>
-    <pattern>czym dojadê na *</pattern>
-    <template>
-      <srai>
-        jak dojadê do <star/>
-      </srai>
-    </template>
-  </category>
-  <category>
-    <pattern>czym dojadê do *</pattern>
-    <template>
-      <srai>
-        jak dojadê do <star/>
-      </srai>
-    </template>
-  </category>
-  <category>
-    <pattern>jak dojadê na *</pattern>
-    <template>
-      <srai>
-        jak dojadê do <star/>
-      </srai>
-    </template>
-  </category>
-  <category>
-    <pattern>*czym dojadê na *</pattern>
-    <template>
-      <srai>
-        jak dojadê do <star/>
-      </srai>
-    </template>
-  </category>
-  <category>
-    <pattern>*czym dojadê do *</pattern>
-    <template>
-      <srai>
-        jak dojadê do <star/>
-      </srai>
-    </template>
-  </category>
-  <category>
-    <pattern>*jak dojadê na *</pattern>
-    <template>
-      <srai>
-        jak dojadê do <star/>
-      </srai>
-    </template>
-  </category>  
-  <category>
-    <pattern>jak dojechaæ na *</pattern>
-    <template>
-      <srai>
-        jak dojadê do <star/>
-      </srai>
-    </template>
-  </category>
-  <category>
-    <pattern>jak dojechaæ do *</pattern>
-    <template>
-      <srai>
-        jak dojadê do <star/>
-      </srai>
-    </template>
-  </category>
-  <category>
-    <pattern>*jak dojechaæ na *</pattern>
-    <template>
-      <srai>
-        jak dojadê do <star/>
-      </srai>
-    </template>
-  </category>
-  <category>
-    <pattern>*jak dojechaæ do *</pattern>
-    <template>
-      <srai>
-        jak dojadê do <star/>
-      </srai>
-    </template>
-  </category>
-  
-  <topic name="HOW">
+ 
+  <topic name="dane|tak|nie">
+    <!-- NIE -->
     <category>
-      <pattern>z *</pattern>
-      <that>
-        Z jakiego przystanku chcesz wyruszyæ
-      </that>
+      <pattern>nie</pattern>
       <template>
         <think>
-          <set name="start">
-            <star/>
-          </set>
+          <set name="topic"></set>
         </think>
-        DO_WORK|HOW|START_<get name="start"/>|END_<get name="end"/>
+        Bardzo mi przykro, jednak potrafiê wyœwietlaæ jedynie informacje znajduj¹ce siê w mojej bazie danych.
       </template>
     </category>
+
     <category>
-      <pattern>ze *</pattern>
-      <that>
-        Z jakiego przystanku chcesz wyruszyæ
-      </that>
+      <pattern>* nie</pattern>
       <template>
-        <srai>
-          z <star/>
-        </srai>
+        <srai>nie</srai>
       </template>
     </category>
+    
     <category>
-      <pattern>*</pattern>
-      <that>
-        Z jakiego przystanku chcesz wyruszyæ
-      </that>
+      <pattern>* nie *</pattern>
       <template>
-        <srai>
-          z <star/>
-        </srai>
+        <srai>nie</srai>
+      </template>
+    </category>
+
+    <category>
+      <pattern>nie *</pattern>
+      <template>
+        <srai>nie</srai>
+      </template>
+    </category>
+
+    <!-- TAK -->
+    <category>
+      <pattern>tak</pattern>
+      <template>
+        <think>
+          <set name="topic">DISPLAY</set>
+        </think>
+        Co chcesz wyœwietliæ?
       </template>
     </category>
   </topic>
-  
+
   <category>
-    <!--TYP|TYP_LINII|NAZWA_LINII-->
-    <pattern>* HOW *</pattern>
+    <pattern>Wyœwietl *</pattern>
     <template>
-      Do przystanku <get name="end"/> doje¿d¿a linia <set name="linia">
-        <star index="1"/>
-      </set> - <set name="typ_linii">
-        <star index="2"/>
-      </set>
+      <think>
+        <set name="topic">DISPLAY</set>
+      </think>
+      <srai>
+        Wyœwietl <star/>
+      </srai>
     </template>
+
   </category>
-  
+
   <category>
-    <pattern>Kiedy</pattern>
-    <that>
-      Do przystanku *
-    </that>
+    <pattern>Poka¿ *</pattern>
     <template>
-      DO_WORK|WHEN|START_<get name="start"/>|END_<get name="end"/>
+      <think>
+        <set name="topic">DISPLAY</set>
+      </think>
+      <srai>Wyœwietl <star/></srai>
     </template>
-  </category>
-  <category>
-    <pattern>O której</pattern>
-    <that>
-      Do przystanku *
-    </that>
-    <template>
-      <srai>kiedy</srai>
-    </template>
-  </category>
-  <category>
-    <pattern>O której *</pattern>
-    <that>
-      Do przystanku *
-    </that>
-    <template>
-      <srai>kiedy</srai>
-    </template>
-  </category>
-  <category>
-    <pattern>Kiedy *</pattern>
-    <that>
-      Do przystanku *
-    </that>
-    <template>
-      <srai>kiedy</srai>
-    </template>
-  </category>
   
-  
-  
+</category>
+
+  <topic name="DISPLAY">
+    <category>
+      <pattern>*</pattern>
+      <that>
+        Co chcesz wyœwietliæ
+      </that>
+      <template>
+        <srai>Wyœwietl <star/></srai>
+      </template>
+    </category>
+
+    <category>
+      <pattern>Wyœwietl *</pattern>
+      <template>
+        DISPLAY|<set name="to|display"><star/></set>
+      </template>
+    </category>
+  </topic>
+
   <category>
-    <!--TYP_LINII HOW NUMER_LINII-->
-    <pattern>* HOW *</pattern>
+    <pattern>ECHO *</pattern>
     <template>
-      Do przystanku <get name="end"/> doje¿d¿a linia <set name="linia">
-        <star index="1"/>
-      </set> - <set name="typ_linii">
-        <star index="2"/>
-      </set>
-    </template>
-  </category>
-  
-  <category>
-    <!--GODZINA WHEN NUMER_LINII-->
-    <pattern>* WHEN *</pattern>
-    <template>
-      Linia <set name="linia">
-        <star index="1"/>
-      </set> z przystanku <get name="start"/> odje¿d¿a o <star index="2"/>
-    </template>
-  </category>
-  
-  
-  <category>
-    <pattern>ERROR</pattern>
-    <template>
-      Niestety, nie rozumiem o co ci chodzi, czy mo¿emy zacz¹æ od pocz¹tku?
-    </template>
-  </category>
-  <category>
-    <pattern>NULL</pattern>
-    <template>
-      Bardzo mi przykro, ale nie uda³o mi siê znaleŸæ informacji na ten temat. Czy jesteœ pewien, ¿e chodzi Ci o te przystanki?
+      <star/>
     </template>
   </category>
 </aiml>

@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="BazaRelacyjna" Class="BazaRelacyjnaDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=FILIPBE\CINDALNET2;Initial Catalog=BazaRelacyjna;User ID=sa" SettingsObjectName="Cindalnet.SQLBot.Properties.Settings" SettingsPropertyName="BazaRelacyjnaConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Dzialy" Member="Dzialies">
+    <Type Name="Dzialy">
+      <Column Name="IdDzialu" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Nazwa" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Association Name="Dzialy_Osoby" Member="Osobies" ThisKey="IdDzialu" OtherKey="IdDzialu" Type="Osoby" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Faktury" Member="Fakturies">
+    <Type Name="Faktury">
+      <Column Name="IdFaktury" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IdOsoby" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IdKlienta" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Data" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Faktury_Transakcje" Member="Transakcjes" ThisKey="IdFaktury" OtherKey="IdFaktury" Type="Transakcje" />
+      <Association Name="Klienci_Faktury" Member="Klienci" ThisKey="IdKlienta" OtherKey="IdKlienta" Type="Klienci" IsForeignKey="true" />
+      <Association Name="Osoby_Faktury" Member="Osoby" ThisKey="IdOsoby" OtherKey="IdOsoby" Type="Osoby" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Kategorie" Member="Kategories">
+    <Type Name="Kategorie">
+      <Column Name="IdKategorii" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="NazwaKategorii" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="Kategorie_Towar" Member="Towars" ThisKey="IdKategorii" OtherKey="IdKategorii" Type="Towar" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Klienci" Member="Kliencis">
+    <Type Name="Klienci">
+      <Column Name="IdKlienta" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IdMiasta" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Nazwisko" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="Imie" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Association Name="Klienci_Faktury" Member="Fakturies" ThisKey="IdKlienta" OtherKey="IdKlienta" Type="Faktury" />
+      <Association Name="Miasta_Klienci" Member="Miasta" ThisKey="IdMiasta" OtherKey="IdMiasta" Type="Miasta" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Miasta" Member="Miastas">
+    <Type Name="Miasta">
+      <Column Name="IdMiasta" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="IdWojewodztwa" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Miasto" Type="System.String" DbType="NVarChar(33)" CanBeNull="true" />
+      <Association Name="Miasta_Klienci" Member="Kliencis" ThisKey="IdMiasta" OtherKey="IdMiasta" Type="Klienci" />
+      <Association Name="Miasta_Producenci" Member="Producencis" ThisKey="IdMiasta" OtherKey="IdMiasta" Type="Producenci" />
+      <Association Name="Wojewodztwa_Miasta" Member="Wojewodztwa" ThisKey="IdWojewodztwa" OtherKey="IdWojewodztwa" Type="Wojewodztwa" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Osoby" Member="Osobies">
+    <Type Name="Osoby">
+      <Column Name="IdOsoby" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IdDzialu" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Nazwisko" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="Imie" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="RokUrodz" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Wzrost" Type="System.Decimal" DbType="Decimal(3,2)" CanBeNull="true" />
+      <Column Name="DataZatr" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="IdSzefa" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Osoby_Faktury" Member="Fakturies" ThisKey="IdOsoby" OtherKey="IdOsoby" Type="Faktury" />
+      <Association Name="Osoby_Zarobki" Member="Zarobkis" ThisKey="IdOsoby" OtherKey="IdOsoby" Type="Zarobki" />
+      <Association Name="Dzialy_Osoby" Member="Dzialy" ThisKey="IdDzialu" OtherKey="IdDzialu" Type="Dzialy" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Producenci" Member="Producencis">
+    <Type Name="Producenci">
+      <Column Name="IdProducenta" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="NazwaProducenta" Type="System.String" DbType="VarChar(33)" CanBeNull="true" />
+      <Column Name="IdMiasta" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Producenci_Towar" Member="Towars" ThisKey="IdProducenta" OtherKey="IdProducenta" Type="Towar" />
+      <Association Name="Miasta_Producenci" Member="Miasta" ThisKey="IdMiasta" OtherKey="IdMiasta" Type="Miasta" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SQLBot_Field" Member="SQLBot_Fields">
+    <Type Name="SQLBot_Field">
+      <Column Name="sqlf_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="sqlf_Table" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="sqlf_Column" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="sqlf_Type" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="sqlf_Kind" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="sqlf_Description" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Association Name="SQLBot_FieldType_SQLBot_Field" Member="SQLBot_FieldType" ThisKey="sqlf_Type" OtherKey="sqlft_ID" Type="SQLBot_FieldType" IsForeignKey="true" />
+      <Association Name="SQLBot_Table_SQLBot_Field" Member="SQLBot_Table" ThisKey="sqlf_Table" OtherKey="sqlt_ID" Type="SQLBot_Table" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SQLBot_FieldType" Member="SQLBot_FieldTypes">
+    <Type Name="SQLBot_FieldType">
+      <Column Name="sqlft_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="sqlft_Name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="SQLBot_FieldType_SQLBot_Field" Member="SQLBot_Fields" ThisKey="sqlft_ID" OtherKey="sqlf_Type" Type="SQLBot_Field" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SQLBot_Table" Member="SQLBot_Tables">
+    <Type Name="SQLBot_Table">
+      <Column Name="sqlt_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="sqlt_Name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="sqlt_Description" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Association Name="SQLBot_Table_SQLBot_Field" Member="SQLBot_Fields" ThisKey="sqlt_ID" OtherKey="sqlf_Table" Type="SQLBot_Field" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Towar" Member="Towars">
+    <Type Name="Towar">
+      <Column Name="IdTowaru" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IdKategorii" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IdProducenta" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NazwaTowaru" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Cena" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CenaZakupu" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Association Name="Towar_Transakcje" Member="Transakcjes" ThisKey="IdTowaru" OtherKey="IdTowaru" Type="Transakcje" />
+      <Association Name="Kategorie_Towar" Member="Kategorie" ThisKey="IdKategorii" OtherKey="IdKategorii" Type="Kategorie" IsForeignKey="true" />
+      <Association Name="Producenci_Towar" Member="Producenci" ThisKey="IdProducenta" OtherKey="IdProducenta" Type="Producenci" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Transakcje" Member="Transakcjes">
+    <Type Name="Transakcje">
+      <Column Name="IdTransakcji" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IdFaktury" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IdTowaru" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="szt" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Faktury_Transakcje" Member="Faktury" ThisKey="IdFaktury" OtherKey="IdFaktury" Type="Faktury" IsForeignKey="true" />
+      <Association Name="Towar_Transakcje" Member="Towar" ThisKey="IdTowaru" OtherKey="IdTowaru" Type="Towar" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Wojewodztwa" Member="Wojewodztwas">
+    <Type Name="Wojewodztwa">
+      <Column Name="IdWojewodztwa" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Wojewodztwo" Type="System.String" DbType="NVarChar(55)" CanBeNull="true" />
+      <Association Name="Wojewodztwa_Miasta" Member="Miastas" ThisKey="IdWojewodztwa" OtherKey="IdWojewodztwa" Type="Miasta" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Zarobki" Member="Zarobkis">
+    <Type Name="Zarobki">
+      <Column Name="IdZarobku" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IdOsoby" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Brutto" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="DataWyplaty" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Osoby_Zarobki" Member="Osoby" ThisKey="IdOsoby" OtherKey="IdOsoby" Type="Osoby" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>

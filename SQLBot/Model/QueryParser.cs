@@ -61,74 +61,13 @@ namespace Cindalnet.SQLBot.Model
             {
                 try
                 {
-                    TramwajeDataContext dc = new TramwajeDataContext();
-                    string start = null;
-                    string end = null;
-
-                    for (int argNum = 2; argNum < args.Length; argNum++)
-                    {   // NazwaParametru_Wartość
-                        var par_val = args[argNum].Split('_');
-                        if (par_val.Length == 2)
-                        {
-                            switch (par_val[0])
-                            {
-                                case "START":
-                                    start = MorfParse(TrimWord(par_val[1]));
-                                    break;
-                                case "END":
-                                    end = MorfParse(TrimWord(par_val[1]));
-                                    break;
-                                default:
-                                    break;
-                            }
-                        }
-                    }
-
-                    switch (args[1])
+                    /*
+                     * ARGS[0] = DISPLAY
+                     * ARGS[1] = informacja o tym co chcemy wyświelić -
+                     */
+                    for (int argsNum = 1; argsNum < args.Length; argsNum++)
                     {
-                        case "HOW":
-                            var queryResHow = dc.WariantTrasies
-                                .Join(dc.Przystaneks, w => w.Id, p => p.WariantId, (w, p) => new { WariantTrasy = w, Przystanek = p })
-                                .Where(w => (start == null || w.WariantTrasy.Przystaneks.Any(p => p.Nazwa == start))
-                                    && (end == null || w.WariantTrasy.Przystaneks.Any(p => p.Nazwa == end)))
-                                .FirstOrDefault();
-                            if (queryResHow == null)
-                            {
-                                res = "_NULL_";
-                            }else
-                            {
-                                res = queryResHow.WariantTrasy.Linie.Typ.Trim() + " HOW " + queryResHow.WariantTrasy.Linie.Nazwa.Trim();
-                            }
-                            break;
-                        case "WHEN":
-
-                            var queryWhen = from p in dc.Przystaneks
-                                               join wt in dc.WariantTrasies on p.WariantId equals wt.Id
-                                               join prz in dc.Przyjazds on p.Id equals prz.PrzystanekId
-                                               where prz.Godzina >= DateTime.Now.Hour 
-                                                    && prz.Minuta >= DateTime.Now.Minute
-                                               orderby prz.Godzina ascending, prz.Minuta ascending
-                                               select new
-                                               {
-                                                   Numer = wt.Linie.Nazwa,
-                                                   Godzina = prz.Godzina,
-                                                   Minuta = prz.Minuta,
-                                                   WariantTrasy = wt
-                                               };
-                            var queryResWhen = queryWhen.Where(w => (start == null || w.WariantTrasy.Przystaneks.Any(p => p.Nazwa == start))
-                                    && (end == null || w.WariantTrasy.Przystaneks.Any(p => p.Nazwa == end)))
-                                    .FirstOrDefault();
-
-                            if (queryResWhen == null)
-                            {
-                                res = "NULL";
-                            }else
-                            {
-                                res = queryResWhen.Godzina + ":" + queryResWhen.Minuta + " WHEN " + queryResWhen.Numer.Trim();
-                            }
-                            break;
-                        default:
-                            break;
+                        string x = MorfParse(args[argsNum]);
                     }
                 }
                 catch (Exception)
@@ -152,7 +91,7 @@ namespace Cindalnet.SQLBot.Model
                 Result chatRes = ChatBot.Chat(chatRequest);
                 res = chatRes.Output;
 
-                if (res.StartsWith("DO_WORK|"))
+                if (res.StartsWith("DISPLAY|"))
                 {   // 1. Odpytanie bazy danych na podstawie znanych informacji
                     // 2. Ponowne zapytanie systemu konwersacyjnego - rekurencja
                     res = ParseQuery(queryDatabase(res));

@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="windows-1250"?>
+<aiml>
+<!-- Free software &copy; 2001-2003 ALICE A.I. Foundation. -->
+<!-- This program is open source code released under -->
+<!-- the terms of the GNU General Public License     -->
+<!-- as published by the Free Software Foundation.   -->
+<!-- Complies with AIML 1.01 Tag Set Specification -->
+<!-- as adopted by the ALICE A.I. Foundation.  -->
+<!-- Annotated Version updated September 2003 -->
+  
+<!--
+Jak dojadę *
+Jak dojechać na dworzec?
+Jak się dostać do placu grunwaldzkiego?
+
+zgubiłem się
+Czy ten tramwaj zatrzymuje się w/na XXX?
+Czy ten tramwaj jedzie do/na XXX?
+Ile trwa podróż do XX?
+Jak długo muszę jechać?
+Jak długo jedzie?
+
+O której odjeżdża XXX?
+
+
+Przepraszam nie rozumiem
+-->
+  
+  <category>
+    <pattern>*</pattern>
+    <template>
+      <random>
+        <li>Przepraszam, nie rozumiem, czy chcesz zapytać się o drogę?</li>
+        <li>Co masz na myśli?</li>
+        <li>Czy możesz to wyjaśnić innymi słowami?</li>
+        <li>Słucham?</li>
+        <li>Czy możesz pisać pełnymi zdaniami?</li>
+      </random>
+    </template>
+  </category>
+
+  <category>
+    <pattern>jak dojadę do *</pattern>
+    <template>
+      Z jakiego przystanku chcesz wyruszyć?
+      <think>
+        <set name="end">
+          <star/>
+        </set>
+        <set name="topic">HOW</set>
+      </think>
+    </template>
+  </category>
+  <category>
+    <pattern>czym dojadę na *</pattern>
+    <template>
+      <srai>
+        jak dojadę do <star/>
+      </srai>
+    </template>
+  </category>
+  <category>
+    <pattern>czym dojadę do *</pattern>
+    <template>
+      <srai>
+        jak dojadę do <star/>
+      </srai>
+    </template>
+  </category>
+  <category>
+    <pattern>jak dojadę na *</pattern>
+    <template>
+      <srai>
+        jak dojadę do <star/>
+      </srai>
+    </template>
+  </category>
+  <category>
+    <pattern>*czym dojadę na *</pattern>
+    <template>
+      <srai>
+        jak dojadę do <star/>
+      </srai>
+    </template>
+  </category>
+  <category>
+    <pattern>*czym dojadę do *</pattern>
+    <template>
+      <srai>
+        jak dojadę do <star/>
+      </srai>
+    </template>
+  </category>
+  <category>
+    <pattern>*jak dojadę na *</pattern>
+    <template>
+      <srai>
+        jak dojadę do <star/>
+      </srai>
+    </template>
+  </category>  
+  <category>
+    <pattern>jak dojechać na *</pattern>
+    <template>
+      <srai>
+        jak dojadę do <star/>
+      </srai>
+    </template>
+  </category>
+  <category>
+    <pattern>jak dojechać do *</pattern>
+    <template>
+      <srai>
+        jak dojadę do <star/>
+      </srai>
+    </template>
+  </category>
+  <category>
+    <pattern>*jak dojechać na *</pattern>
+    <template>
+      <srai>
+        jak dojadę do <star/>
+      </srai>
+    </template>
+  </category>
+  <category>
+    <pattern>*jak dojechać do *</pattern>
+    <template>
+      <srai>
+        jak dojadę do <star/>
+      </srai>
+    </template>
+  </category>
+  
+  <topic name="HOW">
+    <category>
+      <pattern>z *</pattern>
+      <that>
+        Z jakiego przystanku chcesz wyruszyć
+      </that>
+      <template>
+        <think>
+          <set name="start">
+            <star/>
+          </set>
+        </think>
+        DO_WORK|HOW|START_<get name="start"/>|END_<get name="end"/>
+      </template>
+    </category>
+    <category>
+      <pattern>ze *</pattern>
+      <that>
+        Z jakiego przystanku chcesz wyruszyć
+      </that>
+      <template>
+        <srai>
+          z <star/>
+        </srai>
+      </template>
+    </category>
+    <category>
+      <pattern>*</pattern>
+      <that>
+        Z jakiego przystanku chcesz wyruszyć
+      </that>
+      <template>
+        <srai>
+          z <star/>
+        </srai>
+      </template>
+    </category>
+  </topic>
+  
+  <category>
+    <!--TYP|TYP_LINII|NAZWA_LINII-->
+    <pattern>* HOW *</pattern>
+    <template>
+      Do przystanku <get name="end"/> dojeżdża linia <set name="linia">
+        <star index="1"/>
+      </set> - <set name="typ_linii">
+        <star index="2"/>
+      </set>
+    </template>
+  </category>
+  
+  <category>
+    <pattern>Kiedy</pattern>
+    <that>
+      Do przystanku *
+    </that>
+    <template>
+      DO_WORK|WHEN|START_<get name="start"/>|END_<get name="end"/>
+    </template>
+  </category>
+  <category>
+    <pattern>O której</pattern>
+    <that>
+      Do przystanku *
+    </that>
+    <template>
+      <srai>kiedy</srai>
+    </template>
+  </category>
+  <category>
+    <pattern>O której *</pattern>
+    <that>
+      Do przystanku *
+    </that>
+    <template>
+      <srai>kiedy</srai>
+    </template>
+  </category>
+  <category>
+    <pattern>Kiedy *</pattern>
+    <that>
+      Do przystanku *
+    </that>
+    <template>
+      <srai>kiedy</srai>
+    </template>
+  </category>
+  
+  
+  
+  <category>
+    <!--TYP_LINII HOW NUMER_LINII-->
+    <pattern>* HOW *</pattern>
+    <template>
+      Do przystanku <get name="end"/> dojeżdża linia <set name="linia">
+        <star index="1"/>
+      </set> - <set name="typ_linii">
+        <star index="2"/>
+      </set>
+    </template>
+  </category>
+  
+  <category>
+    <!--GODZINA WHEN NUMER_LINII-->
+    <pattern>* WHEN *</pattern>
+    <template>
+      Linia <set name="linia">
+        <star index="1"/>
+      </set> z przystanku <get name="start"/> odjeżdża o <star index="2"/>
+    </template>
+  </category>
+  
+  
+  <category>
+    <pattern>ERROR</pattern>
+    <template>
+      Niestety, nie rozumiem o co ci chodzi, czy możemy zacząć od początku?
+    </template>
+  </category>
+  <category>
+    <pattern>NULL</pattern>
+    <template>
+      Bardzo mi przykro, ale nie udało mi się znaleźć informacji na ten temat. Czy jesteś pewien, że chodzi Ci o te przystanki?
+    </template>
+  </category>
+</aiml>

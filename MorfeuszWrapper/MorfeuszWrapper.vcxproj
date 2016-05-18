@@ -99,8 +99,6 @@
     <Image Include="app.ico" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="jmorfeusz.dll" />
-    <None Include="libmorfeusz2.dll.a" />
     <None Include="libwinpthread-1.dll" />
     <None Include="morfeusz2.dll" />
   </ItemGroup>

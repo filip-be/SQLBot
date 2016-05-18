@@ -1,0 +1,4683 @@
+<?xml version="1.0" encoding="iso-8859-2" ?>
+<linie>
+ <linia nazwa="100" typ="Normalna autobusowa" wazny_od="30.08.2015" wazny_do="">
+  <wariant id="1" nazwa="TARNOGAJ - MOKRY DWÓR">
+   <przystanek id="21152" nazwa="TARNOGAJ" ulica="Tarnogajska" cechy="">
+    <tabliczka id="1" mc="0">
+     <dzien nazwa="w dni robocze">
+      <godz h="4">
+       <min m="55" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="5">
+       <min m="38" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="6">
+       <min m="11" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="49" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="7">
+       <min m="27" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="8">
+       <min m="10" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="53" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="9">
+       <min m="38" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="10">
+       <min m="38" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="11">
+       <min m="38" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="12">
+       <min m="38" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="13">
+       <min m="47" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="14">
+       <min m="20" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="53" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="15">
+       <min m="30" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="16">
+       <min m="05" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="45" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="17">
+       <min m="26" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="18">
+       <min m="19" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="59" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="19">
+       <min m="44" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="20">
+       <min m="44" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="21">
+       <min m="44" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="22">
+       <min m="14" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+     </dzien>
+     <dzien nazwa="Sobota">
+      <godz h="6">
+       <min m="24" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="7">
+       <min m="20" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="8">
+       <min m="05" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="57" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="9">
+       <min m="56" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="10">
+       <min m="56" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="11">
+       <min m="56" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="12">
+       <min m="56" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="13">
+       <min m="56" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="14">
+       <min m="56" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="15">
+       <min m="56" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="16">
+       <min m="56" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="17">
+       <min m="56" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="18">
+       <min m="56" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="19">
+       <min m="39" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="20">
+       <min m="44" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="21">
+       <min m="44" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="22">
+       <min m="14" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+     </dzien>
+     <dzien nazwa="Niedziela">
+      <godz h="6">
+       <min m="24" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="7">
+       <min m="20" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="8">
+       <min m="05" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="57" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="9">
+       <min m="56" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="10">
+       <min m="56" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="11">
+       <min m="56" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="12">
+       <min m="56" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="13">
+       <min m="56" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="14">
+       <min m="56" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="15">
+       <min m="56" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="16">
+       <min m="56" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="17">
+       <min m="56" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="18">
+       <min m="56" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="19">
+       <min m="39" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="20">
+       <min m="44" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="21">
+       <min m="44" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="22">
+       <min m="14" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+     </dzien>
+    </tabliczka>
+   </przystanek>
+   <przystanek id="21150" nazwa="Klimasa" ulica="Tarnogajska" cechy="">
+    <tabliczka id="2" mc="1">
+     <dzien nazwa="w dni robocze">
+      <godz h="4">
+       <min m="56" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="5">
+       <min m="39" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="6">
+       <min m="12" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="50" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="7">
+       <min m="28" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="8">
+       <min m="11" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="54" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="9">
+       <min m="39" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="10">
+       <min m="39" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="11">
+       <min m="39" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="12">
+       <min m="39" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="13">
+       <min m="48" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="14">
+       <min m="21" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="54" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="15">
+       <min m="31" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="16">
+       <min m="06" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="46" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="17">
+       <min m="27" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="18">
+       <min m="20" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="19">
+       <min m="00" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="45" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="20">
+       <min m="45" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="21">
+       <min m="45" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="22">
+       <min m="15" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+     </dzien>
+     <dzien nazwa="Sobota">
+      <godz h="6">
+       <min m="25" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="7">
+       <min m="21" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="8">
+       <min m="06" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="58" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="9">
+       <min m="57" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="10">
+       <min m="57" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="11">
+       <min m="57" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="12">
+       <min m="57" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="13">
+       <min m="57" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="14">
+       <min m="57" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="15">
+       <min m="57" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="16">
+       <min m="57" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="17">
+       <min m="57" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="18">
+       <min m="57" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="19">
+       <min m="40" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="20">
+       <min m="45" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="21">
+       <min m="45" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="22">
+       <min m="15" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+     </dzien>
+     <dzien nazwa="Niedziela">
+      <godz h="6">
+       <min m="25" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="7">
+       <min m="21" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="8">
+       <min m="06" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="58" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="9">
+       <min m="57" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="10">
+       <min m="57" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="11">
+       <min m="57" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="12">
+       <min m="57" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="13">
+       <min m="57" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="14">
+       <min m="57" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="15">
+       <min m="57" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="16">
+       <min m="57" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="17">
+       <min m="57" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="18">
+       <min m="57" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="19">
+       <min m="40" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="20">
+       <min m="45" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="21">
+       <min m="45" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="22">
+       <min m="15" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+     </dzien>
+    </tabliczka>
+   </przystanek>
+   <przystanek id="21161" nazwa="Mostostal" ulica="Armii Krajowej" cechy="">
+    <tabliczka id="3" mc="2" cechy="nz">
+     <dzien nazwa="w dni robocze">
+      <godz h="4">
+       <min m="57" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="5">
+       <min m="40" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="6">
+       <min m="14" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="52" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="7">
+       <min m="30" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="8">
+       <min m="13" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="56" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="9">
+       <min m="41" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="10">
+       <min m="41" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="11">
+       <min m="41" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="12">
+       <min m="41" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="13">
+       <min m="50" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="14">
+       <min m="23" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="56" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="15">
+       <min m="33" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="16">
+       <min m="08" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="48" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="17">
+       <min m="29" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="18">
+       <min m="22" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="19">
+       <min m="02" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="47" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="20">
+       <min m="46" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="21">
+       <min m="46" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="22">
+       <min m="16" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+     </dzien>
+     <dzien nazwa="Sobota">
+      <godz h="6">
+       <min m="26" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="7">
+       <min m="22" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="8">
+       <min m="07" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="59" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="9">
+       <min m="58" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="10">
+       <min m="58" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="11">
+       <min m="58" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="12">
+       <min m="58" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="13">
+       <min m="58" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="14">
+       <min m="58" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="15">
+       <min m="58" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="16">
+       <min m="58" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="17">
+       <min m="58" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="18">
+       <min m="58" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="19">
+       <min m="41" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="20">
+       <min m="46" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="21">
+       <min m="46" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="22">
+       <min m="16" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+     </dzien>
+     <dzien nazwa="Niedziela">
+      <godz h="6">
+       <min m="26" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="7">
+       <min m="22" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="8">
+       <min m="07" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="59" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="9">
+       <min m="58" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="10">
+       <min m="58" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="11">
+       <min m="58" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="12">
+       <min m="58" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="13">
+       <min m="58" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="14">
+       <min m="58" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="15">
+       <min m="58" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="16">
+       <min m="58" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="17">
+       <min m="58" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="18">
+       <min m="58" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="19">
+       <min m="41" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="20">
+       <min m="46" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="21">
+       <min m="46" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="22">
+       <min m="16" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+     </dzien>
+    </tabliczka>
+   </przystanek>
+   <przystanek id="125007" nazwa="Park Wschodni" ulica="Krakowska" cechy="">
+    <tabliczka id="4" mc="2" cechy="nz">
+     <dzien nazwa="w dni robocze">
+      <godz h="4">
+       <min m="58" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="5">
+       <min m="41" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="6">
+       <min m="16" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="54" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="7">
+       <min m="32" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="8">
+       <min m="15" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="58" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="9">
+       <min m="43" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="10">
+       <min m="43" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="11">
+       <min m="43" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="12">
+       <min m="43" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="13">
+       <min m="52" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="14">
+       <min m="25" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="58" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="15">
+       <min m="36" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="16">
+       <min m="11" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="51" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="17">
+       <min m="31" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="18">
+       <min m="24" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="19">
+       <min m="04" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="49" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="20">
+       <min m="47" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="21">
+       <min m="47" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="22">
+       <min m="17" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+     </dzien>
+     <dzien nazwa="Sobota">
+      <godz h="6">
+       <min m="27" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="7">
+       <min m="23" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="8">
+       <min m="08" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="9">
+       <min m="00" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="10">
+       <min m="00" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="11">
+       <min m="00" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="12">
+       <min m="00" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="13">
+       <min m="00" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="14">
+       <min m="00" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="15">
+       <min m="00" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="16">
+       <min m="00" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="17">
+       <min m="00" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="18">
+       <min m="00" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="19">
+       <min m="00" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="43" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="20">
+       <min m="47" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="21">
+       <min m="47" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="22">
+       <min m="17" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+     </dzien>
+     <dzien nazwa="Niedziela">
+      <godz h="6">
+       <min m="27" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="7">
+       <min m="23" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="8">
+       <min m="08" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="9">
+       <min m="00" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="10">
+       <min m="00" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="11">
+       <min m="00" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="12">
+       <min m="00" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="13">
+       <min m="00" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="14">
+       <min m="00" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="15">
+       <min m="00" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="16">
+       <min m="00" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="17">
+       <min m="00" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="18">
+       <min m="00" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="19">
+       <min m="00" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="43" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="20">
+       <min m="47" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="21">
+       <min m="47" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="22">
+       <min m="17" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+     </dzien>
+    </tabliczka>
+   </przystanek>
+   <przystanek id="25109" nazwa="Karwińska" ulica="Opolska" cechy="">
+    <tabliczka id="5" mc="2" cechy="nz">
+     <dzien nazwa="w dni robocze">
+      <godz h="4">
+       <min m="59" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="5">
+       <min m="42" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="6">
+       <min m="18" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="56" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="7">
+       <min m="34" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="8">
+       <min m="17" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="9">
+       <min m="00" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="45" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="10">
+       <min m="45" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="11">
+       <min m="45" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="12">
+       <min m="45" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="13">
+       <min m="54" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="14">
+       <min m="27" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="15">
+       <min m="00" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="38" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="16">
+       <min m="13" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="53" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="17">
+       <min m="33" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="18">
+       <min m="26" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="19">
+       <min m="06" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="51" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="20">
+       <min m="48" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="21">
+       <min m="48" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="22">
+       <min m="18" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+     </dzien>
+     <dzien nazwa="Sobota">
+      <godz h="6">
+       <min m="28" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="7">
+       <min m="24" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="8">
+       <min m="09" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="9">
+       <min m="02" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="10">
+       <min m="02" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="11">
+       <min m="02" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="12">
+       <min m="02" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="13">
+       <min m="02" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="14">
+       <min m="02" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="15">
+       <min m="02" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="16">
+       <min m="02" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="17">
+       <min m="02" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="18">
+       <min m="02" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="19">
+       <min m="02" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="45" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="20">
+       <min m="48" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="21">
+       <min m="48" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="22">
+       <min m="18" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+     </dzien>
+     <dzien nazwa="Niedziela">
+      <godz h="6">
+       <min m="28" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="7">
+       <min m="24" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="8">
+       <min m="09" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="9">
+       <min m="02" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="10">
+       <min m="02" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="11">
+       <min m="02" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="12">
+       <min m="02" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="13">
+       <min m="02" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="14">
+       <min m="02" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="15">
+       <min m="02" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="16">
+       <min m="02" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="17">
+       <min m="02" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="18">
+       <min m="02" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="19">
+       <min m="02" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="45" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="20">
+       <min m="48" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="21">
+       <min m="48" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="22">
+       <min m="18" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+     </dzien>
+    </tabliczka>
+   </przystanek>
+   <przystanek id="25113" nazwa="KSIĘŻE MAŁE" ulica="Opolska" cechy="">
+    <tabliczka id="6" mc="1">
+     <dzien nazwa="w dni robocze">
+      <godz h="5">
+       <min m="00" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="43" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="6">
+       <min m="19" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="57" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="7">
+       <min m="35" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="8">
+       <min m="19" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="9">
+       <min m="02" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="47" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="10">
+       <min m="47" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="11">
+       <min m="47" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="12">
+       <min m="47" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="13">
+       <min m="56" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="14">
+       <min m="29" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="15">
+       <min m="02" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="40" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="16">
+       <min m="15" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="55" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="17">
+       <min m="34" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="18">
+       <min m="27" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="19">
+       <min m="07" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="52" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="20">
+       <min m="49" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="21">
+       <min m="49" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="22">
+       <min m="19" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+     </dzien>
+     <dzien nazwa="Sobota">
+      <godz h="6">
+       <min m="29" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="7">
+       <min m="25" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="8">
+       <min m="10" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="9">
+       <min m="03" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="10">
+       <min m="03" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="11">
+       <min m="03" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="12">
+       <min m="03" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="13">
+       <min m="03" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="14">
+       <min m="03" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="15">
+       <min m="03" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="16">
+       <min m="03" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="17">
+       <min m="03" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="18">
+       <min m="03" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="19">
+       <min m="03" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="46" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="20">
+       <min m="49" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="21">
+       <min m="49" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="22">
+       <min m="19" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+     </dzien>
+     <dzien nazwa="Niedziela">
+      <godz h="6">
+       <min m="29" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="7">
+       <min m="25" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="8">
+       <min m="10" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="9">
+       <min m="03" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="10">
+       <min m="03" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="11">
+       <min m="03" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="12">
+       <min m="03" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="13">
+       <min m="03" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="14">
+       <min m="03" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="15">
+       <min m="03" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="16">
+       <min m="03" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="17">
+       <min m="03" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="18">
+       <min m="03" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="19">
+       <min m="03" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="46" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="20">
+       <min m="49" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="21">
+       <min m="49" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="22">
+       <min m="19" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+     </dzien>
+    </tabliczka>
+   </przystanek>
+   <przystanek id="25141" nazwa="Księska" ulica="Księska" cechy="">
+    <tabliczka id="7" mc="1">
+     <dzien nazwa="w dni robocze">
+      <godz h="5">
+       <min m="01" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="44" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="6">
+       <min m="20" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="58" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="7">
+       <min m="36" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="8">
+       <min m="20" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="9">
+       <min m="03" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="48" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="10">
+       <min m="48" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="11">
+       <min m="48" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="12">
+       <min m="48" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="13">
+       <min m="57" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="14">
+       <min m="30" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="15">
+       <min m="03" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="41" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="16">
+       <min m="16" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="56" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="17">
+       <min m="35" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="18">
+       <min m="28" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="19">
+       <min m="08" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="53" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="20">
+       <min m="50" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="21">
+       <min m="50" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="22">
+       <min m="20" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+     </dzien>
+     <dzien nazwa="Sobota">
+      <godz h="6">
+       <min m="30" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="7">
+       <min m="26" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="8">
+       <min m="11" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="9">
+       <min m="04" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="10">
+       <min m="04" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="11">
+       <min m="04" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="12">
+       <min m="04" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="13">
+       <min m="04" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="14">
+       <min m="04" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="15">
+       <min m="04" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="16">
+       <min m="04" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="17">
+       <min m="04" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="18">
+       <min m="04" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="19">
+       <min m="04" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="47" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="20">
+       <min m="50" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="21">
+       <min m="50" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="22">
+       <min m="20" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+     </dzien>
+     <dzien nazwa="Niedziela">
+      <godz h="6">
+       <min m="30" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="7">
+       <min m="26" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="8">
+       <min m="11" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="9">
+       <min m="04" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="10">
+       <min m="04" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="11">
+       <min m="04" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="12">
+       <min m="04" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="13">
+       <min m="04" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="14">
+       <min m="04" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="15">
+       <min m="04" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="16">
+       <min m="04" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="17">
+       <min m="04" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="18">
+       <min m="04" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="19">
+       <min m="04" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="47" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="20">
+       <min m="50" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="21">
+       <min m="50" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="22">
+       <min m="20" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+     </dzien>
+    </tabliczka>
+   </przystanek>
+   <przystanek id="25145" nazwa="Blizanowicka" ulica="Księska" cechy="">
+    <tabliczka id="8" mc="1" cechy="nz">
+     <dzien nazwa="w dni robocze">
+      <godz h="5">
+       <min m="02" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="45" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="6">
+       <min m="21" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="59" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="7">
+       <min m="37" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="8">
+       <min m="21" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="9">
+       <min m="04" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="49" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="10">
+       <min m="49" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="11">
+       <min m="49" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="12">
+       <min m="49" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="13">
+       <min m="58" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="14">
+       <min m="31" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="15">
+       <min m="04" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="42" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="16">
+       <min m="17" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="57" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="17">
+       <min m="36" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="18">
+       <min m="29" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="19">
+       <min m="09" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="54" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="20">
+       <min m="51" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="21">
+       <min m="51" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="22">
+       <min m="21" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+     </dzien>
+     <dzien nazwa="Sobota">
+      <godz h="6">
+       <min m="31" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="7">
+       <min m="27" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="8">
+       <min m="12" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="9">
+       <min m="05" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="10">
+       <min m="05" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="11">
+       <min m="05" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="12">
+       <min m="05" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="13">
+       <min m="05" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="14">
+       <min m="05" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="15">
+       <min m="05" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="16">
+       <min m="05" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="17">
+       <min m="05" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="18">
+       <min m="05" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="19">
+       <min m="05" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="48" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="20">
+       <min m="51" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="21">
+       <min m="51" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="22">
+       <min m="21" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+     </dzien>
+     <dzien nazwa="Niedziela">
+      <godz h="6">
+       <min m="31" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="7">
+       <min m="27" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="8">
+       <min m="12" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="9">
+       <min m="05" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="10">
+       <min m="05" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="11">
+       <min m="05" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="12">
+       <min m="05" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="13">
+       <min m="05" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="14">
+       <min m="05" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="15">
+       <min m="05" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="16">
+       <min m="05" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="17">
+       <min m="05" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="18">
+       <min m="05" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="19">
+       <min m="05" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="48" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="20">
+       <min m="51" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="21">
+       <min m="51" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="22">
+       <min m="21" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+     </dzien>
+    </tabliczka>
+   </przystanek>
+   <przystanek id="524943" nazwa="Starodworska" ulica="Starodworska" cechy="1">
+    <tabliczka id="9" mc="3" cechy="nz">
+     <dzien nazwa="w dni robocze">
+      <godz h="5">
+       <min m="05" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="48" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="6">
+       <min m="24" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="7">
+       <min m="02" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="40" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="8">
+       <min m="24" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="9">
+       <min m="07" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="52" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="10">
+       <min m="52" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="11">
+       <min m="52" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="12">
+       <min m="52" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="14">
+       <min m="01" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="34" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="15">
+       <min m="07" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="45" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="16">
+       <min m="20" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="17">
+       <min m="00" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="39" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="18">
+       <min m="32" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="19">
+       <min m="12" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="57" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="20">
+       <min m="54" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="21">
+       <min m="54" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="22">
+       <min m="24" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+     </dzien>
+     <dzien nazwa="Sobota">
+      <godz h="6">
+       <min m="34" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="7">
+       <min m="30" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="8">
+       <min m="15" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="9">
+       <min m="08" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="10">
+       <min m="08" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="11">
+       <min m="08" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="12">
+       <min m="08" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="13">
+       <min m="08" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="14">
+       <min m="08" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="15">
+       <min m="08" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="16">
+       <min m="08" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="17">
+       <min m="08" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="18">
+       <min m="08" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="19">
+       <min m="08" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="51" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="20">
+       <min m="54" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="21">
+       <min m="54" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="22">
+       <min m="24" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+     </dzien>
+     <dzien nazwa="Niedziela">
+      <godz h="6">
+       <min m="34" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="7">
+       <min m="30" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="8">
+       <min m="15" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="9">
+       <min m="08" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="10">
+       <min m="08" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="11">
+       <min m="08" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="12">
+       <min m="08" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="13">
+       <min m="08" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="14">
+       <min m="08" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="15">
+       <min m="08" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="16">
+       <min m="08" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="17">
+       <min m="08" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="18">
+       <min m="08" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="19">
+       <min m="08" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="51" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="20">
+       <min m="54" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="21">
+       <min m="54" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="22">
+       <min m="24" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+     </dzien>
+    </tabliczka>
+   </przystanek>
+   <przystanek id="524945" nazwa="STARODWORSKA (ZUW)" ulica="Starodworska" cechy="">
+    <tabliczka id="10" mc="1" cechy="nz">
+     <dzien nazwa="w dni robocze">
+      <godz h="5">
+       <min m="06" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="49" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="6">
+       <min m="25" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="7">
+       <min m="03" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="41" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="8">
+       <min m="25" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="9">
+       <min m="08" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="53" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="10">
+       <min m="53" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="11">
+       <min m="53" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="12">
+       <min m="53" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="14">
+       <min m="02" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="35" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="15">
+       <min m="08" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="46" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="16">
+       <min m="21" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="17">
+       <min m="01" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="40" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="18">
+       <min m="33" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="19">
+       <min m="13" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="58" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="20">
+       <min m="55" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="21">
+       <min m="55" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="22">
+       <min m="25" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+     </dzien>
+     <dzien nazwa="Sobota">
+      <godz h="6">
+       <min m="35" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="7">
+       <min m="31" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="8">
+       <min m="16" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="9">
+       <min m="09" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="10">
+       <min m="09" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="11">
+       <min m="09" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="12">
+       <min m="09" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="13">
+       <min m="09" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="14">
+       <min m="09" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="15">
+       <min m="09" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="16">
+       <min m="09" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="17">
+       <min m="09" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="18">
+       <min m="09" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="19">
+       <min m="09" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="52" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="20">
+       <min m="55" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="21">
+       <min m="55" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="22">
+       <min m="25" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+     </dzien>
+     <dzien nazwa="Niedziela">
+      <godz h="6">
+       <min m="35" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="7">
+       <min m="31" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="8">
+       <min m="16" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="9">
+       <min m="09" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="10">
+       <min m="09" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="11">
+       <min m="09" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="12">
+       <min m="09" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="13">
+       <min m="09" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="14">
+       <min m="09" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="15">
+       <min m="09" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="16">
+       <min m="09" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="17">
+       <min m="09" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="18">
+       <min m="09" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="19">
+       <min m="09" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="52" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="20">
+       <min m="55" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="21">
+       <min m="55" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="22">
+       <min m="25" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+     </dzien>
+    </tabliczka>
+   </przystanek>
+   <przystanek id="524947" nazwa="MOKRY DWÓR" ulica="Batorego" cechy="">
+   </przystanek>
+  </wariant>
+  <wariant id="2" nazwa="MOKRY DWÓR - TARNOGAJ">
+   <przystanek id="524947" nazwa="MOKRY DWÓR" ulica="Batorego" cechy="">
+    <tabliczka id="11" mc="0">
+     <dzien nazwa="w dni robocze">
+      <godz h="5">
+       <min m="15" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="53" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="6">
+       <min m="28" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="7">
+       <min m="06" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="44" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="8">
+       <min m="27" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="9">
+       <min m="12" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="10">
+       <min m="02" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="11">
+       <min m="02" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="12">
+       <min m="02" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="13">
+       <min m="02" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="14">
+       <min m="04" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="38" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="15">
+       <min m="11" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="48" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="16">
+       <min m="23" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="17">
+       <min m="03" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="43" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="18">
+       <min m="35" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="19">
+       <min m="15" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="20">
+       <min m="00" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="21">
+       <min m="00" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="22">
+       <min m="00" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="31" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+     </dzien>
+     <dzien nazwa="Sobota">
+      <godz h="6">
+       <min m="52" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="7">
+       <min m="42" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="8">
+       <min m="28" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="9">
+       <min m="12" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="10">
+       <min m="12" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="11">
+       <min m="12" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="12">
+       <min m="12" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="13">
+       <min m="12" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="14">
+       <min m="12" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="15">
+       <min m="12" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="16">
+       <min m="12" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="17">
+       <min m="12" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="18">
+       <min m="12" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="19">
+       <min m="12" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="20">
+       <min m="00" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="21">
+       <min m="00" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="22">
+       <min m="00" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="31" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+     </dzien>
+     <dzien nazwa="Niedziela">
+      <godz h="6">
+       <min m="52" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="7">
+       <min m="42" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="8">
+       <min m="28" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="9">
+       <min m="12" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="10">
+       <min m="12" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="11">
+       <min m="12" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="12">
+       <min m="12" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="13">
+       <min m="12" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="14">
+       <min m="12" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="15">
+       <min m="12" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="16">
+       <min m="12" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="17">
+       <min m="12" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="18">
+       <min m="12" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="19">
+       <min m="12" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="20">
+       <min m="00" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="21">
+       <min m="00" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="22">
+       <min m="00" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="31" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+     </dzien>
+    </tabliczka>
+   </przystanek>
+   <przystanek id="524946" nazwa="STARODWORSKA (ZUW)" ulica="Starodworska" cechy="">
+    <tabliczka id="12" mc="1" cechy="nz">
+     <dzien nazwa="w dni robocze">
+      <godz h="5">
+       <min m="16" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="54" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="6">
+       <min m="29" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="7">
+       <min m="07" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="45" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="8">
+       <min m="28" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="9">
+       <min m="13" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="10">
+       <min m="03" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="11">
+       <min m="03" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="12">
+       <min m="03" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="13">
+       <min m="03" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="14">
+       <min m="05" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="39" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="15">
+       <min m="12" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="49" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="16">
+       <min m="24" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="17">
+       <min m="04" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="44" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="18">
+       <min m="36" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="19">
+       <min m="16" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="20">
+       <min m="01" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="21">
+       <min m="01" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="22">
+       <min m="01" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="32" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+     </dzien>
+     <dzien nazwa="Sobota">
+      <godz h="6">
+       <min m="53" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="7">
+       <min m="43" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="8">
+       <min m="29" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="9">
+       <min m="13" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="10">
+       <min m="13" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="11">
+       <min m="13" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="12">
+       <min m="13" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="13">
+       <min m="13" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="14">
+       <min m="13" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="15">
+       <min m="13" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="16">
+       <min m="13" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="17">
+       <min m="13" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="18">
+       <min m="13" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="19">
+       <min m="13" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="20">
+       <min m="01" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="21">
+       <min m="01" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="22">
+       <min m="01" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="32" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+     </dzien>
+     <dzien nazwa="Niedziela">
+      <godz h="6">
+       <min m="53" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="7">
+       <min m="43" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="8">
+       <min m="29" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="9">
+       <min m="13" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="10">
+       <min m="13" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="11">
+       <min m="13" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="12">
+       <min m="13" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="13">
+       <min m="13" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="14">
+       <min m="13" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="15">
+       <min m="13" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="16">
+       <min m="13" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="17">
+       <min m="13" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="18">
+       <min m="13" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="19">
+       <min m="13" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="20">
+       <min m="01" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="21">
+       <min m="01" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="22">
+       <min m="01" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="32" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+     </dzien>
+    </tabliczka>
+   </przystanek>
+   <przystanek id="524944" nazwa="Starodworska" ulica="Starodworska" cechy="1">
+    <tabliczka id="13" mc="1" cechy="nz">
+     <dzien nazwa="w dni robocze">
+      <godz h="5">
+       <min m="17" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="55" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="6">
+       <min m="30" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="7">
+       <min m="08" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="46" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="8">
+       <min m="29" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="9">
+       <min m="14" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="10">
+       <min m="04" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="11">
+       <min m="04" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="12">
+       <min m="04" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="13">
+       <min m="04" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="14">
+       <min m="06" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="40" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="15">
+       <min m="13" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="50" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="16">
+       <min m="25" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="17">
+       <min m="05" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="45" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="18">
+       <min m="37" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="19">
+       <min m="17" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="20">
+       <min m="02" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="21">
+       <min m="02" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="22">
+       <min m="02" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="33" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+     </dzien>
+     <dzien nazwa="Sobota">
+      <godz h="6">
+       <min m="54" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="7">
+       <min m="44" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="8">
+       <min m="30" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="9">
+       <min m="14" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="10">
+       <min m="14" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="11">
+       <min m="14" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="12">
+       <min m="14" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="13">
+       <min m="14" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="14">
+       <min m="14" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="15">
+       <min m="14" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="16">
+       <min m="14" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="17">
+       <min m="14" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="18">
+       <min m="14" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="19">
+       <min m="14" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="20">
+       <min m="02" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="21">
+       <min m="02" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="22">
+       <min m="02" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="33" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+     </dzien>
+     <dzien nazwa="Niedziela">
+      <godz h="6">
+       <min m="54" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="7">
+       <min m="44" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="8">
+       <min m="30" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="9">
+       <min m="14" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="10">
+       <min m="14" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="11">
+       <min m="14" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="12">
+       <min m="14" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="13">
+       <min m="14" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="14">
+       <min m="14" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="15">
+       <min m="14" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="16">
+       <min m="14" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="17">
+       <min m="14" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="18">
+       <min m="14" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="19">
+       <min m="14" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="20">
+       <min m="02" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="21">
+       <min m="02" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="22">
+       <min m="02" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="33" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+     </dzien>
+    </tabliczka>
+   </przystanek>
+   <przystanek id="25146" nazwa="Blizanowicka" ulica="Księska" cechy="">
+    <tabliczka id="14" mc="3" cechy="nz">
+     <dzien nazwa="w dni robocze">
+      <godz h="5">
+       <min m="20" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="58" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="6">
+       <min m="33" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="7">
+       <min m="11" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="49" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="8">
+       <min m="32" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="9">
+       <min m="17" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="10">
+       <min m="07" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="11">
+       <min m="07" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="12">
+       <min m="07" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="13">
+       <min m="07" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="14">
+       <min m="09" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="43" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="15">
+       <min m="16" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="53" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="16">
+       <min m="28" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="17">
+       <min m="08" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="48" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="18">
+       <min m="40" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="19">
+       <min m="20" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="20">
+       <min m="05" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="21">
+       <min m="05" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="22">
+       <min m="05" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="36" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+     </dzien>
+     <dzien nazwa="Sobota">
+      <godz h="6">
+       <min m="57" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="7">
+       <min m="47" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="8">
+       <min m="33" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="9">
+       <min m="17" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="10">
+       <min m="17" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="11">
+       <min m="17" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="12">
+       <min m="17" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="13">
+       <min m="17" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="14">
+       <min m="17" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="15">
+       <min m="17" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="16">
+       <min m="17" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="17">
+       <min m="17" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="18">
+       <min m="17" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="19">
+       <min m="17" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="20">
+       <min m="05" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="21">
+       <min m="05" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="22">
+       <min m="05" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="36" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+     </dzien>
+     <dzien nazwa="Niedziela">
+      <godz h="6">
+       <min m="57" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="7">
+       <min m="47" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="8">
+       <min m="33" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="9">
+       <min m="17" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="10">
+       <min m="17" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="11">
+       <min m="17" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="12">
+       <min m="17" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="13">
+       <min m="17" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="14">
+       <min m="17" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="15">
+       <min m="17" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="16">
+       <min m="17" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="17">
+       <min m="17" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="18">
+       <min m="17" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="19">
+       <min m="17" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="20">
+       <min m="05" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="21">
+       <min m="05" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="22">
+       <min m="05" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="36" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+     </dzien>
+    </tabliczka>
+   </przystanek>
+   <przystanek id="25142" nazwa="Księska" ulica="Księska" cechy="">
+    <tabliczka id="15" mc="1">
+     <dzien nazwa="w dni robocze">
+      <godz h="5">
+       <min m="21" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="59" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="6">
+       <min m="34" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="7">
+       <min m="12" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="50" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="8">
+       <min m="33" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="9">
+       <min m="18" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="10">
+       <min m="08" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="11">
+       <min m="08" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="12">
+       <min m="08" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="13">
+       <min m="08" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="14">
+       <min m="10" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="44" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="15">
+       <min m="17" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="54" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="16">
+       <min m="29" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="17">
+       <min m="09" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="49" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="18">
+       <min m="41" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="19">
+       <min m="21" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="20">
+       <min m="06" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="21">
+       <min m="06" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="22">
+       <min m="06" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="37" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+     </dzien>
+     <dzien nazwa="Sobota">
+      <godz h="6">
+       <min m="58" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="7">
+       <min m="48" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="8">
+       <min m="34" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="9">
+       <min m="18" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="10">
+       <min m="18" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="11">
+       <min m="18" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="12">
+       <min m="18" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="13">
+       <min m="18" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="14">
+       <min m="18" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="15">
+       <min m="18" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="16">
+       <min m="18" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="17">
+       <min m="18" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="18">
+       <min m="18" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="19">
+       <min m="18" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="20">
+       <min m="06" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="21">
+       <min m="06" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="22">
+       <min m="06" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="37" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+     </dzien>
+     <dzien nazwa="Niedziela">
+      <godz h="6">
+       <min m="58" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="7">
+       <min m="48" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="8">
+       <min m="34" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="9">
+       <min m="18" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="10">
+       <min m="18" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="11">
+       <min m="18" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="12">
+       <min m="18" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="13">
+       <min m="18" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="14">
+       <min m="18" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="15">
+       <min m="18" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="16">
+       <min m="18" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="17">
+       <min m="18" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="18">
+       <min m="18" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="19">
+       <min m="18" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="20">
+       <min m="06" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="21">
+       <min m="06" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="22">
+       <min m="06" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="37" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+     </dzien>
+    </tabliczka>
+   </przystanek>
+   <przystanek id="25114" nazwa="KSIĘŻE MAŁE" ulica="Opolska" cechy="">
+    <tabliczka id="16" mc="1">
+     <dzien nazwa="w dni robocze">
+      <godz h="5">
+       <min m="22" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="6">
+       <min m="00" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="35" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="7">
+       <min m="13" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="51" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="8">
+       <min m="34" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="9">
+       <min m="19" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="10">
+       <min m="09" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="11">
+       <min m="09" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="12">
+       <min m="09" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="13">
+       <min m="09" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="14">
+       <min m="11" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="45" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="15">
+       <min m="18" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="55" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="16">
+       <min m="30" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="17">
+       <min m="10" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="50" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="18">
+       <min m="42" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="19">
+       <min m="22" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="20">
+       <min m="07" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="21">
+       <min m="07" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="22">
+       <min m="07" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="38" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+     </dzien>
+     <dzien nazwa="Sobota">
+      <godz h="6">
+       <min m="59" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="7">
+       <min m="49" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="8">
+       <min m="35" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="9">
+       <min m="19" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="10">
+       <min m="19" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="11">
+       <min m="19" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="12">
+       <min m="19" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="13">
+       <min m="19" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="14">
+       <min m="19" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="15">
+       <min m="19" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="16">
+       <min m="19" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="17">
+       <min m="19" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="18">
+       <min m="19" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="19">
+       <min m="19" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="20">
+       <min m="07" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="21">
+       <min m="07" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="22">
+       <min m="07" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="38" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+     </dzien>
+     <dzien nazwa="Niedziela">
+      <godz h="6">
+       <min m="59" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="7">
+       <min m="49" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="8">
+       <min m="35" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="9">
+       <min m="19" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="10">
+       <min m="19" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="11">
+       <min m="19" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="12">
+       <min m="19" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="13">
+       <min m="19" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="14">
+       <min m="19" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="15">
+       <min m="19" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="16">
+       <min m="19" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="17">
+       <min m="19" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="18">
+       <min m="19" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="19">
+       <min m="19" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="20">
+       <min m="07" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="21">
+       <min m="07" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="22">
+       <min m="07" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="38" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+     </dzien>
+    </tabliczka>
+   </przystanek>
+   <przystanek id="25108" nazwa="Karwińska" ulica="Krakowska" cechy="">
+    <tabliczka id="17" mc="2" cechy="nz">
+     <dzien nazwa="w dni robocze">
+      <godz h="5">
+       <min m="23" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="6">
+       <min m="03" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="38" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="7">
+       <min m="16" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="54" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="8">
+       <min m="37" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="9">
+       <min m="21" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="10">
+       <min m="11" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="11">
+       <min m="11" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="12">
+       <min m="11" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="13">
+       <min m="11" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="14">
+       <min m="13" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="47" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="15">
+       <min m="20" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="57" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="16">
+       <min m="32" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="17">
+       <min m="12" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="52" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="18">
+       <min m="44" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="19">
+       <min m="24" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="20">
+       <min m="08" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="21">
+       <min m="08" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="22">
+       <min m="08" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="39" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+     </dzien>
+     <dzien nazwa="Sobota">
+      <godz h="7">
+       <min m="00" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="50" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="8">
+       <min m="36" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="9">
+       <min m="20" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="10">
+       <min m="20" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="11">
+       <min m="20" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="12">
+       <min m="20" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="13">
+       <min m="20" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="14">
+       <min m="20" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="15">
+       <min m="20" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="16">
+       <min m="20" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="17">
+       <min m="20" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="18">
+       <min m="20" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="19">
+       <min m="20" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="20">
+       <min m="08" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="21">
+       <min m="08" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="22">
+       <min m="08" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="39" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+     </dzien>
+     <dzien nazwa="Niedziela">
+      <godz h="7">
+       <min m="00" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="50" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="8">
+       <min m="36" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="9">
+       <min m="20" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="10">
+       <min m="20" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="11">
+       <min m="20" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="12">
+       <min m="20" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="13">
+       <min m="20" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="14">
+       <min m="20" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="15">
+       <min m="20" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="16">
+       <min m="20" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="17">
+       <min m="20" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="18">
+       <min m="20" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="19">
+       <min m="20" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="20">
+       <min m="08" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="21">
+       <min m="08" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="22">
+       <min m="08" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="39" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+     </dzien>
+    </tabliczka>
+   </przystanek>
+   <przystanek id="125008" nazwa="Park Wschodni" ulica="Krakowska" cechy="">
+    <tabliczka id="18" mc="1" cechy="nz">
+     <dzien nazwa="w dni robocze">
+      <godz h="5">
+       <min m="24" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="6">
+       <min m="04" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="39" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="7">
+       <min m="17" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="55" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="8">
+       <min m="38" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="9">
+       <min m="22" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="10">
+       <min m="12" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="11">
+       <min m="12" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="12">
+       <min m="12" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="13">
+       <min m="12" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="14">
+       <min m="14" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="48" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="15">
+       <min m="21" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="58" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="16">
+       <min m="33" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="17">
+       <min m="13" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="53" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="18">
+       <min m="45" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="19">
+       <min m="25" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="20">
+       <min m="09" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="21">
+       <min m="09" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="22">
+       <min m="09" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="40" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+     </dzien>
+     <dzien nazwa="Sobota">
+      <godz h="7">
+       <min m="01" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="51" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="8">
+       <min m="37" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="9">
+       <min m="21" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="10">
+       <min m="21" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="11">
+       <min m="21" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="12">
+       <min m="21" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="13">
+       <min m="21" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="14">
+       <min m="21" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="15">
+       <min m="21" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="16">
+       <min m="21" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="17">
+       <min m="21" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="18">
+       <min m="21" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="19">
+       <min m="21" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="20">
+       <min m="09" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="21">
+       <min m="09" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="22">
+       <min m="09" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="40" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+     </dzien>
+     <dzien nazwa="Niedziela">
+      <godz h="7">
+       <min m="01" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="51" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="8">
+       <min m="37" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="9">
+       <min m="21" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="10">
+       <min m="21" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="11">
+       <min m="21" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="12">
+       <min m="21" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="13">
+       <min m="21" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="14">
+       <min m="21" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="15">
+       <min m="21" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="16">
+       <min m="21" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="17">
+       <min m="21" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="18">
+       <min m="21" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="19">
+       <min m="21" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="20">
+       <min m="09" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="21">
+       <min m="09" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="22">
+       <min m="09" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="40" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+     </dzien>
+    </tabliczka>
+   </przystanek>
+   <przystanek id="21162" nazwa="Mostostal" ulica="Armii Krajowej" cechy="">
+    <tabliczka id="19" mc="1" cechy="nz">
+     <dzien nazwa="w dni robocze">
+      <godz h="5">
+       <min m="25" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="6">
+       <min m="05" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="40" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="7">
+       <min m="18" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="56" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="8">
+       <min m="39" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="9">
+       <min m="23" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="10">
+       <min m="13" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="11">
+       <min m="13" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="12">
+       <min m="13" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="13">
+       <min m="13" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="14">
+       <min m="15" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="49" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="15">
+       <min m="22" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="59" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="16">
+       <min m="34" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="17">
+       <min m="14" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="54" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="18">
+       <min m="46" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="19">
+       <min m="26" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="20">
+       <min m="10" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="21">
+       <min m="10" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="22">
+       <min m="10" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="41" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+     </dzien>
+     <dzien nazwa="Sobota">
+      <godz h="7">
+       <min m="02" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="52" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="8">
+       <min m="38" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="9">
+       <min m="22" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="10">
+       <min m="22" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="11">
+       <min m="22" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="12">
+       <min m="22" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="13">
+       <min m="22" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="14">
+       <min m="22" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="15">
+       <min m="22" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="16">
+       <min m="22" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="17">
+       <min m="22" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="18">
+       <min m="22" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="19">
+       <min m="22" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="20">
+       <min m="10" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="21">
+       <min m="10" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="22">
+       <min m="10" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="41" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+     </dzien>
+     <dzien nazwa="Niedziela">
+      <godz h="7">
+       <min m="02" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="52" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="8">
+       <min m="38" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="9">
+       <min m="22" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="10">
+       <min m="22" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="11">
+       <min m="22" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="12">
+       <min m="22" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="13">
+       <min m="22" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="14">
+       <min m="22" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="15">
+       <min m="22" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="16">
+       <min m="22" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="17">
+       <min m="22" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="18">
+       <min m="22" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="19">
+       <min m="22" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="20">
+       <min m="10" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="21">
+       <min m="10" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="22">
+       <min m="10" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="41" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+     </dzien>
+    </tabliczka>
+   </przystanek>
+   <przystanek id="21149" nazwa="Klimasa" ulica="Tarnogajska" cechy="">
+    <tabliczka id="20" mc="2">
+     <dzien nazwa="w dni robocze">
+      <godz h="5">
+       <min m="26" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="6">
+       <min m="07" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="42" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="7">
+       <min m="20" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="58" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="8">
+       <min m="41" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="9">
+       <min m="25" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="10">
+       <min m="15" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="11">
+       <min m="15" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="12">
+       <min m="15" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="13">
+       <min m="15" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="14">
+       <min m="17" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="51" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="15">
+       <min m="24" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="16">
+       <min m="01" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="36" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="17">
+       <min m="16" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="56" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="18">
+       <min m="48" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="19">
+       <min m="28" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="20">
+       <min m="11" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="21">
+       <min m="11" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="22">
+       <min m="11" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="42" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+     </dzien>
+     <dzien nazwa="Sobota">
+      <godz h="7">
+       <min m="03" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="53" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="8">
+       <min m="39" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="9">
+       <min m="23" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="10">
+       <min m="23" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="11">
+       <min m="23" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="12">
+       <min m="23" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="13">
+       <min m="23" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="14">
+       <min m="23" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="15">
+       <min m="23" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="16">
+       <min m="23" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="17">
+       <min m="23" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="18">
+       <min m="23" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="19">
+       <min m="23" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="20">
+       <min m="11" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="21">
+       <min m="11" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="22">
+       <min m="11" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="42" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+     </dzien>
+     <dzien nazwa="Niedziela">
+      <godz h="7">
+       <min m="03" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="53" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="8">
+       <min m="39" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="9">
+       <min m="23" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="10">
+       <min m="23" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="11">
+       <min m="23" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="12">
+       <min m="23" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="13">
+       <min m="23" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="14">
+       <min m="23" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="15">
+       <min m="23" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="16">
+       <min m="23" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="17">
+       <min m="23" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="18">
+       <min m="23" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="19">
+       <min m="23" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="20">
+       <min m="11" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="21">
+       <min m="11" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+      <godz h="22">
+       <min m="11" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+       <min m="42" ozn="N" przyp="N - Kurs obsługiwany przez autobus NISKOPODŁOGOWY.">
+       </min>
+      </godz>
+     </dzien>
+    </tabliczka>
+   </przystanek>
+   <przystanek id="21151" nazwa="TARNOGAJ" ulica="Gazowa" cechy="">
+   </przystanek>
+  </wariant>
+ </linia>
+</linie>
