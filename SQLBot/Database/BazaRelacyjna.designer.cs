@@ -104,7 +104,15 @@ namespace Cindalnet.SQLBot.Database
 			OnCreated();
 		}
 		
-		public System.Data.Linq.Table<Dzialy> Dzialies
+		public System.Data.Linq.Table<vSQLBotFields> vSQLBotFields
+		{
+			get
+			{
+				return this.GetTable<vSQLBotFields>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Dzialy> Dzialy
 		{
 			get
 			{
@@ -112,7 +120,7 @@ namespace Cindalnet.SQLBot.Database
 			}
 		}
 		
-		public System.Data.Linq.Table<Faktury> Fakturies
+		public System.Data.Linq.Table<Faktury> Faktury
 		{
 			get
 			{
@@ -120,7 +128,7 @@ namespace Cindalnet.SQLBot.Database
 			}
 		}
 		
-		public System.Data.Linq.Table<Kategorie> Kategories
+		public System.Data.Linq.Table<Kategorie> Kategorie
 		{
 			get
 			{
@@ -128,7 +136,7 @@ namespace Cindalnet.SQLBot.Database
 			}
 		}
 		
-		public System.Data.Linq.Table<Klienci> Kliencis
+		public System.Data.Linq.Table<Klienci> Klienci
 		{
 			get
 			{
@@ -136,7 +144,7 @@ namespace Cindalnet.SQLBot.Database
 			}
 		}
 		
-		public System.Data.Linq.Table<Miasta> Miastas
+		public System.Data.Linq.Table<Miasta> Miasta
 		{
 			get
 			{
@@ -144,7 +152,7 @@ namespace Cindalnet.SQLBot.Database
 			}
 		}
 		
-		public System.Data.Linq.Table<Osoby> Osobies
+		public System.Data.Linq.Table<Osoby> Osoby
 		{
 			get
 			{
@@ -152,7 +160,7 @@ namespace Cindalnet.SQLBot.Database
 			}
 		}
 		
-		public System.Data.Linq.Table<Producenci> Producencis
+		public System.Data.Linq.Table<Producenci> Producenci
 		{
 			get
 			{
@@ -160,7 +168,7 @@ namespace Cindalnet.SQLBot.Database
 			}
 		}
 		
-		public System.Data.Linq.Table<SQLBot_Field> SQLBot_Fields
+		public System.Data.Linq.Table<SQLBot_Field> SQLBot_Field
 		{
 			get
 			{
@@ -168,7 +176,7 @@ namespace Cindalnet.SQLBot.Database
 			}
 		}
 		
-		public System.Data.Linq.Table<SQLBot_FieldType> SQLBot_FieldTypes
+		public System.Data.Linq.Table<SQLBot_FieldType> SQLBot_FieldType
 		{
 			get
 			{
@@ -176,7 +184,7 @@ namespace Cindalnet.SQLBot.Database
 			}
 		}
 		
-		public System.Data.Linq.Table<SQLBot_Table> SQLBot_Tables
+		public System.Data.Linq.Table<SQLBot_Table> SQLBot_Table
 		{
 			get
 			{
@@ -184,7 +192,7 @@ namespace Cindalnet.SQLBot.Database
 			}
 		}
 		
-		public System.Data.Linq.Table<Towar> Towars
+		public System.Data.Linq.Table<Towar> Towar
 		{
 			get
 			{
@@ -192,7 +200,7 @@ namespace Cindalnet.SQLBot.Database
 			}
 		}
 		
-		public System.Data.Linq.Table<Transakcje> Transakcjes
+		public System.Data.Linq.Table<Transakcje> Transakcje
 		{
 			get
 			{
@@ -200,7 +208,7 @@ namespace Cindalnet.SQLBot.Database
 			}
 		}
 		
-		public System.Data.Linq.Table<Wojewodztwa> Wojewodztwas
+		public System.Data.Linq.Table<Wojewodztwa> Wojewodztwa
 		{
 			get
 			{
@@ -208,11 +216,164 @@ namespace Cindalnet.SQLBot.Database
 			}
 		}
 		
-		public System.Data.Linq.Table<Zarobki> Zarobkis
+		public System.Data.Linq.Table<Zarobki> Zarobki
 		{
 			get
 			{
 				return this.GetTable<Zarobki>();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.vSQLBotFields")]
+	public partial class vSQLBotFields
+	{
+		
+		private string _TableNameSQL;
+		
+		private string _TableName;
+		
+		private string _TableDescription;
+		
+		private string _FieldNameSQL;
+		
+		private string _FieldName;
+		
+		private string _FieldType;
+		
+		private string _FieldKind;
+		
+		private string _FieldDescription;
+		
+		public vSQLBotFields()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TableNameSQL", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string TableNameSQL
+		{
+			get
+			{
+				return this._TableNameSQL;
+			}
+			set
+			{
+				if ((this._TableNameSQL != value))
+				{
+					this._TableNameSQL = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TableName", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string TableName
+		{
+			get
+			{
+				return this._TableName;
+			}
+			set
+			{
+				if ((this._TableName != value))
+				{
+					this._TableName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TableDescription", DbType="VarChar(200)")]
+		public string TableDescription
+		{
+			get
+			{
+				return this._TableDescription;
+			}
+			set
+			{
+				if ((this._TableDescription != value))
+				{
+					this._TableDescription = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FieldNameSQL", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string FieldNameSQL
+		{
+			get
+			{
+				return this._FieldNameSQL;
+			}
+			set
+			{
+				if ((this._FieldNameSQL != value))
+				{
+					this._FieldNameSQL = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FieldName", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string FieldName
+		{
+			get
+			{
+				return this._FieldName;
+			}
+			set
+			{
+				if ((this._FieldName != value))
+				{
+					this._FieldName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FieldType", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string FieldType
+		{
+			get
+			{
+				return this._FieldType;
+			}
+			set
+			{
+				if ((this._FieldType != value))
+				{
+					this._FieldType = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FieldKind", DbType="VarChar(50)")]
+		public string FieldKind
+		{
+			get
+			{
+				return this._FieldKind;
+			}
+			set
+			{
+				if ((this._FieldKind != value))
+				{
+					this._FieldKind = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FieldDescription", DbType="VarChar(200)")]
+		public string FieldDescription
+		{
+			get
+			{
+				return this._FieldDescription;
+			}
+			set
+			{
+				if ((this._FieldDescription != value))
+				{
+					this._FieldDescription = value;
+				}
 			}
 		}
 	}
@@ -227,7 +388,7 @@ namespace Cindalnet.SQLBot.Database
 		
 		private string _Nazwa;
 		
-		private EntitySet<Osoby> _Osobies;
+		private EntitySet<Osoby> _Osoby;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -241,7 +402,7 @@ namespace Cindalnet.SQLBot.Database
 		
 		public Dzialy()
 		{
-			this._Osobies = new EntitySet<Osoby>(new Action<Osoby>(this.attach_Osobies), new Action<Osoby>(this.detach_Osobies));
+			this._Osoby = new EntitySet<Osoby>(new Action<Osoby>(this.attach_Osoby), new Action<Osoby>(this.detach_Osoby));
 			OnCreated();
 		}
 		
@@ -285,16 +446,16 @@ namespace Cindalnet.SQLBot.Database
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Dzialy_Osoby", Storage="_Osobies", ThisKey="IdDzialu", OtherKey="IdDzialu")]
-		public EntitySet<Osoby> Osobies
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Dzialy_Osoby", Storage="_Osoby", ThisKey="IdDzialu", OtherKey="IdDzialu")]
+		public EntitySet<Osoby> Osoby
 		{
 			get
 			{
-				return this._Osobies;
+				return this._Osoby;
 			}
 			set
 			{
-				this._Osobies.Assign(value);
+				this._Osoby.Assign(value);
 			}
 		}
 		
@@ -318,13 +479,13 @@ namespace Cindalnet.SQLBot.Database
 			}
 		}
 		
-		private void attach_Osobies(Osoby entity)
+		private void attach_Osoby(Osoby entity)
 		{
 			this.SendPropertyChanging();
 			entity.Dzialy = this;
 		}
 		
-		private void detach_Osobies(Osoby entity)
+		private void detach_Osoby(Osoby entity)
 		{
 			this.SendPropertyChanging();
 			entity.Dzialy = null;
@@ -345,7 +506,7 @@ namespace Cindalnet.SQLBot.Database
 		
 		private System.Nullable<System.DateTime> _Data;
 		
-		private EntitySet<Transakcje> _Transakcjes;
+		private EntitySet<Transakcje> _Transakcje;
 		
 		private EntityRef<Klienci> _Klienci;
 		
@@ -367,7 +528,7 @@ namespace Cindalnet.SQLBot.Database
 		
 		public Faktury()
 		{
-			this._Transakcjes = new EntitySet<Transakcje>(new Action<Transakcje>(this.attach_Transakcjes), new Action<Transakcje>(this.detach_Transakcjes));
+			this._Transakcje = new EntitySet<Transakcje>(new Action<Transakcje>(this.attach_Transakcje), new Action<Transakcje>(this.detach_Transakcje));
 			this._Klienci = default(EntityRef<Klienci>);
 			this._Osoby = default(EntityRef<Osoby>);
 			OnCreated();
@@ -461,16 +622,16 @@ namespace Cindalnet.SQLBot.Database
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Faktury_Transakcje", Storage="_Transakcjes", ThisKey="IdFaktury", OtherKey="IdFaktury")]
-		public EntitySet<Transakcje> Transakcjes
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Faktury_Transakcje", Storage="_Transakcje", ThisKey="IdFaktury", OtherKey="IdFaktury")]
+		public EntitySet<Transakcje> Transakcje
 		{
 			get
 			{
-				return this._Transakcjes;
+				return this._Transakcje;
 			}
 			set
 			{
-				this._Transakcjes.Assign(value);
+				this._Transakcje.Assign(value);
 			}
 		}
 		
@@ -491,12 +652,12 @@ namespace Cindalnet.SQLBot.Database
 					if ((previousValue != null))
 					{
 						this._Klienci.Entity = null;
-						previousValue.Fakturies.Remove(this);
+						previousValue.Faktury.Remove(this);
 					}
 					this._Klienci.Entity = value;
 					if ((value != null))
 					{
-						value.Fakturies.Add(this);
+						value.Faktury.Add(this);
 						this._IdKlienta = value.IdKlienta;
 					}
 					else
@@ -525,12 +686,12 @@ namespace Cindalnet.SQLBot.Database
 					if ((previousValue != null))
 					{
 						this._Osoby.Entity = null;
-						previousValue.Fakturies.Remove(this);
+						previousValue.Faktury.Remove(this);
 					}
 					this._Osoby.Entity = value;
 					if ((value != null))
 					{
-						value.Fakturies.Add(this);
+						value.Faktury.Add(this);
 						this._IdOsoby = value.IdOsoby;
 					}
 					else
@@ -562,13 +723,13 @@ namespace Cindalnet.SQLBot.Database
 			}
 		}
 		
-		private void attach_Transakcjes(Transakcje entity)
+		private void attach_Transakcje(Transakcje entity)
 		{
 			this.SendPropertyChanging();
 			entity.Faktury = this;
 		}
 		
-		private void detach_Transakcjes(Transakcje entity)
+		private void detach_Transakcje(Transakcje entity)
 		{
 			this.SendPropertyChanging();
 			entity.Faktury = null;
@@ -585,7 +746,7 @@ namespace Cindalnet.SQLBot.Database
 		
 		private string _NazwaKategorii;
 		
-		private EntitySet<Towar> _Towars;
+		private EntitySet<Towar> _Towar;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -599,7 +760,7 @@ namespace Cindalnet.SQLBot.Database
 		
 		public Kategorie()
 		{
-			this._Towars = new EntitySet<Towar>(new Action<Towar>(this.attach_Towars), new Action<Towar>(this.detach_Towars));
+			this._Towar = new EntitySet<Towar>(new Action<Towar>(this.attach_Towar), new Action<Towar>(this.detach_Towar));
 			OnCreated();
 		}
 		
@@ -643,16 +804,16 @@ namespace Cindalnet.SQLBot.Database
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Kategorie_Towar", Storage="_Towars", ThisKey="IdKategorii", OtherKey="IdKategorii")]
-		public EntitySet<Towar> Towars
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Kategorie_Towar", Storage="_Towar", ThisKey="IdKategorii", OtherKey="IdKategorii")]
+		public EntitySet<Towar> Towar
 		{
 			get
 			{
-				return this._Towars;
+				return this._Towar;
 			}
 			set
 			{
-				this._Towars.Assign(value);
+				this._Towar.Assign(value);
 			}
 		}
 		
@@ -676,13 +837,13 @@ namespace Cindalnet.SQLBot.Database
 			}
 		}
 		
-		private void attach_Towars(Towar entity)
+		private void attach_Towar(Towar entity)
 		{
 			this.SendPropertyChanging();
 			entity.Kategorie = this;
 		}
 		
-		private void detach_Towars(Towar entity)
+		private void detach_Towar(Towar entity)
 		{
 			this.SendPropertyChanging();
 			entity.Kategorie = null;
@@ -703,7 +864,7 @@ namespace Cindalnet.SQLBot.Database
 		
 		private string _Imie;
 		
-		private EntitySet<Faktury> _Fakturies;
+		private EntitySet<Faktury> _Faktury;
 		
 		private EntityRef<Miasta> _Miasta;
 		
@@ -723,7 +884,7 @@ namespace Cindalnet.SQLBot.Database
 		
 		public Klienci()
 		{
-			this._Fakturies = new EntitySet<Faktury>(new Action<Faktury>(this.attach_Fakturies), new Action<Faktury>(this.detach_Fakturies));
+			this._Faktury = new EntitySet<Faktury>(new Action<Faktury>(this.attach_Faktury), new Action<Faktury>(this.detach_Faktury));
 			this._Miasta = default(EntityRef<Miasta>);
 			OnCreated();
 		}
@@ -812,16 +973,16 @@ namespace Cindalnet.SQLBot.Database
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Klienci_Faktury", Storage="_Fakturies", ThisKey="IdKlienta", OtherKey="IdKlienta")]
-		public EntitySet<Faktury> Fakturies
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Klienci_Faktury", Storage="_Faktury", ThisKey="IdKlienta", OtherKey="IdKlienta")]
+		public EntitySet<Faktury> Faktury
 		{
 			get
 			{
-				return this._Fakturies;
+				return this._Faktury;
 			}
 			set
 			{
-				this._Fakturies.Assign(value);
+				this._Faktury.Assign(value);
 			}
 		}
 		
@@ -842,12 +1003,12 @@ namespace Cindalnet.SQLBot.Database
 					if ((previousValue != null))
 					{
 						this._Miasta.Entity = null;
-						previousValue.Kliencis.Remove(this);
+						previousValue.Klienci.Remove(this);
 					}
 					this._Miasta.Entity = value;
 					if ((value != null))
 					{
-						value.Kliencis.Add(this);
+						value.Klienci.Add(this);
 						this._IdMiasta = value.IdMiasta;
 					}
 					else
@@ -879,13 +1040,13 @@ namespace Cindalnet.SQLBot.Database
 			}
 		}
 		
-		private void attach_Fakturies(Faktury entity)
+		private void attach_Faktury(Faktury entity)
 		{
 			this.SendPropertyChanging();
 			entity.Klienci = this;
 		}
 		
-		private void detach_Fakturies(Faktury entity)
+		private void detach_Faktury(Faktury entity)
 		{
 			this.SendPropertyChanging();
 			entity.Klienci = null;
@@ -904,9 +1065,9 @@ namespace Cindalnet.SQLBot.Database
 		
 		private string _Miasto;
 		
-		private EntitySet<Klienci> _Kliencis;
+		private EntitySet<Klienci> _Klienci;
 		
-		private EntitySet<Producenci> _Producencis;
+		private EntitySet<Producenci> _Producenci;
 		
 		private EntityRef<Wojewodztwa> _Wojewodztwa;
 		
@@ -924,8 +1085,8 @@ namespace Cindalnet.SQLBot.Database
 		
 		public Miasta()
 		{
-			this._Kliencis = new EntitySet<Klienci>(new Action<Klienci>(this.attach_Kliencis), new Action<Klienci>(this.detach_Kliencis));
-			this._Producencis = new EntitySet<Producenci>(new Action<Producenci>(this.attach_Producencis), new Action<Producenci>(this.detach_Producencis));
+			this._Klienci = new EntitySet<Klienci>(new Action<Klienci>(this.attach_Klienci), new Action<Klienci>(this.detach_Klienci));
+			this._Producenci = new EntitySet<Producenci>(new Action<Producenci>(this.attach_Producenci), new Action<Producenci>(this.detach_Producenci));
 			this._Wojewodztwa = default(EntityRef<Wojewodztwa>);
 			OnCreated();
 		}
@@ -994,29 +1155,29 @@ namespace Cindalnet.SQLBot.Database
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Miasta_Klienci", Storage="_Kliencis", ThisKey="IdMiasta", OtherKey="IdMiasta")]
-		public EntitySet<Klienci> Kliencis
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Miasta_Klienci", Storage="_Klienci", ThisKey="IdMiasta", OtherKey="IdMiasta")]
+		public EntitySet<Klienci> Klienci
 		{
 			get
 			{
-				return this._Kliencis;
+				return this._Klienci;
 			}
 			set
 			{
-				this._Kliencis.Assign(value);
+				this._Klienci.Assign(value);
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Miasta_Producenci", Storage="_Producencis", ThisKey="IdMiasta", OtherKey="IdMiasta")]
-		public EntitySet<Producenci> Producencis
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Miasta_Producenci", Storage="_Producenci", ThisKey="IdMiasta", OtherKey="IdMiasta")]
+		public EntitySet<Producenci> Producenci
 		{
 			get
 			{
-				return this._Producencis;
+				return this._Producenci;
 			}
 			set
 			{
-				this._Producencis.Assign(value);
+				this._Producenci.Assign(value);
 			}
 		}
 		
@@ -1037,12 +1198,12 @@ namespace Cindalnet.SQLBot.Database
 					if ((previousValue != null))
 					{
 						this._Wojewodztwa.Entity = null;
-						previousValue.Miastas.Remove(this);
+						previousValue.Miasta.Remove(this);
 					}
 					this._Wojewodztwa.Entity = value;
 					if ((value != null))
 					{
-						value.Miastas.Add(this);
+						value.Miasta.Add(this);
 						this._IdWojewodztwa = value.IdWojewodztwa;
 					}
 					else
@@ -1074,25 +1235,25 @@ namespace Cindalnet.SQLBot.Database
 			}
 		}
 		
-		private void attach_Kliencis(Klienci entity)
+		private void attach_Klienci(Klienci entity)
 		{
 			this.SendPropertyChanging();
 			entity.Miasta = this;
 		}
 		
-		private void detach_Kliencis(Klienci entity)
+		private void detach_Klienci(Klienci entity)
 		{
 			this.SendPropertyChanging();
 			entity.Miasta = null;
 		}
 		
-		private void attach_Producencis(Producenci entity)
+		private void attach_Producenci(Producenci entity)
 		{
 			this.SendPropertyChanging();
 			entity.Miasta = this;
 		}
 		
-		private void detach_Producencis(Producenci entity)
+		private void detach_Producenci(Producenci entity)
 		{
 			this.SendPropertyChanging();
 			entity.Miasta = null;
@@ -1121,9 +1282,9 @@ namespace Cindalnet.SQLBot.Database
 		
 		private System.Nullable<int> _IdSzefa;
 		
-		private EntitySet<Faktury> _Fakturies;
+		private EntitySet<Faktury> _Faktury;
 		
-		private EntitySet<Zarobki> _Zarobkis;
+		private EntitySet<Zarobki> _Zarobki;
 		
 		private EntityRef<Dzialy> _Dzialy;
 		
@@ -1151,8 +1312,8 @@ namespace Cindalnet.SQLBot.Database
 		
 		public Osoby()
 		{
-			this._Fakturies = new EntitySet<Faktury>(new Action<Faktury>(this.attach_Fakturies), new Action<Faktury>(this.detach_Fakturies));
-			this._Zarobkis = new EntitySet<Zarobki>(new Action<Zarobki>(this.attach_Zarobkis), new Action<Zarobki>(this.detach_Zarobkis));
+			this._Faktury = new EntitySet<Faktury>(new Action<Faktury>(this.attach_Faktury), new Action<Faktury>(this.detach_Faktury));
+			this._Zarobki = new EntitySet<Zarobki>(new Action<Zarobki>(this.attach_Zarobki), new Action<Zarobki>(this.detach_Zarobki));
 			this._Dzialy = default(EntityRef<Dzialy>);
 			OnCreated();
 		}
@@ -1321,29 +1482,29 @@ namespace Cindalnet.SQLBot.Database
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Osoby_Faktury", Storage="_Fakturies", ThisKey="IdOsoby", OtherKey="IdOsoby")]
-		public EntitySet<Faktury> Fakturies
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Osoby_Faktury", Storage="_Faktury", ThisKey="IdOsoby", OtherKey="IdOsoby")]
+		public EntitySet<Faktury> Faktury
 		{
 			get
 			{
-				return this._Fakturies;
+				return this._Faktury;
 			}
 			set
 			{
-				this._Fakturies.Assign(value);
+				this._Faktury.Assign(value);
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Osoby_Zarobki", Storage="_Zarobkis", ThisKey="IdOsoby", OtherKey="IdOsoby")]
-		public EntitySet<Zarobki> Zarobkis
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Osoby_Zarobki", Storage="_Zarobki", ThisKey="IdOsoby", OtherKey="IdOsoby")]
+		public EntitySet<Zarobki> Zarobki
 		{
 			get
 			{
-				return this._Zarobkis;
+				return this._Zarobki;
 			}
 			set
 			{
-				this._Zarobkis.Assign(value);
+				this._Zarobki.Assign(value);
 			}
 		}
 		
@@ -1364,12 +1525,12 @@ namespace Cindalnet.SQLBot.Database
 					if ((previousValue != null))
 					{
 						this._Dzialy.Entity = null;
-						previousValue.Osobies.Remove(this);
+						previousValue.Osoby.Remove(this);
 					}
 					this._Dzialy.Entity = value;
 					if ((value != null))
 					{
-						value.Osobies.Add(this);
+						value.Osoby.Add(this);
 						this._IdDzialu = value.IdDzialu;
 					}
 					else
@@ -1401,25 +1562,25 @@ namespace Cindalnet.SQLBot.Database
 			}
 		}
 		
-		private void attach_Fakturies(Faktury entity)
+		private void attach_Faktury(Faktury entity)
 		{
 			this.SendPropertyChanging();
 			entity.Osoby = this;
 		}
 		
-		private void detach_Fakturies(Faktury entity)
+		private void detach_Faktury(Faktury entity)
 		{
 			this.SendPropertyChanging();
 			entity.Osoby = null;
 		}
 		
-		private void attach_Zarobkis(Zarobki entity)
+		private void attach_Zarobki(Zarobki entity)
 		{
 			this.SendPropertyChanging();
 			entity.Osoby = this;
 		}
 		
-		private void detach_Zarobkis(Zarobki entity)
+		private void detach_Zarobki(Zarobki entity)
 		{
 			this.SendPropertyChanging();
 			entity.Osoby = null;
@@ -1438,7 +1599,7 @@ namespace Cindalnet.SQLBot.Database
 		
 		private System.Nullable<int> _IdMiasta;
 		
-		private EntitySet<Towar> _Towars;
+		private EntitySet<Towar> _Towar;
 		
 		private EntityRef<Miasta> _Miasta;
 		
@@ -1456,7 +1617,7 @@ namespace Cindalnet.SQLBot.Database
 		
 		public Producenci()
 		{
-			this._Towars = new EntitySet<Towar>(new Action<Towar>(this.attach_Towars), new Action<Towar>(this.detach_Towars));
+			this._Towar = new EntitySet<Towar>(new Action<Towar>(this.attach_Towar), new Action<Towar>(this.detach_Towar));
 			this._Miasta = default(EntityRef<Miasta>);
 			OnCreated();
 		}
@@ -1525,16 +1686,16 @@ namespace Cindalnet.SQLBot.Database
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Producenci_Towar", Storage="_Towars", ThisKey="IdProducenta", OtherKey="IdProducenta")]
-		public EntitySet<Towar> Towars
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Producenci_Towar", Storage="_Towar", ThisKey="IdProducenta", OtherKey="IdProducenta")]
+		public EntitySet<Towar> Towar
 		{
 			get
 			{
-				return this._Towars;
+				return this._Towar;
 			}
 			set
 			{
-				this._Towars.Assign(value);
+				this._Towar.Assign(value);
 			}
 		}
 		
@@ -1555,12 +1716,12 @@ namespace Cindalnet.SQLBot.Database
 					if ((previousValue != null))
 					{
 						this._Miasta.Entity = null;
-						previousValue.Producencis.Remove(this);
+						previousValue.Producenci.Remove(this);
 					}
 					this._Miasta.Entity = value;
 					if ((value != null))
 					{
-						value.Producencis.Add(this);
+						value.Producenci.Add(this);
 						this._IdMiasta = value.IdMiasta;
 					}
 					else
@@ -1592,13 +1753,13 @@ namespace Cindalnet.SQLBot.Database
 			}
 		}
 		
-		private void attach_Towars(Towar entity)
+		private void attach_Towar(Towar entity)
 		{
 			this.SendPropertyChanging();
 			entity.Producenci = this;
 		}
 		
-		private void detach_Towars(Towar entity)
+		private void detach_Towar(Towar entity)
 		{
 			this.SendPropertyChanging();
 			entity.Producenci = null;
@@ -1615,7 +1776,9 @@ namespace Cindalnet.SQLBot.Database
 		
 		private int _sqlf_Table;
 		
-		private string _sqlf_Column;
+		private string _sqlf_SQLColumnName;
+		
+		private string _sqlf_ColumnName;
 		
 		private int _sqlf_Type;
 		
@@ -1635,8 +1798,10 @@ namespace Cindalnet.SQLBot.Database
     partial void Onsqlf_IDChanged();
     partial void Onsqlf_TableChanging(int value);
     partial void Onsqlf_TableChanged();
-    partial void Onsqlf_ColumnChanging(string value);
-    partial void Onsqlf_ColumnChanged();
+    partial void Onsqlf_SQLColumnNameChanging(string value);
+    partial void Onsqlf_SQLColumnNameChanged();
+    partial void Onsqlf_ColumnNameChanging(string value);
+    partial void Onsqlf_ColumnNameChanged();
     partial void Onsqlf_TypeChanging(int value);
     partial void Onsqlf_TypeChanged();
     partial void Onsqlf_KindChanging(string value);
@@ -1696,22 +1861,42 @@ namespace Cindalnet.SQLBot.Database
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sqlf_Column", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string sqlf_Column
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sqlf_SQLColumnName", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string sqlf_SQLColumnName
 		{
 			get
 			{
-				return this._sqlf_Column;
+				return this._sqlf_SQLColumnName;
 			}
 			set
 			{
-				if ((this._sqlf_Column != value))
+				if ((this._sqlf_SQLColumnName != value))
 				{
-					this.Onsqlf_ColumnChanging(value);
+					this.Onsqlf_SQLColumnNameChanging(value);
 					this.SendPropertyChanging();
-					this._sqlf_Column = value;
-					this.SendPropertyChanged("sqlf_Column");
-					this.Onsqlf_ColumnChanged();
+					this._sqlf_SQLColumnName = value;
+					this.SendPropertyChanged("sqlf_SQLColumnName");
+					this.Onsqlf_SQLColumnNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sqlf_ColumnName", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string sqlf_ColumnName
+		{
+			get
+			{
+				return this._sqlf_ColumnName;
+			}
+			set
+			{
+				if ((this._sqlf_ColumnName != value))
+				{
+					this.Onsqlf_ColumnNameChanging(value);
+					this.SendPropertyChanging();
+					this._sqlf_ColumnName = value;
+					this.SendPropertyChanged("sqlf_ColumnName");
+					this.Onsqlf_ColumnNameChanged();
 				}
 			}
 		}
@@ -1740,7 +1925,7 @@ namespace Cindalnet.SQLBot.Database
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sqlf_Kind", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sqlf_Kind", DbType="VarChar(50)")]
 		public string sqlf_Kind
 		{
 			get
@@ -1797,12 +1982,12 @@ namespace Cindalnet.SQLBot.Database
 					if ((previousValue != null))
 					{
 						this._SQLBot_FieldType.Entity = null;
-						previousValue.SQLBot_Fields.Remove(this);
+						previousValue.SQLBot_Field.Remove(this);
 					}
 					this._SQLBot_FieldType.Entity = value;
 					if ((value != null))
 					{
-						value.SQLBot_Fields.Add(this);
+						value.SQLBot_Field.Add(this);
 						this._sqlf_Type = value.sqlft_ID;
 					}
 					else
@@ -1831,12 +2016,12 @@ namespace Cindalnet.SQLBot.Database
 					if ((previousValue != null))
 					{
 						this._SQLBot_Table.Entity = null;
-						previousValue.SQLBot_Fields.Remove(this);
+						previousValue.SQLBot_Field.Remove(this);
 					}
 					this._SQLBot_Table.Entity = value;
 					if ((value != null))
 					{
-						value.SQLBot_Fields.Add(this);
+						value.SQLBot_Field.Add(this);
 						this._sqlf_Table = value.sqlt_ID;
 					}
 					else
@@ -1879,7 +2064,7 @@ namespace Cindalnet.SQLBot.Database
 		
 		private string _sqlft_Name;
 		
-		private EntitySet<SQLBot_Field> _SQLBot_Fields;
+		private EntitySet<SQLBot_Field> _SQLBot_Field;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -1893,7 +2078,7 @@ namespace Cindalnet.SQLBot.Database
 		
 		public SQLBot_FieldType()
 		{
-			this._SQLBot_Fields = new EntitySet<SQLBot_Field>(new Action<SQLBot_Field>(this.attach_SQLBot_Fields), new Action<SQLBot_Field>(this.detach_SQLBot_Fields));
+			this._SQLBot_Field = new EntitySet<SQLBot_Field>(new Action<SQLBot_Field>(this.attach_SQLBot_Field), new Action<SQLBot_Field>(this.detach_SQLBot_Field));
 			OnCreated();
 		}
 		
@@ -1937,16 +2122,16 @@ namespace Cindalnet.SQLBot.Database
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="SQLBot_FieldType_SQLBot_Field", Storage="_SQLBot_Fields", ThisKey="sqlft_ID", OtherKey="sqlf_Type")]
-		public EntitySet<SQLBot_Field> SQLBot_Fields
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="SQLBot_FieldType_SQLBot_Field", Storage="_SQLBot_Field", ThisKey="sqlft_ID", OtherKey="sqlf_Type")]
+		public EntitySet<SQLBot_Field> SQLBot_Field
 		{
 			get
 			{
-				return this._SQLBot_Fields;
+				return this._SQLBot_Field;
 			}
 			set
 			{
-				this._SQLBot_Fields.Assign(value);
+				this._SQLBot_Field.Assign(value);
 			}
 		}
 		
@@ -1970,13 +2155,13 @@ namespace Cindalnet.SQLBot.Database
 			}
 		}
 		
-		private void attach_SQLBot_Fields(SQLBot_Field entity)
+		private void attach_SQLBot_Field(SQLBot_Field entity)
 		{
 			this.SendPropertyChanging();
 			entity.SQLBot_FieldType = this;
 		}
 		
-		private void detach_SQLBot_Fields(SQLBot_Field entity)
+		private void detach_SQLBot_Field(SQLBot_Field entity)
 		{
 			this.SendPropertyChanging();
 			entity.SQLBot_FieldType = null;
@@ -1991,11 +2176,13 @@ namespace Cindalnet.SQLBot.Database
 		
 		private int _sqlt_ID;
 		
+		private string _sqlt_SQLName;
+		
 		private string _sqlt_Name;
 		
 		private string _sqlt_Description;
 		
-		private EntitySet<SQLBot_Field> _SQLBot_Fields;
+		private EntitySet<SQLBot_Field> _SQLBot_Field;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -2003,6 +2190,8 @@ namespace Cindalnet.SQLBot.Database
     partial void OnCreated();
     partial void Onsqlt_IDChanging(int value);
     partial void Onsqlt_IDChanged();
+    partial void Onsqlt_SQLNameChanging(string value);
+    partial void Onsqlt_SQLNameChanged();
     partial void Onsqlt_NameChanging(string value);
     partial void Onsqlt_NameChanged();
     partial void Onsqlt_DescriptionChanging(string value);
@@ -2011,7 +2200,7 @@ namespace Cindalnet.SQLBot.Database
 		
 		public SQLBot_Table()
 		{
-			this._SQLBot_Fields = new EntitySet<SQLBot_Field>(new Action<SQLBot_Field>(this.attach_SQLBot_Fields), new Action<SQLBot_Field>(this.detach_SQLBot_Fields));
+			this._SQLBot_Field = new EntitySet<SQLBot_Field>(new Action<SQLBot_Field>(this.attach_SQLBot_Field), new Action<SQLBot_Field>(this.detach_SQLBot_Field));
 			OnCreated();
 		}
 		
@@ -2031,6 +2220,26 @@ namespace Cindalnet.SQLBot.Database
 					this._sqlt_ID = value;
 					this.SendPropertyChanged("sqlt_ID");
 					this.Onsqlt_IDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sqlt_SQLName", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string sqlt_SQLName
+		{
+			get
+			{
+				return this._sqlt_SQLName;
+			}
+			set
+			{
+				if ((this._sqlt_SQLName != value))
+				{
+					this.Onsqlt_SQLNameChanging(value);
+					this.SendPropertyChanging();
+					this._sqlt_SQLName = value;
+					this.SendPropertyChanged("sqlt_SQLName");
+					this.Onsqlt_SQLNameChanged();
 				}
 			}
 		}
@@ -2075,16 +2284,16 @@ namespace Cindalnet.SQLBot.Database
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="SQLBot_Table_SQLBot_Field", Storage="_SQLBot_Fields", ThisKey="sqlt_ID", OtherKey="sqlf_Table")]
-		public EntitySet<SQLBot_Field> SQLBot_Fields
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="SQLBot_Table_SQLBot_Field", Storage="_SQLBot_Field", ThisKey="sqlt_ID", OtherKey="sqlf_Table")]
+		public EntitySet<SQLBot_Field> SQLBot_Field
 		{
 			get
 			{
-				return this._SQLBot_Fields;
+				return this._SQLBot_Field;
 			}
 			set
 			{
-				this._SQLBot_Fields.Assign(value);
+				this._SQLBot_Field.Assign(value);
 			}
 		}
 		
@@ -2108,13 +2317,13 @@ namespace Cindalnet.SQLBot.Database
 			}
 		}
 		
-		private void attach_SQLBot_Fields(SQLBot_Field entity)
+		private void attach_SQLBot_Field(SQLBot_Field entity)
 		{
 			this.SendPropertyChanging();
 			entity.SQLBot_Table = this;
 		}
 		
-		private void detach_SQLBot_Fields(SQLBot_Field entity)
+		private void detach_SQLBot_Field(SQLBot_Field entity)
 		{
 			this.SendPropertyChanging();
 			entity.SQLBot_Table = null;
@@ -2139,7 +2348,7 @@ namespace Cindalnet.SQLBot.Database
 		
 		private System.Nullable<decimal> _CenaZakupu;
 		
-		private EntitySet<Transakcje> _Transakcjes;
+		private EntitySet<Transakcje> _Transakcje;
 		
 		private EntityRef<Kategorie> _Kategorie;
 		
@@ -2165,7 +2374,7 @@ namespace Cindalnet.SQLBot.Database
 		
 		public Towar()
 		{
-			this._Transakcjes = new EntitySet<Transakcje>(new Action<Transakcje>(this.attach_Transakcjes), new Action<Transakcje>(this.detach_Transakcjes));
+			this._Transakcje = new EntitySet<Transakcje>(new Action<Transakcje>(this.attach_Transakcje), new Action<Transakcje>(this.detach_Transakcje));
 			this._Kategorie = default(EntityRef<Kategorie>);
 			this._Producenci = default(EntityRef<Producenci>);
 			OnCreated();
@@ -2299,16 +2508,16 @@ namespace Cindalnet.SQLBot.Database
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Towar_Transakcje", Storage="_Transakcjes", ThisKey="IdTowaru", OtherKey="IdTowaru")]
-		public EntitySet<Transakcje> Transakcjes
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Towar_Transakcje", Storage="_Transakcje", ThisKey="IdTowaru", OtherKey="IdTowaru")]
+		public EntitySet<Transakcje> Transakcje
 		{
 			get
 			{
-				return this._Transakcjes;
+				return this._Transakcje;
 			}
 			set
 			{
-				this._Transakcjes.Assign(value);
+				this._Transakcje.Assign(value);
 			}
 		}
 		
@@ -2329,12 +2538,12 @@ namespace Cindalnet.SQLBot.Database
 					if ((previousValue != null))
 					{
 						this._Kategorie.Entity = null;
-						previousValue.Towars.Remove(this);
+						previousValue.Towar.Remove(this);
 					}
 					this._Kategorie.Entity = value;
 					if ((value != null))
 					{
-						value.Towars.Add(this);
+						value.Towar.Add(this);
 						this._IdKategorii = value.IdKategorii;
 					}
 					else
@@ -2363,12 +2572,12 @@ namespace Cindalnet.SQLBot.Database
 					if ((previousValue != null))
 					{
 						this._Producenci.Entity = null;
-						previousValue.Towars.Remove(this);
+						previousValue.Towar.Remove(this);
 					}
 					this._Producenci.Entity = value;
 					if ((value != null))
 					{
-						value.Towars.Add(this);
+						value.Towar.Add(this);
 						this._IdProducenta = value.IdProducenta;
 					}
 					else
@@ -2400,13 +2609,13 @@ namespace Cindalnet.SQLBot.Database
 			}
 		}
 		
-		private void attach_Transakcjes(Transakcje entity)
+		private void attach_Transakcje(Transakcje entity)
 		{
 			this.SendPropertyChanging();
 			entity.Towar = this;
 		}
 		
-		private void detach_Transakcjes(Transakcje entity)
+		private void detach_Transakcje(Transakcje entity)
 		{
 			this.SendPropertyChanging();
 			entity.Towar = null;
@@ -2557,12 +2766,12 @@ namespace Cindalnet.SQLBot.Database
 					if ((previousValue != null))
 					{
 						this._Faktury.Entity = null;
-						previousValue.Transakcjes.Remove(this);
+						previousValue.Transakcje.Remove(this);
 					}
 					this._Faktury.Entity = value;
 					if ((value != null))
 					{
-						value.Transakcjes.Add(this);
+						value.Transakcje.Add(this);
 						this._IdFaktury = value.IdFaktury;
 					}
 					else
@@ -2591,12 +2800,12 @@ namespace Cindalnet.SQLBot.Database
 					if ((previousValue != null))
 					{
 						this._Towar.Entity = null;
-						previousValue.Transakcjes.Remove(this);
+						previousValue.Transakcje.Remove(this);
 					}
 					this._Towar.Entity = value;
 					if ((value != null))
 					{
-						value.Transakcjes.Add(this);
+						value.Transakcje.Add(this);
 						this._IdTowaru = value.IdTowaru;
 					}
 					else
@@ -2639,7 +2848,7 @@ namespace Cindalnet.SQLBot.Database
 		
 		private string _Wojewodztwo;
 		
-		private EntitySet<Miasta> _Miastas;
+		private EntitySet<Miasta> _Miasta;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -2653,7 +2862,7 @@ namespace Cindalnet.SQLBot.Database
 		
 		public Wojewodztwa()
 		{
-			this._Miastas = new EntitySet<Miasta>(new Action<Miasta>(this.attach_Miastas), new Action<Miasta>(this.detach_Miastas));
+			this._Miasta = new EntitySet<Miasta>(new Action<Miasta>(this.attach_Miasta), new Action<Miasta>(this.detach_Miasta));
 			OnCreated();
 		}
 		
@@ -2697,16 +2906,16 @@ namespace Cindalnet.SQLBot.Database
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Wojewodztwa_Miasta", Storage="_Miastas", ThisKey="IdWojewodztwa", OtherKey="IdWojewodztwa")]
-		public EntitySet<Miasta> Miastas
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Wojewodztwa_Miasta", Storage="_Miasta", ThisKey="IdWojewodztwa", OtherKey="IdWojewodztwa")]
+		public EntitySet<Miasta> Miasta
 		{
 			get
 			{
-				return this._Miastas;
+				return this._Miasta;
 			}
 			set
 			{
-				this._Miastas.Assign(value);
+				this._Miasta.Assign(value);
 			}
 		}
 		
@@ -2730,13 +2939,13 @@ namespace Cindalnet.SQLBot.Database
 			}
 		}
 		
-		private void attach_Miastas(Miasta entity)
+		private void attach_Miasta(Miasta entity)
 		{
 			this.SendPropertyChanging();
 			entity.Wojewodztwa = this;
 		}
 		
-		private void detach_Miastas(Miasta entity)
+		private void detach_Miasta(Miasta entity)
 		{
 			this.SendPropertyChanging();
 			entity.Wojewodztwa = null;
@@ -2880,12 +3089,12 @@ namespace Cindalnet.SQLBot.Database
 					if ((previousValue != null))
 					{
 						this._Osoby.Entity = null;
-						previousValue.Zarobkis.Remove(this);
+						previousValue.Zarobki.Remove(this);
 					}
 					this._Osoby.Entity = value;
 					if ((value != null))
 					{
-						value.Zarobkis.Add(this);
+						value.Zarobki.Add(this);
 						this._IdOsoby = value.IdOsoby;
 					}
 					else

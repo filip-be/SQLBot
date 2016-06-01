@@ -17,12 +17,14 @@ namespace Cindalnet.SQLBot.Presenter
         private QueryParser QueryParser;
         private OverlayBackgroundWorker workerProcessMessage;
 
+        public event EventHandler ShowQueryResult;
+
         public PresenterChat()
         {
             MaterialForm = new CFormChat();
             View = (IFormChat)MaterialForm;
             FormControl = View.FormControl;
-            QueryParser = new Model.QueryParser();
+            QueryParser = new Database.QueryParser();
 
             View.PropertyChanged += view_PropertyChanged;
             View.ViewClosed += view_Closed;
@@ -42,6 +44,10 @@ namespace Cindalnet.SQLBot.Presenter
                 View.Response = (string)e.Result;
 
             View.Query = "";
+
+            if (QueryParser.QueryResult != null && ShowQueryResult != null)
+                ShowQueryResult(this, new ObjectEventArgs(QueryParser.QueryResult));
+
         }
 
         private void ProcessQuery(object sender, System.ComponentModel.DoWorkEventArgs e)

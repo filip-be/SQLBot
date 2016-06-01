@@ -31,6 +31,7 @@ namespace Cindalnet.SQLBot.Presenter
                 PresenterChat pChat = new PresenterChat();
                 pChat.MaterialSkinManager = MaterialSkinManager;
                 pChat.MaterialForm.Parent = View.FormControl;
+                pChat.ShowQueryResult += pChat_ShowQueryResult;
                 View.AddMaterialPanelTab(pChat.MaterialForm, false);
                 pChat.ViewClosed += OnTabClosed;
             }
@@ -38,18 +39,30 @@ namespace Cindalnet.SQLBot.Presenter
             {
                 Console.WriteLine(ex.Message);
             }
+        }
 
-            /*
+        void pChat_ShowQueryResult(object sender, EventArgs e)
+        {
             try
             {
-                PresenterManage pManage = new PresenterManage();
-                pManage.MaterialSkinManager = MaterialSkinManager;
-                pManage.MaterialForm.Parent = View.FormControl;
-                View.AddMaterialPanelTab(pManage.MaterialForm, true);
-                pManage.ViewClosed += OnTabClosed;
-            }catch(Exception)
-            { }
-            */
+                PresenterQueryResult pQueryResults;
+                if (e is ObjectEventArgs && e != null && (e as ObjectEventArgs).Obj is Model.SQLQueryResult)
+                {
+                    pQueryResults = new PresenterQueryResult((e as ObjectEventArgs).Obj as Model.SQLQueryResult);
+                }
+                else
+                {
+                    pQueryResults = new PresenterQueryResult();
+                }
+                pQueryResults.MaterialSkinManager = MaterialSkinManager;
+                pQueryResults.MaterialForm.Parent = View.FormControl;
+                View.AddMaterialPanelTab(pQueryResults.MaterialForm, false);
+                pQueryResults.ViewClosed += OnTabClosed;
+            }
+            catch(Exception)
+            {
+
+            }
         }
 
         public void view_Closed(object sender, EventArgs e)

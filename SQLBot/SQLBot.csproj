@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{89BCFA8A-D9A4-4EAB-97E3-84D3CFB8E54E}</ProjectGuid>
+    <ProjectGuid>{607C538F-2BCE-457C-A7C5-12F03998AB68}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Cindalnet.SQLBot</RootNamespace>
@@ -24,6 +24,9 @@
     <WarningLevel>4</WarningLevel>
     <Prefer32Bit>false</Prefer32Bit>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DocumentationFile>
+    </DocumentationFile>
+    <GenerateSerializationAssemblies>Auto</GenerateSerializationAssemblies>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>x86</PlatformTarget>
@@ -50,20 +53,28 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Database\BazaRelacyjna.cs">
+      <DependentUpon>BazaRelacyjna.dbml</DependentUpon>
+    </Compile>
     <Compile Include="Database\BazaRelacyjna.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>BazaRelacyjna.dbml</DependentUpon>
     </Compile>
-    <Compile Include="Model\MorfeuszDllWrapper.cs" />
-    <Compile Include="Model\QueryParser.cs" />
+    <Compile Include="Database\MorfeuszDllWrapper.cs" />
+    <Compile Include="Database\QueryParser.cs" />
+    <Compile Include="Model\SQLQueryField.cs" />
+    <Compile Include="Model\SQLQueryFieldInfo.cs" />
+    <Compile Include="Model\SQLQueryResult.cs" />
     <Compile Include="Presenter\IPresenter.cs" />
+    <Compile Include="Presenter\ObjectEventArgs.cs" />
     <Compile Include="Presenter\OverlayBackgroundWorker.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Presenter\PresenterChat.cs" />
     <Compile Include="Presenter\PresenterForm.cs" />
     <Compile Include="Presenter\PresenterMain.cs" />
+    <Compile Include="Presenter\PresenterQueryResult.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -163,9 +174,10 @@
     <EmbeddedResource Include="View\MaterialPanel.resx">
       <DependentUpon>MaterialPanel.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="aiml\Default.aiml">
+    <Content Include="aiml\Default.aiml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+      <SubType>Designer</SubType>
+    </Content>
     <None Include="app.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -183,16 +195,12 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\AIMLbot\AIMLbot.csproj">
-      <Project>{9c87d82c-0e27-4995-a2cb-72bcb84ef2e2}</Project>
+      <Project>{d77ff739-982f-4d64-b691-1d38bf852b48}</Project>
       <Name>AIMLbot</Name>
     </ProjectReference>
     <ProjectReference Include="..\MaterialSkin\MaterialSkin.csproj">
       <Project>{8eb7611b-68cd-4b8b-987a-11717e2b250c}</Project>
       <Name>MaterialSkin</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MorfeuszWrapper\MorfeuszWrapper.vcxproj">
-      <Project>{5d60ae4a-7d86-416b-853d-e3a46cbc5cbc}</Project>
-      <Name>MorfeuszWrapper</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
@@ -217,6 +225,7 @@
     </Content>
     <Content Include="config\Settings.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </Content>
     <Content Include="config\Splitters.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -224,11 +233,12 @@
     <Content Include="config\Substitutions.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="jmorfeusz.dll" />
     <Content Include="libwinpthread-1.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="morfeusz2.dll" />
+    <Content Include="morfeusz2.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="xml\0001.xml" />
     <Content Include="xml\0002.xml" />
     <Content Include="xml\0003.xml" />

@@ -37,8 +37,8 @@ namespace Cindalnet.SQLBot.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=FILIPBE\\CINDALNET2;Initial Catalog=BazaRelacyjna;User ID=sa;Password=" +
-            "sql")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=FILIPBE\\CINDALNET;Initial Catalog=BazaRelacyjna;User ID=sa;Password=s" +
+            "ql")]
         public string BazaRelacyjnaConnectionString {
             get {
                 return ((string)(this["BazaRelacyjnaConnectionString"]));

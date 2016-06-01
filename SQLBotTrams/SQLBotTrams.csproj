@@ -204,16 +204,12 @@
   <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\AIMLbot\AIMLbot.csproj">
-      <Project>{9c87d82c-0e27-4995-a2cb-72bcb84ef2e2}</Project>
+      <Project>{d77ff739-982f-4d64-b691-1d38bf852b48}</Project>
       <Name>AIMLbot</Name>
     </ProjectReference>
     <ProjectReference Include="..\MaterialSkin\MaterialSkin.csproj">
       <Project>{8eb7611b-68cd-4b8b-987a-11717e2b250c}</Project>
       <Name>MaterialSkin</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MorfeuszWrapper\MorfeuszWrapper.vcxproj">
-      <Project>{5d60ae4a-7d86-416b-853d-e3a46cbc5cbc}</Project>
-      <Name>MorfeuszWrapper</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

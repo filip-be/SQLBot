@@ -7,17 +7,11 @@
 <!-- Complies with AIML 1.01 Tag Set Specification -->
 <!-- as adopted by the ALICE A.I. Foundation.  -->
 <!-- Annotated Version updated September 2003 -->
-  
-<!--
 
--->
-  
   <category>
     <pattern>*</pattern>
     <template>
       <random>
-        <li>Co masz na myœli?</li>
-        <li>Czy mo¿esz to wyjaœniæ innymi s³owami?</li>
         <li>Przepraszam, nie rozumiem, czy wyœwietliæ jakieœ dane?</li>
         <li>S³ucham? Mo¿e chcesz zobaczyæ jakieœ dane?</li>
       </random>
@@ -70,6 +64,33 @@
         Co chcesz wyœwietliæ?
       </template>
     </category>
+	
+	<category>
+      <pattern>tak *</pattern>
+      <template>
+        <srai>tak</srai>
+      </template>
+    </category>
+	
+	<category>
+      <pattern>tak wyœwietl *</pattern>
+      <template>
+		<think>
+          <set name="topic">DISPLAY</set>
+        </think>
+        <srai>Wyœwietl <star/></srai>
+      </template>
+    </category>
+	
+	<category>
+      <pattern>tak poka¿ *</pattern>
+      <template>
+		<think>
+          <set name="topic">DISPLAY</set>
+        </think>
+        <srai>Wyœwietl <star/></srai>
+      </template>
+    </category>
   </topic>
 
   <category>
@@ -93,8 +114,7 @@
       </think>
       <srai>Wyœwietl <star/></srai>
     </template>
-  
-</category>
+  </category>
 
   <topic name="DISPLAY">
     <category>
@@ -114,6 +134,34 @@
       </template>
     </category>
   </topic>
+
+
+  <category>
+    <pattern>QUERYDONE| * | *</pattern>
+    <template>
+      <think>
+        <set name="Result">
+          <star index="2"/>
+        </set>
+        <set name="SQLQuery">
+          <star index="1"/>
+        </set>
+      </think>
+      <srai>SHOW|RESULT</srai> <get name="SQLQuery"/>
+    </template>
+  </category>
+
+  <category>
+    <pattern>SHOW|RESULT</pattern>
+    <template>
+      <condition name="Result" value="OK">
+        Zapytanie zosta³o wykonane poprawnie
+      </condition>
+      <condition name="Result" value="ERROR">
+        Nie uda³o siê wykonaæ zapytania
+      </condition>
+    </template>
+  </category>
 
   <category>
     <pattern>ECHO *</pattern>
