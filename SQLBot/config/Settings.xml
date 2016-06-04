@@ -11,5 +11,5 @@
   <item name="substitutionsfile" value="Substitutions.xml"/>
   <item name="maxlogbuffersize" value="64"/>
   <item name="notacceptinguserinputmessage" value="W tej chwili nie ma możliwości odpytania serwera."/>
-  <item name="stripperregex" value="[^0-9a-zA-ZżźćńółęąśŻŹĆĄŚĘŁÓŃ$|]"/>
+  <item name="stripperregex" value="[^0-9a-zA-ZżźćńółęąśŻŹĆĄŚĘŁÓŃ$|*]"/>
 </root>

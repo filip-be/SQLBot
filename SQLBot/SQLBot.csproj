@@ -149,6 +149,9 @@
     <None Include="aiml\AIMLBot_Stack.aiml" />
     <None Include="aiml\AIMLBot_Stories.aiml" />
     <None Include="aiml\AIMLBot_That.aiml" />
+    <None Include="aiml\Learn.aiml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="Database\BazaRelacyjna.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
       <LastGenOutput>BazaRelacyjna.designer.cs</LastGenOutput>

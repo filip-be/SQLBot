@@ -180,7 +180,8 @@ namespace AIMLbot.Utils
                         switch (matchstate)
                         {
                             case MatchState.UserInput:
-                                query.InputStar.Add(newWildcard.ToString());
+                                //query.InputStar.Add(newWildcard.ToString());
+                                query.InputStar.Insert(0, newWildcard.ToString());
                                 // added due to this match being the end of the line
                                 newWildcard.Remove(0, newWildcard.Length);
                                 break;
@@ -269,7 +270,8 @@ namespace AIMLbot.Utils
                         switch (matchstate)
                         {
                             case MatchState.UserInput:
-                                query.InputStar.Add(newWildcard.ToString());
+                                query.InputStar.Insert(0, newWildcard.ToString());
+                                //query.InputStar.Add(newWildcard.ToString());
                                 // added due to this match being the end of the line
                                 newWildcard.Remove(0, newWildcard.Length);
                                 break;

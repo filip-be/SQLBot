@@ -65,27 +65,17 @@
       </template>
     </category>
 	
-	<category>
+    <category>
       <pattern>tak *</pattern>
       <template>
         <srai>tak</srai>
       </template>
     </category>
 	
-	<category>
+    <category>
       <pattern>tak wyœwietl *</pattern>
       <template>
-		<think>
-          <set name="topic">DISPLAY</set>
-        </think>
-        <srai>Wyœwietl <star/></srai>
-      </template>
-    </category>
-	
-	<category>
-      <pattern>tak poka¿ *</pattern>
-      <template>
-		<think>
+    <think>
           <set name="topic">DISPLAY</set>
         </think>
         <srai>Wyœwietl <star/></srai>
@@ -104,16 +94,6 @@
       </srai>
     </template>
 
-  </category>
-
-  <category>
-    <pattern>Poka¿ *</pattern>
-    <template>
-      <think>
-        <set name="topic">DISPLAY</set>
-      </think>
-      <srai>Wyœwietl <star/></srai>
-    </template>
   </category>
 
   <topic name="DISPLAY">
@@ -135,7 +115,6 @@
     </category>
   </topic>
 
-
   <category>
     <pattern>QUERYDONE| * | *</pattern>
     <template>
@@ -147,13 +126,22 @@
           <star index="1"/>
         </set>
       </think>
-      <srai>SHOW|RESULT</srai> <get name="SQLQuery"/>
+      <srai>SHOW|RESULT</srai>: <get name="SQLQuery"/>
     </template>
   </category>
 
   <category>
     <pattern>SHOW|RESULT</pattern>
     <template>
+      <!-- <if name="Result" value="OK">                       -->
+      <!--  Zapytanie zosta³o wykonane poprawnie               -->
+      <!--  <else/>                                            -->
+      <!--  <if name="Result" value="ERROR">                   -->
+      <!--    Nie uda³o siê wykonaæ zapytania                  -->
+      <!--    <else/>                                          -->
+      <!--    Wyst¹pi³ b³¹d! Nieprawid³owa sk³adnia polecenia! -->
+      <!--  </if>                                              -->
+      <!--</if>                                                -->
       <condition name="Result" value="OK">
         Zapytanie zosta³o wykonane poprawnie
       </condition>
@@ -161,12 +149,5 @@
         Nie uda³o siê wykonaæ zapytania
       </condition>
     </template>
-  </category>
-
-  <category>
-    <pattern>ECHO *</pattern>
-    <template>
-      <star/>
-    </template>
-  </category>
+  </category>  
 </aiml>
