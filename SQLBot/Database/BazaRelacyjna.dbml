@@ -108,6 +108,8 @@
       <Column Name="sqlt_Name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="sqlt_Description" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
       <Association Name="SQLBot_Table_SQLBot_Field" Member="SQLBot_Field" ThisKey="sqlt_ID" OtherKey="sqlf_Table" Type="SQLBot_Field" />
+      <Association Name="SQLBot_Table_SQLBot_TableJoin" Member="SQLBot_TableJoin" ThisKey="sqlt_ID" OtherKey="sqltj_Table1" Type="SQLBot_TableJoin" />
+      <Association Name="SQLBot_Table_SQLBot_TableJoin1" Member="SQLBot_TableJoin1" ThisKey="sqlt_ID" OtherKey="sqltj_Table2" Type="SQLBot_TableJoin" />
     </Type>
   </Table>
   <Table Name="dbo.Towar" Member="Towar">
@@ -147,6 +149,25 @@
       <Column Name="Brutto" Type="System.Decimal" DbType="Money" CanBeNull="true" />
       <Column Name="DataWyplaty" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Association Name="Osoby_Zarobki" Member="Osoby" ThisKey="IdOsoby" OtherKey="IdOsoby" Type="Osoby" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SQLBot_TableJoin" Member="SQLBot_TableJoin">
+    <Type Name="SQLBot_TableJoin">
+      <Column Name="sqltj_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="sqltj_Table1" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="sqltj_Table2" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="sqltj_Join" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Association Name="SQLBot_Table_SQLBot_TableJoin" Member="SQLBot_Table" ThisKey="sqltj_Table1" OtherKey="sqlt_ID" Type="SQLBot_Table" IsForeignKey="true" />
+      <Association Name="SQLBot_Table_SQLBot_TableJoin1" Member="SQLBot_Table1" ThisKey="sqltj_Table2" OtherKey="sqlt_ID" Type="SQLBot_Table" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vSQLBotTableJoins" Member="vSQLBotTableJoins">
+    <Type Name="vSQLBotTableJoins">
+      <Column Name="Table1NameSQL" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Table1Name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Table2NameSQL" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Table2Name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="TableJoin" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
 </Database>

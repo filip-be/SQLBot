@@ -100,5 +100,22 @@ namespace Cindalnet.SQLBot.View
             if (ViewClosed != null)
                 ViewClosed(this, e);
         }
+
+        public event EventHandler KeyUpPressed;
+        public event EventHandler KeyDownPressed;
+
+        private void textQuestion_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Up)
+            {
+                if (KeyUpPressed != null)
+                    KeyUpPressed(this, e);
+            }
+            else if (e.KeyCode == Keys.Down)
+            {
+                if (KeyDownPressed != null)
+                    KeyDownPressed(this, e);
+            }
+        }
     }
 }

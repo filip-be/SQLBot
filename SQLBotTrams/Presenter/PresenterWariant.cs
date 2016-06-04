@@ -12,12 +12,12 @@ namespace Cindalnet.SQLBot.Presenter
     {
         public event EventHandler ViewClosed;
         public event EventHandler DisplayPrzystanek;
-        private Database.Linie Linia { get; set; }
-        public Database.WariantTrasy Wariant
+        private Query.Linie Linia { get; set; }
+        public Query.WariantTrasy Wariant
         {
             get
             {
-                return View.Selected as Database.WariantTrasy;
+                return View.Selected as Query.WariantTrasy;
             }
         }
         public string FormText
@@ -30,7 +30,7 @@ namespace Cindalnet.SQLBot.Presenter
         private IFormListView View;
         private OverlayBackgroundWorker workerRefreshGrid;
 
-        public PresenterWariant(Database.Linie linia)
+        public PresenterWariant(Query.Linie linia)
         {
             this.Linia = linia;
 
@@ -66,7 +66,7 @@ namespace Cindalnet.SQLBot.Presenter
         {
             try
             {
-                Database.TramwajeDataContext dc = new Database.TramwajeDataContext();
+                Query.TramwajeDataContext dc = new Query.TramwajeDataContext();
                 IList<ListViewItem> listItems = new List<ListViewItem>();
                 foreach (var wariant in dc.WariantTrasies.Where(wariant => wariant.Linie == Linia))
                 {

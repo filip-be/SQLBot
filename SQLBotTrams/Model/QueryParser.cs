@@ -1,5 +1,5 @@
 ﻿using AIMLbot;
-using Cindalnet.SQLBot.Database;
+using Cindalnet.SQLBot.Query;
 using System;
 using System.Collections.Generic;
 using System.Linq;

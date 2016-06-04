@@ -104,6 +104,7 @@
             this.textQuestion.TabIndex = 1;
             this.textQuestion.TabStop = false;
             this.textQuestion.UseSystemPasswordChar = false;
+            this.textQuestion.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textQuestion_KeyDown);
             // 
             // listAnswers
             // 

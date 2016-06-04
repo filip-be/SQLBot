@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="windows-1250"?>
+<aiml>
+  <!-- Free software &copy; 2001-2003 ALICE A.I. Foundation. -->
+  <!-- This program is open source code released under -->
+  <!-- the terms of the GNU General Public License     -->
+  <!-- as published by the Free Software Foundation.   -->
+  <!-- Complies with AIML 1.01 Tag Set Specification -->
+  <!-- as adopted by the ALICE A.I. Foundation.  -->
+  <!-- Annotated Version updated September 2003 -->
+
+  <category>
+    <pattern>POMOC</pattern>
+    <template>
+      SQLBot 2016 - Filip Bieleszuk
+      Aplikacja służąca do wyświetlania danych znajdujących się w relacyjnych bazach danych.
+      
+      Aby wyświetlić dane dotyczące tabel, pól, itd. należy wywołać polecenie:
+      - POMOC TABELE -> tabele obsługiwane przez system zapytań
+      - POMOC POLA -> poszczególne pola w tabelach
+      - POMOC TYPY PÓL - > poszczególne typy pól
+      - POMOC ZłĄCZENIA -> złączenia tabel
+    </template>
+  </category>
+
+  <category>
+    <pattern>POMOC *</pattern>
+    <template>
+      <think>
+        <set name="topic">pomoc</set>
+      </think>
+      <srai>pomoc <star/></srai>
+    </template>
+  </category>
+  <topic name="pomoc">
+    <category>
+      <pattern>POMOC TABELE</pattern>
+      <template>SQL_QUERY|SELECT * FROM SQLBot_Table</template>
+    </category>
+
+    <category>
+      <pattern>POMOC POLA</pattern>
+      <template>SQL_QUERY|SELECT * FROM vSQLBotFields</template>
+    </category>
+
+    <category>
+      <pattern>POMOC TYPY PÓL</pattern>
+      <template>SQL_QUERY|SELECT * FROM SQLBot_FieldType</template>
+    </category>
+
+    <category>
+      <pattern>POMOC ZłĄCZENIA</pattern>
+      <template>SQL_QUERY|SELECT * FROM vSQLBotTableJoins</template>
+    </category>
+  </topic>
+  
+</aiml>

@@ -14,6 +14,7 @@
       <random>
         <li>Przepraszam, nie rozumiem, czy wyœwietliæ jakieœ dane?</li>
         <li>S³ucham? Mo¿e chcesz zobaczyæ jakieœ dane?</li>
+        <li>Czy chcesz wyœwietliæ POMOC?</li>
       </random>
       <think>
         <set name="topic">dane|tak|nie</set>"
@@ -57,6 +58,17 @@
     <!-- TAK -->
     <category>
       <pattern>tak</pattern>
+      <that>Czy chcesz wyœwietliæ POMOC</that>
+      <template>
+        <think>
+          <set name="topic">HELP</set>
+        </think>
+        <srai>POMOC</srai>
+      </template>
+    </category>
+    
+    <category>
+      <pattern>tak</pattern>
       <template>
         <think>
           <set name="topic">DISPLAY</set>
@@ -75,7 +87,7 @@
     <category>
       <pattern>tak wyœwietl *</pattern>
       <template>
-    <think>
+        <think>
           <set name="topic">DISPLAY</set>
         </think>
         <srai>Wyœwietl <star/></srai>
@@ -120,34 +132,24 @@
     <template>
       <think>
         <set name="Result">
-          <star index="2"/>
+          <star index="1"/>
         </set>
         <set name="SQLQuery">
-          <star index="1"/>
+          <star index="2"/>
         </set>
       </think>
       <srai>SHOW|RESULT</srai>: <get name="SQLQuery"/>
     </template>
   </category>
-
+  
   <category>
     <pattern>SHOW|RESULT</pattern>
     <template>
-      <!-- <if name="Result" value="OK">                       -->
-      <!--  Zapytanie zosta³o wykonane poprawnie               -->
-      <!--  <else/>                                            -->
-      <!--  <if name="Result" value="ERROR">                   -->
-      <!--    Nie uda³o siê wykonaæ zapytania                  -->
-      <!--    <else/>                                          -->
-      <!--    Wyst¹pi³ b³¹d! Nieprawid³owa sk³adnia polecenia! -->
-      <!--  </if>                                              -->
-      <!--</if>                                                -->
-      <condition name="Result" value="OK">
-        Zapytanie zosta³o wykonane poprawnie
-      </condition>
-      <condition name="Result" value="ERROR">
-        Nie uda³o siê wykonaæ zapytania
+      <condition>
+        <li name="Result" value="OK">Zapytanie zosta³o wykonane poprawnie</li>
+        <li name="Result" value="ERROR">Nie uda³o siê wykonaæ zapytania</li>
+        <li>Wyst¹pi³ b³¹d! Nieprawid³owa sk³adnia polecenia</li>
       </condition>
     </template>
-  </category>  
+  </category>
 </aiml>

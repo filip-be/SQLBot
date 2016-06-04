@@ -12,10 +12,21 @@ namespace Cindalnet.SQLBot.View
         /// Zapytanie użytkownika
         /// </summary>
         string Query { get; set; }
+
         /// <summary>
         /// Odpowiedź systemu
         /// </summary>
         string Response { set; }
+
+        /// <summary>
+        /// Wyświetlenie poprzedniej odpowiedzi
+        /// </summary>
+        event EventHandler KeyUpPressed;
+
+        /// <summary>
+        /// Wyswietlenie następnej odpowiedzi
+        /// </summary>
+        event EventHandler KeyDownPressed;
 
         /// <summary>
         /// Żądanie odpowiedzi przez użytkownika

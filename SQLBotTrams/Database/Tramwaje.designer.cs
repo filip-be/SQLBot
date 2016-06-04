@@ -9,7 +9,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Cindalnet.SQLBot.Database
+namespace Cindalnet.SQLBot.Query
 {
 	using System.Data.Linq;
 	using System.Data.Linq.Mapping;

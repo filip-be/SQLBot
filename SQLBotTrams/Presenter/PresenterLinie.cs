@@ -12,11 +12,11 @@ namespace Cindalnet.SQLBot.Presenter
     {
         public event EventHandler ViewClosed;
         public event EventHandler DisplayWariant;
-        public Database.Linie Linia
+        public Query.Linie Linia
         {
             get
             {
-                return View.Selected as Database.Linie;
+                return View.Selected as Query.Linie;
             }
         }
 
@@ -65,7 +65,7 @@ namespace Cindalnet.SQLBot.Presenter
         {
             try
             {
-                Database.TramwajeDataContext dc = new Database.TramwajeDataContext();
+                Query.TramwajeDataContext dc = new Query.TramwajeDataContext();
                 IList<ListViewItem> listItems = new List<ListViewItem>();
                 foreach (var linia in dc.Linies)
                 {

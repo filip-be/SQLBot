@@ -1,4 +1,4 @@
-﻿using Cindalnet.SQLBot.Database;
+﻿using Cindalnet.SQLBot.Query;
 using Cindalnet.SQLBot.Model;
 using Cindalnet.SQLBot.View;
 using MaterialSkin;
@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Media;
 
 namespace Cindalnet.SQLBot.Presenter
 {
@@ -19,16 +20,24 @@ namespace Cindalnet.SQLBot.Presenter
 
         public event EventHandler ShowQueryResult;
 
+        private List<string> responseHistory { get; set; }
+        private int responseHistoryIndex { get; set; }
+
         public PresenterChat()
         {
             MaterialForm = new CFormChat();
             View = (IFormChat)MaterialForm;
             FormControl = View.FormControl;
-            QueryParser = new Database.QueryParser();
+            QueryParser = new Query.QueryParser();
+            responseHistory = new List<string>();
+            responseHistory.Add("");
+            responseHistoryIndex = 0;
 
             View.PropertyChanged += view_PropertyChanged;
             View.ViewClosed += view_Closed;
             View.ProcessMessage += View_ProcessMessage;
+            View.KeyUpPressed += View_KeyUpPressed;
+            View.KeyDownPressed += View_KeyDownPressed;
 
             workerProcessMessage = new OverlayBackgroundWorker();
             workerProcessMessage.DisplayControl = View.FormControl;
@@ -36,12 +45,42 @@ namespace Cindalnet.SQLBot.Presenter
             workerProcessMessage.RunWorkerCompleted += DisplayQuery;
         }
 
+        void View_KeyDownPressed(object sender, EventArgs e)
+        {
+            if (responseHistoryIndex >= responseHistory.Count - 1)
+            {
+                SystemSounds.Beep.Play();
+            }
+            else
+            {   
+                View.Query = responseHistory[++responseHistoryIndex];
+            }
+        }
+
+        void View_KeyUpPressed(object sender, EventArgs e)
+        {
+            if(responseHistoryIndex <= 0)
+            {
+                SystemSounds.Beep.Play();
+            }
+            else
+            {
+                View.Query = responseHistory[--responseHistoryIndex];
+            }
+        }
+
         private void DisplayQuery(object sender, System.ComponentModel.RunWorkerCompletedEventArgs e)
         {
             View.Response = View.Query;
 
-            if(e.Result != null && e.Result is string)
-                View.Response = (string)e.Result;
+            if (e.Result != null && e.Result is string)
+            {
+                // Handle multiline response!
+                foreach (var line in (e.Result as string).Split(new string[] { "\r\n", "\n" }, StringSplitOptions.None))
+                {
+                    View.Response = line;
+                }
+            }
 
             View.Query = "";
 
@@ -63,6 +102,8 @@ namespace Cindalnet.SQLBot.Presenter
 
         void View_ProcessMessage(object sender, EventArgs e)
         {
+            responseHistory.Insert(responseHistory.Count - 1, View.Query);
+            responseHistoryIndex = responseHistory.Count - 1;
             workerProcessMessage.RunWorkerAsync();
         }
 

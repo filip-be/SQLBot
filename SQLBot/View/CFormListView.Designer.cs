@@ -62,7 +62,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.listView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.listView.Depth = 0;
-            this.listView.FitToWidth = true;
+            this.listView.FitToWidth = false;
             this.listView.Font = new System.Drawing.Font("Roboto", 8.25F);
             this.listView.FullRowSelect = true;
             this.listView.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;

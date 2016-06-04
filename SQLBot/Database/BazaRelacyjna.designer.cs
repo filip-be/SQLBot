@@ -72,6 +72,9 @@ namespace Cindalnet.SQLBot.Database
     partial void InsertZarobki(Zarobki instance);
     partial void UpdateZarobki(Zarobki instance);
     partial void DeleteZarobki(Zarobki instance);
+    partial void InsertSQLBot_TableJoin(SQLBot_TableJoin instance);
+    partial void UpdateSQLBot_TableJoin(SQLBot_TableJoin instance);
+    partial void DeleteSQLBot_TableJoin(SQLBot_TableJoin instance);
     #endregion
 		
 		public BazaRelacyjnaDataContext() : 
@@ -221,6 +224,22 @@ namespace Cindalnet.SQLBot.Database
 			get
 			{
 				return this.GetTable<Zarobki>();
+			}
+		}
+		
+		public System.Data.Linq.Table<SQLBot_TableJoin> SQLBot_TableJoin
+		{
+			get
+			{
+				return this.GetTable<SQLBot_TableJoin>();
+			}
+		}
+		
+		public System.Data.Linq.Table<vSQLBotTableJoins> vSQLBotTableJoins
+		{
+			get
+			{
+				return this.GetTable<vSQLBotTableJoins>();
 			}
 		}
 	}
@@ -2184,6 +2203,10 @@ namespace Cindalnet.SQLBot.Database
 		
 		private EntitySet<SQLBot_Field> _SQLBot_Field;
 		
+		private EntitySet<SQLBot_TableJoin> _SQLBot_TableJoin;
+		
+		private EntitySet<SQLBot_TableJoin> _SQLBot_TableJoin1;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -2201,6 +2224,8 @@ namespace Cindalnet.SQLBot.Database
 		public SQLBot_Table()
 		{
 			this._SQLBot_Field = new EntitySet<SQLBot_Field>(new Action<SQLBot_Field>(this.attach_SQLBot_Field), new Action<SQLBot_Field>(this.detach_SQLBot_Field));
+			this._SQLBot_TableJoin = new EntitySet<SQLBot_TableJoin>(new Action<SQLBot_TableJoin>(this.attach_SQLBot_TableJoin), new Action<SQLBot_TableJoin>(this.detach_SQLBot_TableJoin));
+			this._SQLBot_TableJoin1 = new EntitySet<SQLBot_TableJoin>(new Action<SQLBot_TableJoin>(this.attach_SQLBot_TableJoin1), new Action<SQLBot_TableJoin>(this.detach_SQLBot_TableJoin1));
 			OnCreated();
 		}
 		
@@ -2297,6 +2322,32 @@ namespace Cindalnet.SQLBot.Database
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="SQLBot_Table_SQLBot_TableJoin", Storage="_SQLBot_TableJoin", ThisKey="sqlt_ID", OtherKey="sqltj_Table1")]
+		public EntitySet<SQLBot_TableJoin> SQLBot_TableJoin
+		{
+			get
+			{
+				return this._SQLBot_TableJoin;
+			}
+			set
+			{
+				this._SQLBot_TableJoin.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="SQLBot_Table_SQLBot_TableJoin1", Storage="_SQLBot_TableJoin1", ThisKey="sqlt_ID", OtherKey="sqltj_Table2")]
+		public EntitySet<SQLBot_TableJoin> SQLBot_TableJoin1
+		{
+			get
+			{
+				return this._SQLBot_TableJoin1;
+			}
+			set
+			{
+				this._SQLBot_TableJoin1.Assign(value);
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -2327,6 +2378,30 @@ namespace Cindalnet.SQLBot.Database
 		{
 			this.SendPropertyChanging();
 			entity.SQLBot_Table = null;
+		}
+		
+		private void attach_SQLBot_TableJoin(SQLBot_TableJoin entity)
+		{
+			this.SendPropertyChanging();
+			entity.SQLBot_Table = this;
+		}
+		
+		private void detach_SQLBot_TableJoin(SQLBot_TableJoin entity)
+		{
+			this.SendPropertyChanging();
+			entity.SQLBot_Table = null;
+		}
+		
+		private void attach_SQLBot_TableJoin1(SQLBot_TableJoin entity)
+		{
+			this.SendPropertyChanging();
+			entity.SQLBot_Table1 = this;
+		}
+		
+		private void detach_SQLBot_TableJoin1(SQLBot_TableJoin entity)
+		{
+			this.SendPropertyChanging();
+			entity.SQLBot_Table1 = null;
 		}
 	}
 	
@@ -3123,6 +3198,321 @@ namespace Cindalnet.SQLBot.Database
 			if ((this.PropertyChanged != null))
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.SQLBot_TableJoin")]
+	public partial class SQLBot_TableJoin : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _sqltj_ID;
+		
+		private int _sqltj_Table1;
+		
+		private int _sqltj_Table2;
+		
+		private string _sqltj_Join;
+		
+		private EntityRef<SQLBot_Table> _SQLBot_Table;
+		
+		private EntityRef<SQLBot_Table> _SQLBot_Table1;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void Onsqltj_IDChanging(int value);
+    partial void Onsqltj_IDChanged();
+    partial void Onsqltj_Table1Changing(int value);
+    partial void Onsqltj_Table1Changed();
+    partial void Onsqltj_Table2Changing(int value);
+    partial void Onsqltj_Table2Changed();
+    partial void Onsqltj_JoinChanging(string value);
+    partial void Onsqltj_JoinChanged();
+    #endregion
+		
+		public SQLBot_TableJoin()
+		{
+			this._SQLBot_Table = default(EntityRef<SQLBot_Table>);
+			this._SQLBot_Table1 = default(EntityRef<SQLBot_Table>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sqltj_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int sqltj_ID
+		{
+			get
+			{
+				return this._sqltj_ID;
+			}
+			set
+			{
+				if ((this._sqltj_ID != value))
+				{
+					this.Onsqltj_IDChanging(value);
+					this.SendPropertyChanging();
+					this._sqltj_ID = value;
+					this.SendPropertyChanged("sqltj_ID");
+					this.Onsqltj_IDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sqltj_Table1", DbType="Int NOT NULL")]
+		public int sqltj_Table1
+		{
+			get
+			{
+				return this._sqltj_Table1;
+			}
+			set
+			{
+				if ((this._sqltj_Table1 != value))
+				{
+					if (this._SQLBot_Table.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.Onsqltj_Table1Changing(value);
+					this.SendPropertyChanging();
+					this._sqltj_Table1 = value;
+					this.SendPropertyChanged("sqltj_Table1");
+					this.Onsqltj_Table1Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sqltj_Table2", DbType="Int NOT NULL")]
+		public int sqltj_Table2
+		{
+			get
+			{
+				return this._sqltj_Table2;
+			}
+			set
+			{
+				if ((this._sqltj_Table2 != value))
+				{
+					if (this._SQLBot_Table1.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.Onsqltj_Table2Changing(value);
+					this.SendPropertyChanging();
+					this._sqltj_Table2 = value;
+					this.SendPropertyChanged("sqltj_Table2");
+					this.Onsqltj_Table2Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sqltj_Join", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
+		public string sqltj_Join
+		{
+			get
+			{
+				return this._sqltj_Join;
+			}
+			set
+			{
+				if ((this._sqltj_Join != value))
+				{
+					this.Onsqltj_JoinChanging(value);
+					this.SendPropertyChanging();
+					this._sqltj_Join = value;
+					this.SendPropertyChanged("sqltj_Join");
+					this.Onsqltj_JoinChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="SQLBot_Table_SQLBot_TableJoin", Storage="_SQLBot_Table", ThisKey="sqltj_Table1", OtherKey="sqlt_ID", IsForeignKey=true)]
+		public SQLBot_Table SQLBot_Table
+		{
+			get
+			{
+				return this._SQLBot_Table.Entity;
+			}
+			set
+			{
+				SQLBot_Table previousValue = this._SQLBot_Table.Entity;
+				if (((previousValue != value) 
+							|| (this._SQLBot_Table.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._SQLBot_Table.Entity = null;
+						previousValue.SQLBot_TableJoin.Remove(this);
+					}
+					this._SQLBot_Table.Entity = value;
+					if ((value != null))
+					{
+						value.SQLBot_TableJoin.Add(this);
+						this._sqltj_Table1 = value.sqlt_ID;
+					}
+					else
+					{
+						this._sqltj_Table1 = default(int);
+					}
+					this.SendPropertyChanged("SQLBot_Table");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="SQLBot_Table_SQLBot_TableJoin1", Storage="_SQLBot_Table1", ThisKey="sqltj_Table2", OtherKey="sqlt_ID", IsForeignKey=true)]
+		public SQLBot_Table SQLBot_Table1
+		{
+			get
+			{
+				return this._SQLBot_Table1.Entity;
+			}
+			set
+			{
+				SQLBot_Table previousValue = this._SQLBot_Table1.Entity;
+				if (((previousValue != value) 
+							|| (this._SQLBot_Table1.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._SQLBot_Table1.Entity = null;
+						previousValue.SQLBot_TableJoin1.Remove(this);
+					}
+					this._SQLBot_Table1.Entity = value;
+					if ((value != null))
+					{
+						value.SQLBot_TableJoin1.Add(this);
+						this._sqltj_Table2 = value.sqlt_ID;
+					}
+					else
+					{
+						this._sqltj_Table2 = default(int);
+					}
+					this.SendPropertyChanged("SQLBot_Table1");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.vSQLBotTableJoins")]
+	public partial class vSQLBotTableJoins
+	{
+		
+		private string _Table1NameSQL;
+		
+		private string _Table1Name;
+		
+		private string _Table2NameSQL;
+		
+		private string _Table2Name;
+		
+		private string _TableJoin;
+		
+		public vSQLBotTableJoins()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Table1NameSQL", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string Table1NameSQL
+		{
+			get
+			{
+				return this._Table1NameSQL;
+			}
+			set
+			{
+				if ((this._Table1NameSQL != value))
+				{
+					this._Table1NameSQL = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Table1Name", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string Table1Name
+		{
+			get
+			{
+				return this._Table1Name;
+			}
+			set
+			{
+				if ((this._Table1Name != value))
+				{
+					this._Table1Name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Table2NameSQL", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string Table2NameSQL
+		{
+			get
+			{
+				return this._Table2NameSQL;
+			}
+			set
+			{
+				if ((this._Table2NameSQL != value))
+				{
+					this._Table2NameSQL = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Table2Name", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string Table2Name
+		{
+			get
+			{
+				return this._Table2Name;
+			}
+			set
+			{
+				if ((this._Table2Name != value))
+				{
+					this._Table2Name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TableJoin", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
+		public string TableJoin
+		{
+			get
+			{
+				return this._TableJoin;
+			}
+			set
+			{
+				if ((this._TableJoin != value))
+				{
+					this._TableJoin = value;
+				}
 			}
 		}
 	}

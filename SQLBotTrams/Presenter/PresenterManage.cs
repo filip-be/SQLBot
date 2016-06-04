@@ -1,5 +1,5 @@
 ﻿using Cindalnet.SQLBot.View;
-using Cindalnet.SQLBot.Database;
+using Cindalnet.SQLBot.Query;
 using MaterialSkin;
 using System;
 using System.Collections.Generic;

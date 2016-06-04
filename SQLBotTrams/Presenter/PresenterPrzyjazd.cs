@@ -11,7 +11,7 @@ namespace Cindalnet.SQLBot.Presenter
     public class PresenterPrzyjazd : PresenterForm
     {
         public event EventHandler ViewClosed;
-        private Database.Przystanek Przystanek { get; set; }
+        private Query.Przystanek Przystanek { get; set; }
         public string FormText
         {
             set
@@ -22,7 +22,7 @@ namespace Cindalnet.SQLBot.Presenter
         private IFormListView View;
         private OverlayBackgroundWorker workerRefreshGrid;
 
-        public PresenterPrzyjazd(Database.Przystanek przystanek)
+        public PresenterPrzyjazd(Query.Przystanek przystanek)
         {
             this.Przystanek = przystanek;
 
@@ -51,7 +51,7 @@ namespace Cindalnet.SQLBot.Presenter
         {
             try
             {
-                Database.TramwajeDataContext dc = new Database.TramwajeDataContext();
+                Query.TramwajeDataContext dc = new Query.TramwajeDataContext();
                 IList<ListViewItem> listItems = new List<ListViewItem>();
                 foreach (var wariant in dc.Przyjazds.Where(przyjazd => przyjazd.Przystanek == Przystanek))
                 {

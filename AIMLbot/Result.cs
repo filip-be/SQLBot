@@ -91,7 +91,12 @@ namespace AIMLbot
                     {
                         sentenceForOutput += ".";
                     }
-                    result.Append(sentenceForOutput + " ");
+                    // Trim each line - remove preceding tabs
+                    foreach (var line in sentenceForOutput.Split(new string[] { "\r\n", "\n" }, StringSplitOptions.None))
+                    {
+                        result.Append(line.Trim() + Environment.NewLine);
+                    }
+                    result.Append(" ");
                 }
                 return result.ToString().Trim();
             }

@@ -1,4 +1,4 @@
-﻿using Cindalnet.SQLBot.Database;
+﻿using Cindalnet.SQLBot.Query;
 using Cindalnet.SQLBot.Model;
 using Cindalnet.SQLBot.View;
 using MaterialSkin;

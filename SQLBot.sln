@@ -11,6 +11,55 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SQLBotTrams", "SQLBotTrams\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AIMLbot", "AIMLbot\AIMLbot.csproj", "{D77FF739-982F-4D64-B691-1D38BF852B48}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AIML_Default_Files", "AIML_Default_Files", "{0BB350DD-EC2D-4FA6-BB9D-7E237F8C3EE5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "aiml", "aiml", "{608F6EF0-BB6D-4BA0-B075-1A30BCD79658}"
+	ProjectSection(SolutionItems) = preProject
+		AIML_Default_Files\aiml\AI.aiml = AIML_Default_Files\aiml\AI.aiml
+		AIML_Default_Files\aiml\Atomic.aiml = AIML_Default_Files\aiml\Atomic.aiml
+		AIML_Default_Files\aiml\Biography.aiml = AIML_Default_Files\aiml\Biography.aiml
+		AIML_Default_Files\aiml\Bot.aiml = AIML_Default_Files\aiml\Bot.aiml
+		AIML_Default_Files\aiml\Botmaster.aiml = AIML_Default_Files\aiml\Botmaster.aiml
+		AIML_Default_Files\aiml\Client.aiml = AIML_Default_Files\aiml\Client.aiml
+		AIML_Default_Files\aiml\Computers.aiml = AIML_Default_Files\aiml\Computers.aiml
+		AIML_Default_Files\aiml\CustomTagTest.aiml = AIML_Default_Files\aiml\CustomTagTest.aiml
+		AIML_Default_Files\aiml\Default.aiml = AIML_Default_Files\aiml\Default.aiml
+		AIML_Default_Files\aiml\Emotion.aiml = AIML_Default_Files\aiml\Emotion.aiml
+		AIML_Default_Files\aiml\Food.aiml = AIML_Default_Files\aiml\Food.aiml
+		AIML_Default_Files\aiml\Geography.aiml = AIML_Default_Files\aiml\Geography.aiml
+		AIML_Default_Files\aiml\History.aiml = AIML_Default_Files\aiml\History.aiml
+		AIML_Default_Files\aiml\Inquiry.aiml = AIML_Default_Files\aiml\Inquiry.aiml
+		AIML_Default_Files\aiml\Interjection.aiml = AIML_Default_Files\aiml\Interjection.aiml
+		AIML_Default_Files\aiml\IU.aiml = AIML_Default_Files\aiml\IU.aiml
+		AIML_Default_Files\aiml\Knowledge.aiml = AIML_Default_Files\aiml\Knowledge.aiml
+		AIML_Default_Files\aiml\Literature.aiml = AIML_Default_Files\aiml\Literature.aiml
+		AIML_Default_Files\aiml\Money.aiml = AIML_Default_Files\aiml\Money.aiml
+		AIML_Default_Files\aiml\Movies.aiml = AIML_Default_Files\aiml\Movies.aiml
+		AIML_Default_Files\aiml\Music.aiml = AIML_Default_Files\aiml\Music.aiml
+		AIML_Default_Files\aiml\Personality.aiml = AIML_Default_Files\aiml\Personality.aiml
+		AIML_Default_Files\aiml\Philosophy.aiml = AIML_Default_Files\aiml\Philosophy.aiml
+		AIML_Default_Files\aiml\Pickup.aiml = AIML_Default_Files\aiml\Pickup.aiml
+		AIML_Default_Files\aiml\Predicates.aiml = AIML_Default_Files\aiml\Predicates.aiml
+		AIML_Default_Files\aiml\Reduce.aiml = AIML_Default_Files\aiml\Reduce.aiml
+		AIML_Default_Files\aiml\Reductions.aiml = AIML_Default_Files\aiml\Reductions.aiml
+		AIML_Default_Files\aiml\Salutations.aiml = AIML_Default_Files\aiml\Salutations.aiml
+		AIML_Default_Files\aiml\Science.aiml = AIML_Default_Files\aiml\Science.aiml
+		AIML_Default_Files\aiml\Stack.aiml = AIML_Default_Files\aiml\Stack.aiml
+		AIML_Default_Files\aiml\Stories.aiml = AIML_Default_Files\aiml\Stories.aiml
+		AIML_Default_Files\aiml\That.aiml = AIML_Default_Files\aiml\That.aiml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "config", "config", "{62DC94B1-468C-4578-AF0B-2C2CEEACA8E5}"
+	ProjectSection(SolutionItems) = preProject
+		AIML_Default_Files\config\DefaultPredicates.xml = AIML_Default_Files\config\DefaultPredicates.xml
+		AIML_Default_Files\config\GenderSubstitutions.xml = AIML_Default_Files\config\GenderSubstitutions.xml
+		AIML_Default_Files\config\Person2Substitutions.xml = AIML_Default_Files\config\Person2Substitutions.xml
+		AIML_Default_Files\config\PersonSubstitutions.xml = AIML_Default_Files\config\PersonSubstitutions.xml
+		AIML_Default_Files\config\Settings.xml = AIML_Default_Files\config\Settings.xml
+		AIML_Default_Files\config\Splitters.xml = AIML_Default_Files\config\Splitters.xml
+		AIML_Default_Files\config\Substitutions.xml = AIML_Default_Files\config\Substitutions.xml
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -34,5 +83,9 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{608F6EF0-BB6D-4BA0-B075-1A30BCD79658} = {0BB350DD-EC2D-4FA6-BB9D-7E237F8C3EE5}
+		{62DC94B1-468C-4578-AF0B-2C2CEEACA8E5} = {0BB350DD-EC2D-4FA6-BB9D-7E237F8C3EE5}
 	EndGlobalSection
 EndGlobal
