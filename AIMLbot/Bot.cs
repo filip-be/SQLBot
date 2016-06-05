@@ -707,7 +707,7 @@ namespace AIMLbot
         /// <param name="result">the result to be sent to the user</param>
         /// <param name="user">the user who originated the request</param>
         /// <returns>the output string</returns>
-        private string processNode(XmlNode node, SubQuery query, Request request, Result result, User user)
+        public string processNode(XmlNode node, SubQuery query, Request request, Result result, User user)
         {
             // check for timeout (to avoid infinite loops)
             if (request.StartedOn.AddMilliseconds(request.bot.TimeOut) < DateTime.Now)
@@ -831,7 +831,10 @@ namespace AIMLbot
                 }
                 if (object.Equals(null, tagHandler))
                 {
-                    return node.InnerText;
+                    if (node.ParentNode != null && node.ParentNode.Name == "learn")
+                        return node.InnerXml;
+                    else
+                        return node.InnerText;
                 }
                 else
                 {

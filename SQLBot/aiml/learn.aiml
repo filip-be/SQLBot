@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="windows-1250"?>
+<aiml>
+  <!-- Free software &copy; 2001-2003 ALICE A.I. Foundation. -->
+  <!-- This program is open source code released under -->
+  <!-- the terms of the GNU General Public License     -->
+  <!-- as published by the Free Software Foundation.   -->
+  <!-- Complies with AIML 1.01 Tag Set Specification -->
+  <!-- as adopted by the ALICE A.I. Foundation.  -->
+  <!-- Annotated Version updated September 2003 -->
+
+  <category>
+    <pattern>SQLBOT WHAT IS *</pattern>
+    <template>
+      UNKNOWN
+    </template>
+  </category>
+
+  <category>
+    <pattern>
+      SQLBOT LEARN WHAT IS * CSPLIT *
+    </pattern>
+    <template>
+      <learn>
+        <aiml>
+          <category>
+            <pattern>
+              <eval>
+                <uppercase>
+                  SQLBOT WHAT IS <star index="1"/>
+                </uppercase>
+              </eval>
+            </pattern>
+            <template>
+              <eval>
+                <uppercase>
+                  <star index="2"/>
+                </uppercase>
+              </eval>
+            </template>
+          </category>
+        </aiml>
+      </learn>
+    </template>
+  </category>
+
+  <category>
+    <pattern>SQLBOT UNKNOWN PARAMETER *</pattern>
+    <template>
+      <think>
+        <set name="topic">SQLBOT_WHAT_IS</set>
+        <set name="ItemName">
+          <star/>
+        </set>
+      </think>
+      Czym jest <star/>?
+    </template>
+  </category>
+
+  <topic name="SQLBOT_WHAT_IS">
+    <category>
+      <pattern>
+        Wyświetl _
+      </pattern>
+      <template>
+        <think>
+          <set name="topic"></set>
+        </think>
+        <srai>
+          WYŚWIETL <star/>
+        </srai>
+      </template>
+    </category>
+
+    <category>
+      <pattern>NIE *</pattern>
+      <template>
+        <think>
+          <set name="topic"></set>
+        </think>
+        Bardzo mi przykro, ale w tym przypadku nie mogę Ci pomóc
+      </template>
+    </category>
+
+    <category>
+      <pattern>JEST *</pattern>
+      <template>
+        <think>
+          <set name="topic"></set>
+        </think>
+        SQLBOT GET FORM BASE <star/> CSPLITSENTENCE SQLBOT LEARN WHAT IS <get name="ItemName"/> CSPLIT CSTAR
+      </template>
+    </category>
+    
+    <category>
+      <pattern>* JEST *</pattern>
+      <template>
+        <srai>
+          JEST <star index="2"/>
+        </srai>
+      </template>
+    </category>
+
+    <category>
+      <pattern>* TO *</pattern>
+      <template>
+        <srai>
+          JEST <star index="2"/>
+        </srai>
+      </template>
+    </category>
+
+    <category>
+      <pattern>TO *</pattern>
+      <template>
+        <srai>
+          JEST <star index="1"/>
+        </srai>
+      </template>
+    </category>
+
+    <category>
+      <pattern>*</pattern>
+      <template>
+        <think>
+          <set name="topic"></set>
+        </think>
+        QQQ
+      </template>
+    </category>
+    
+  </topic>
+
+  <category>
+    <pattern>SQLBOT WHAT IS * CUSER</pattern>
+    <template>
+      <think>
+        <set name="ItemName">
+          <lowercase>
+            <srai>
+              SQLBOT WHAT IS <star/>
+            </srai>
+          </lowercase>
+        </set>
+      </think>
+      <condition>
+        <li name="ItemName" value="UNKNOWN">
+          <think>
+            <set name="ItemName">
+              <star index="1"></star>
+            </set>
+            <set name="topic">SQLBOT_WHAT_IS</set>
+          </think>
+          Niestety, nie wiem czym jest <star index="1"/>
+        </li>
+        <li name="ItemName" value="ERROR">
+          Niestety, nie wiem czym jest <star index="1"/> - wystąpił błąd podczas pobierania podstawowej formy słowa!
+        </li>
+        <li>
+          <star index="1"/> to <get name="ItemName"/>
+        </li>
+      </condition>
+    </template>
+  </category>
+  
+  <category>
+    <pattern>CZYM JEST *</pattern>
+    <template>
+      SQLBOT GET FORM BASE <star/> CSPLITSENTENCE SQLBOT WHAT IS CSTAR CUSER
+    </template>
+  </category>
+
+  <category>
+    <pattern>CZYM SĄ *</pattern>
+    <template>
+      <srai>
+        CZYM JEST <star/>
+      </srai>
+    </template>
+  </category>
+
+  <category>
+    <pattern>KIM SĄ *</pattern>
+    <template>
+      <srai>
+        CZYM JEST <star/>
+      </srai>
+    </template>
+  </category>
+
+  <category>
+    <pattern>KIM JEST *</pattern>
+    <template>
+      <srai>
+        CZYM JEST <star/>
+      </srai>
+    </template>
+  </category>
+  
+  <category>
+    <pattern>CO TO JEST *</pattern>
+    <template>
+      <srai>
+        CZYM JEST <star/>
+      </srai>
+    </template>
+  </category>
+
+  <category>
+    <pattern>WYŚWIETL OPIS *</pattern>
+    <template>
+      <srai>
+        CZYM JEST <star/>
+      </srai>
+    </template>
+  </category>
+
+</aiml>

@@ -22,6 +22,7 @@ namespace Cindalnet.SQLBot.Query
 
         private const string PatternDisplay = "DISPLAY|";
         private const string PatternSQLQuery = "SQL_QUERY|";
+        private const string PatternGetFormBase = "SQLBOT GET FORM BASE ";
 
         public SQLQueryResult QueryResult { get; set; }
 
@@ -32,6 +33,33 @@ namespace Cindalnet.SQLBot.Query
             ChatBot.loadAIMLFromFiles();
             ChatBot.isAcceptingUserInput = true;
             QueryResult = null;
+
+            UpdateAIMLKnowledge();
+        }
+
+        void UpdateAIMLKnowledge()
+        {
+            try
+            {
+                BazaRelacyjnaDataContext dc = new BazaRelacyjnaDataContext();
+                SQLBot_Field[] fields = dc.SQLBot_Field.ToArray();
+                SQLBot_Table[] tables = dc.SQLBot_Table.ToArray();
+
+                foreach (var field in fields)
+                {
+                    ChatBot.Chat(string.Format("SQLBOT LEARN WHAT IS {0} CSPLIT {1}", field.sqlf_ColumnName, field.sqlf_Description),
+                        ChatUser.UserID);
+                }
+                foreach (var table in tables)
+                {
+                    ChatBot.Chat(string.Format("SQLBOT LEARN WHAT IS {0} CSPLIT {1}", table.sqlt_Name, table.sqlt_Description),
+                        ChatUser.UserID);
+                }
+            }
+            catch(Exception)
+            {
+
+            }
         }
 
         private string TrimWord(string Word)
@@ -154,6 +182,41 @@ namespace Cindalnet.SQLBot.Query
             }
         }
 
+        private class QueryExceptionUnknownParameter : Exception
+        {
+            public QueryExceptionUnknownParameter(string _ParameterName)
+            {
+                this.ParameterName = _ParameterName;
+            }
+
+            public string ParameterName { get; set; }
+        }
+
+        private bool IsValidTableOrField(string FieldName, out string[] sqlTables, out string[] sqlFields)
+        {
+            sqlTables = null;
+            sqlFields = null;
+            while (!IsTableName(FieldName, out sqlTables)
+                   && !IsFieldName(FieldName, out sqlFields, out sqlTables))
+            {
+                Request chatRequest = new Request(string.Format("SQLBOT WHAT IS {0}", FieldName), ChatUser, ChatBot);
+                Result chatRes = ChatBot.Chat(chatRequest);
+                FieldName = TrimWord(chatRes.Output);
+                if (FieldName == "UNKNOWN")
+                {
+                    return false;
+                }
+            };
+
+            return true;
+        }
+
+        private bool IsValidTableOrField(string FieldName)
+        {
+            string[] tables, fields;
+            return IsValidTableOrField(FieldName, out tables, out fields);
+        }
+
         private string prepareQuery(string chatResponse)
         {
             string res = "";
@@ -176,7 +239,8 @@ namespace Cindalnet.SQLBot.Query
                     for (int argsNum = 1; argsNum < parameters.Length; argsNum++)
                     {
                         QueryInterpreter queryInterp = new QueryInterpreter(parameters[argsNum]);
-                        if (queryInterp.IsInterpreted && queryInterp.DesiredParameter != null)
+                        if (queryInterp.IsInterpreted 
+                            && queryInterp.DesiredParameter != null)
                         {
                             string field = queryInterp.DesiredParameter;
                             string[] sqlFields, sqlTables;
@@ -187,23 +251,27 @@ namespace Cindalnet.SQLBot.Query
                                 {
                                     sqlTables = null;
                                     sqlFields = null;
-                                    if(!IsTableName(word.FormBase, out sqlTables) && !IsFieldName(word.FormBase, out sqlFields, out sqlTables))
+                                    string FieldName = word.FormBase;
+                                    if (!IsValidTableOrField(FieldName, out sqlTables, out sqlFields))
                                     {
-                                        int x = 0;
-                                        x = x + 1;
-                                        // Jest niewiadomo czym - trzeba to określić!
+                                        // Nieznane pole
+                                        throw new QueryExceptionUnknownParameter(word.FormBase);
                                     }
                                     else
-                                    {   // Jest czymś, można porównać tabele - jeśli są rożne, trzeba odwołać się do złączenia!
-                                        if(FROM == null || FROM.Length == 0)
+                                    {
+                                        // Jest czymś, można porównać tabele - jeśli są rożne, trzeba odwołać się do złączenia!
+                                        if (FROM == null || FROM.Length == 0)
                                         {   // Nie ma określonej tabeli wejściowej
-                                            if (sqlTables != null&& sqlTables.Length > 0 )
+                                            if (sqlTables != null 
+                                                && sqlTables.Length > 0)
                                                 FROM = sqlTables[0];
                                         }
-                                        else if(sqlTables != null && sqlTables.Length > 0 && FROM != sqlTables[0])
+                                        else if (sqlTables != null 
+                                            && sqlTables.Length > 0 
+                                            && FROM != sqlTables[0])
                                         {
                                             string JoinString;
-                                            if(IsValidJoin(sqlTables[0], FROM, out JoinString))
+                                            if (IsValidJoin(sqlTables[0], FROM, out JoinString))
                                             {
                                                 JOIN = string.Format("{0} ON {1}", sqlTables[0], JoinString);
                                             }
@@ -213,40 +281,21 @@ namespace Cindalnet.SQLBot.Query
                                             }
                                         }
 
-                                        if(word.FormBase == queryInterp.DesiredParameter && sqlFields != null && sqlFields.Length > 0)
+                                        if (word.FormBase == queryInterp.DesiredParameter 
+                                            && sqlFields != null 
+                                            && sqlFields.Length > 0)
                                         {   // Poszukiwane słowo jest nazwą pola
                                             SELECT = sqlFields[0];
                                         }
                                     }
                                 }
                             }
-                            /*
-                            if (IsTableName(queryInterp.DesiredParameter, out sqlTables))   // Sprawdzenie czy poszukiwana wartość jest nazwą tabeli
-                            {
-                                if (sqlTables.Length > 1)
-                                {   // Znaleziono więcej niż jedną tabelę pasującą do tej nazwy
-
-                                }
-                                else if (sqlTables.Length == 1)
-                                {
-                                    FROM = sqlTables[0];
-                                }
-                            }
-                            else if (IsFieldName(queryInterp.DesiredParameter, out sqlFields, out sqlTables))    // Sprawdzenie czy poszukiwana wartość jest nazwą pola
-                            {
-                                if (sqlFields.Length > 1)
-                                {   // Znaleziono więcej niż jedną tabelę pasującą do tej nazwy
-
-                                }
-                                else if (sqlFields.Length == 1)
-                                {
-                                    SELECT = sqlFields[0];
-                                    FROM = sqlTables[0];
-                                }
-                            }
-                            */
                         }
                     }
+                }
+                catch(QueryExceptionUnknownParameter exP)
+                {
+                    throw exP;
                 }
                 catch (Exception)
                 {
@@ -258,7 +307,7 @@ namespace Cindalnet.SQLBot.Query
                 return "ERROR - NO PARAMETERS";
             }
 
-            if(res != "ERROR")
+            if(!res.StartsWith("ERROR"))
             {
                 res = string.Format("SELECT {0} FROM {1} ", SELECT, FROM);
                 if(JOIN.Length > 0)
@@ -330,22 +379,49 @@ namespace Cindalnet.SQLBot.Query
         {
             string res = chatResponse;
 
-            
-            string SQLQuery;
-            if(isCleanSQLQuery)
-                SQLQuery = chatResponse;
-            else
-                SQLQuery = prepareQuery(chatResponse);
-            
-            bool QueryResult = executeQuery(SQLQuery);
+            try
+            {
+                string SQLQuery;
+                if (isCleanSQLQuery)
+                    SQLQuery = chatResponse;
+                else
+                    SQLQuery = prepareQuery(chatResponse);
 
-            res = string.Format("QUERYDONE| {0} | {1}",
-                                    QueryResult ? "OK" : "ERROR",
-                                    SQLQuery);
+                bool QueryResult = executeQuery(SQLQuery);
+
+                res = string.Format("QUERYDONE| {0} | {1}",
+                                        QueryResult ? "OK" : "ERROR",
+                                        SQLQuery);
+            }
+            catch(QueryExceptionUnknownParameter ex)
+            {
+                res = string.Format("SQLBOT UNKNOWN PARAMETER {0}", ex.ParameterName);
+            }
 
             return res;
         }
 
+        public string getFormBase(string sentence)
+        {
+            try
+            {
+                string[] sentenceAndResponse = TrimWord(sentence).Split(new[] { "CSPLITSENTENCE" }, StringSplitOptions.None);
+                if (sentenceAndResponse.Length == 2)
+                {
+                    QueryInterpreter queryInterp = new QueryInterpreter(sentenceAndResponse[0]);
+                    if (queryInterp.IsInterpreted)
+                        return sentenceAndResponse[1].Replace("CSTAR", queryInterp.AsStringOfBase);
+                    else
+                        return "ERROR";
+                }
+                else
+                    return "ERROR";
+            }
+            catch(Exception)
+            {
+                return "ERROR";
+            }
+        }
 
         public string ParseQuery(string query)
         {
@@ -369,6 +445,10 @@ namespace Cindalnet.SQLBot.Query
                 else if(res.StartsWith(PatternSQLQuery))
                 {   // Wywołanie konretnego zapytania SQL
                     res = ParseQuery(queryDatabase(res.Substring(PatternSQLQuery.Length), true));
+                }
+                else if(res.StartsWith(PatternGetFormBase))
+                {
+                    res = ParseQuery(getFormBase(res.Substring(PatternGetFormBase.Length)));
                 }
 
 

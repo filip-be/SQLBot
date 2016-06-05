@@ -152,4 +152,16 @@
       </condition>
     </template>
   </category>
+
+  <category>
+    <pattern>ERROR</pattern>
+    <template>Wyst¹pi³ b³¹d podczas przetwarzania zapytania</template>
+  </category>
+
+  <category>
+    <pattern>ERROR *</pattern>
+    <template>
+      <srai>ERROR</srai>: <star/>
+    </template>
+  </category>
 </aiml>

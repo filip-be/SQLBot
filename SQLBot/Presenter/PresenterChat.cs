@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Media;
+using Cindalnet.SQLBot.Database;
 
 namespace Cindalnet.SQLBot.Presenter
 {
@@ -44,6 +45,8 @@ namespace Cindalnet.SQLBot.Presenter
             workerProcessMessage.DoWork += ProcessQuery;
             workerProcessMessage.RunWorkerCompleted += DisplayQuery;
         }
+
+        
 
         void View_KeyDownPressed(object sender, EventArgs e)
         {

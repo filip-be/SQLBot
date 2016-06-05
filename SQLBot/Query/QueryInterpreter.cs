@@ -50,6 +50,17 @@ namespace Cindalnet.SQLBot.Query
             }
         }
 
+        public string AsStringOfBase
+        {
+            get
+            {
+                if (IsInterpreted)
+                    return string.Join(" ", Words.Select(w => w.FormBase));
+                else
+                    return "ERROR";
+            }
+        }
+
         override public string ToString()
         {
             return AsSingleString;
