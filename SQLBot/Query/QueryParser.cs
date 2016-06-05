@@ -245,8 +245,9 @@ namespace Cindalnet.SQLBot.Query
                             string field = queryInterp.DesiredParameter;
                             string[] sqlFields, sqlTables;
 
-                            foreach(Word word in queryInterp.Words)
+                            for(int wordNum = 0; wordNum < queryInterp.Words.Count; wordNum++)
                             {
+                                Word word = queryInterp.Words[wordNum];
                                 if(word.PartOfSpeech == Word.SpeechPart.Noun)
                                 {
                                     sqlTables = null;
@@ -281,13 +282,28 @@ namespace Cindalnet.SQLBot.Query
                                             }
                                         }
 
-                                        if (word.FormBase == queryInterp.DesiredParameter 
-                                            && sqlFields != null 
+                                        if (sqlFields != null 
                                             && sqlFields.Length > 0)
                                         {   // Poszukiwane słowo jest nazwą pola
-                                            SELECT = sqlFields[0];
+                                            if(word.FormBase == queryInterp.DesiredParameter)
+                                                SELECT = sqlFields[0];
+                                            else if (queryInterp.DesiredParameterIndex < wordNum 
+                                                && wordNum > 0
+                                                && queryInterp.Words[wordNum - 1].PartOfSpeech == Word.SpeechPart.Conjuctiun)
+                                            {
+                                                SELECT += sqlFields[0];
+                                            }
                                         }
                                     }
+                                }
+                                else if(
+                                    (word.PartOfSpeech == Word.SpeechPart.Conjuctiun
+                                    && wordNum > 0
+                                    && queryInterp.Words[wordNum-1].PartOfSpeech == Word.SpeechPart.Noun
+                                    && (wordNum + 1) < queryInterp.Words.Count
+                                    && queryInterp.Words[wordNum+1].PartOfSpeech == Word.SpeechPart.Noun))
+                                {
+                                    SELECT += ", ";
                                 }
                             }
                         }

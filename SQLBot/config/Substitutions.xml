@@ -2,4 +2,7 @@
 <root>
   <item name="pokaż" value=" wyświetl " />
   <item name="są" value=" jest " />
+  <item name="oraz" value=" i " />
+  <item name="a także" value=" i " />
+  <item name="," value=" i " />
 </root>

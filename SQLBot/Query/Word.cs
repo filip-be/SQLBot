@@ -175,6 +175,11 @@ namespace Cindalnet.SQLBot.Query
             if (interpParams.Length > 0)
             {
                 this.SetPartOfSpeech(interpParams[0]);
+                if (PartOfSpeech == SpeechPart.Other
+                    && this.FormBase == ",")
+                {   // Traktujemy przecinek jako spójnik!
+                    PartOfSpeech = SpeechPart.Conjuctiun;
+                }
 
                 for(int parNum = 1; parNum < interpParams.Length; parNum++)
                 {

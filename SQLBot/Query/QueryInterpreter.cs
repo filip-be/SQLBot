@@ -104,9 +104,16 @@ namespace Cindalnet.SQLBot.Query
 
                         }
                     }
+                    else if (word.PartOfSpeech == Word.SpeechPart.Conjuctiun
+                            && Words.Count > 1
+                            && Words[Words.Count - 2].PartOfSpeech == Word.SpeechPart.Noun)
+                    {   // Słowo już istnieje na liście, jednak to wystąpienie jest prawdopodobnie spójnikiem, a nie inną częścią zdania
+                        Words.Remove(Words.Last());
+                        Words.Add(word);
+                    }
                     else
                     {   // Słowo już istnieje na liście
-
+                        
                     }
                 }
             }
