@@ -47,12 +47,12 @@ namespace Cindalnet.SQLBot.Query
 
                 foreach (var field in fields)
                 {
-                    ChatBot.Chat(string.Format("SQLBOT LEARN WHAT IS {0} CSPLIT {1}", field.sqlf_ColumnName, field.sqlf_Description),
+                    ChatBot.Chat(string.Format("SQLBOT LEARN WHAT IS {0} CSPLIT {1} CSPLIT FIELD", field.sqlf_ColumnName, field.sqlf_Description),
                         ChatUser.UserID);
                 }
                 foreach (var table in tables)
                 {
-                    ChatBot.Chat(string.Format("SQLBOT LEARN WHAT IS {0} CSPLIT {1}", table.sqlt_Name, table.sqlt_Description),
+                    ChatBot.Chat(string.Format("SQLBOT LEARN WHAT IS {0} CSPLIT {1} CSPLIT TABLE", table.sqlt_Name, table.sqlt_Description),
                         ChatUser.UserID);
                 }
             }
@@ -422,11 +422,25 @@ namespace Cindalnet.SQLBot.Query
             try
             {
                 string[] sentenceAndResponse = TrimWord(sentence).Split(new[] { "CSPLITSENTENCE" }, StringSplitOptions.None);
-                if (sentenceAndResponse.Length == 2)
+                if (sentenceAndResponse.Length > 1)
                 {
                     QueryInterpreter queryInterp = new QueryInterpreter(sentenceAndResponse[0]);
                     if (queryInterp.IsInterpreted)
-                        return sentenceAndResponse[1].Replace("CSTAR", queryInterp.AsStringOfBase);
+                    {
+                        string outputString = sentenceAndResponse[1].Replace("CSTAR", queryInterp.AsStringOfBase);
+                        for (int num = 2; num < sentenceAndResponse.Length; num++)
+                        {
+                            try
+                            {
+                                Request chatRequest = new Request(sentenceAndResponse[num], ChatUser, ChatBot);
+                                Result chatRes = ChatBot.Chat(chatRequest);
+                                outputString += string.Format(". {0}", chatRes.Output);
+                            }
+                            catch(Exception)
+                            { }
+                        }
+                        return outputString;
+                    }
                     else
                         return "ERROR";
                 }

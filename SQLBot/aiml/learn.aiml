@@ -16,6 +16,13 @@
   </category>
 
   <category>
+    <pattern>SQLBOT WHAT TYPE IS *</pattern>
+    <template>
+      UNKNOWN
+    </template>
+  </category>
+
+  <category>
     <pattern>
       SQLBOT LEARN WHAT IS * CSPLIT *
     </pattern>
@@ -40,6 +47,67 @@
           </category>
         </aiml>
       </learn>
+      
+      <think>
+        <set name="ItemName">
+          <star index="1"/>
+        </set>
+        <set name="ItemType">
+          <srai>
+            SQLBOT WHAT TYPE IS <get name="ItemName"/>
+          </srai>
+        </set>
+      </think>
+      <condition>
+        <li name="ItemType" value="UNKNOWN">
+          <think>
+            <set name="topic">SQLBOT_WHAT_TYPE_IS</set>
+          </think>
+          Jakiego typu jest <get name="ItemName"/>? Pole, tabela, wartoœæ?
+        </li>
+      </condition>
+    </template>
+  </category>
+
+  <category>
+    <pattern>
+      SQLBOT LEARN WHAT TYPE IS * CSPLIT *
+    </pattern>
+    <template>
+      <learn>
+        <aiml>
+          <category>
+            <pattern>
+              <eval>
+                <uppercase>
+                  SQLBOT WHAT TYPE IS <star index="1"/>
+                </uppercase>
+              </eval>
+            </pattern>
+            <template>
+              <eval>
+                <uppercase>
+                  <star index="2"/>
+                </uppercase>
+              </eval>
+            </template>
+          </category>
+        </aiml>
+      </learn>
+    </template>
+  </category>
+  
+  <category>
+    <pattern>
+      SQLBOT LEARN WHAT IS * CSPLIT * CSPLIT *
+    </pattern>
+    <template>
+      <srai>
+        SQLBOT LEARN WHAT IS <star index="1"/> CSPLIT <star index="2"/>
+      </srai>
+      <srai>
+        SQLBOT LEARN WHAT TYPE IS <star index="1"/> CSPLIT <star index="3"/>
+      </srai>
     </template>
   </category>
 
@@ -124,10 +192,11 @@
         <think>
           <set name="topic"></set>
         </think>
-        QQQ
+        <srai>
+          <star/>
+        </srai>
       </template>
     </category>
-    
   </topic>
 
   <category>
@@ -161,11 +230,153 @@
       </condition>
     </template>
   </category>
+
+  <topic name="SQLBOT_WHAT_TYPE_IS">
+    <category>
+      <pattern>
+        Wyœwietl _
+      </pattern>
+      <template>
+        <think>
+          <set name="topic"></set>
+        </think>
+        <srai>
+          WYŒWIETL <star/>
+        </srai>
+      </template>
+    </category>
+
+    <category>
+      <pattern>NIE *</pattern>
+      <template>
+        <think>
+          <set name="topic"></set>
+        </think>
+        Bardzo mi przykro, ale w tym przypadku nie mogê Ci pomóc
+      </template>
+    </category>
+
+    <category>
+      <pattern>TO *</pattern>
+      <template>
+        <think>
+          <set name="NewItemName">
+            <star/>
+          </set>
+          <set name="topic"></set>
+        </think>
+        <condition>
+          <li name="NewItemName" value="TABELA">
+            <srai>
+              SQLBOT LEARN WHAT TYPE IS <get name="ItemName"/> CSPLIT TABLE
+            </srai>
+          </li>
+          <li name="NewItemName" value="POLE">
+            <srai>
+              SQLBOT LEARN WHAT TYPE IS <get name="ItemName"/> CSPLIT FIELD
+            </srai>
+          </li>
+          <li name="NewItemName" value="WARTOŒÆ">
+            <srai>
+              SQLBOT LEARN WHAT TYPE IS <get name="ItemName"/> CSPLIT VALUE
+            </srai>
+          </li>
+          <li>
+            Nie znam takiego typu.
+          </li>
+        </condition>
+      </template>
+    </category>
+
+    <category>
+      <pattern>JEST *</pattern>
+      <template>
+        <srai>
+          SQLBOT GET FORM BASE <star index="1"/> CSPLISENTENCE TO CSTAR
+        </srai>
+      </template>
+    </category>
+
+    <category>
+      <pattern>* JEST *</pattern>
+      <template>
+        <srai>
+          SQLBOT GET FORM BASE <star index="2"/> CSPLISENTENCE TO CSTAR
+        </srai>
+      </template>
+    </category>
+
+    <category>
+      <pattern>* TO *</pattern>
+      <template>
+        <srai>
+          TO <star index="2"/>
+        </srai>
+      </template>
+    </category>
+
+    <category>
+      <pattern>*</pattern>
+      <template>
+        <srai>
+          TO <star index="1"/>
+        </srai>
+      </template>
+    </category>
+  </topic>
+  
+  <category>
+    <pattern>SQLBOT WHAT TYPE IS * CUSER</pattern>
+    <template>
+      <think>
+        <set name="ItemType">
+          <lowercase>
+            <srai>
+              SQLBOT WHAT TYPE IS <star/>
+            </srai>
+          </lowercase>
+        </set>
+      </think>
+      <condition>
+        <li name="ItemType" value="UNKNOWN">
+          <think>
+            <set name="ItemType">
+              <star index="1"></star>
+            </set>
+            <set name="topic">SQLBOT_WHAT_TYPE_IS</set>
+          </think>
+          Niestety, nie wiem jakiego typu jest <star index="1"/>. Czy jest to pole, tabela, lub wartoœæ?
+        </li>
+        <li name="ItemType" value="ERROR">
+          Niestety, nie wiem jakiego typu jest <star index="1"/> - wyst¹pi³ b³¹d podczas pobierania podstawowej formy s³owa!
+        </li>
+        <li name="ItemType" value="FIELD">
+          <star index="1"/> to nazwa pola
+        </li>
+        <li name="ItemType" value="TABLE">
+          <star index="1"/> to nazwa tabeli
+        </li>
+        <li name="ItemType" value="VALUE">
+          <star index="1"/> to wartoœæ danej kolumny
+        </li>
+        <li>
+          <star index="1"/> to obiekt typu <get name="ItemType"/>
+        </li>
+      </condition>
+    </template>
+  </category>
   
   <category>
     <pattern>CZYM JEST *</pattern>
     <template>
       SQLBOT GET FORM BASE <star/> CSPLITSENTENCE SQLBOT WHAT IS CSTAR CUSER
+    </template>
+  </category>
+
+  <category>
+    <pattern>JAKIEGO TYPU JEST *</pattern>
+    <template>
+      SQLBOT GET FORM BASE <star/> CSPLITSENTENCE SQLBOT WHAT TYPE IS CSTAR CUSER
     </template>
   </category>
 
@@ -210,6 +421,42 @@
     <template>
       <srai>
         CZYM JEST <star/>
+      </srai>
+    </template>
+  </category>
+
+  <category>
+    <pattern>JAKIEGO TYPU S¥ *</pattern>
+    <template>
+      <srai>
+        JAKIEGO TYPU JEST <star/>
+      </srai>
+    </template>
+  </category>
+
+  <category>
+    <pattern>JAKI TYP MA *</pattern>
+    <template>
+      <srai>
+        JAKIEGO TYPU JEST <star/>
+      </srai>
+    </template>
+  </category>
+
+  <category>
+    <pattern>JAKI TYP POSIADA *</pattern>
+    <template>
+      <srai>
+        JAKIEGO TYPU JEST <star/>
+      </srai>
+    </template>
+  </category>
+
+  <category>
+    <pattern>JAKI TYPU POSIADAJ¥ *</pattern>
+    <template>
+      <srai>
+        JAKIEGO TYPU JEST <star/>
       </srai>
     </template>
   </category>
