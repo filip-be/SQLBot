@@ -8,6 +8,13 @@
   <!-- as adopted by the ALICE A.I. Foundation.  -->
   <!-- Annotated Version updated September 2003 -->
 
-  
+  <category>
+    <pattern>
+      xxx
+    </pattern>
+    <template>
+      yyy
+    </template>
+  </category>
 
 </aiml>

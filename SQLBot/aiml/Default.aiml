@@ -122,13 +122,13 @@
     <category>
       <pattern>Wyœwietl *</pattern>
       <template>
-        DISPLAY|<set name="to|display"><star/></set>
+        SQLBOT APP PREPARE QUERY |<set name="to|display"><star/></set>
       </template>
     </category>
   </topic>
 
   <category>
-    <pattern>QUERYDONE| * | *</pattern>
+    <pattern>QUERYDONE | * | *</pattern>
     <template>
       <think>
         <set name="Result">
@@ -138,12 +138,12 @@
           <star index="2"/>
         </set>
       </think>
-      <srai>SHOW|RESULT</srai>: <get name="SQLQuery"/>
+      <srai>SQLBOT AIML SHOW QUERY RESULT</srai>: <get name="SQLQuery"/>
     </template>
   </category>
   
   <category>
-    <pattern>SHOW|RESULT</pattern>
+    <pattern>SQLBOT AIML SHOW QUERY RESULT</pattern>
     <template>
       <condition>
         <li name="Result" value="OK">Zapytanie zosta³o wykonane poprawnie</li>

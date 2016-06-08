@@ -61,6 +61,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>BazaRelacyjna.dbml</DependentUpon>
     </Compile>
+    <Compile Include="Model\SQLWord.cs" />
     <Compile Include="Query\MorfeuszDllWrapper.cs" />
     <Compile Include="Query\QueryInterpreter.cs" />
     <Compile Include="Query\QueryParser.cs" />

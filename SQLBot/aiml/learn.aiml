@@ -24,7 +24,7 @@
 
   <category>
     <pattern>
-      SQLBOT LEARN WHAT IS * CSPLIT *
+      SQLBOT LEARN WHAT IS * | *
     </pattern>
     <template>
       <learn>
@@ -71,7 +71,7 @@
 
   <category>
     <pattern>
-      SQLBOT LEARN WHAT TYPE IS * CSPLIT *
+      SQLBOT LEARN WHAT TYPE IS * | *
     </pattern>
     <template>
       <learn>
@@ -99,28 +99,72 @@
   
   <category>
     <pattern>
-      SQLBOT LEARN WHAT IS * CSPLIT * CSPLIT *
+      SQLBOT LEARN WHAT IS * | * | *
     </pattern>
     <template>
       <srai>
-        SQLBOT LEARN WHAT IS <star index="1"/> CSPLIT <star index="2"/>
+        SQLBOT LEARN WHAT IS <star index="1"/> | <star index="2"/>
       </srai>
       <srai>
-        SQLBOT LEARN WHAT TYPE IS <star index="1"/> CSPLIT <star index="3"/>
+        SQLBOT LEARN WHAT TYPE IS <star index="1"/> | <star index="3"/>
       </srai>
     </template>
   </category>
 
   <category>
+    <pattern>SQLBOT RECURSIVE WHAT IS *</pattern>
+    <template>
+      <think>
+        <set name="RecursiveNameNew">
+          <srai>SQLBOT WHAT IS <star/></srai>
+        </set>
+      </think>
+      
+      <condition>
+        <li name="RecursiveNameNew" value="UNKNOWN">
+          <think>
+            <set name="topic">SQLBOT_WHAT_IS</set>
+            <set name="ItemName">
+              <star/>
+            </set>
+          </think>
+          <condition>
+            <li name="RecursiveName" value="UNKNOWN">Czym jest <star/>?</li>
+            <li>
+             , ale nie wiem czym jest <star/>
+            </li>
+          </condition>
+        </li>
+        <li>
+          <condition>
+            <li name="RecursiveName" value="UNKNOWN">
+              Wiem, ¿e <star/> to <get name="RecursiveNameNew"/>
+            </li>
+            <li>
+              , <star/> to <get name="RecursiveNameNew"/>
+            </li>
+          </condition>
+          
+          <think>
+            <set name="RecursiveName"><get name="RecursiveNameNew"/></set>
+          </think>
+          <srai>SQLBOT RECURSIVE WHAT IS <get name="RecursiveName"/></srai>
+        </li>
+      </condition>
+    </template>
+  </category>
+    
+  <category>
     <pattern>SQLBOT UNKNOWN PARAMETER *</pattern>
     <template>
       <think>
-        <set name="topic">SQLBOT_WHAT_IS</set>
-        <set name="ItemName">
-          <star/>
+        <set name="RecursiveName">
+          UNKNOWN
         </set>
       </think>
-      Czym jest <star/>?
+      <srai>
+        SQLBOT RECURSIVE WHAT IS <star/>
+      </srai>
     </template>
   </category>
 
@@ -155,7 +199,7 @@
         <think>
           <set name="topic"></set>
         </think>
-        SQLBOT GET FORM BASE <star/> CSPLITSENTENCE SQLBOT LEARN WHAT IS <get name="ItemName"/> CSPLIT CSTAR
+        SQLBOT APP GET FORM BASE <star/> CSPLITSENTENCE SQLBOT LEARN WHAT IS <get name="ItemName"/> | CSTAR
       </template>
     </category>
     
@@ -268,21 +312,21 @@
         <condition>
           <li name="NewItemName" value="TABELA">
             <srai>
-              SQLBOT LEARN WHAT TYPE IS <get name="ItemName"/> CSPLIT TABLE
+              SQLBOT LEARN WHAT TYPE IS <get name="ItemName"/> | TABLE
             </srai>
           </li>
           <li name="NewItemName" value="POLE">
             <srai>
-              SQLBOT LEARN WHAT TYPE IS <get name="ItemName"/> CSPLIT FIELD
+              SQLBOT LEARN WHAT TYPE IS <get name="ItemName"/> | FIELD
             </srai>
           </li>
           <li name="NewItemName" value="WARTOŒÆ">
             <srai>
-              SQLBOT LEARN WHAT TYPE IS <get name="ItemName"/> CSPLIT VALUE
+              SQLBOT LEARN WHAT TYPE IS <get name="ItemName"/> | VALUE
             </srai>
           </li>
           <li>
-            Nie znam takiego typu.
+            Nie znam takiego typu
           </li>
         </condition>
       </template>
@@ -292,7 +336,7 @@
       <pattern>JEST *</pattern>
       <template>
         <srai>
-          SQLBOT GET FORM BASE <star index="1"/> CSPLISENTENCE TO CSTAR
+          SQLBOT APP GET FORM BASE <star index="1"/> CSPLISENTENCE TO CSTAR
         </srai>
       </template>
     </category>
@@ -301,7 +345,7 @@
       <pattern>* JEST *</pattern>
       <template>
         <srai>
-          SQLBOT GET FORM BASE <star index="2"/> CSPLISENTENCE TO CSTAR
+          SQLBOT APP GET FORM BASE <star index="2"/> CSPLISENTENCE TO CSTAR
         </srai>
       </template>
     </category>
@@ -369,14 +413,14 @@
   <category>
     <pattern>CZYM JEST *</pattern>
     <template>
-      SQLBOT GET FORM BASE <star/> CSPLITSENTENCE SQLBOT WHAT IS CSTAR CUSER
+      SQLBOT APP GET FORM BASE <star/> CSPLITSENTENCE SQLBOT WHAT IS CSTAR CUSER
     </template>
   </category>
 
   <category>
     <pattern>JAKIEGO TYPU JEST *</pattern>
     <template>
-      SQLBOT GET FORM BASE <star/> CSPLITSENTENCE SQLBOT WHAT TYPE IS CSTAR CUSER
+      SQLBOT APP GET FORM BASE <star/> CSPLITSENTENCE SQLBOT WHAT TYPE IS CSTAR CUSER
     </template>
   </category>
 

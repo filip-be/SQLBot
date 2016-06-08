@@ -171,6 +171,8 @@ namespace Cindalnet.SQLBot.Query
 
             this.Form = _interpMorf.forma;
             this.FormBase = _interpMorf.haslo;
+            if (this.FormBase.Contains(':'))
+                this.FormBase = this.FormBase.Substring(0, this.FormBase.IndexOf(':'));
 
             if (interpParams.Length > 0)
             {

@@ -20,9 +20,9 @@ namespace Cindalnet.SQLBot.Query
         protected const string UserId = "SQLBot";
         protected User ChatUser;
 
-        private const string PatternDisplay = "DISPLAY|";
-        private const string PatternSQLQuery = "SQL_QUERY|";
-        private const string PatternGetFormBase = "SQLBOT GET FORM BASE ";
+        private const string PatternPrepareQuery = "SQLBOT APP PREPARE QUERY ";
+        private const string PatternSQLQuery = "SQLBOT APP QUERY ";
+        private const string PatternGetFormBase = "SQLBOT APP GET FORM BASE ";
 
         public SQLQueryResult QueryResult { get; set; }
 
@@ -47,12 +47,12 @@ namespace Cindalnet.SQLBot.Query
 
                 foreach (var field in fields)
                 {
-                    ChatBot.Chat(string.Format("SQLBOT LEARN WHAT IS {0} CSPLIT {1} CSPLIT FIELD", field.sqlf_ColumnName, field.sqlf_Description),
+                    ChatBot.Chat(string.Format("SQLBOT LEARN WHAT IS {0} | {1} | FIELD", field.sqlf_ColumnName, field.sqlf_Description),
                         ChatUser.UserID);
                 }
                 foreach (var table in tables)
                 {
-                    ChatBot.Chat(string.Format("SQLBOT LEARN WHAT IS {0} CSPLIT {1} CSPLIT TABLE", table.sqlt_Name, table.sqlt_Description),
+                    ChatBot.Chat(string.Format("SQLBOT LEARN WHAT IS {0} | {1} | TABLE", table.sqlt_Name, table.sqlt_Description),
                         ChatUser.UserID);
                 }
             }
@@ -232,7 +232,7 @@ namespace Cindalnet.SQLBot.Query
                 try
                 {
                     /*
-                     * ARGS[0] = DISPLAY
+                     * ARGS[0] = SQLBOT APP PREPARE QUERY
                      * ARGS[1] = informacja o tym co chcemy wyświelić
                      * ARGS[2...] = kryteria
                      */
@@ -244,6 +244,7 @@ namespace Cindalnet.SQLBot.Query
                         {
                             string field = queryInterp.DesiredParameter;
                             string[] sqlFields, sqlTables;
+                            List<Tuple<int, string>> unknownWords = new List<Tuple<int, string>>();
 
                             for(int wordNum = 0; wordNum < queryInterp.Words.Count; wordNum++)
                             {
@@ -253,12 +254,29 @@ namespace Cindalnet.SQLBot.Query
                                     sqlTables = null;
                                     sqlFields = null;
                                     string FieldName = word.FormBase;
-                                    if (!IsValidTableOrField(FieldName, out sqlTables, out sqlFields))
+                                    bool isKnown = IsValidTableOrField(FieldName, out sqlTables, out sqlFields);
+
+                                    if (!isKnown)
                                     {
-                                        // Nieznane pole
-                                        throw new QueryExceptionUnknownParameter(word.FormBase);
+                                        Tuple<int, string> unknownWord;
+
+                                        if(unknownWords.Count > 0 
+                                            && unknownWords.Last().Item1 + 1 == wordNum)
+                                        {
+                                            unknownWord = unknownWords.Last();
+                                            unknownWords.RemoveAt(unknownWords.Count - 1);
+                                            unknownWord = new Tuple<int, string>(wordNum, unknownWord.Item2 + " " + FieldName);
+                                            isKnown = IsValidTableOrField(unknownWord.Item2, out sqlTables, out sqlFields);
+                                        }
+                                        else
+                                        {
+                                            unknownWord = new Tuple<int, string>(wordNum, FieldName);
+                                        }
+                                        if(!isKnown)
+                                            unknownWords.Add(unknownWord);
                                     }
-                                    else
+                                    
+                                    if(isKnown)
                                     {
                                         // Jest czymś, można porównać tabele - jeśli są rożne, trzeba odwołać się do złączenia!
                                         if (FROM == null || FROM.Length == 0)
@@ -306,6 +324,11 @@ namespace Cindalnet.SQLBot.Query
                                     SELECT += ", ";
                                 }
                             }
+
+                            if(unknownWords.Count > 0)
+                            {
+                                throw new QueryExceptionUnknownParameter(unknownWords.First().Item2);
+                            }
                         }
                     }
                 }
@@ -350,10 +373,7 @@ namespace Cindalnet.SQLBot.Query
                     con.Open();
                     DbCommand cmd = con.CreateCommand();
 
-                    if (SQLQuery.EndsWith(".") || SQLQuery.EndsWith("!") || SQLQuery.EndsWith("?"))
-                        SQLQuery = SQLQuery.Remove(SQLQuery.Length - 1);
-
-                    cmd.CommandText = SQLQuery;
+                    cmd.CommandText = TrimWord(SQLQuery);
 
                     // Create a reader that contains rows of entity data. 
                     using (DbDataReader rdr = cmd.ExecuteReader())
@@ -405,7 +425,7 @@ namespace Cindalnet.SQLBot.Query
 
                 bool QueryResult = executeQuery(SQLQuery);
 
-                res = string.Format("QUERYDONE| {0} | {1}",
+                res = string.Format("QUERYDONE | {0} | {1}",
                                         QueryResult ? "OK" : "ERROR",
                                         SQLQuery);
             }
@@ -455,7 +475,7 @@ namespace Cindalnet.SQLBot.Query
 
         public string ParseQuery(string query)
         {
-            if (!query.StartsWith("QUERYDONE| OK |"))
+            if (!query.StartsWith("QUERYDONE | OK |"))
             {
                 QueryResult = null;
             }
@@ -467,7 +487,7 @@ namespace Cindalnet.SQLBot.Query
                 Result chatRes = ChatBot.Chat(chatRequest);
                 res = chatRes.Output;
 
-                if (res.StartsWith(PatternDisplay))
+                if (res.StartsWith(PatternPrepareQuery))
                 {   // 1. Odpytanie bazy danych na podstawie znanych informacji
                     // 2. Ponowne zapytanie systemu konwersacyjnego - rekurencja
                     res = ParseQuery(queryDatabase(res, false));
@@ -484,7 +504,7 @@ namespace Cindalnet.SQLBot.Query
 
             }catch(Exception ex)
             {
-                res = "Wystąpił błąd podczas przetwarzania zapytania: " + ex.Message;
+                res = "ERROR - Wystąpił błąd podczas przetwarzania zapytania: " + ex.Message;
             }
             return res;
         }

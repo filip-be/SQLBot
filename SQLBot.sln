@@ -60,6 +60,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "config", "config", "{62DC94
 		AIML_Default_Files\config\Substitutions.xml = AIML_Default_Files\config\Substitutions.xml
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Database", "Database", "{B227409D-6B64-4F1C-9E76-620A094336E9}"
+	ProjectSection(SolutionItems) = preProject
+		Database\BazaRelacyjna.bak = Database\BazaRelacyjna.bak
+		Database\BazaRelacyjna.dacpac = Database\BazaRelacyjna.dacpac
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
