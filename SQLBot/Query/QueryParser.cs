@@ -368,7 +368,7 @@ namespace Cindalnet.SQLBot.Query
             bool res = false;
             try
             {
-                SqlConnection con = new SqlConnection(Properties.Settings.Default.BazaRelacyjnaConnectionString);
+                SqlConnection con = new SqlConnection(Properties.Settings.Default.BazaRelacyjnaCustomConnectionString);
                 {
                     con.Open();
                     DbCommand cmd = con.CreateCommand();

@@ -18,5 +18,16 @@
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
       <Value Profile="(Default)">Data Source=FILIPBE\CINDALNET;Initial Catalog=BazaRelacyjna;User ID=sa;Password=sql</Value>
     </Setting>
+    <Setting Name="BazaRelacyjnaCustomConnectionString" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Data Source=FILIPBE\CINDALNET;Initial Catalog=BazaRelacyjna;User ID=sa;Password=sql</Value>
+    </Setting>
+    <Setting Name="BazaRelacyjnaConnectionStringLocal" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionString&gt;Data Source=(localdb)\v11.0;Initial Catalog=BazaRelacyjna;Integrated Security=True;Connect Timeout=30&lt;/ConnectionString&gt;
+  &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">Data Source=(localdb)\v11.0;Initial Catalog=BazaRelacyjna;Integrated Security=True;Connect Timeout=30</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

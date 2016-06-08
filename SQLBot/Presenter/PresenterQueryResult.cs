@@ -77,29 +77,6 @@ namespace Cindalnet.SQLBot.Presenter
             View.SetData(listItems.ToArray());
         }
 
-        /*
-        private void GetLines(object sender, System.ComponentModel.DoWorkEventArgs e)
-        {
-            try
-            {
-                Database.TramwajeDataContext dc = new Database.TramwajeDataContext();
-                IList<ListViewItem> listItems = new List<ListViewItem>();
-                foreach (var linia in dc.Linies)
-                {
-                    ListViewItem item = new ListViewItem(linia.Nazwa);
-                    item.SubItems.Add(new ListViewItem.ListViewSubItem(item, linia.Typ));
-                    item.Tag = linia;
-                    listItems.Add(item);
-                }
-                e.Result = listItems.ToArray();
-                View.SetData((ListViewItem[])e.Result);
-            }
-            catch (Exception)
-            {
-                e.Result = null;
-            }
-        }
-        */
         public void view_Closed(object sender, EventArgs e)
         {
             if (ViewClosed != null)

@@ -78,7 +78,7 @@ namespace Cindalnet.SQLBot.Database
     #endregion
 		
 		public BazaRelacyjnaDataContext() : 
-				base(global::Cindalnet.SQLBot.Properties.Settings.Default.BazaRelacyjnaConnectionString, mappingSource)
+				base(global::Cindalnet.SQLBot.Properties.Settings.Default.BazaRelacyjnaCustomConnectionString, mappingSource)
 		{
 			OnCreated();
 		}
