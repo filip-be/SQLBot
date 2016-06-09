@@ -216,8 +216,11 @@ namespace Cindalnet.SQLBot.Model
             SQLWord sqlWord = this;
             while(sqlWord != null && sqlWord.Parent != null)
             {
-                if(sqlWord.isValidTable())
+                if (sqlWord.isValidTable())
+                {
+                    this.SQLTable = sqlWord.SQLTable;
                     return true;
+                }
                 else
                     sqlWord = sqlWord.Parent;
             };
@@ -227,8 +230,8 @@ namespace Cindalnet.SQLBot.Model
         public bool isValidColumn()
         {
             return SQLColumn != null
-                && (WordType == EWordType.Field || WordType == EWordType.Unknown)
-                && (SQLTable != null || hasValidParentTable());
+                && (WordType == EWordType.Field || WordType == EWordType.Unknown);
+                //&& (SQLTable != null || hasValidParentTable());
         }
 
         public bool hasValidParentColumn()
@@ -237,7 +240,10 @@ namespace Cindalnet.SQLBot.Model
             while (sqlWord != null && sqlWord.Parent != null)
             {
                 if (sqlWord.isValidColumn())
+                {
+                    this.SQLColumn = sqlWord.SQLColumn;
                     return true;
+                }
                 else
                     sqlWord = sqlWord.Parent;
             };
@@ -247,7 +253,7 @@ namespace Cindalnet.SQLBot.Model
         public bool isValidValue()
         {
             return (WordType == EWordType.Value || WordType == EWordType.Unknown)
-                && ((SQLTable != null && SQLColumn != null) || hasValidParentTable());
+                && ((SQLTable != null && SQLColumn != null) || hasValidParentColumn());
         }
 
         public bool isValidWord()
@@ -264,6 +270,7 @@ namespace Cindalnet.SQLBot.Model
 
         public bool isValidWord(out MissingParameter mPar)
         {
+            mPar = MissingParameter.None;
             return false;
         }
     }

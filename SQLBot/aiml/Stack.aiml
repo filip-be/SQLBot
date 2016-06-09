@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<aiml>
+  <!-- Free software &copy; 2001-2003 ALICE A.I. Foundation. -->
+  <!-- This program is open source code released under -->
+  <!-- the terms of the GNU General Public License     -->
+  <!-- as published by the Free Software Foundation.   -->
+  <!-- Complies with AIML 1.01 Tag Set Specification -->
+  <!-- as adopted by the ALICE A.I. Foundation.  -->
+  <!-- Annotated Version updated September 2003 -->
+  <!-- .... -->
+  <!-- Stack.aiml : a simple topic stack in AIML -->
+  
+  <category>
+    <pattern>SQLBOT AIML * PUSH *</pattern>
+    <template>
+      <think>
+        <set name="push_parameter">
+          <star index="1"/>
+        </set>
+        <condition>
+          <li name="push_parameter" value="VALUE">
+            <set name="value_10"><get name="value_9"/></set>
+            <set name="value_9"><get name="value_8"/></set>
+            <set name="value_8"><get name="value_7"/></set>
+            <set name="value_7"><get name="value_6"/></set>
+            <set name="value_6"><get name="value_5"/></set>
+            <set name="value_5"><get name="value_4"/></set>
+            <set name="value_4"><get name="value_3"/></set>
+            <set name="value_3"><get name="value_2"/></set>
+            <set name="value_2"><get name="value_1"/></set>
+            <set name="value_1"><get name="value_0"/></set>
+            <set name="value_0"><star index="2"/></set>
+          </li>
+          <li name="push_parameter" value="FIELD">
+            <set name="field_10"><get name="field_9"/></set>
+            <set name="field_9"><get name="field_8"/></set>
+            <set name="field_8"><get name="field_7"/></set>
+            <set name="field_7"><get name="field_6"/></set>
+            <set name="field_6"><get name="field_5"/></set>
+            <set name="field_5"><get name="field_4"/></set>
+            <set name="field_4"><get name="field_3"/></set>
+            <set name="field_3"><get name="field_2"/></set>
+            <set name="field_2"><get name="field_1"/></set>
+            <set name="field_1"><get name="field_0"/></set>
+            <set name="field_0"><star index="2"/></set>
+          </li>
+          <li name="push_parameter" value="JOIN">
+            <set name="join_10"><get name="join_9"/></set>
+            <set name="join_9"><get name="join_8"/></set>
+            <set name="join_8"><get name="join_7"/></set>
+            <set name="join_7"><get name="join_6"/></set>
+            <set name="join_6"><get name="join_5"/></set>
+            <set name="join_5"><get name="join_4"/></set>
+            <set name="join_4"><get name="join_3"/></set>
+            <set name="join_3"><get name="join_2"/></set>
+            <set name="join_2"><get name="join_1"/></set>
+            <set name="join_1"><get name="join_0"/></set>
+            <set name="join_0"><star index="2"/></set>
+          </li>
+          <li name="push_parameter" value="UNKNOWN">
+            <set name="unknown_10"><get name="unknown_9"/></set>
+            <set name="unknown_9"><get name="unknown_8"/></set>
+            <set name="unknown_8"><get name="unknown_7"/></set>
+            <set name="unknown_7"><get name="unknown_6"/></set>
+            <set name="unknown_6"><get name="unknown_5"/></set>
+            <set name="unknown_5"><get name="unknown_4"/></set>
+            <set name="unknown_4"><get name="unknown_3"/></set>
+            <set name="unknown_3"><get name="unknown_2"/></set>
+            <set name="unknown_2"><get name="unknown_1"/></set>
+            <set name="unknown_1"><get name="unknown_0"/></set>
+            <set name="unknown_0"><star index="2"/></set>
+          </li>
+          <li>
+            <set name="par_10"><get name="par_9"/></set>
+            <set name="par_9"><get name="par_8"/></set>
+            <set name="par_8"><get name="par_7"/></set>
+            <set name="par_7"><get name="par_6"/></set>
+            <set name="par_6"><get name="par_5"/></set>
+            <set name="par_5"><get name="par_4"/></set>
+            <set name="par_4"><get name="par_3"/></set>
+            <set name="par_3"><get name="par_2"/></set>
+            <set name="par_2"><get name="par_1"/></set>
+            <set name="par_1"><get name="par_0"/></set>
+            <set name="par_0"><star index="2"/></set>
+          </li>
+        </condition>
+      </think>
+      <star index="2"/>
+    </template>
+  </category>
+
+  <category>
+    <pattern>SQLBOT AIML POP * UNKNOWN *</pattern>
+    <template>
+      <think>
+        <set name="pop_parameter">
+          <star index="1"/>
+        </set>
+        <set name="show_unknown">
+          <star index="2"/>
+        </set>
+        <set name="pop_object">
+          <condition>
+            <li name="pop_parameter" value="VALUE"><get name="value_0"/></li>
+            <li name="pop_parameter" value="FIELD"><get name="field_0"/></li>
+            <li name="pop_parameter" value="JOIN"><get name="join_0"/></li>
+            <li name="pop_parameter" value="UNKNOWN"><get name="unknown_0"/></li>
+            <li><get name="par_0"/></li>
+          </condition>
+        </set>
+      </think>
+      
+      <condition>
+        <li name="pop_object" value="UNKNOWN">
+          <condition name="show_unknown" value="TRUE">
+            <get name="pop_object"/>
+          </condition>
+        </li>
+        <li>
+          <get name="pop_object"/>
+        </li>
+      </condition>
+      
+      <think>
+        <condition>
+          <li name="pop_parameter" value="VALUE">
+            <set name="value_0"><get name="value_1"/></set>
+            <set name="value_1"><get name="value_2"/></set>
+            <set name="value_2"><get name="value_3"/></set>
+            <set name="value_3"><get name="value_4"/></set>
+            <set name="value_4"><get name="value_5"/></set>
+            <set name="value_5"><get name="value_6"/></set>
+            <set name="value_6"><get name="value_7"/></set>
+            <set name="value_7"><get name="value_8"/></set>
+            <set name="value_8"><get name="value_9"/></set>
+            <set name="value_9"><get name="value_10"/></set>
+            <set name="value_10">UNKNOWN</set>
+          </li>
+          <li name="pop_parameter" value="FIELD">
+            <set name="field_0"><get name="field_1"/></set>
+            <set name="field_1"><get name="field_2"/></set>
+            <set name="field_2"><get name="field_3"/></set>
+            <set name="field_3"><get name="field_4"/></set>
+            <set name="field_4"><get name="field_5"/></set>
+            <set name="field_5"><get name="field_6"/></set>
+            <set name="field_6"><get name="field_7"/></set>
+            <set name="field_7"><get name="field_8"/></set>
+            <set name="field_8"><get name="field_9"/></set>
+            <set name="field_9"><get name="field_10"/></set>
+            <set name="field_10">UNKNOWN</set>
+          </li>
+          <li name="pop_parameter" value="JOIN">
+            <set name="join_0"><get name="join_1"/></set>
+            <set name="join_1"><get name="join_2"/></set>
+            <set name="join_2"><get name="join_3"/></set>
+            <set name="join_3"><get name="join_4"/></set>
+            <set name="join_4"><get name="join_5"/></set>
+            <set name="join_5"><get name="join_6"/></set>
+            <set name="join_6"><get name="join_7"/></set>
+            <set name="join_7"><get name="join_8"/></set>
+            <set name="join_8"><get name="join_9"/></set>
+            <set name="join_9"><get name="join_10"/></set>
+            <set name="join_10">UNKNOWN</set>
+          </li>
+          <li name="pop_parameter" value="UNKNOWN">
+            <set name="unknown_0"><get name="unknown_1"/></set>
+            <set name="unknown_1"><get name="unknown_2"/></set>
+            <set name="unknown_2"><get name="unknown_3"/></set>
+            <set name="unknown_3"><get name="unknown_4"/></set>
+            <set name="unknown_4"><get name="unknown_5"/></set>
+            <set name="unknown_5"><get name="unknown_6"/></set>
+            <set name="unknown_6"><get name="unknown_7"/></set>
+            <set name="unknown_7"><get name="unknown_8"/></set>
+            <set name="unknown_8"><get name="unknown_9"/></set>
+            <set name="unknown_9"><get name="unknown_10"/></set>
+            <set name="unknown_10">UNKNOWN</set>
+          </li>
+          <li>
+            <set name="par_0"><get name="par_1"/></set>
+            <set name="par_1"><get name="par_2"/></set>
+            <set name="par_2"><get name="par_3"/></set>
+            <set name="par_3"><get name="par_4"/></set>
+            <set name="par_4"><get name="par_5"/></set>
+            <set name="par_5"><get name="par_6"/></set>
+            <set name="par_6"><get name="par_7"/></set>
+            <set name="par_7"><get name="par_8"/></set>
+            <set name="par_8"><get name="par_9"/></set>
+            <set name="par_9"><get name="par_10"/></set>
+            <set name="par_10">UNKNOWN</set>
+          </li>
+        </condition>
+      </think>
+    </template>
+  </category>
+
+  <category>
+    <pattern>SQLBOT AIML POP *</pattern>
+    <template>
+      <srai>
+        SQLBOT AIML POP <star/> UNKNOWN FALSE
+      </srai>
+    </template>
+  </category>
+
+  <category>
+    <pattern>SQLBOT AIML RECURSIVE POP *</pattern>
+    <template>
+      <think>
+        <set name="pop_object">
+          <srai>
+            SQLBOT AIML POP <star/> UNKNOWN TRUE
+          </srai>
+        </set>
+      </think>
+
+      <condition>
+        <li name="pop_object" value="UNKNOWN"></li>
+        <li>
+          <condition>
+            <li name="parent_object" value="UNKNOWN"></li>
+            <li>
+              <get name="show_delimiter"/>
+            </li>
+          </condition>
+          
+          <get name="pop_object"/>
+          <think>
+            <set name="parent_object">
+              <get name="pop_objectT"/>
+            </set>
+          </think>
+
+          <srai>
+            SQLBOT AIML RECURSIVE POP <star/>
+          </srai>
+        </li>
+      </condition>
+    </template>
+  </category>
+    
+  <category>
+    <pattern>SQLBOT AIML SHOW AND RELEASE * DELIMITER *</pattern>
+    <template>
+      <think>
+        <set name="show_parameter">
+          <star index="1"/>
+        </set>
+        <set name="show_delimiter">
+          <star index="2"/>
+        </set>
+        <set name="parent_object">
+          UNKNOWN
+        </set>
+      </think>
+      <srai>
+        SQLBOT AIML RECURSIVE POP <get name="show_parameter"/>
+      </srai>
+    </template>
+  </category>
+  
+</aiml>

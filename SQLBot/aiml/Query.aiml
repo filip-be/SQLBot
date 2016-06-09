@@ -10,10 +10,10 @@
 
   <category>
     <pattern>
-      xxx
+      SQLBOT AIML BUILD QUERY
     </pattern>
     <template>
-      yyy
+      SQLBOT APP QUERY SELECT * FROM Osoby
     </template>
   </category>
 

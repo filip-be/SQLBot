@@ -124,6 +124,12 @@ namespace Cindalnet.SQLBot.Query
             string JOIN = "";
             string WHERE = "";
 
+            string Table = "";
+            List<SQLWord> LColumns = new List<SQLWord>();
+            List<SQLWord> LFrom = new List<SQLWord>();
+            List<SQLWord> LJoin = new List<SQLWord>();
+            List<SQLWord> LWhere = new List<SQLWord>();
+
             var parameters = TrimWord(chatResponse).Split('|');
             if (parameters.Length > 1)
             {
@@ -141,7 +147,7 @@ namespace Cindalnet.SQLBot.Query
                             && queryInterp.DesiredParameter != null)
                         {
                             string field = queryInterp.DesiredParameter;
-                            string[] sqlFields, sqlTables;
+                            ///string[] sqlFields, sqlTables;
                             List<Tuple<int, string>> unknownWords = new List<Tuple<int, string>>();
 
                             for(int wordNum = 0; wordNum < queryInterp.Words.Count; wordNum++)
@@ -149,8 +155,8 @@ namespace Cindalnet.SQLBot.Query
                                 Word word = queryInterp.Words[wordNum];
                                 if(word.PartOfSpeech == Word.SpeechPart.Noun)
                                 {
-                                    sqlTables = null;
-                                    sqlFields = null;
+                                    //sqlTables = null;
+                                    //sqlFields = null;
                                     string FieldName = word.FormBase;
 
                                     SQLWord sqlWord = new SQLWord();
@@ -182,6 +188,44 @@ namespace Cindalnet.SQLBot.Query
                                     
                                     if(isKnown)
                                     {
+                                        if (sqlWord.isValidColumn())
+                                        {
+                                            Request chatRequest = new Request(string.Format("SQLBOT AIML FIELD PUSH {0}", sqlWord.SQLColumn),
+                                                ChatUser, ChatBot);
+                                            Result chatRes = ChatBot.Chat(chatRequest);
+                                        }
+                                        else if (sqlWord.isValidValue())
+                                        {
+                                            Request chatRequest = new Request(string.Format("SQLBOT AIML VALUE PUSH {0}='{1}'", sqlWord.SQLColumn, sqlWord.Word),
+                                                ChatUser, ChatBot);
+                                            Result chatRes = ChatBot.Chat(chatRequest);
+                                        }
+
+
+                                        if (sqlWord.SQLTable != null)
+                                        {
+                                            if (Table.Length == 0)
+                                            {
+                                                Table = sqlWord.SQLTable;
+                                            }
+                                            else if (Table != sqlWord.SQLTable)
+                                            {
+                                                string JoinString;
+                                                if (IsValidJoin(Table, sqlWord.SQLTable, out JoinString))
+                                                {
+
+                                                    Request chatRequest = new Request(string.Format("SQLBOT AIML JOIN PUSH {0} ON {1}", sqlWord.SQLTable, JoinString),
+                                                        ChatUser, ChatBot);
+                                                    Result chatRes = ChatBot.Chat(chatRequest);
+                                                }
+                                                else
+                                                {   // Nieprawidłowe złączenie
+
+                                                }
+                                            }
+                                        }                                        
+
+                                        /*
                                         // Jest czymś, można porównać tabele - jeśli są rożne, trzeba odwołać się do złączenia!
                                         if (FROM == null || FROM.Length == 0)
                                         {   // Nie ma określonej tabeli wejściowej
@@ -216,8 +260,10 @@ namespace Cindalnet.SQLBot.Query
                                                 SELECT += sqlFields[0];
                                             }
                                         }
+                                        */
                                     }
                                 }
+                                /*
                                 else if(
                                     (word.PartOfSpeech == Word.SpeechPart.Conjuctiun
                                     && wordNum > 0
@@ -227,6 +273,7 @@ namespace Cindalnet.SQLBot.Query
                                 {
                                     SELECT += ", ";
                                 }
+                                */
                             }
 
                             if(unknownWords.Count > 0)
@@ -252,6 +299,8 @@ namespace Cindalnet.SQLBot.Query
 
             if(!res.StartsWith("ERROR"))
             {
+                res = "SQLBOT BUILD QUERY";
+                /*
                 res = string.Format("SELECT {0} FROM {1} ", SELECT, FROM);
                 if(JOIN.Length > 0)
                 {
@@ -262,6 +311,7 @@ namespace Cindalnet.SQLBot.Query
                 {
                     res = string.Format("{0} WHERE {1}", res, WHERE);
                 }
+                */
             }
 
             return res;

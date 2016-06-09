@@ -126,7 +126,12 @@
     <None Include="aiml\Learn.aiml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="aiml\Query.aiml" />
+    <None Include="aiml\Query.aiml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="aiml\Stack.aiml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="Database\BazaRelacyjna.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
       <LastGenOutput>BazaRelacyjna.designer.cs</LastGenOutput>
