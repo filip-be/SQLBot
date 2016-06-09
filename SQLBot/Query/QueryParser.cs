@@ -69,48 +69,6 @@ namespace Cindalnet.SQLBot.Query
             return Word.Trim();
         }
 
-        private string []findTable(string name)
-        {
-            List<string> res = new List<string>();
-            try
-            {
-                BazaRelacyjnaDataContext dc = new BazaRelacyjnaDataContext();
-                SQLBot_Table []table = dc.SQLBot_Table.Where(w => w.sqlt_Name == name).ToArray();
-                foreach(var tab in table)
-                {
-                    res.Add(tab.sqlt_SQLName);
-                }
-            }
-            catch(Exception)
-            {
-
-            }
-
-            return res.ToArray();
-        }
-
-        private void findField(string name, out string[] sqlNames, out string[] sqlTables)
-        {
-            List<string> lNames = new List<string>();
-            List<string> lTables = new List<string>();
-            try
-            {
-                BazaRelacyjnaDataContext dc = new BazaRelacyjnaDataContext();
-                SQLBot_Field[] fields = dc.SQLBot_Field.Where(w => w.sqlf_ColumnName == name).ToArray();
-                foreach (var field in fields)
-                {
-                    lNames.Add(field.sqlf_SQLColumnName);
-                    lTables.Add(field.SQLBot_Table.sqlt_SQLName);
-                }
-            }
-            catch (Exception)
-            {
-
-            }
-            sqlNames = lNames.ToArray();
-            sqlTables = lTables.ToArray();
-        }
-
         private void findJoin(string table1, string table2, out string Join)
         {
             try
@@ -127,41 +85,6 @@ namespace Cindalnet.SQLBot.Query
             catch (Exception)
             {
                 Join = null;
-            }
-        }
-
-        private bool IsTableName(string name, out string[] sqlTables)
-        {
-            try
-            {
-                sqlTables = findTable(name);
-                if (sqlTables.Length > 0)
-                    return true;
-                else
-                    return false;
-            }
-            catch(Exception)
-            {
-                sqlTables = null;
-                return false;
-            }
-        }
-
-        private bool IsFieldName(string name, out string[] sqlNames, out string[] sqlTables)
-        {
-            try
-            {
-                findField(name, out sqlNames, out sqlTables);
-                if (sqlNames.Length > 0)
-                    return true;
-                else
-                    return false;
-            }
-            catch (Exception)
-            {
-                sqlNames = null;
-                sqlTables = null;
-                return false;
             }
         }
 
@@ -190,31 +113,6 @@ namespace Cindalnet.SQLBot.Query
             }
 
             public string ParameterName { get; set; }
-        }
-
-        private bool IsValidTableOrField(string FieldName, out string[] sqlTables, out string[] sqlFields)
-        {
-            sqlTables = null;
-            sqlFields = null;
-            while (!IsTableName(FieldName, out sqlTables)
-                   && !IsFieldName(FieldName, out sqlFields, out sqlTables))
-            {
-                Request chatRequest = new Request(string.Format("SQLBOT WHAT IS {0}", FieldName), ChatUser, ChatBot);
-                Result chatRes = ChatBot.Chat(chatRequest);
-                FieldName = TrimWord(chatRes.Output);
-                if (FieldName == "UNKNOWN")
-                {
-                    return false;
-                }
-            };
-
-            return true;
-        }
-
-        private bool IsValidTableOrField(string FieldName)
-        {
-            string[] tables, fields;
-            return IsValidTableOrField(FieldName, out tables, out fields);
         }
 
         private string prepareQuery(string chatResponse)
@@ -254,7 +152,11 @@ namespace Cindalnet.SQLBot.Query
                                     sqlTables = null;
                                     sqlFields = null;
                                     string FieldName = word.FormBase;
-                                    bool isKnown = IsValidTableOrField(FieldName, out sqlTables, out sqlFields);
+
+                                    SQLWord sqlWord = new SQLWord();
+                                    sqlWord.Initialize(ChatBot, ChatUser, FieldName);
+
+                                    bool isKnown = sqlWord.isValidWord();
 
                                     if (!isKnown)
                                     {
@@ -266,7 +168,9 @@ namespace Cindalnet.SQLBot.Query
                                             unknownWord = unknownWords.Last();
                                             unknownWords.RemoveAt(unknownWords.Count - 1);
                                             unknownWord = new Tuple<int, string>(wordNum, unknownWord.Item2 + " " + FieldName);
-                                            isKnown = IsValidTableOrField(unknownWord.Item2, out sqlTables, out sqlFields);
+                                            sqlWord = new SQLWord();
+                                            sqlWord.Initialize(ChatBot, ChatUser, unknownWord.Item2);
+                                            isKnown = sqlWord.isValidWord();
                                         }
                                         else
                                         {

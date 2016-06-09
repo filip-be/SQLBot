@@ -14,10 +14,10 @@ namespace Cindalnet.SQLBot
         [STAThread]
         static void Main()
         {
-            //Properties.Settings.Default.BazaRelacyjnaCustomConnectionString 
-            //    = Properties.Settings.Default.BazaRelacyjnaConnectionString;
-            Properties.Settings.Default.BazaRelacyjnaCustomConnectionString
-                = Properties.Settings.Default.BazaRelacyjnaConnectionStringLocal;
+            Properties.Settings.Default.BazaRelacyjnaCustomConnectionString 
+                = Properties.Settings.Default.BazaRelacyjnaConnectionString;
+            //Properties.Settings.Default.BazaRelacyjnaCustomConnectionString
+            //    = Properties.Settings.Default.BazaRelacyjnaConnectionStringLocal;
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Presenter.PresenterMain().FormControl);
