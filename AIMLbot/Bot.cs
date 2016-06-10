@@ -743,6 +743,12 @@ namespace AIMLbot
                         case "bot":
                             tagHandler = new AIMLTagHandlers.bot(this, user, query, request, result, node);
                             break;
+                        case "concatget":
+                            tagHandler = new AIMLTagHandlers.concatget(this, user, query, request, result, node);
+                            break;
+                        case "concatset":
+                            tagHandler = new AIMLTagHandlers.concatset(this, user, query, request, result, node);
+                            break;
                         case "condition":
                             tagHandler = new AIMLTagHandlers.condition(this, user, query, request, result, node);
                             break;
