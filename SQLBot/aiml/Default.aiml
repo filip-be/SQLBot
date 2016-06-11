@@ -164,4 +164,9 @@
       <srai>ERROR</srai>: <star/>
     </template>
   </category>
+
+  <category>
+    <pattern>SQLBOT APP QUERY *</pattern>
+    <template>SQLBOT APP QUERY <star/></template>
+  </category>
 </aiml>

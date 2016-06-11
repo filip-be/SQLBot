@@ -33,16 +33,14 @@ namespace Cindalnet.SQLBot.Query
             ChatBot.loadAIMLFromFiles();
             ChatBot.isAcceptingUserInput = true;
             QueryResult = null;
-
-            UpdateAIMLKnowledge();
         }
 
-        void UpdateAIMLKnowledge()
+        public void UpdateAIMLKnowledge()
         {
             try
             {
                 BazaRelacyjnaDataContext dc = new BazaRelacyjnaDataContext();
-                SQLBot_Field[] fields = dc.SQLBot_Field.ToArray();
+                SQLBot_Field[] fields = dc.SQLBot_Field.Take(10).ToArray();
                 SQLBot_Table[] tables = dc.SQLBot_Table.ToArray();
 
                 foreach (var field in fields)
@@ -50,6 +48,7 @@ namespace Cindalnet.SQLBot.Query
                     ChatBot.Chat(string.Format("SQLBOT LEARN WHAT IS {0} | {1} | FIELD", field.sqlf_ColumnName, field.sqlf_Description),
                         ChatUser.UserID);
                 }
+
                 foreach (var table in tables)
                 {
                     ChatBot.Chat(string.Format("SQLBOT LEARN WHAT IS {0} | {1} | TABLE", table.sqlt_Name, table.sqlt_Description),
@@ -119,11 +118,6 @@ namespace Cindalnet.SQLBot.Query
         {
             string res = "";
 
-            string SELECT = "*";
-            string FROM = "";
-            string JOIN = "";
-            string WHERE = "";
-
             string Table = "";
             List<SQLWord> LColumns = new List<SQLWord>();
             List<SQLWord> LFrom = new List<SQLWord>();
@@ -133,13 +127,30 @@ namespace Cindalnet.SQLBot.Query
             var parameters = TrimWord(chatResponse).Split('|');
             if (parameters.Length > 1)
             {
+                List<Tuple<string, string>> wordsToPush = new List<Tuple<string, string>>();
+                // Wyczyść stosy
                 try
                 {
-                    /*
-                     * ARGS[0] = SQLBOT APP PREPARE QUERY
-                     * ARGS[1] = informacja o tym co chcemy wyświelić
-                     * ARGS[2...] = kryteria
-                     */
+                    foreach(var fieldName in new string[]{"FIELD", "VALUE", "TABLE", "UNKNOWN"})
+                    {
+                        Request chatRequest = new Request(
+                            string.Format("SQLBOT AIML STACK CLEAR {0}", fieldName),
+                            ChatUser,
+                            ChatBot);
+                        Result chatRes = ChatBot.Chat(chatRequest);
+                        chatRequest = new Request(
+                            string.Format("SQLBOT AIML {0} PUSH UNKNOWN", fieldName),
+                            ChatUser,
+                            ChatBot);
+                        chatRes = ChatBot.Chat(chatRequest);
+                    }
+                }
+                catch(Exception)
+                {
+                }
+
+                try
+                {
                     for (int argsNum = 1; argsNum < parameters.Length; argsNum++)
                     {
                         QueryInterpreter queryInterp = new QueryInterpreter(parameters[argsNum]);
@@ -147,16 +158,14 @@ namespace Cindalnet.SQLBot.Query
                             && queryInterp.DesiredParameter != null)
                         {
                             string field = queryInterp.DesiredParameter;
-                            ///string[] sqlFields, sqlTables;
-                            List<Tuple<int, string>> unknownWords = new List<Tuple<int, string>>();
+                            //
+                            List<Tuple<int, string, string>> unknownWords = new List<Tuple<int, string, string>>();
 
                             for(int wordNum = 0; wordNum < queryInterp.Words.Count; wordNum++)
                             {
                                 Word word = queryInterp.Words[wordNum];
                                 if(word.PartOfSpeech == Word.SpeechPart.Noun)
                                 {
-                                    //sqlTables = null;
-                                    //sqlFields = null;
                                     string FieldName = word.FormBase;
 
                                     SQLWord sqlWord = new SQLWord();
@@ -166,21 +175,21 @@ namespace Cindalnet.SQLBot.Query
 
                                     if (!isKnown)
                                     {
-                                        Tuple<int, string> unknownWord;
+                                        Tuple<int, string, string> unknownWord;
 
                                         if(unknownWords.Count > 0 
                                             && unknownWords.Last().Item1 + 1 == wordNum)
                                         {
                                             unknownWord = unknownWords.Last();
                                             unknownWords.RemoveAt(unknownWords.Count - 1);
-                                            unknownWord = new Tuple<int, string>(wordNum, unknownWord.Item2 + " " + FieldName);
                                             sqlWord = new SQLWord();
-                                            sqlWord.Initialize(ChatBot, ChatUser, unknownWord.Item2);
+                                            sqlWord.Initialize(ChatBot, ChatUser, unknownWord.Item2 + " " + FieldName);
+                                            unknownWord = new Tuple<int, string, string>(wordNum, unknownWord.Item2 + " " + FieldName, sqlWord.MissingObject());
                                             isKnown = sqlWord.isValidWord();
                                         }
                                         else
                                         {
-                                            unknownWord = new Tuple<int, string>(wordNum, FieldName);
+                                            unknownWord = new Tuple<int, string, string>(wordNum, FieldName, sqlWord.MissingObject());
                                         }
                                         if(!isKnown)
                                             unknownWords.Add(unknownWord);
@@ -190,15 +199,14 @@ namespace Cindalnet.SQLBot.Query
                                     {
                                         if (sqlWord.isValidColumn())
                                         {
-                                            Request chatRequest = new Request(string.Format("SQLBOT AIML FIELD PUSH {0}", sqlWord.SQLColumn),
-                                                ChatUser, ChatBot);
-                                            Result chatRes = ChatBot.Chat(chatRequest);
+                                            wordsToPush.Insert(0, new Tuple<string, string>("FIELD", sqlWord.SQLColumn));
                                         }
                                         else if (sqlWord.isValidValue())
                                         {
-                                            Request chatRequest = new Request(string.Format("SQLBOT AIML VALUE PUSH {0}='{1}'", sqlWord.SQLColumn, sqlWord.Word),
-                                                ChatUser, ChatBot);
-                                            Result chatRes = ChatBot.Chat(chatRequest);
+                                            wordsToPush.Insert(0,
+                                                new Tuple<string, string>(
+                                                    "VALUE",
+                                                    string.Format("{0}='{1}'", sqlWord.SQLColumn, sqlWord.Word)));
                                         }
 
 
@@ -206,6 +214,7 @@ namespace Cindalnet.SQLBot.Query
                                         {
                                             if (Table.Length == 0)
                                             {
+                                                wordsToPush.Insert(0, new Tuple<string, string>("TABLE", sqlWord.SQLTable));
                                                 Table = sqlWord.SQLTable;
                                             }
                                             else if (Table != sqlWord.SQLTable)
@@ -213,54 +222,16 @@ namespace Cindalnet.SQLBot.Query
                                                 string JoinString;
                                                 if (IsValidJoin(Table, sqlWord.SQLTable, out JoinString))
                                                 {
-
-                                                    Request chatRequest = new Request(string.Format("SQLBOT AIML JOIN PUSH {0} ON {1}", sqlWord.SQLTable, JoinString),
-                                                        ChatUser, ChatBot);
-                                                    Result chatRes = ChatBot.Chat(chatRequest);
+                                                    wordsToPush.Insert(0,
+                                                        new Tuple<string, string>("JOIN",
+                                                            string.Format("{0} ON {1}", sqlWord.SQLTable, JoinString)));
                                                 }
                                                 else
                                                 {   // Nieprawidłowe złączenie
 
                                                 }
                                             }
-                                        }                                        
-
-                                        /*
-                                        // Jest czymś, można porównać tabele - jeśli są rożne, trzeba odwołać się do złączenia!
-                                        if (FROM == null || FROM.Length == 0)
-                                        {   // Nie ma określonej tabeli wejściowej
-                                            if (sqlTables != null 
-                                                && sqlTables.Length > 0)
-                                                FROM = sqlTables[0];
                                         }
-                                        else if (sqlTables != null 
-                                            && sqlTables.Length > 0 
-                                            && FROM != sqlTables[0])
-                                        {
-                                            string JoinString;
-                                            if (IsValidJoin(sqlTables[0], FROM, out JoinString))
-                                            {
-                                                JOIN = string.Format("{0} ON {1}", sqlTables[0], JoinString);
-                                            }
-                                            else
-                                            {   // Nieprawidłowe złączenie
-
-                                            }
-                                        }
-
-                                        if (sqlFields != null 
-                                            && sqlFields.Length > 0)
-                                        {   // Poszukiwane słowo jest nazwą pola
-                                            if(word.FormBase == queryInterp.DesiredParameter)
-                                                SELECT = sqlFields[0];
-                                            else if (queryInterp.DesiredParameterIndex < wordNum 
-                                                && wordNum > 0
-                                                && queryInterp.Words[wordNum - 1].PartOfSpeech == Word.SpeechPart.Conjuctiun)
-                                            {
-                                                SELECT += sqlFields[0];
-                                            }
-                                        }
-                                        */
                                     }
                                 }
                                 /*
@@ -278,7 +249,12 @@ namespace Cindalnet.SQLBot.Query
 
                             if(unknownWords.Count > 0)
                             {
-                                throw new QueryExceptionUnknownParameter(unknownWords.First().Item2);
+                                foreach (var unknownWord in unknownWords)
+                                {
+                                    wordsToPush.Insert(0, new Tuple<string, string>("UNKNOWN", 
+                                        string.Format("{0} MISSING PARAMETER {1}", unknownWord.Item2, unknownWord.Item3)));
+                                }
+                                //throw new QueryExceptionUnknownParameter(unknownWords.First().Item2);
                             }
                         }
                     }
@@ -291,6 +267,15 @@ namespace Cindalnet.SQLBot.Query
                 {
                     res = "ERROR - PARSING PARAMETERS";
                 }
+
+                foreach(var wordToPush in wordsToPush)
+                {
+                    Request chatRequest = new Request(
+                        string.Format("SQLBOT AIML {0} PUSH {1}", wordToPush.Item1, wordToPush.Item2),
+                        ChatUser,
+                        ChatBot);
+                    Result chatRes = ChatBot.Chat(chatRequest);
+                }
             }
             else
             {
@@ -299,19 +284,7 @@ namespace Cindalnet.SQLBot.Query
 
             if(!res.StartsWith("ERROR"))
             {
-                res = "SQLBOT BUILD QUERY";
-                /*
-                res = string.Format("SELECT {0} FROM {1} ", SELECT, FROM);
-                if(JOIN.Length > 0)
-                {
-                    res = string.Format("{0} JOIN {1}", res, JOIN);
-                }
-
-                if(WHERE.Length > 0)
-                {
-                    res = string.Format("{0} WHERE {1}", res, WHERE);
-                }
-                */
+                res = "SQLBOT AIML BUILD QUERY";
             }
 
             return res;
@@ -373,15 +346,20 @@ namespace Cindalnet.SQLBot.Query
             {
                 string SQLQuery;
                 if (isCleanSQLQuery)
+                {
                     SQLQuery = chatResponse;
+
+                    bool QueryResult = executeQuery(SQLQuery);
+
+                    res = string.Format("QUERYDONE | {0} | {1}",
+                                            QueryResult ? "OK" : "ERROR",
+                                            SQLQuery);
+                }
                 else
+                {
                     SQLQuery = prepareQuery(chatResponse);
-
-                bool QueryResult = executeQuery(SQLQuery);
-
-                res = string.Format("QUERYDONE | {0} | {1}",
-                                        QueryResult ? "OK" : "ERROR",
-                                        SQLQuery);
+                    res = SQLQuery;
+                }
             }
             catch(QueryExceptionUnknownParameter ex)
             {

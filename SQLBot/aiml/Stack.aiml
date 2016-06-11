@@ -185,9 +185,26 @@
         </li>
       </condition>
       <think>
-        <set name="parent_object">
-          <get name="show_parameter"/>
+        <set name="obj_num">
+          <star index="3"/>
         </set>
+        <condition>
+          <li name="obj_num" value="0">
+            <set name="parent_object">
+              <get name="show_parameter"/>
+            </set>
+          </li>
+          <li>
+            <condition>
+              <li name="parent_object" value="UNKNOWN"></li>
+              <li>
+                <set name="parent_object">
+                  <get name="show_parameter"/>
+                </set>
+              </li>
+            </condition>
+          </li>
+        </condition>
       </think>
     </template>
   </category>
@@ -211,6 +228,16 @@
       <srai>SQLBOT AIML SHOW STACK <star index="1"/> DELIMITER <star index="2"/> NUM 8</srai>
       <srai>SQLBOT AIML SHOW STACK <star index="1"/> DELIMITER <star index="2"/> NUM 9</srai>
       <srai>SQLBOT AIML SHOW STACK <star index="1"/> DELIMITER <star index="2"/> NUM 10</srai>
+    </template>
+  </category>
+
+  <category>
+    <pattern>SQLBOT AIML STACK CLEAR *</pattern>
+    <template>
+      <think>
+        <srai>SQLBOT AIML SHOW AND RELEASE <star/> DELIMITER NONE</srai>
+        <srai>SQLBO AIML <star/> PUSH UNKNOWN</srai>
+      </think>
     </template>
   </category>
   

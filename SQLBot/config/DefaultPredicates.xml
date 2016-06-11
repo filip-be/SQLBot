@@ -1,47 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <root>
   <item name="value_0" value="UNKNOWN" />
-  <item name="value_1" value="UNKNOWN" />
-  <item name="value_2" value="UNKNOWN" />
-  <item name="value_3" value="UNKNOWN" />
-  <item name="value_4" value="UNKNOWN" />
-  <item name="value_5" value="UNKNOWN" />
-  <item name="value_6" value="UNKNOWN" />
-  <item name="value_7" value="UNKNOWN" />
-  <item name="value_8" value="UNKNOWN" />
-  <item name="value_9" value="UNKNOWN" />
-  <item name="value_10" value="UNKNOWN" />
   <item name="field_0" value="UNKNOWN" />
-  <item name="field_1" value="UNKNOWN" />
-  <item name="field_2" value="UNKNOWN" />
-  <item name="field_3" value="UNKNOWN" />
-  <item name="field_4" value="UNKNOWN" />
-  <item name="field_5" value="UNKNOWN" />
-  <item name="field_6" value="UNKNOWN" />
-  <item name="field_7" value="UNKNOWN" />
-  <item name="field_8" value="UNKNOWN" />
-  <item name="field_9" value="UNKNOWN" />
-  <item name="field_10" value="UNKNOWN" />
   <item name="unknown_0" value="UNKNOWN" />
-  <item name="unknown_1" value="UNKNOWN" />
-  <item name="unknown_2" value="UNKNOWN" />
-  <item name="unknown_3" value="UNKNOWN" />
-  <item name="unknown_4" value="UNKNOWN" />
-  <item name="unknown_5" value="UNKNOWN" />
-  <item name="unknown_6" value="UNKNOWN" />
-  <item name="unknown_7" value="UNKNOWN" />
-  <item name="unknown_8" value="UNKNOWN" />
-  <item name="unknown_9" value="UNKNOWN" />
-  <item name="unknown_10" value="UNKNOWN" />
   <item name="join_0" value="UNKNOWN" />
-  <item name="join_1" value="UNKNOWN" />
-  <item name="join_2" value="UNKNOWN" />
-  <item name="join_3" value="UNKNOWN" />
-  <item name="join_4" value="UNKNOWN" />
-  <item name="join_5" value="UNKNOWN" />
-  <item name="join_6" value="UNKNOWN" />
-  <item name="join_7" value="UNKNOWN" />
-  <item name="join_8" value="UNKNOWN" />
-  <item name="join_9" value="UNKNOWN" />
-  <item name="join_10" value="UNKNOWN" />
+  <item name="table_0" value="UNKNOWN" />
 </root>

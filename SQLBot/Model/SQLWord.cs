@@ -15,6 +15,7 @@ namespace Cindalnet.SQLBot.Model
             Value,
             Field,
             Table,
+            Join,
             Unknown
         };
 
@@ -183,11 +184,16 @@ namespace Cindalnet.SQLBot.Model
                     string[] sqlTables = null;
                     string[] sqlFields = null;
 
-                    if (IsTableName(sqlWord.Word, out sqlTables))
+                    if (IsTableName(sqlWord.Word, out sqlTables) && sqlTables.Length > 0)
                         SQLTable = sqlTables[0];
 
                     if (IsFieldName(sqlWord.Word, out sqlFields, out sqlTables))
-                        SQLColumn = sqlFields[0];
+                    {
+                        if(sqlFields.Length > 0)
+                            SQLColumn = sqlFields[0];
+                        if (sqlTables.Length > 0)
+                            SQLTable = sqlTables[0];
+                    }
                 }
                 catch(Exception)
                 { }
@@ -272,6 +278,20 @@ namespace Cindalnet.SQLBot.Model
         {
             mPar = MissingParameter.None;
             return false;
+        }
+
+        public string MissingObject()
+        {
+            if (this.isValidWord())
+                return "";
+            else if (WordType == EWordType.Unknown)
+                return "MUNKNOWN";
+            else if (!hasValidParentTable())
+                return "MTABLE";
+            else if (!hasValidParentColumn())
+                return "MFIELD";
+            else
+                return "MINVALID";
         }
     }
 }

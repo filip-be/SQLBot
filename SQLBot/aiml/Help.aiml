@@ -34,22 +34,30 @@
   <topic name="pomoc">
     <category>
       <pattern>POMOC TABELE</pattern>
-      <template>SQLBOT APP QUERY SELECT * FROM SQLBot_Table</template>
+      <template>
+        <srai>SQLBOT APP QUERY SELECT * FROM SQLBot_Table</srai>
+      </template>
     </category>
 
     <category>
       <pattern>POMOC POLA</pattern>
-      <template>SQLBOT APP QUERY SELECT * FROM vSQLBotFields</template>
+      <template>
+        <srai>SQLBOT APP QUERY SELECT * FROM vSQLBotFields</srai>
+      </template>
     </category>
 
     <category>
       <pattern>POMOC TYPY PÓL</pattern>
-      <template>SQLBOT APP QUERY SELECT * FROM SQLBot_FieldType</template>
+      <template>
+        <srai>SQLBOT APP QUERY SELECT * FROM SQLBot_FieldType</srai>
+      </template>
     </category>
 
     <category>
       <pattern>POMOC Z³¥CZENIA</pattern>
-      <template>SQLBOT APP QUERY SELECT * FROM vSQLBotTableJoins</template>
+      <template>
+        <srai>SQLBOT APP QUERY SELECT * FROM vSQLBotTableJoins</srai>
+      </template>
     </category>
   </topic>
   

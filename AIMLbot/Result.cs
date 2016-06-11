@@ -31,7 +31,8 @@ namespace AIMLbot
         {
             get
             {
-                return this.request.rawInput;
+                return System.Text.RegularExpressions.Regex.Replace(this.request.rawInput, @"^\r\n\s*", "");
+                //return this.request.rawInput;
             }
         }
 

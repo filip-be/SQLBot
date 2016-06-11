@@ -30,6 +30,7 @@ namespace Cindalnet.SQLBot.Presenter
             View = (IFormChat)MaterialForm;
             FormControl = View.FormControl;
             QueryParser = new Query.QueryParser();
+            this.QueryParser.UpdateAIMLKnowledge();
             responseHistory = new List<string>();
             responseHistory.Add("");
             responseHistoryIndex = 0;
