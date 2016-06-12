@@ -191,29 +191,24 @@ namespace AIMLbot.AIMLTagHandlers
                             {
                                 string name = "";
                                 string value = "";
-                                if (childLINode.Attributes[0].Name == "name")
-                                {
-                                    name = childLINode.Attributes[0].Value;
-                                }
-                                else if (childLINode.Attributes[0].Name == "value")
-                                {
-                                    value = childLINode.Attributes[0].Value;
-                                }
 
-                                if (childLINode.Attributes[1].Name == "name")
+                                foreach(XmlAttribute attribute in childLINode.Attributes)
                                 {
-                                    name = childLINode.Attributes[1].Value;
-                                }
-                                else if (childLINode.Attributes[1].Name == "value")
-                                {
-                                    value = childLINode.Attributes[1].Value;
+                                    if (attribute.Name == "name")
+                                    {
+                                        name = attribute.Value;
+                                    }
+                                    else if (attribute.Name == "value")
+                                    {
+                                        value = "^" + attribute.Value;
+                                    }
                                 }
 
                                 if ((name.Length > 0) & (value.Length > 0))
                                 {
                                     string actualValue = this.user.Predicates.grabSetting(name);
                                     Regex matcher = new Regex(value.Replace(" ", "\\s").Replace("*","[\\sA-Z0-9]+"), RegexOptions.IgnoreCase);
-                                    if (matcher.IsMatch(actualValue))
+                                    if (matcher.IsMatch(Regex.Replace(actualValue, @"\r\n\s+", "")))
                                     {
                                         return childLINode.InnerXml;
                                     }

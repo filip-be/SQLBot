@@ -285,13 +285,13 @@ namespace Cindalnet.SQLBot.Model
             if (this.isValidWord())
                 return "";
             else if (WordType == EWordType.Unknown)
-                return "MUNKNOWN";
+                return "UNKNOWN";
             else if (!hasValidParentTable())
-                return "MTABLE";
+                return "TABLE";
             else if (!hasValidParentColumn())
-                return "MFIELD";
+                return "FIELD";
             else
-                return "MINVALID";
+                return "INVALID";
         }
     }
 }
