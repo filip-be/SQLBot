@@ -14,6 +14,16 @@
     <pattern>SQLBOT AIML * PUSH *</pattern>
     <template>
       <think>
+        <concatset concatname="STAR_1" concatname1="_10"><concatget concatname="STAR_1" concatname1="_9"/></concatset>
+        <concatset concatname="STAR_1" concatname1="_9"><concatget concatname="STAR_1" concatname1="_8"/></concatset>
+        <concatset concatname="STAR_1" concatname1="_8"><concatget concatname="STAR_1" concatname1="_7"/></concatset>
+        <concatset concatname="STAR_1" concatname1="_7"><concatget concatname="STAR_1" concatname1="_6"/></concatset>
+        <concatset concatname="STAR_1" concatname1="_6"><concatget concatname="STAR_1" concatname1="_5"/></concatset>
+        <concatset concatname="STAR_1" concatname1="_5"><concatget concatname="STAR_1" concatname1="_4"/></concatset>
+        <concatset concatname="STAR_1" concatname1="_4"><concatget concatname="STAR_1" concatname1="_3"/></concatset>
+        <concatset concatname="STAR_1" concatname1="_3"><concatget concatname="STAR_1" concatname1="_2"/></concatset>
+        <concatset concatname="STAR_1" concatname1="_2"><concatget concatname="STAR_1" concatname1="_1"/></concatset>
+        <concatset concatname="STAR_1" concatname1="_1"><concatget concatname="STAR_1" concatname1="_0"/></concatset>
         <concatset concatname="STAR_1" concatname1="_0"><star index="2"/></concatset>
       </think>
       <star index="2"/>
@@ -226,7 +236,7 @@
     <template>
       <think>
         <srai>SQLBOT AIML SHOW AND RELEASE <star/> DELIMITER NONE</srai>
-        <srai>SQLBO AIML <star/> PUSH UNKNOWN</srai>
+        <srai>SQLBOT AIML <star/> PUSH UNKNOWN</srai>
       </think>
     </template>
   </category>

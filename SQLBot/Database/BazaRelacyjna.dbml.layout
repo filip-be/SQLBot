@@ -134,7 +134,7 @@
         <classShapeMoniker Id="1e10b48d-6aca-45c8-9bf4-48c83df0ac4c" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(9.25 : 11.4142976888021); (8.375 : 11.4142976888021)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(9.25 : 11.4142976888021); (8.375 : 11.4142976888021)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/BazaRelacyjnaDataContext/SQLBot_Table/SQLBot_Table_SQLBot_Field" />
       <nodes>
         <classShapeMoniker Id="1e940898-9dea-4a51-9d5f-4d8ee30c0dbf" />
@@ -189,14 +189,14 @@
         <elementListCompartment Id="9c21e26c-9025-4d96-9914-9811d1c161ae" absoluteBounds="4.1400000000000006, 13.585, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(10.25 : 12.2035953776042); (10.25 : 13.9142976888021); (6.125 : 13.9142976888021)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(10.25 : 12.2035953776042); (10.25 : 13.9142976888021); (6.125 : 13.9142976888021)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/BazaRelacyjnaDataContext/SQLBot_Table/SQLBot_Table_SQLBot_TableJoin" />
       <nodes>
         <classShapeMoniker Id="1e940898-9dea-4a51-9d5f-4d8ee30c0dbf" />
         <classShapeMoniker Id="1f76125f-6c38-4947-946a-bcff4db78cb4" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(9.7187475 : 12.2035953776042); (9.7187475 : 13.488396344401); (6.125 : 13.488396344401)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(9.7187475 : 12.2035953776042); (9.7187475 : 13.488396344401); (6.125 : 13.488396344401)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/BazaRelacyjnaDataContext/SQLBot_Table/SQLBot_Table_SQLBot_TableJoin1" />
       <nodes>
         <classShapeMoniker Id="1e940898-9dea-4a51-9d5f-4d8ee30c0dbf" />
@@ -209,5 +209,25 @@
         <elementListCompartment Id="94636f6d-2fa2-457f-bc02-50350ac808ac" absoluteBounds="0.51500000000000012, 9.46, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
+    <classShape Id="91649d48-011d-4491-b622-cb2daaaf1146" absoluteBounds="12.125, 10.25, 2, 1.3862939453125">
+      <DataClassMoniker Name="/BazaRelacyjnaDataContext/SQLBot_TableDefault" />
+      <nestedChildShapes>
+        <elementListCompartment Id="0510f8eb-9a40-43ef-80d2-03999fe1843a" absoluteBounds="12.14, 10.71, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(8.375 : 10.40625); (12.125 : 10.40625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/BazaRelacyjnaDataContext/SQLBot_Field/SQLBot_Field_SQLBot_TableDefault" />
+      <nodes>
+        <classShapeMoniker Id="1e10b48d-6aca-45c8-9bf4-48c83df0ac4c" />
+        <classShapeMoniker Id="91649d48-011d-4491-b622-cb2daaaf1146" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(11.25 : 11.1306469726562); (12.125 : 11.1306469726562)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/BazaRelacyjnaDataContext/SQLBot_Table/SQLBot_Table_SQLBot_TableDefault" />
+      <nodes>
+        <classShapeMoniker Id="1e940898-9dea-4a51-9d5f-4d8ee30c0dbf" />
+        <classShapeMoniker Id="91649d48-011d-4491-b622-cb2daaaf1146" />
+      </nodes>
+    </associationConnector>
   </nestedChildShapes>
 </ordesignerObjectsDiagram>

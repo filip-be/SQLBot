@@ -13,7 +13,84 @@
       SQLBOT AIML BUILD QUERY
     </pattern>
     <template>
-      SQLBOT APP QUERY SELECT * FROM Osoby
+      <think>
+        <set name="parameter_unknown">
+          <srai>SQLBOT AIML SHOW STACK OBJECT UNKNOWN NUM 0 UNKNOWN TRUE</srai>
+        </set>
+        <set name="parameter_field_first">
+          <srai>SQLBOT AIML SHOW STACK OBJECT FIELD NUM 0 UNKNOWN TRUE</srai>
+        </set>
+        <set name="parameter_table_first">
+          <srai>SQLBOT AIML SHOW STACK OBJECT TABLE NUM 0 UNKNOWN TRUE</srai>
+        </set>
+        <set name="parameter_join_first">
+          <srai>SQLBOT AIML SHOW STACK OBJECT JOIN NUM 0 UNKNOWN TRUE</srai>
+        </set>
+        <set name="parameter_value_first">
+          <srai>SQLBOT AIML SHOW STACK OBJECT VALUE NUM 0 UNKNOWN TRUE</srai>
+        </set>
+        <set name="parameter_fields">
+          <srai>SQLBOT AIML SHOW STACK FIELD DELIMITER ,</srai>
+        </set>
+        <set name="parameter_tables">
+          <srai>SQLBOT AIML SHOW STACK TABLE DELIMITER ,</srai>
+        </set>
+        <set name="parameter_joins">
+          <srai>SQLBOT AIML SHOW STACK JOIN DELIMITER ,</srai>
+        </set>
+        <set name="parameter_value">
+          <srai>SQLBOT AIML SHOW STACK VALUE DELIMITER AND</srai>
+        </set>
+      </think>
+      
+      <condition>
+        <li name="parameter_unknown" value="UNKNOWN">
+          <think>
+            <set name="query_fields">
+              <condition>
+                <li name="parameter_field_first" value="UNKNOWN">
+                  *
+                </li>
+                <li>
+                  <get name="parameter_fields"/>
+                </li>
+              </condition>
+            </set>
+            <set name="query_tables">
+              <condition>
+                <li name="parameter_table_first" value="UNKNOWN">
+                  *
+                </li>
+                <li>
+                  <get name="parameter_tables"/>
+                </li>
+              </condition>
+            </set>
+            <set name="query_joins">
+              <condition>
+                <li name="parameter_join_first" value="UNKNOWN"></li>
+                <li>
+                  JOIN <get name="parameter_joins"/>
+                </li>
+              </condition>
+            </set>
+            <set name="query_value">
+              <condition>
+                <li name="parameter_value_first" value="UNKNOWN"></li>
+                <li>
+                  WHERE <get name="parameter_value"/>
+                </li>
+              </condition>
+            </set>
+          </think>
+          SQLBOT APP QUERY SELECT <get name="query_fields"/> FROM <get name="query_tables"/> <get name="query_joins"/> <get name="query_value"/>
+        </li>
+        <li>
+          <srai>
+            SQLBOT UNKNOWN PARAMETER <get name="parameter_unknown"/>
+          </srai>
+        </li>
+      </condition>
     </template>
   </category>
 

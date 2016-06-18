@@ -131,7 +131,17 @@
           <condition>
             <li name="RecursiveName" value="UNKNOWN">Czym jest <star/>?</li>
             <li>
-             , ale nie wiem czym jest <star/>
+              <condition>
+                <li name="missing_parameter_type" value="FIELD">
+                  , ale nie wiem jakie pole opisuje <star/>
+                </li>
+                <li name="missing_parameter_type" value="TABLE">
+                  , ale nie wiem do jakiej tabeli nale¿y <star/>
+                </li>
+                <li name="missing_parameter_type">
+                  , ale nie wiem czym jest <star/>
+                </li>
+              </condition>
             </li>
           </condition>
         </li>
@@ -164,6 +174,20 @@
       </think>
       <srai>
         SQLBOT RECURSIVE WHAT IS <star/>
+      </srai>
+    </template>
+  </category>
+
+  <category>
+    <pattern>SQLBOT UNKNOWN PARAMETER * MISSING _</pattern>
+    <template>
+      <think>
+        <set name="missing_parameter_type">
+          <star index="2"/>
+        </set>
+      </think>
+      <srai>
+        SQLBOT UNKNOWN PARAMETER <star index="1"/>
       </srai>
     </template>
   </category>
@@ -505,4 +529,75 @@
     </template>
   </category>
 
+  <category>
+    <pattern>
+      SQLBOT AIML LEARN THAT * IS *
+    </pattern>
+    <template>
+      <think>
+        <set name="ItemName">
+          <star index="1"/>
+        </set>
+        <set name="topic">
+          SQLBOT_WHAT_TYPE_IS
+        </set>
+        <set name="object_type">
+          <star index="2"/>
+        </set>
+        <condition>
+          <li name="object_type" value="tabela"></li>
+          <li name="object_type" value="pole"></li>
+          <li name="object_type" value="wartoœæ"></li>
+          <li>
+            <set name="topic">
+              SQLBOT_WHAT_IS
+            </set>
+          </li>
+        </condition>
+      </think>
+      <srai>
+        TO <star index="2"/>
+      </srai>
+    </template>
+  </category>
+
+  <category>
+    <pattern>
+      SQLBOT AIML LEARN * IS BAD FORM _
+    </pattern>
+    <template>
+      SQLBOT APP GET FORM BASE <star index="2"/> CSPLITSENTENCE SQLBOT AIML LEARN THAT <star index="1"/> IS CSTAR
+    </template>
+  </category>
+  
+  <category>
+    <pattern>
+      SQLBOT AIML LEARN BAD FORM _ IS BAD FORM _
+    </pattern>
+    <template>
+      SQLBOT APP GET FORM BASE <star index="1"/> CSPLITSENTENCE SQLBOT AIML LEARN CSTAR IS BAD FORM <star index="2"/>
+    </template>
+  </category>
+
+  <category>
+    <pattern>
+      * TO *
+    </pattern>
+    <template>
+      <srai>
+        SQLBOT AIML LEARN BAD FORM <star index="1"/> IS BAD FORM <star index="2"/>
+      </srai>
+    </template>
+  </category>
+
+  <category>
+    <pattern>
+      * JEST *
+    </pattern>
+    <template>
+      <srai>
+        SQLBOT AIML LEARN BAD FORM <star index="1"/> IS BAD FORM <star index="2"/>
+      </srai>
+    </template>
+  </category>
 </aiml>

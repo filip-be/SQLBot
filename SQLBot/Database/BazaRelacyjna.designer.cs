@@ -75,10 +75,13 @@ namespace Cindalnet.SQLBot.Database
     partial void InsertSQLBot_TableJoin(SQLBot_TableJoin instance);
     partial void UpdateSQLBot_TableJoin(SQLBot_TableJoin instance);
     partial void DeleteSQLBot_TableJoin(SQLBot_TableJoin instance);
+    partial void InsertSQLBot_TableDefault(SQLBot_TableDefault instance);
+    partial void UpdateSQLBot_TableDefault(SQLBot_TableDefault instance);
+    partial void DeleteSQLBot_TableDefault(SQLBot_TableDefault instance);
     #endregion
 		
 		public BazaRelacyjnaDataContext() : 
-				base(global::Cindalnet.SQLBot.Properties.Settings.Default.BazaRelacyjnaCustomConnectionString, mappingSource)
+				base(global::Cindalnet.SQLBot.Properties.Settings.Default.BazaRelacyjnaConnectionString, mappingSource)
 		{
 			OnCreated();
 		}
@@ -240,6 +243,14 @@ namespace Cindalnet.SQLBot.Database
 			get
 			{
 				return this.GetTable<vSQLBotTableJoins>();
+			}
+		}
+		
+		public System.Data.Linq.Table<SQLBot_TableDefault> SQLBot_TableDefault
+		{
+			get
+			{
+				return this.GetTable<SQLBot_TableDefault>();
 			}
 		}
 	}
@@ -1805,6 +1816,8 @@ namespace Cindalnet.SQLBot.Database
 		
 		private string _sqlf_Description;
 		
+		private EntitySet<SQLBot_TableDefault> _SQLBot_TableDefault;
+		
 		private EntityRef<SQLBot_FieldType> _SQLBot_FieldType;
 		
 		private EntityRef<SQLBot_Table> _SQLBot_Table;
@@ -1831,6 +1844,7 @@ namespace Cindalnet.SQLBot.Database
 		
 		public SQLBot_Field()
 		{
+			this._SQLBot_TableDefault = new EntitySet<SQLBot_TableDefault>(new Action<SQLBot_TableDefault>(this.attach_SQLBot_TableDefault), new Action<SQLBot_TableDefault>(this.detach_SQLBot_TableDefault));
 			this._SQLBot_FieldType = default(EntityRef<SQLBot_FieldType>);
 			this._SQLBot_Table = default(EntityRef<SQLBot_Table>);
 			OnCreated();
@@ -1984,6 +1998,19 @@ namespace Cindalnet.SQLBot.Database
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="SQLBot_Field_SQLBot_TableDefault", Storage="_SQLBot_TableDefault", ThisKey="sqlf_ID", OtherKey="sqld_SQLColumn")]
+		public EntitySet<SQLBot_TableDefault> SQLBot_TableDefault
+		{
+			get
+			{
+				return this._SQLBot_TableDefault;
+			}
+			set
+			{
+				this._SQLBot_TableDefault.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="SQLBot_FieldType_SQLBot_Field", Storage="_SQLBot_FieldType", ThisKey="sqlf_Type", OtherKey="sqlft_ID", IsForeignKey=true)]
 		public SQLBot_FieldType SQLBot_FieldType
 		{
@@ -2070,6 +2097,18 @@ namespace Cindalnet.SQLBot.Database
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+		
+		private void attach_SQLBot_TableDefault(SQLBot_TableDefault entity)
+		{
+			this.SendPropertyChanging();
+			entity.SQLBot_Field = this;
+		}
+		
+		private void detach_SQLBot_TableDefault(SQLBot_TableDefault entity)
+		{
+			this.SendPropertyChanging();
+			entity.SQLBot_Field = null;
 		}
 	}
 	
@@ -2207,6 +2246,8 @@ namespace Cindalnet.SQLBot.Database
 		
 		private EntitySet<SQLBot_TableJoin> _SQLBot_TableJoin1;
 		
+		private EntitySet<SQLBot_TableDefault> _SQLBot_TableDefault;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -2226,6 +2267,7 @@ namespace Cindalnet.SQLBot.Database
 			this._SQLBot_Field = new EntitySet<SQLBot_Field>(new Action<SQLBot_Field>(this.attach_SQLBot_Field), new Action<SQLBot_Field>(this.detach_SQLBot_Field));
 			this._SQLBot_TableJoin = new EntitySet<SQLBot_TableJoin>(new Action<SQLBot_TableJoin>(this.attach_SQLBot_TableJoin), new Action<SQLBot_TableJoin>(this.detach_SQLBot_TableJoin));
 			this._SQLBot_TableJoin1 = new EntitySet<SQLBot_TableJoin>(new Action<SQLBot_TableJoin>(this.attach_SQLBot_TableJoin1), new Action<SQLBot_TableJoin>(this.detach_SQLBot_TableJoin1));
+			this._SQLBot_TableDefault = new EntitySet<SQLBot_TableDefault>(new Action<SQLBot_TableDefault>(this.attach_SQLBot_TableDefault), new Action<SQLBot_TableDefault>(this.detach_SQLBot_TableDefault));
 			OnCreated();
 		}
 		
@@ -2348,6 +2390,19 @@ namespace Cindalnet.SQLBot.Database
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="SQLBot_Table_SQLBot_TableDefault", Storage="_SQLBot_TableDefault", ThisKey="sqlt_ID", OtherKey="sqld_Table")]
+		public EntitySet<SQLBot_TableDefault> SQLBot_TableDefault
+		{
+			get
+			{
+				return this._SQLBot_TableDefault;
+			}
+			set
+			{
+				this._SQLBot_TableDefault.Assign(value);
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -2402,6 +2457,18 @@ namespace Cindalnet.SQLBot.Database
 		{
 			this.SendPropertyChanging();
 			entity.SQLBot_Table1 = null;
+		}
+		
+		private void attach_SQLBot_TableDefault(SQLBot_TableDefault entity)
+		{
+			this.SendPropertyChanging();
+			entity.SQLBot_Table = this;
+		}
+		
+		private void detach_SQLBot_TableDefault(SQLBot_TableDefault entity)
+		{
+			this.SendPropertyChanging();
+			entity.SQLBot_Table = null;
 		}
 	}
 	
@@ -3513,6 +3580,198 @@ namespace Cindalnet.SQLBot.Database
 				{
 					this._TableJoin = value;
 				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.SQLBot_TableDefault")]
+	public partial class SQLBot_TableDefault : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _sqld_ID;
+		
+		private int _sqld_Table;
+		
+		private int _sqld_SQLColumn;
+		
+		private EntityRef<SQLBot_Field> _SQLBot_Field;
+		
+		private EntityRef<SQLBot_Table> _SQLBot_Table;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void Onsqld_IDChanging(int value);
+    partial void Onsqld_IDChanged();
+    partial void Onsqld_TableChanging(int value);
+    partial void Onsqld_TableChanged();
+    partial void Onsqld_SQLColumnChanging(int value);
+    partial void Onsqld_SQLColumnChanged();
+    #endregion
+		
+		public SQLBot_TableDefault()
+		{
+			this._SQLBot_Field = default(EntityRef<SQLBot_Field>);
+			this._SQLBot_Table = default(EntityRef<SQLBot_Table>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sqld_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int sqld_ID
+		{
+			get
+			{
+				return this._sqld_ID;
+			}
+			set
+			{
+				if ((this._sqld_ID != value))
+				{
+					this.Onsqld_IDChanging(value);
+					this.SendPropertyChanging();
+					this._sqld_ID = value;
+					this.SendPropertyChanged("sqld_ID");
+					this.Onsqld_IDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sqld_Table", DbType="Int NOT NULL")]
+		public int sqld_Table
+		{
+			get
+			{
+				return this._sqld_Table;
+			}
+			set
+			{
+				if ((this._sqld_Table != value))
+				{
+					if (this._SQLBot_Table.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.Onsqld_TableChanging(value);
+					this.SendPropertyChanging();
+					this._sqld_Table = value;
+					this.SendPropertyChanged("sqld_Table");
+					this.Onsqld_TableChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sqld_SQLColumn", DbType="Int NOT NULL")]
+		public int sqld_SQLColumn
+		{
+			get
+			{
+				return this._sqld_SQLColumn;
+			}
+			set
+			{
+				if ((this._sqld_SQLColumn != value))
+				{
+					if (this._SQLBot_Field.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.Onsqld_SQLColumnChanging(value);
+					this.SendPropertyChanging();
+					this._sqld_SQLColumn = value;
+					this.SendPropertyChanged("sqld_SQLColumn");
+					this.Onsqld_SQLColumnChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="SQLBot_Field_SQLBot_TableDefault", Storage="_SQLBot_Field", ThisKey="sqld_SQLColumn", OtherKey="sqlf_ID", IsForeignKey=true)]
+		public SQLBot_Field SQLBot_Field
+		{
+			get
+			{
+				return this._SQLBot_Field.Entity;
+			}
+			set
+			{
+				SQLBot_Field previousValue = this._SQLBot_Field.Entity;
+				if (((previousValue != value) 
+							|| (this._SQLBot_Field.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._SQLBot_Field.Entity = null;
+						previousValue.SQLBot_TableDefault.Remove(this);
+					}
+					this._SQLBot_Field.Entity = value;
+					if ((value != null))
+					{
+						value.SQLBot_TableDefault.Add(this);
+						this._sqld_SQLColumn = value.sqlf_ID;
+					}
+					else
+					{
+						this._sqld_SQLColumn = default(int);
+					}
+					this.SendPropertyChanged("SQLBot_Field");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="SQLBot_Table_SQLBot_TableDefault", Storage="_SQLBot_Table", ThisKey="sqld_Table", OtherKey="sqlt_ID", IsForeignKey=true)]
+		public SQLBot_Table SQLBot_Table
+		{
+			get
+			{
+				return this._SQLBot_Table.Entity;
+			}
+			set
+			{
+				SQLBot_Table previousValue = this._SQLBot_Table.Entity;
+				if (((previousValue != value) 
+							|| (this._SQLBot_Table.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._SQLBot_Table.Entity = null;
+						previousValue.SQLBot_TableDefault.Remove(this);
+					}
+					this._SQLBot_Table.Entity = value;
+					if ((value != null))
+					{
+						value.SQLBot_TableDefault.Add(this);
+						this._sqld_Table = value.sqlt_ID;
+					}
+					else
+					{
+						this._sqld_Table = default(int);
+					}
+					this.SendPropertyChanged("SQLBot_Table");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
 	}
