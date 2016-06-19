@@ -27,14 +27,12 @@
       SQLBOT LEARN WHAT IS * | *
     </pattern>
     <template>
-      <learn>
+      <learn directory="aiml_learn" filename="PATTERN">
         <aiml>
           <category>
             <pattern>
               <eval>
-                <uppercase>
-                  SQLBOT WHAT IS <star index="1"/>
-                </uppercase>
+                <uppercase>SQLBOT WHAT IS <star index="1"/></uppercase>
               </eval>
             </pattern>
             <template>
@@ -74,14 +72,12 @@
       SQLBOT LEARN WHAT TYPE IS * | *
     </pattern>
     <template>
-      <learn>
+      <learn directory="aiml_learn" filename="PATTERN">
         <aiml>
           <category>
             <pattern>
               <eval>
-                <uppercase>
-                  SQLBOT WHAT TYPE IS <star index="1"/>
-                </uppercase>
+                <uppercase>SQLBOT WHAT TYPE IS <star index="1"/></uppercase>
               </eval>
             </pattern>
             <template>
@@ -283,7 +279,7 @@
         <li name="ItemName" value="UNKNOWN">
           <think>
             <set name="ItemName">
-              <star index="1"></star>
+              <star index="1"/>
             </set>
             <set name="topic">SQLBOT_WHAT_IS</set>
           </think>
@@ -409,7 +405,7 @@
         <li name="ItemType" value="UNKNOWN">
           <think>
             <set name="ItemType">
-              <star index="1"></star>
+              <star index="1"/>
             </set>
             <set name="topic">SQLBOT_WHAT_TYPE_IS</set>
           </think>

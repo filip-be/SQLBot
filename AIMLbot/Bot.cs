@@ -267,6 +267,17 @@ namespace AIMLbot
         }
 
         /// <summary>
+        /// The directory to look in for the AIML learned files
+        /// </summary>
+        public string PathToAIMLLearned
+        {
+            get
+            {
+                return Path.Combine(Environment.CurrentDirectory, this.GlobalSettings.grabSetting("aimllearneddirectory"));
+            }
+        }
+
+        /// <summary>
         /// The directory to look in for the various XML configuration files
         /// </summary>
         public string PathToConfigFiles
@@ -487,6 +498,10 @@ namespace AIMLbot
             if (!this.GlobalSettings.containsSettingCalled("aimldirectory"))
             {
                 this.GlobalSettings.addSetting("aimldirectory", "aiml");
+            }
+            if (!this.GlobalSettings.containsSettingCalled("aimllearneddirectory"))
+            {
+                this.GlobalSettings.addSetting("aimllearneddirectory", "aiml_learn");
             }
             if (!this.GlobalSettings.containsSettingCalled("configdirectory"))
             {

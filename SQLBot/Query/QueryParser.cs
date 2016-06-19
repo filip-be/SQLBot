@@ -87,6 +87,36 @@ namespace Cindalnet.SQLBot.Query
             }
         }
 
+        //wyświetl nazwę działu w którym pracuje jacek
+
+        private string[] findConnectedTables(string tableName)
+        {
+            try
+            {
+                BazaRelacyjnaDataContext dc = new BazaRelacyjnaDataContext();
+                vSQLBotTableJoins[] tableJoins = dc.vSQLBotTableJoins.Where(tj =>
+                    tj.Table1NameSQL == tableName || tj.Table2NameSQL == tableName).ToArray();
+
+                string[] tableNames = new string[tableJoins.Length + 1];
+                tableNames[0] = tableName;
+
+                for(int tNum = 0; tNum < tableJoins.Length; tNum++)
+                {
+                    vSQLBotTableJoins tableJoin = tableJoins[tNum];
+                    if (tableJoin.Table1NameSQL == tableName)
+                        tableNames[tNum + 1] = tableJoin.Table2NameSQL;
+                    else
+                        tableNames[tNum + 1] = tableJoin.Table1NameSQL;
+                }
+
+                return tableNames;
+            }
+            catch (Exception)
+            {
+                return new string[] { tableName };
+            }
+        }
+
         private bool IsValidJoin(string table1, string table2, out string Join)
         {
             try
@@ -118,30 +148,34 @@ namespace Cindalnet.SQLBot.Query
         {
             try
             {
-                BazaRelacyjnaDataContext dc = new BazaRelacyjnaDataContext();
-                SQLBot_Table table = dc.SQLBot_Table.Where(tab => tab.sqlt_Name == TableName
-                    || tab.sqlt_SQLName == TableName).FirstOrDefault();
-                if (table != null)
+                string[] tableNames = findConnectedTables(TableName);
+                foreach (var tableName in tableNames)
                 {
-                    int tableID = table.sqlt_ID;
-                    List<SQLBot_TableDefault> lDefaults = dc.SQLBot_TableDefault.Where(td => td.sqld_Table == tableID).ToList();
-                    foreach (var defaultColumn in lDefaults)
+                    BazaRelacyjnaDataContext dc = new BazaRelacyjnaDataContext();
+                    SQLBot_Table table = dc.SQLBot_Table.Where(tab => tab.sqlt_Name == tableName
+                        || tab.sqlt_SQLName == tableName).FirstOrDefault();
+                    if (table != null)
                     {
-                        string SQLQuery = string.Format("SELECT TOP 1 'TRUE' FROM {0} WHERE {1}='{2}'", 
-                            table.sqlt_SQLName,
-                            defaultColumn.SQLBot_Field.sqlf_SQLColumnName,
-                            fieldName);
-                        if (executeQuery(SQLQuery) && QueryResult.Row.Count > 0 && QueryResult.Row[0][0].Text == "TRUE")
+                        int tableID = table.sqlt_ID;
+                        List<SQLBot_TableDefault> lDefaults = dc.SQLBot_TableDefault.Where(td => td.sqld_Table == tableID).ToList();
+                        foreach (var defaultColumn in lDefaults)
                         {
-                            Result res = ChatBot.Chat(string.Format("SQLBOT LEARN WHAT IS {0} | {1} | {2}", 
-                                fieldName,
-                                defaultColumn.SQLBot_Field.sqlf_ColumnName,
-                                "VALUE"),
-                                ChatUser.UserID);
-                            
-                            SQLWord word = new SQLWord();
-                            word.Initialize(ChatBot, ChatUser, fieldName);
-                            return word;
+                            string SQLQuery = string.Format("SELECT TOP 1 'TRUE' FROM {0} WHERE {1}='{2}'",
+                                table.sqlt_SQLName,
+                                defaultColumn.SQLBot_Field.sqlf_SQLColumnName,
+                                fieldName);
+                            if (executeQuery(SQLQuery) && QueryResult.Row.Count > 0 && QueryResult.Row[0][0].Text == "TRUE")
+                            {
+                                Result res = ChatBot.Chat(string.Format("SQLBOT LEARN WHAT IS {0} | {1} | {2}",
+                                    fieldName,
+                                    defaultColumn.SQLBot_Field.sqlf_ColumnName,
+                                    "VALUE"),
+                                    ChatUser.UserID);
+
+                                SQLWord word = new SQLWord();
+                                word.Initialize(ChatBot, ChatUser, fieldName);
+                                return word;
+                            }
                         }
                     }
                 }
@@ -280,6 +314,11 @@ namespace Cindalnet.SQLBot.Query
                                         }
                                     }
                                 }
+                                else
+                                {
+                                    int x = 0;
+                                    x = x + 1;
+                                }
                                 /*
                                 else if(
                                     (word.PartOfSpeech == Word.SpeechPart.Conjuctiun
@@ -314,7 +353,6 @@ namespace Cindalnet.SQLBot.Query
                     res = "ERROR - PARSING PARAMETERS";
                 }
 
-                wordsToPush.Sort();
                 wordsToPush = wordsToPush.Distinct().ToList();
                 foreach(var wordToPush in wordsToPush)
                 {

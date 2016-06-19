@@ -2,6 +2,7 @@ using System;
 using System.Xml;
 using System.Text;
 using System.IO;
+using System.Text.RegularExpressions;
 
 namespace AIMLbot.AIMLTagHandlers
 {
@@ -90,45 +91,117 @@ namespace AIMLbot.AIMLTagHandlers
         {
             if (this.templateNode.Name.ToLower() == "learn")
             {
-                bool isPathToFile = true;
-                try
+                if (this.templateNode.InnerText.Length > 0)
                 {
-                    XmlDocument doc = new XmlDocument();
-                    doc.LoadXml(this.templateNode.InnerXml);
-                    // Valid XML string inside
-                    isPathToFile = false;
-                    // Evalaute!
-                    string xml = evaluate(doc);
-                    // Load evaluated AIML
-                    doc.LoadXml(xml);
-                    this.bot.loadAIMLFromXML(doc, "IN-APP <learn> AIML tag");
-                }
-                catch (Exception)
-                {
-                    return "ERROR";
-                }
-                // currently only AIML files in the local filesystem can be referenced
-                // ToDo: Network HTTP and web service based learning
-                if (isPathToFile && this.templateNode.InnerText.Length > 0)
-                {
+                    XmlDocument doc = null;
+                    bool learned = false;
+                    // currently only AIML files in the local filesystem can be referenced
+                    // ToDo: Network HTTP and web service based learning
                     string path = this.templateNode.InnerText;
-                    FileInfo fi = new FileInfo(path);
-                    if (fi.Exists)
+                    bool isPathToFile = true;
+                    try
                     {
-                        XmlDocument doc = new XmlDocument();
+                        FileInfo fi = new FileInfo(path);
+                        if (fi.Exists)
+                        {
+                            doc = new XmlDocument();
+                            try
+                            {
+                                doc.Load(path);
+                                this.bot.loadAIMLFromXML(doc, path);
+                                learned = true;
+                            }
+                            catch
+                            {
+                                this.bot.writeToLog("ERROR! Attempted (but failed) to <learn> some new AIML from the following URI: " + path);
+                            }
+                        }
+                        else
+                        {
+                            isPathToFile = false;
+                        }
+                    }
+                    catch (Exception)
+                    {
+                        isPathToFile = false;
+                    }
+
+                    if (!isPathToFile)
+                    {
                         try
                         {
-                            doc.Load(path);
-                            this.bot.loadAIMLFromXML(doc, path);
+                            doc = new XmlDocument();
+                            doc.LoadXml(this.templateNode.InnerXml);
+                            // Valid XML string inside
+                            // Evalaute!
+                            string xml = evaluate(doc);
+                            // Load evaluated AIML
+                            doc.LoadXml(xml);
+                            this.bot.loadAIMLFromXML(doc, "IN-APP <learn> AIML tag");
+                            learned = true;
                         }
-                        catch
+                        catch (Exception)
                         {
-                            this.bot.writeToLog("ERROR! Attempted (but failed) to <learn> some new AIML from the following URI: " + path);
+                            return "ERROR";
+                        }
+                    }
+
+                    if (learned && this.templateNode.Attributes.Count > 1 && doc != null)
+                    {
+                        try
+                        {
+                            string directory = null;
+                            string fileName = null;
+                            for (int attrNum = 0; attrNum < this.templateNode.Attributes.Count; attrNum++)
+                            {
+                                XmlAttribute Attribute = this.templateNode.Attributes[attrNum];
+                                if (Attribute.Name == "directory")
+                                {
+                                    directory = Attribute.Value;
+                                }
+                                else if (Attribute.Name == "filename")
+                                {
+                                    if (Attribute.Value == "PATTERN")
+                                    {
+                                        XmlNode node = doc.SelectSingleNode("/aiml/category/pattern");
+                                        if (node != null)
+                                        {
+                                            fileName = node.InnerText;
+                                            fileName = Regex.Replace(fileName, @"\r\n\s+", "");
+                                            fileName += ".aiml";
+                                        }
+                                    }
+                                    else
+                                    {
+                                        fileName = Attribute.Value;
+                                    }
+                                }
+                            }
+                            if (directory != null && fileName != null)
+                            {
+                                string fName = string.Format("{0}{1}{2}", RemoveIllegalChars(directory), Path.DirectorySeparatorChar, RemoveIllegalChars(fileName));
+                                
+                                FileInfo fileInfo = new FileInfo(fName);
+                                if (!fileInfo.Exists)
+                                    Directory.CreateDirectory(fileInfo.Directory.FullName);
+                                doc.Save(fName);
+                            }
+                        }
+                        catch (Exception)
+                        {
+
                         }
                     }
                 }
             }
             return string.Empty;
+        }
+
+        private string RemoveIllegalChars(string text)
+        {
+            string regexSearch = new string(Path.GetInvalidFileNameChars()) + new string(Path.GetInvalidPathChars());
+            Regex r = new Regex(string.Format("[{0}]", Regex.Escape(regexSearch)));
+            return r.Replace(text, "");
         }
     }
 }

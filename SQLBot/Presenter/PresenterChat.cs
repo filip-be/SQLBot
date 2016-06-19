@@ -106,7 +106,10 @@ namespace Cindalnet.SQLBot.Presenter
 
         void View_ProcessMessage(object sender, EventArgs e)
         {
-            responseHistory.Insert(responseHistory.Count - 1, View.Query);
+            if (responseHistory.Count < 2 || responseHistory[responseHistory.Count - 2] != View.Query)
+            {
+                responseHistory.Insert(responseHistory.Count - 1, View.Query);
+            }
             responseHistoryIndex = responseHistory.Count - 1;
             workerProcessMessage.RunWorkerAsync();
         }
