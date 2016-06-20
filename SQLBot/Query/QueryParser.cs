@@ -225,7 +225,7 @@ namespace Cindalnet.SQLBot.Query
                         {
                             //string field = queryInterp.DesiredParameter;
                             //
-                            List<Tuple<int, string, string>> unknownWords = new List<Tuple<int, string, string>>();
+                            List<Tuple<int, SQLWord>> unknownWords = new List<Tuple<int, SQLWord>>();
 
                             for(int wordNum = 0; wordNum < queryInterp.Words.Count; wordNum++)
                             {
@@ -241,15 +241,15 @@ namespace Cindalnet.SQLBot.Query
                                 {
                                     bool isKnown = sqlWord.isValidWord();
 
-                                    Tuple<int, string, string> unknownWord;
+                                    Tuple<int, SQLWord> unknownWord;
 
                                     if (unknownWords.Count > 0
                                         && unknownWords.Last().Item1 + 1 == wordNum)
                                     {
                                         unknownWord = unknownWords.Last();
                                         SQLWord sqlWordConcat = new SQLWord();
-                                        sqlWordConcat.Initialize(ChatBot, ChatUser, unknownWord.Item2 + " " + FieldName);
-                                        unknownWord = new Tuple<int, string, string>(wordNum, unknownWord.Item2 + " " + FieldName, sqlWord.MissingObject());
+                                        sqlWordConcat.Initialize(ChatBot, ChatUser, unknownWord.Item2.Word + " " + FieldName);
+                                        unknownWord = new Tuple<int, SQLWord>(wordNum, sqlWordConcat);
 
                                         if(sqlWordConcat.isValidWord())
                                         {
@@ -257,17 +257,35 @@ namespace Cindalnet.SQLBot.Query
                                             sqlWord = sqlWordConcat;
                                             isKnown = true;
                                         }
+                                        else if(!isKnown)
+                                        {
+                                            unknownWords.RemoveAt(unknownWords.Count - 1);
+                                            //wyświetl towary wyprodukowane przez optyka zoo
+                                        }
                                     }
                                     else
                                     {
-                                        unknownWord = new Tuple<int, string, string>(wordNum, FieldName, sqlWord.MissingObject());
+                                        unknownWord = new Tuple<int, SQLWord>(wordNum, sqlWord);
                                     }
                                     if (!isKnown)
                                     {
-                                        SQLWord inTableValue = checkIfBelongsToTable(FieldName, Table);
+                                        SQLWord inTableValue = checkIfBelongsToTable(unknownWord.Item2.Word, Table);
                                         if (inTableValue == null)
-                                            unknownWords.Add(unknownWord);
-                                        else
+                                        {
+                                            // Spróbuj wykonać to samo dla elementów w ich oryginalnych formach
+                                            int wordCount = unknownWord.Item2.Word.Split(' ').Length;
+                                            string originalPhrase = string.Empty;
+                                            for (int wordNumber = unknownWord.Item1; wordNumber > unknownWord.Item1 - wordCount; wordNumber-- )
+                                            {
+                                                originalPhrase = string.Format("{0} {1}", queryInterp.Words[wordNumber].Form, originalPhrase);
+                                            }
+                                            inTableValue = checkIfBelongsToTable(originalPhrase, Table);
+
+                                            if (inTableValue == null)
+                                                unknownWords.Add(unknownWord);
+                                        }
+                                        
+                                        if(inTableValue != null)
                                         {
                                             sqlWord = inTableValue;
                                             isKnown = sqlWord.isValidWord();
@@ -339,7 +357,7 @@ namespace Cindalnet.SQLBot.Query
                                 foreach (var unknownWord in unknownWords)
                                 {
                                     wordsToPush.Insert(0, new Tuple<string, string>("UNKNOWN", 
-                                        string.Format("{0} MISSING {1}", unknownWord.Item2, unknownWord.Item3)));
+                                        string.Format("{0} MISSING {1}", unknownWord.Item2.Word, unknownWord.Item2.MissingObject())));
                                 }
                                 //throw new QueryExceptionUnknownParameter(unknownWords.First().Item2);
                             }

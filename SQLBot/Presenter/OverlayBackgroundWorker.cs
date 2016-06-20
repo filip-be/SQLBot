@@ -31,7 +31,8 @@ namespace Cindalnet.SQLBot.Presenter
         public new void RunWorkerAsync()
         {
             ShadeControl();
-            base.RunWorkerAsync();
+            if(!base.IsBusy)
+                base.RunWorkerAsync();
         }
         //
         // Summary:
