@@ -47,12 +47,41 @@ namespace AIMLbot.AIMLTagHandlers
             {
                 if (this.bot.GlobalSettings.Count > 0)
                 {
-                    if (this.templateNode.Attributes.Count == 1)
+                    if (this.templateNode.Attributes.Count > 0 && this.templateNode.Attributes.Count < 3)
                     {
-                        if (this.templateNode.Attributes[0].Name.ToLower() == "name")
+                        string value = string.Empty;
+                        string space = "NONE";
+
+                        foreach(XmlAttribute attr in this.templateNode.Attributes)
                         {
-                            return this.user.Predicates.grabSetting(this.templateNode.Attributes[0].Value);
+                            if(attr.Name.ToLower() == "name")
+                            {
+                                value = this.user.Predicates.grabSetting(attr.Value);
+                            }
+                            else if(attr.Name.ToLower() == "space")
+                            {
+                                space = attr.Value;
+                            }
                         }
+                        switch(space)
+                        {
+                            case "FRONT":
+                                return string.Format(" {0}", value);
+                                break;
+                            case "BACK":
+                                return string.Format("{0} ", value);
+                                break;
+                            case "BOTH":
+                                return string.Format(" {0} ", value);
+                                break;
+                            default:
+                                return value;
+                                break;
+                        }
+                    }
+                    else if(this.templateNode.Attributes.Count == 2)
+                    {
+
                     }
                 }
             }

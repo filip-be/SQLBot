@@ -2,6 +2,7 @@
 <root>
   <item name="aimldirectory" value="aiml"/>
   <item name="aimllearneddirectory" value="aiml_learn"/>
+  <item name="ignoreditemvalue" value="IGNORED ITEM"/>
   <item name="configdirectory" value="config"/>
   <item name="logdirectory" value="logs"/>
   <item name="splittersfile" value="Splitters.xml"/>

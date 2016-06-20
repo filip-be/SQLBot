@@ -134,7 +134,7 @@
                 <li name="missing_parameter_type" value="TABLE">
                   , ale nie wiem do jakiej tabeli nale¿y <star/>
                 </li>
-                <li name="missing_parameter_type">
+                <li>
                   , ale nie wiem czym jest <star/>
                 </li>
               </condition>
@@ -247,6 +247,64 @@
         <srai>
           JEST <star index="1"/>
         </srai>
+      </template>
+    </category>
+
+    <category>
+      <pattern>TO NIEISTOTNE</pattern>
+      <template>
+        <srai>
+          SQLBOT LEARN WHAT IS <get name="ItemName"/> | IGNORED ITEM
+        </srai>
+      </template>
+    </category>
+
+    <category>
+      <pattern>TO NIE MA ZNACZENIA</pattern>
+      <template>
+        <srai>TO NIEISTOTNE</srai>
+      </template>
+    </category>
+
+    <category>
+      <pattern>TO NIE WA¯NE</pattern>
+      <template>
+        <srai>TO NIEISTOTNE</srai>
+      </template>
+    </category>
+
+    <category>
+      <pattern>TO NIE POWINNO CIÊ INTERESOWAÆ</pattern>
+      <template>
+        <srai>TO NIEISTOTNE</srai>
+      </template>
+    </category>
+
+    <category>
+      <pattern>NIEISTOTNE</pattern>
+      <template>
+        <srai>TO NIEISTOTNE</srai>
+      </template>
+    </category>
+
+    <category>
+      <pattern>NIE WA¯NE</pattern>
+      <template>
+        <srai>TO NIEISTOTNE</srai>
+      </template>
+    </category>
+
+    <category>
+      <pattern>NIE MA ZNACZENIA</pattern>
+      <template>
+        <srai>TO NIEISTOTNE</srai>
+      </template>
+    </category>
+
+    <category>
+      <pattern>NIE POWINNO CIÊ TO INTERESOWAÆ</pattern>
+      <template>
+        <srai>TO NIEISTOTNE</srai>
       </template>
     </category>
 

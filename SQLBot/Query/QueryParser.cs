@@ -87,8 +87,6 @@ namespace Cindalnet.SQLBot.Query
             }
         }
 
-        //wyświetl nazwę działu w którym pracuje jacek
-
         private string[] findConnectedTables(string tableName)
         {
             try
@@ -232,13 +230,15 @@ namespace Cindalnet.SQLBot.Query
                             for(int wordNum = 0; wordNum < queryInterp.Words.Count; wordNum++)
                             {
                                 Word word = queryInterp.Words[wordNum];
-                                if(word.PartOfSpeech == Word.SpeechPart.Noun)
+                                
+                                string FieldName = word.FormBase;
+                                SQLWord sqlWord = new SQLWord();
+                                sqlWord.Initialize(ChatBot, ChatUser, FieldName);
+                                if (sqlWord.Word == ChatBot.IgnoredItemValue)
+                                    continue;
+
+                                if(word.PartOfSpeech == Word.SpeechPart.Noun || word.PartOfSpeech == Word.SpeechPart.Other)
                                 {
-                                    string FieldName = word.FormBase;
-
-                                    SQLWord sqlWord = new SQLWord();
-                                    sqlWord.Initialize(ChatBot, ChatUser, FieldName);
-
                                     bool isKnown = sqlWord.isValidWord();
 
                                     Tuple<int, string, string> unknownWord;
@@ -247,13 +247,13 @@ namespace Cindalnet.SQLBot.Query
                                         && unknownWords.Last().Item1 + 1 == wordNum)
                                     {
                                         unknownWord = unknownWords.Last();
-                                        unknownWords.RemoveAt(unknownWords.Count - 1);
                                         SQLWord sqlWordConcat = new SQLWord();
                                         sqlWordConcat.Initialize(ChatBot, ChatUser, unknownWord.Item2 + " " + FieldName);
                                         unknownWord = new Tuple<int, string, string>(wordNum, unknownWord.Item2 + " " + FieldName, sqlWord.MissingObject());
 
                                         if(sqlWordConcat.isValidWord())
                                         {
+                                            unknownWords.RemoveAt(unknownWords.Count - 1);
                                             sqlWord = sqlWordConcat;
                                             isKnown = true;
                                         }
@@ -307,6 +307,7 @@ namespace Cindalnet.SQLBot.Query
                                                 }
                                                 else
                                                 {   // Nieprawidłowe złączenie
+                                                    
                                                     int x = 0;
                                                     x = x + 1;
                                                 }
@@ -316,6 +317,7 @@ namespace Cindalnet.SQLBot.Query
                                 }
                                 else
                                 {
+                                    Console.WriteLine(string.Format("{0}: {1}", word.PartOfSpeech, word.FormBase));
                                     int x = 0;
                                     x = x + 1;
                                 }

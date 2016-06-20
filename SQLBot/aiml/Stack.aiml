@@ -178,7 +178,7 @@
           <condition>
             <li name="parent_object" value="UNKNOWN"></li>
             <li>
-              <get name="show_delimiter"/>
+              <get name="show_delimiter" space="BOTH"/>
             </li>
           </condition>
           <get name="show_parameter"/>

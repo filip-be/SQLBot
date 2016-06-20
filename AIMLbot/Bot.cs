@@ -277,6 +277,18 @@ namespace AIMLbot
             }
         }
 
+
+        /// <summary>
+        /// The ignored item value
+        /// </summary>
+        public string IgnoredItemValue
+        {
+            get
+            {
+                return Path.Combine(Environment.CurrentDirectory, this.GlobalSettings.grabSetting("ignoreditemvalue"));
+            }
+        }
+
         /// <summary>
         /// The directory to look in for the various XML configuration files
         /// </summary>
@@ -502,6 +514,10 @@ namespace AIMLbot
             if (!this.GlobalSettings.containsSettingCalled("aimllearneddirectory"))
             {
                 this.GlobalSettings.addSetting("aimllearneddirectory", "aiml_learn");
+            }
+            if (!this.GlobalSettings.containsSettingCalled("ignoreditemvalue"))
+            {
+                this.GlobalSettings.addSetting("ignoreditemvalue", "IGNORE ITEM");
             }
             if (!this.GlobalSettings.containsSettingCalled("configdirectory"))
             {
