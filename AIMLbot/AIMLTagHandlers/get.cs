@@ -67,16 +67,12 @@ namespace AIMLbot.AIMLTagHandlers
                         {
                             case "FRONT":
                                 return string.Format(" {0}", value);
-                                break;
                             case "BACK":
                                 return string.Format("{0} ", value);
-                                break;
                             case "BOTH":
                                 return string.Format(" {0} ", value);
-                                break;
                             default:
                                 return value;
-                                break;
                         }
                     }
                     else if(this.templateNode.Attributes.Count == 2)
