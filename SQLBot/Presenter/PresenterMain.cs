@@ -28,6 +28,32 @@ namespace Cindalnet.SQLBot.Presenter
 
             try
             {
+                PresenterConnectToServer pConnectToServer = new PresenterConnectToServer(true);
+                pConnectToServer.MaterialSkinManager = MaterialSkinManager;
+                pConnectToServer.MaterialForm.Parent = View.FormControl;
+                pConnectToServer.ConnectedSuccessfully += LoggedToServer;
+                View.AddMaterialPanelTab(pConnectToServer.MaterialForm, false);
+                pConnectToServer.ViewClosed += OnTabClosed;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
+
+        private void LoggedToServer(object sender, EventArgs e)
+        {
+            if (sender is PresenterConnectToServer)
+            {
+                OpenChat();
+                OnTabClosed(sender, e);
+            }
+        }
+
+        private void OpenChat()
+        {
+            try
+            {
                 PresenterChat pChat = new PresenterChat();
                 pChat.MaterialSkinManager = MaterialSkinManager;
                 pChat.MaterialForm.Parent = View.FormControl;
@@ -41,7 +67,7 @@ namespace Cindalnet.SQLBot.Presenter
             }
         }
 
-        void pChat_ShowQueryResult(object sender, EventArgs e)
+        private void pChat_ShowQueryResult(object sender, EventArgs e)
         {
             try
             {

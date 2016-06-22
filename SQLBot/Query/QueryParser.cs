@@ -155,7 +155,7 @@ namespace Cindalnet.SQLBot.Query
                     if (table != null)
                     {
                         int tableID = table.sqlt_ID;
-                        List<SQLBot_TableDefault> lDefaults = dc.SQLBot_TableDefault.Where(td => td.sqld_Table == tableID).ToList();
+                        List<SQLBot_TableDefault> lDefaults = dc.SQLBot_TableDefault.Where(td => td.SQLBot_Field.sqlf_Table == tableID).ToList();
                         foreach (var defaultColumn in lDefaults)
                         {
                             string SQLQuery = string.Format("SELECT TOP 1 'TRUE' FROM {0} WHERE {1}='{2}'",

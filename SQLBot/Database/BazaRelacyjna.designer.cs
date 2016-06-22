@@ -30,51 +30,18 @@ namespace Cindalnet.SQLBot.Database
 		
     #region Extensibility Method Definitions
     partial void OnCreated();
-    partial void InsertDzialy(Dzialy instance);
-    partial void UpdateDzialy(Dzialy instance);
-    partial void DeleteDzialy(Dzialy instance);
-    partial void InsertFaktury(Faktury instance);
-    partial void UpdateFaktury(Faktury instance);
-    partial void DeleteFaktury(Faktury instance);
-    partial void InsertKategorie(Kategorie instance);
-    partial void UpdateKategorie(Kategorie instance);
-    partial void DeleteKategorie(Kategorie instance);
-    partial void InsertKlienci(Klienci instance);
-    partial void UpdateKlienci(Klienci instance);
-    partial void DeleteKlienci(Klienci instance);
-    partial void InsertMiasta(Miasta instance);
-    partial void UpdateMiasta(Miasta instance);
-    partial void DeleteMiasta(Miasta instance);
-    partial void InsertOsoby(Osoby instance);
-    partial void UpdateOsoby(Osoby instance);
-    partial void DeleteOsoby(Osoby instance);
-    partial void InsertProducenci(Producenci instance);
-    partial void UpdateProducenci(Producenci instance);
-    partial void DeleteProducenci(Producenci instance);
-    partial void InsertSQLBot_Field(SQLBot_Field instance);
-    partial void UpdateSQLBot_Field(SQLBot_Field instance);
-    partial void DeleteSQLBot_Field(SQLBot_Field instance);
     partial void InsertSQLBot_FieldType(SQLBot_FieldType instance);
     partial void UpdateSQLBot_FieldType(SQLBot_FieldType instance);
     partial void DeleteSQLBot_FieldType(SQLBot_FieldType instance);
     partial void InsertSQLBot_Table(SQLBot_Table instance);
     partial void UpdateSQLBot_Table(SQLBot_Table instance);
     partial void DeleteSQLBot_Table(SQLBot_Table instance);
-    partial void InsertTowar(Towar instance);
-    partial void UpdateTowar(Towar instance);
-    partial void DeleteTowar(Towar instance);
-    partial void InsertTransakcje(Transakcje instance);
-    partial void UpdateTransakcje(Transakcje instance);
-    partial void DeleteTransakcje(Transakcje instance);
-    partial void InsertWojewodztwa(Wojewodztwa instance);
-    partial void UpdateWojewodztwa(Wojewodztwa instance);
-    partial void DeleteWojewodztwa(Wojewodztwa instance);
-    partial void InsertZarobki(Zarobki instance);
-    partial void UpdateZarobki(Zarobki instance);
-    partial void DeleteZarobki(Zarobki instance);
     partial void InsertSQLBot_TableJoin(SQLBot_TableJoin instance);
     partial void UpdateSQLBot_TableJoin(SQLBot_TableJoin instance);
     partial void DeleteSQLBot_TableJoin(SQLBot_TableJoin instance);
+    partial void InsertSQLBot_Field(SQLBot_Field instance);
+    partial void UpdateSQLBot_Field(SQLBot_Field instance);
+    partial void DeleteSQLBot_Field(SQLBot_Field instance);
     partial void InsertSQLBot_TableDefault(SQLBot_TableDefault instance);
     partial void UpdateSQLBot_TableDefault(SQLBot_TableDefault instance);
     partial void DeleteSQLBot_TableDefault(SQLBot_TableDefault instance);
@@ -110,78 +77,6 @@ namespace Cindalnet.SQLBot.Database
 			OnCreated();
 		}
 		
-		public System.Data.Linq.Table<vSQLBotFields> vSQLBotFields
-		{
-			get
-			{
-				return this.GetTable<vSQLBotFields>();
-			}
-		}
-		
-		public System.Data.Linq.Table<Dzialy> Dzialy
-		{
-			get
-			{
-				return this.GetTable<Dzialy>();
-			}
-		}
-		
-		public System.Data.Linq.Table<Faktury> Faktury
-		{
-			get
-			{
-				return this.GetTable<Faktury>();
-			}
-		}
-		
-		public System.Data.Linq.Table<Kategorie> Kategorie
-		{
-			get
-			{
-				return this.GetTable<Kategorie>();
-			}
-		}
-		
-		public System.Data.Linq.Table<Klienci> Klienci
-		{
-			get
-			{
-				return this.GetTable<Klienci>();
-			}
-		}
-		
-		public System.Data.Linq.Table<Miasta> Miasta
-		{
-			get
-			{
-				return this.GetTable<Miasta>();
-			}
-		}
-		
-		public System.Data.Linq.Table<Osoby> Osoby
-		{
-			get
-			{
-				return this.GetTable<Osoby>();
-			}
-		}
-		
-		public System.Data.Linq.Table<Producenci> Producenci
-		{
-			get
-			{
-				return this.GetTable<Producenci>();
-			}
-		}
-		
-		public System.Data.Linq.Table<SQLBot_Field> SQLBot_Field
-		{
-			get
-			{
-				return this.GetTable<SQLBot_Field>();
-			}
-		}
-		
 		public System.Data.Linq.Table<SQLBot_FieldType> SQLBot_FieldType
 		{
 			get
@@ -195,38 +90,6 @@ namespace Cindalnet.SQLBot.Database
 			get
 			{
 				return this.GetTable<SQLBot_Table>();
-			}
-		}
-		
-		public System.Data.Linq.Table<Towar> Towar
-		{
-			get
-			{
-				return this.GetTable<Towar>();
-			}
-		}
-		
-		public System.Data.Linq.Table<Transakcje> Transakcje
-		{
-			get
-			{
-				return this.GetTable<Transakcje>();
-			}
-		}
-		
-		public System.Data.Linq.Table<Wojewodztwa> Wojewodztwa
-		{
-			get
-			{
-				return this.GetTable<Wojewodztwa>();
-			}
-		}
-		
-		public System.Data.Linq.Table<Zarobki> Zarobki
-		{
-			get
-			{
-				return this.GetTable<Zarobki>();
 			}
 		}
 		
@@ -246,6 +109,14 @@ namespace Cindalnet.SQLBot.Database
 			}
 		}
 		
+		public System.Data.Linq.Table<SQLBot_Field> SQLBot_Field
+		{
+			get
+			{
+				return this.GetTable<SQLBot_Field>();
+			}
+		}
+		
 		public System.Data.Linq.Table<SQLBot_TableDefault> SQLBot_TableDefault
 		{
 			get
@@ -253,1862 +124,13 @@ namespace Cindalnet.SQLBot.Database
 				return this.GetTable<SQLBot_TableDefault>();
 			}
 		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.vSQLBotFields")]
-	public partial class vSQLBotFields
-	{
 		
-		private string _TableNameSQL;
-		
-		private string _TableName;
-		
-		private string _TableDescription;
-		
-		private string _FieldNameSQL;
-		
-		private string _FieldName;
-		
-		private string _FieldType;
-		
-		private string _FieldKind;
-		
-		private string _FieldDescription;
-		
-		public vSQLBotFields()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TableNameSQL", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string TableNameSQL
+		public System.Data.Linq.Table<vSQLBotFields> vSQLBotFields
 		{
 			get
 			{
-				return this._TableNameSQL;
+				return this.GetTable<vSQLBotFields>();
 			}
-			set
-			{
-				if ((this._TableNameSQL != value))
-				{
-					this._TableNameSQL = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TableName", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string TableName
-		{
-			get
-			{
-				return this._TableName;
-			}
-			set
-			{
-				if ((this._TableName != value))
-				{
-					this._TableName = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TableDescription", DbType="VarChar(200)")]
-		public string TableDescription
-		{
-			get
-			{
-				return this._TableDescription;
-			}
-			set
-			{
-				if ((this._TableDescription != value))
-				{
-					this._TableDescription = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FieldNameSQL", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string FieldNameSQL
-		{
-			get
-			{
-				return this._FieldNameSQL;
-			}
-			set
-			{
-				if ((this._FieldNameSQL != value))
-				{
-					this._FieldNameSQL = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FieldName", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string FieldName
-		{
-			get
-			{
-				return this._FieldName;
-			}
-			set
-			{
-				if ((this._FieldName != value))
-				{
-					this._FieldName = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FieldType", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string FieldType
-		{
-			get
-			{
-				return this._FieldType;
-			}
-			set
-			{
-				if ((this._FieldType != value))
-				{
-					this._FieldType = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FieldKind", DbType="VarChar(50)")]
-		public string FieldKind
-		{
-			get
-			{
-				return this._FieldKind;
-			}
-			set
-			{
-				if ((this._FieldKind != value))
-				{
-					this._FieldKind = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FieldDescription", DbType="VarChar(200)")]
-		public string FieldDescription
-		{
-			get
-			{
-				return this._FieldDescription;
-			}
-			set
-			{
-				if ((this._FieldDescription != value))
-				{
-					this._FieldDescription = value;
-				}
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Dzialy")]
-	public partial class Dzialy : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _IdDzialu;
-		
-		private string _Nazwa;
-		
-		private EntitySet<Osoby> _Osoby;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIdDzialuChanging(int value);
-    partial void OnIdDzialuChanged();
-    partial void OnNazwaChanging(string value);
-    partial void OnNazwaChanged();
-    #endregion
-		
-		public Dzialy()
-		{
-			this._Osoby = new EntitySet<Osoby>(new Action<Osoby>(this.attach_Osoby), new Action<Osoby>(this.detach_Osoby));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdDzialu", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int IdDzialu
-		{
-			get
-			{
-				return this._IdDzialu;
-			}
-			set
-			{
-				if ((this._IdDzialu != value))
-				{
-					this.OnIdDzialuChanging(value);
-					this.SendPropertyChanging();
-					this._IdDzialu = value;
-					this.SendPropertyChanged("IdDzialu");
-					this.OnIdDzialuChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nazwa", DbType="VarChar(15)")]
-		public string Nazwa
-		{
-			get
-			{
-				return this._Nazwa;
-			}
-			set
-			{
-				if ((this._Nazwa != value))
-				{
-					this.OnNazwaChanging(value);
-					this.SendPropertyChanging();
-					this._Nazwa = value;
-					this.SendPropertyChanged("Nazwa");
-					this.OnNazwaChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Dzialy_Osoby", Storage="_Osoby", ThisKey="IdDzialu", OtherKey="IdDzialu")]
-		public EntitySet<Osoby> Osoby
-		{
-			get
-			{
-				return this._Osoby;
-			}
-			set
-			{
-				this._Osoby.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_Osoby(Osoby entity)
-		{
-			this.SendPropertyChanging();
-			entity.Dzialy = this;
-		}
-		
-		private void detach_Osoby(Osoby entity)
-		{
-			this.SendPropertyChanging();
-			entity.Dzialy = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Faktury")]
-	public partial class Faktury : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _IdFaktury;
-		
-		private System.Nullable<int> _IdOsoby;
-		
-		private System.Nullable<int> _IdKlienta;
-		
-		private System.Nullable<System.DateTime> _Data;
-		
-		private EntitySet<Transakcje> _Transakcje;
-		
-		private EntityRef<Klienci> _Klienci;
-		
-		private EntityRef<Osoby> _Osoby;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIdFakturyChanging(int value);
-    partial void OnIdFakturyChanged();
-    partial void OnIdOsobyChanging(System.Nullable<int> value);
-    partial void OnIdOsobyChanged();
-    partial void OnIdKlientaChanging(System.Nullable<int> value);
-    partial void OnIdKlientaChanged();
-    partial void OnDataChanging(System.Nullable<System.DateTime> value);
-    partial void OnDataChanged();
-    #endregion
-		
-		public Faktury()
-		{
-			this._Transakcje = new EntitySet<Transakcje>(new Action<Transakcje>(this.attach_Transakcje), new Action<Transakcje>(this.detach_Transakcje));
-			this._Klienci = default(EntityRef<Klienci>);
-			this._Osoby = default(EntityRef<Osoby>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdFaktury", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int IdFaktury
-		{
-			get
-			{
-				return this._IdFaktury;
-			}
-			set
-			{
-				if ((this._IdFaktury != value))
-				{
-					this.OnIdFakturyChanging(value);
-					this.SendPropertyChanging();
-					this._IdFaktury = value;
-					this.SendPropertyChanged("IdFaktury");
-					this.OnIdFakturyChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdOsoby", DbType="Int")]
-		public System.Nullable<int> IdOsoby
-		{
-			get
-			{
-				return this._IdOsoby;
-			}
-			set
-			{
-				if ((this._IdOsoby != value))
-				{
-					if (this._Osoby.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnIdOsobyChanging(value);
-					this.SendPropertyChanging();
-					this._IdOsoby = value;
-					this.SendPropertyChanged("IdOsoby");
-					this.OnIdOsobyChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdKlienta", DbType="Int")]
-		public System.Nullable<int> IdKlienta
-		{
-			get
-			{
-				return this._IdKlienta;
-			}
-			set
-			{
-				if ((this._IdKlienta != value))
-				{
-					if (this._Klienci.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnIdKlientaChanging(value);
-					this.SendPropertyChanging();
-					this._IdKlienta = value;
-					this.SendPropertyChanged("IdKlienta");
-					this.OnIdKlientaChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Data", DbType="DateTime")]
-		public System.Nullable<System.DateTime> Data
-		{
-			get
-			{
-				return this._Data;
-			}
-			set
-			{
-				if ((this._Data != value))
-				{
-					this.OnDataChanging(value);
-					this.SendPropertyChanging();
-					this._Data = value;
-					this.SendPropertyChanged("Data");
-					this.OnDataChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Faktury_Transakcje", Storage="_Transakcje", ThisKey="IdFaktury", OtherKey="IdFaktury")]
-		public EntitySet<Transakcje> Transakcje
-		{
-			get
-			{
-				return this._Transakcje;
-			}
-			set
-			{
-				this._Transakcje.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Klienci_Faktury", Storage="_Klienci", ThisKey="IdKlienta", OtherKey="IdKlienta", IsForeignKey=true)]
-		public Klienci Klienci
-		{
-			get
-			{
-				return this._Klienci.Entity;
-			}
-			set
-			{
-				Klienci previousValue = this._Klienci.Entity;
-				if (((previousValue != value) 
-							|| (this._Klienci.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Klienci.Entity = null;
-						previousValue.Faktury.Remove(this);
-					}
-					this._Klienci.Entity = value;
-					if ((value != null))
-					{
-						value.Faktury.Add(this);
-						this._IdKlienta = value.IdKlienta;
-					}
-					else
-					{
-						this._IdKlienta = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("Klienci");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Osoby_Faktury", Storage="_Osoby", ThisKey="IdOsoby", OtherKey="IdOsoby", IsForeignKey=true)]
-		public Osoby Osoby
-		{
-			get
-			{
-				return this._Osoby.Entity;
-			}
-			set
-			{
-				Osoby previousValue = this._Osoby.Entity;
-				if (((previousValue != value) 
-							|| (this._Osoby.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Osoby.Entity = null;
-						previousValue.Faktury.Remove(this);
-					}
-					this._Osoby.Entity = value;
-					if ((value != null))
-					{
-						value.Faktury.Add(this);
-						this._IdOsoby = value.IdOsoby;
-					}
-					else
-					{
-						this._IdOsoby = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("Osoby");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_Transakcje(Transakcje entity)
-		{
-			this.SendPropertyChanging();
-			entity.Faktury = this;
-		}
-		
-		private void detach_Transakcje(Transakcje entity)
-		{
-			this.SendPropertyChanging();
-			entity.Faktury = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Kategorie")]
-	public partial class Kategorie : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _IdKategorii;
-		
-		private string _NazwaKategorii;
-		
-		private EntitySet<Towar> _Towar;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIdKategoriiChanging(int value);
-    partial void OnIdKategoriiChanged();
-    partial void OnNazwaKategoriiChanging(string value);
-    partial void OnNazwaKategoriiChanged();
-    #endregion
-		
-		public Kategorie()
-		{
-			this._Towar = new EntitySet<Towar>(new Action<Towar>(this.attach_Towar), new Action<Towar>(this.detach_Towar));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdKategorii", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int IdKategorii
-		{
-			get
-			{
-				return this._IdKategorii;
-			}
-			set
-			{
-				if ((this._IdKategorii != value))
-				{
-					this.OnIdKategoriiChanging(value);
-					this.SendPropertyChanging();
-					this._IdKategorii = value;
-					this.SendPropertyChanged("IdKategorii");
-					this.OnIdKategoriiChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NazwaKategorii", DbType="VarChar(50)")]
-		public string NazwaKategorii
-		{
-			get
-			{
-				return this._NazwaKategorii;
-			}
-			set
-			{
-				if ((this._NazwaKategorii != value))
-				{
-					this.OnNazwaKategoriiChanging(value);
-					this.SendPropertyChanging();
-					this._NazwaKategorii = value;
-					this.SendPropertyChanged("NazwaKategorii");
-					this.OnNazwaKategoriiChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Kategorie_Towar", Storage="_Towar", ThisKey="IdKategorii", OtherKey="IdKategorii")]
-		public EntitySet<Towar> Towar
-		{
-			get
-			{
-				return this._Towar;
-			}
-			set
-			{
-				this._Towar.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_Towar(Towar entity)
-		{
-			this.SendPropertyChanging();
-			entity.Kategorie = this;
-		}
-		
-		private void detach_Towar(Towar entity)
-		{
-			this.SendPropertyChanging();
-			entity.Kategorie = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Klienci")]
-	public partial class Klienci : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _IdKlienta;
-		
-		private System.Nullable<int> _IdMiasta;
-		
-		private string _Nazwisko;
-		
-		private string _Imie;
-		
-		private EntitySet<Faktury> _Faktury;
-		
-		private EntityRef<Miasta> _Miasta;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIdKlientaChanging(int value);
-    partial void OnIdKlientaChanged();
-    partial void OnIdMiastaChanging(System.Nullable<int> value);
-    partial void OnIdMiastaChanged();
-    partial void OnNazwiskoChanging(string value);
-    partial void OnNazwiskoChanged();
-    partial void OnImieChanging(string value);
-    partial void OnImieChanged();
-    #endregion
-		
-		public Klienci()
-		{
-			this._Faktury = new EntitySet<Faktury>(new Action<Faktury>(this.attach_Faktury), new Action<Faktury>(this.detach_Faktury));
-			this._Miasta = default(EntityRef<Miasta>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdKlienta", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int IdKlienta
-		{
-			get
-			{
-				return this._IdKlienta;
-			}
-			set
-			{
-				if ((this._IdKlienta != value))
-				{
-					this.OnIdKlientaChanging(value);
-					this.SendPropertyChanging();
-					this._IdKlienta = value;
-					this.SendPropertyChanged("IdKlienta");
-					this.OnIdKlientaChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdMiasta", DbType="Int")]
-		public System.Nullable<int> IdMiasta
-		{
-			get
-			{
-				return this._IdMiasta;
-			}
-			set
-			{
-				if ((this._IdMiasta != value))
-				{
-					if (this._Miasta.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnIdMiastaChanging(value);
-					this.SendPropertyChanging();
-					this._IdMiasta = value;
-					this.SendPropertyChanged("IdMiasta");
-					this.OnIdMiastaChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nazwisko", DbType="VarChar(15)")]
-		public string Nazwisko
-		{
-			get
-			{
-				return this._Nazwisko;
-			}
-			set
-			{
-				if ((this._Nazwisko != value))
-				{
-					this.OnNazwiskoChanging(value);
-					this.SendPropertyChanging();
-					this._Nazwisko = value;
-					this.SendPropertyChanged("Nazwisko");
-					this.OnNazwiskoChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Imie", DbType="VarChar(15)")]
-		public string Imie
-		{
-			get
-			{
-				return this._Imie;
-			}
-			set
-			{
-				if ((this._Imie != value))
-				{
-					this.OnImieChanging(value);
-					this.SendPropertyChanging();
-					this._Imie = value;
-					this.SendPropertyChanged("Imie");
-					this.OnImieChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Klienci_Faktury", Storage="_Faktury", ThisKey="IdKlienta", OtherKey="IdKlienta")]
-		public EntitySet<Faktury> Faktury
-		{
-			get
-			{
-				return this._Faktury;
-			}
-			set
-			{
-				this._Faktury.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Miasta_Klienci", Storage="_Miasta", ThisKey="IdMiasta", OtherKey="IdMiasta", IsForeignKey=true)]
-		public Miasta Miasta
-		{
-			get
-			{
-				return this._Miasta.Entity;
-			}
-			set
-			{
-				Miasta previousValue = this._Miasta.Entity;
-				if (((previousValue != value) 
-							|| (this._Miasta.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Miasta.Entity = null;
-						previousValue.Klienci.Remove(this);
-					}
-					this._Miasta.Entity = value;
-					if ((value != null))
-					{
-						value.Klienci.Add(this);
-						this._IdMiasta = value.IdMiasta;
-					}
-					else
-					{
-						this._IdMiasta = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("Miasta");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_Faktury(Faktury entity)
-		{
-			this.SendPropertyChanging();
-			entity.Klienci = this;
-		}
-		
-		private void detach_Faktury(Faktury entity)
-		{
-			this.SendPropertyChanging();
-			entity.Klienci = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Miasta")]
-	public partial class Miasta : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _IdMiasta;
-		
-		private System.Nullable<int> _IdWojewodztwa;
-		
-		private string _Miasto;
-		
-		private EntitySet<Klienci> _Klienci;
-		
-		private EntitySet<Producenci> _Producenci;
-		
-		private EntityRef<Wojewodztwa> _Wojewodztwa;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIdMiastaChanging(int value);
-    partial void OnIdMiastaChanged();
-    partial void OnIdWojewodztwaChanging(System.Nullable<int> value);
-    partial void OnIdWojewodztwaChanged();
-    partial void OnMiastoChanging(string value);
-    partial void OnMiastoChanged();
-    #endregion
-		
-		public Miasta()
-		{
-			this._Klienci = new EntitySet<Klienci>(new Action<Klienci>(this.attach_Klienci), new Action<Klienci>(this.detach_Klienci));
-			this._Producenci = new EntitySet<Producenci>(new Action<Producenci>(this.attach_Producenci), new Action<Producenci>(this.detach_Producenci));
-			this._Wojewodztwa = default(EntityRef<Wojewodztwa>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdMiasta", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int IdMiasta
-		{
-			get
-			{
-				return this._IdMiasta;
-			}
-			set
-			{
-				if ((this._IdMiasta != value))
-				{
-					this.OnIdMiastaChanging(value);
-					this.SendPropertyChanging();
-					this._IdMiasta = value;
-					this.SendPropertyChanged("IdMiasta");
-					this.OnIdMiastaChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdWojewodztwa", DbType="Int")]
-		public System.Nullable<int> IdWojewodztwa
-		{
-			get
-			{
-				return this._IdWojewodztwa;
-			}
-			set
-			{
-				if ((this._IdWojewodztwa != value))
-				{
-					if (this._Wojewodztwa.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnIdWojewodztwaChanging(value);
-					this.SendPropertyChanging();
-					this._IdWojewodztwa = value;
-					this.SendPropertyChanged("IdWojewodztwa");
-					this.OnIdWojewodztwaChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Miasto", DbType="NVarChar(33)")]
-		public string Miasto
-		{
-			get
-			{
-				return this._Miasto;
-			}
-			set
-			{
-				if ((this._Miasto != value))
-				{
-					this.OnMiastoChanging(value);
-					this.SendPropertyChanging();
-					this._Miasto = value;
-					this.SendPropertyChanged("Miasto");
-					this.OnMiastoChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Miasta_Klienci", Storage="_Klienci", ThisKey="IdMiasta", OtherKey="IdMiasta")]
-		public EntitySet<Klienci> Klienci
-		{
-			get
-			{
-				return this._Klienci;
-			}
-			set
-			{
-				this._Klienci.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Miasta_Producenci", Storage="_Producenci", ThisKey="IdMiasta", OtherKey="IdMiasta")]
-		public EntitySet<Producenci> Producenci
-		{
-			get
-			{
-				return this._Producenci;
-			}
-			set
-			{
-				this._Producenci.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Wojewodztwa_Miasta", Storage="_Wojewodztwa", ThisKey="IdWojewodztwa", OtherKey="IdWojewodztwa", IsForeignKey=true)]
-		public Wojewodztwa Wojewodztwa
-		{
-			get
-			{
-				return this._Wojewodztwa.Entity;
-			}
-			set
-			{
-				Wojewodztwa previousValue = this._Wojewodztwa.Entity;
-				if (((previousValue != value) 
-							|| (this._Wojewodztwa.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Wojewodztwa.Entity = null;
-						previousValue.Miasta.Remove(this);
-					}
-					this._Wojewodztwa.Entity = value;
-					if ((value != null))
-					{
-						value.Miasta.Add(this);
-						this._IdWojewodztwa = value.IdWojewodztwa;
-					}
-					else
-					{
-						this._IdWojewodztwa = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("Wojewodztwa");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_Klienci(Klienci entity)
-		{
-			this.SendPropertyChanging();
-			entity.Miasta = this;
-		}
-		
-		private void detach_Klienci(Klienci entity)
-		{
-			this.SendPropertyChanging();
-			entity.Miasta = null;
-		}
-		
-		private void attach_Producenci(Producenci entity)
-		{
-			this.SendPropertyChanging();
-			entity.Miasta = this;
-		}
-		
-		private void detach_Producenci(Producenci entity)
-		{
-			this.SendPropertyChanging();
-			entity.Miasta = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Osoby")]
-	public partial class Osoby : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _IdOsoby;
-		
-		private System.Nullable<int> _IdDzialu;
-		
-		private string _Nazwisko;
-		
-		private string _Imie;
-		
-		private System.Nullable<int> _RokUrodz;
-		
-		private System.Nullable<decimal> _Wzrost;
-		
-		private System.Nullable<System.DateTime> _DataZatr;
-		
-		private System.Nullable<int> _IdSzefa;
-		
-		private EntitySet<Faktury> _Faktury;
-		
-		private EntitySet<Zarobki> _Zarobki;
-		
-		private EntityRef<Dzialy> _Dzialy;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIdOsobyChanging(int value);
-    partial void OnIdOsobyChanged();
-    partial void OnIdDzialuChanging(System.Nullable<int> value);
-    partial void OnIdDzialuChanged();
-    partial void OnNazwiskoChanging(string value);
-    partial void OnNazwiskoChanged();
-    partial void OnImieChanging(string value);
-    partial void OnImieChanged();
-    partial void OnRokUrodzChanging(System.Nullable<int> value);
-    partial void OnRokUrodzChanged();
-    partial void OnWzrostChanging(System.Nullable<decimal> value);
-    partial void OnWzrostChanged();
-    partial void OnDataZatrChanging(System.Nullable<System.DateTime> value);
-    partial void OnDataZatrChanged();
-    partial void OnIdSzefaChanging(System.Nullable<int> value);
-    partial void OnIdSzefaChanged();
-    #endregion
-		
-		public Osoby()
-		{
-			this._Faktury = new EntitySet<Faktury>(new Action<Faktury>(this.attach_Faktury), new Action<Faktury>(this.detach_Faktury));
-			this._Zarobki = new EntitySet<Zarobki>(new Action<Zarobki>(this.attach_Zarobki), new Action<Zarobki>(this.detach_Zarobki));
-			this._Dzialy = default(EntityRef<Dzialy>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdOsoby", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int IdOsoby
-		{
-			get
-			{
-				return this._IdOsoby;
-			}
-			set
-			{
-				if ((this._IdOsoby != value))
-				{
-					this.OnIdOsobyChanging(value);
-					this.SendPropertyChanging();
-					this._IdOsoby = value;
-					this.SendPropertyChanged("IdOsoby");
-					this.OnIdOsobyChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdDzialu", DbType="Int")]
-		public System.Nullable<int> IdDzialu
-		{
-			get
-			{
-				return this._IdDzialu;
-			}
-			set
-			{
-				if ((this._IdDzialu != value))
-				{
-					if (this._Dzialy.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnIdDzialuChanging(value);
-					this.SendPropertyChanging();
-					this._IdDzialu = value;
-					this.SendPropertyChanged("IdDzialu");
-					this.OnIdDzialuChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nazwisko", DbType="VarChar(15)")]
-		public string Nazwisko
-		{
-			get
-			{
-				return this._Nazwisko;
-			}
-			set
-			{
-				if ((this._Nazwisko != value))
-				{
-					this.OnNazwiskoChanging(value);
-					this.SendPropertyChanging();
-					this._Nazwisko = value;
-					this.SendPropertyChanged("Nazwisko");
-					this.OnNazwiskoChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Imie", DbType="VarChar(15)")]
-		public string Imie
-		{
-			get
-			{
-				return this._Imie;
-			}
-			set
-			{
-				if ((this._Imie != value))
-				{
-					this.OnImieChanging(value);
-					this.SendPropertyChanging();
-					this._Imie = value;
-					this.SendPropertyChanged("Imie");
-					this.OnImieChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RokUrodz", DbType="Int")]
-		public System.Nullable<int> RokUrodz
-		{
-			get
-			{
-				return this._RokUrodz;
-			}
-			set
-			{
-				if ((this._RokUrodz != value))
-				{
-					this.OnRokUrodzChanging(value);
-					this.SendPropertyChanging();
-					this._RokUrodz = value;
-					this.SendPropertyChanged("RokUrodz");
-					this.OnRokUrodzChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Wzrost", DbType="Decimal(3,2)")]
-		public System.Nullable<decimal> Wzrost
-		{
-			get
-			{
-				return this._Wzrost;
-			}
-			set
-			{
-				if ((this._Wzrost != value))
-				{
-					this.OnWzrostChanging(value);
-					this.SendPropertyChanging();
-					this._Wzrost = value;
-					this.SendPropertyChanged("Wzrost");
-					this.OnWzrostChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DataZatr", DbType="DateTime")]
-		public System.Nullable<System.DateTime> DataZatr
-		{
-			get
-			{
-				return this._DataZatr;
-			}
-			set
-			{
-				if ((this._DataZatr != value))
-				{
-					this.OnDataZatrChanging(value);
-					this.SendPropertyChanging();
-					this._DataZatr = value;
-					this.SendPropertyChanged("DataZatr");
-					this.OnDataZatrChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdSzefa", DbType="Int")]
-		public System.Nullable<int> IdSzefa
-		{
-			get
-			{
-				return this._IdSzefa;
-			}
-			set
-			{
-				if ((this._IdSzefa != value))
-				{
-					this.OnIdSzefaChanging(value);
-					this.SendPropertyChanging();
-					this._IdSzefa = value;
-					this.SendPropertyChanged("IdSzefa");
-					this.OnIdSzefaChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Osoby_Faktury", Storage="_Faktury", ThisKey="IdOsoby", OtherKey="IdOsoby")]
-		public EntitySet<Faktury> Faktury
-		{
-			get
-			{
-				return this._Faktury;
-			}
-			set
-			{
-				this._Faktury.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Osoby_Zarobki", Storage="_Zarobki", ThisKey="IdOsoby", OtherKey="IdOsoby")]
-		public EntitySet<Zarobki> Zarobki
-		{
-			get
-			{
-				return this._Zarobki;
-			}
-			set
-			{
-				this._Zarobki.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Dzialy_Osoby", Storage="_Dzialy", ThisKey="IdDzialu", OtherKey="IdDzialu", IsForeignKey=true)]
-		public Dzialy Dzialy
-		{
-			get
-			{
-				return this._Dzialy.Entity;
-			}
-			set
-			{
-				Dzialy previousValue = this._Dzialy.Entity;
-				if (((previousValue != value) 
-							|| (this._Dzialy.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Dzialy.Entity = null;
-						previousValue.Osoby.Remove(this);
-					}
-					this._Dzialy.Entity = value;
-					if ((value != null))
-					{
-						value.Osoby.Add(this);
-						this._IdDzialu = value.IdDzialu;
-					}
-					else
-					{
-						this._IdDzialu = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("Dzialy");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_Faktury(Faktury entity)
-		{
-			this.SendPropertyChanging();
-			entity.Osoby = this;
-		}
-		
-		private void detach_Faktury(Faktury entity)
-		{
-			this.SendPropertyChanging();
-			entity.Osoby = null;
-		}
-		
-		private void attach_Zarobki(Zarobki entity)
-		{
-			this.SendPropertyChanging();
-			entity.Osoby = this;
-		}
-		
-		private void detach_Zarobki(Zarobki entity)
-		{
-			this.SendPropertyChanging();
-			entity.Osoby = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Producenci")]
-	public partial class Producenci : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _IdProducenta;
-		
-		private string _NazwaProducenta;
-		
-		private System.Nullable<int> _IdMiasta;
-		
-		private EntitySet<Towar> _Towar;
-		
-		private EntityRef<Miasta> _Miasta;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIdProducentaChanging(int value);
-    partial void OnIdProducentaChanged();
-    partial void OnNazwaProducentaChanging(string value);
-    partial void OnNazwaProducentaChanged();
-    partial void OnIdMiastaChanging(System.Nullable<int> value);
-    partial void OnIdMiastaChanged();
-    #endregion
-		
-		public Producenci()
-		{
-			this._Towar = new EntitySet<Towar>(new Action<Towar>(this.attach_Towar), new Action<Towar>(this.detach_Towar));
-			this._Miasta = default(EntityRef<Miasta>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdProducenta", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int IdProducenta
-		{
-			get
-			{
-				return this._IdProducenta;
-			}
-			set
-			{
-				if ((this._IdProducenta != value))
-				{
-					this.OnIdProducentaChanging(value);
-					this.SendPropertyChanging();
-					this._IdProducenta = value;
-					this.SendPropertyChanged("IdProducenta");
-					this.OnIdProducentaChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NazwaProducenta", DbType="VarChar(33)")]
-		public string NazwaProducenta
-		{
-			get
-			{
-				return this._NazwaProducenta;
-			}
-			set
-			{
-				if ((this._NazwaProducenta != value))
-				{
-					this.OnNazwaProducentaChanging(value);
-					this.SendPropertyChanging();
-					this._NazwaProducenta = value;
-					this.SendPropertyChanged("NazwaProducenta");
-					this.OnNazwaProducentaChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdMiasta", DbType="Int")]
-		public System.Nullable<int> IdMiasta
-		{
-			get
-			{
-				return this._IdMiasta;
-			}
-			set
-			{
-				if ((this._IdMiasta != value))
-				{
-					if (this._Miasta.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnIdMiastaChanging(value);
-					this.SendPropertyChanging();
-					this._IdMiasta = value;
-					this.SendPropertyChanged("IdMiasta");
-					this.OnIdMiastaChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Producenci_Towar", Storage="_Towar", ThisKey="IdProducenta", OtherKey="IdProducenta")]
-		public EntitySet<Towar> Towar
-		{
-			get
-			{
-				return this._Towar;
-			}
-			set
-			{
-				this._Towar.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Miasta_Producenci", Storage="_Miasta", ThisKey="IdMiasta", OtherKey="IdMiasta", IsForeignKey=true)]
-		public Miasta Miasta
-		{
-			get
-			{
-				return this._Miasta.Entity;
-			}
-			set
-			{
-				Miasta previousValue = this._Miasta.Entity;
-				if (((previousValue != value) 
-							|| (this._Miasta.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Miasta.Entity = null;
-						previousValue.Producenci.Remove(this);
-					}
-					this._Miasta.Entity = value;
-					if ((value != null))
-					{
-						value.Producenci.Add(this);
-						this._IdMiasta = value.IdMiasta;
-					}
-					else
-					{
-						this._IdMiasta = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("Miasta");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_Towar(Towar entity)
-		{
-			this.SendPropertyChanging();
-			entity.Producenci = this;
-		}
-		
-		private void detach_Towar(Towar entity)
-		{
-			this.SendPropertyChanging();
-			entity.Producenci = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.SQLBot_Field")]
-	public partial class SQLBot_Field : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _sqlf_ID;
-		
-		private int _sqlf_Table;
-		
-		private string _sqlf_SQLColumnName;
-		
-		private string _sqlf_ColumnName;
-		
-		private int _sqlf_Type;
-		
-		private string _sqlf_Kind;
-		
-		private string _sqlf_Description;
-		
-		private EntitySet<SQLBot_TableDefault> _SQLBot_TableDefault;
-		
-		private EntityRef<SQLBot_FieldType> _SQLBot_FieldType;
-		
-		private EntityRef<SQLBot_Table> _SQLBot_Table;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void Onsqlf_IDChanging(int value);
-    partial void Onsqlf_IDChanged();
-    partial void Onsqlf_TableChanging(int value);
-    partial void Onsqlf_TableChanged();
-    partial void Onsqlf_SQLColumnNameChanging(string value);
-    partial void Onsqlf_SQLColumnNameChanged();
-    partial void Onsqlf_ColumnNameChanging(string value);
-    partial void Onsqlf_ColumnNameChanged();
-    partial void Onsqlf_TypeChanging(int value);
-    partial void Onsqlf_TypeChanged();
-    partial void Onsqlf_KindChanging(string value);
-    partial void Onsqlf_KindChanged();
-    partial void Onsqlf_DescriptionChanging(string value);
-    partial void Onsqlf_DescriptionChanged();
-    #endregion
-		
-		public SQLBot_Field()
-		{
-			this._SQLBot_TableDefault = new EntitySet<SQLBot_TableDefault>(new Action<SQLBot_TableDefault>(this.attach_SQLBot_TableDefault), new Action<SQLBot_TableDefault>(this.detach_SQLBot_TableDefault));
-			this._SQLBot_FieldType = default(EntityRef<SQLBot_FieldType>);
-			this._SQLBot_Table = default(EntityRef<SQLBot_Table>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sqlf_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int sqlf_ID
-		{
-			get
-			{
-				return this._sqlf_ID;
-			}
-			set
-			{
-				if ((this._sqlf_ID != value))
-				{
-					this.Onsqlf_IDChanging(value);
-					this.SendPropertyChanging();
-					this._sqlf_ID = value;
-					this.SendPropertyChanged("sqlf_ID");
-					this.Onsqlf_IDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sqlf_Table", DbType="Int NOT NULL")]
-		public int sqlf_Table
-		{
-			get
-			{
-				return this._sqlf_Table;
-			}
-			set
-			{
-				if ((this._sqlf_Table != value))
-				{
-					if (this._SQLBot_Table.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.Onsqlf_TableChanging(value);
-					this.SendPropertyChanging();
-					this._sqlf_Table = value;
-					this.SendPropertyChanged("sqlf_Table");
-					this.Onsqlf_TableChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sqlf_SQLColumnName", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string sqlf_SQLColumnName
-		{
-			get
-			{
-				return this._sqlf_SQLColumnName;
-			}
-			set
-			{
-				if ((this._sqlf_SQLColumnName != value))
-				{
-					this.Onsqlf_SQLColumnNameChanging(value);
-					this.SendPropertyChanging();
-					this._sqlf_SQLColumnName = value;
-					this.SendPropertyChanged("sqlf_SQLColumnName");
-					this.Onsqlf_SQLColumnNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sqlf_ColumnName", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string sqlf_ColumnName
-		{
-			get
-			{
-				return this._sqlf_ColumnName;
-			}
-			set
-			{
-				if ((this._sqlf_ColumnName != value))
-				{
-					this.Onsqlf_ColumnNameChanging(value);
-					this.SendPropertyChanging();
-					this._sqlf_ColumnName = value;
-					this.SendPropertyChanged("sqlf_ColumnName");
-					this.Onsqlf_ColumnNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sqlf_Type", DbType="Int NOT NULL")]
-		public int sqlf_Type
-		{
-			get
-			{
-				return this._sqlf_Type;
-			}
-			set
-			{
-				if ((this._sqlf_Type != value))
-				{
-					if (this._SQLBot_FieldType.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.Onsqlf_TypeChanging(value);
-					this.SendPropertyChanging();
-					this._sqlf_Type = value;
-					this.SendPropertyChanged("sqlf_Type");
-					this.Onsqlf_TypeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sqlf_Kind", DbType="VarChar(50)")]
-		public string sqlf_Kind
-		{
-			get
-			{
-				return this._sqlf_Kind;
-			}
-			set
-			{
-				if ((this._sqlf_Kind != value))
-				{
-					this.Onsqlf_KindChanging(value);
-					this.SendPropertyChanging();
-					this._sqlf_Kind = value;
-					this.SendPropertyChanged("sqlf_Kind");
-					this.Onsqlf_KindChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sqlf_Description", DbType="VarChar(200)")]
-		public string sqlf_Description
-		{
-			get
-			{
-				return this._sqlf_Description;
-			}
-			set
-			{
-				if ((this._sqlf_Description != value))
-				{
-					this.Onsqlf_DescriptionChanging(value);
-					this.SendPropertyChanging();
-					this._sqlf_Description = value;
-					this.SendPropertyChanged("sqlf_Description");
-					this.Onsqlf_DescriptionChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="SQLBot_Field_SQLBot_TableDefault", Storage="_SQLBot_TableDefault", ThisKey="sqlf_ID", OtherKey="sqld_SQLColumn")]
-		public EntitySet<SQLBot_TableDefault> SQLBot_TableDefault
-		{
-			get
-			{
-				return this._SQLBot_TableDefault;
-			}
-			set
-			{
-				this._SQLBot_TableDefault.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="SQLBot_FieldType_SQLBot_Field", Storage="_SQLBot_FieldType", ThisKey="sqlf_Type", OtherKey="sqlft_ID", IsForeignKey=true)]
-		public SQLBot_FieldType SQLBot_FieldType
-		{
-			get
-			{
-				return this._SQLBot_FieldType.Entity;
-			}
-			set
-			{
-				SQLBot_FieldType previousValue = this._SQLBot_FieldType.Entity;
-				if (((previousValue != value) 
-							|| (this._SQLBot_FieldType.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._SQLBot_FieldType.Entity = null;
-						previousValue.SQLBot_Field.Remove(this);
-					}
-					this._SQLBot_FieldType.Entity = value;
-					if ((value != null))
-					{
-						value.SQLBot_Field.Add(this);
-						this._sqlf_Type = value.sqlft_ID;
-					}
-					else
-					{
-						this._sqlf_Type = default(int);
-					}
-					this.SendPropertyChanged("SQLBot_FieldType");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="SQLBot_Table_SQLBot_Field", Storage="_SQLBot_Table", ThisKey="sqlf_Table", OtherKey="sqlt_ID", IsForeignKey=true)]
-		public SQLBot_Table SQLBot_Table
-		{
-			get
-			{
-				return this._SQLBot_Table.Entity;
-			}
-			set
-			{
-				SQLBot_Table previousValue = this._SQLBot_Table.Entity;
-				if (((previousValue != value) 
-							|| (this._SQLBot_Table.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._SQLBot_Table.Entity = null;
-						previousValue.SQLBot_Field.Remove(this);
-					}
-					this._SQLBot_Table.Entity = value;
-					if ((value != null))
-					{
-						value.SQLBot_Field.Add(this);
-						this._sqlf_Table = value.sqlt_ID;
-					}
-					else
-					{
-						this._sqlf_Table = default(int);
-					}
-					this.SendPropertyChanged("SQLBot_Table");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_SQLBot_TableDefault(SQLBot_TableDefault entity)
-		{
-			this.SendPropertyChanging();
-			entity.SQLBot_Field = this;
-		}
-		
-		private void detach_SQLBot_TableDefault(SQLBot_TableDefault entity)
-		{
-			this.SendPropertyChanging();
-			entity.SQLBot_Field = null;
 		}
 	}
 	
@@ -2240,13 +262,11 @@ namespace Cindalnet.SQLBot.Database
 		
 		private string _sqlt_Description;
 		
-		private EntitySet<SQLBot_Field> _SQLBot_Field;
-		
 		private EntitySet<SQLBot_TableJoin> _SQLBot_TableJoin;
 		
 		private EntitySet<SQLBot_TableJoin> _SQLBot_TableJoin1;
 		
-		private EntitySet<SQLBot_TableDefault> _SQLBot_TableDefault;
+		private EntitySet<SQLBot_Field> _SQLBot_Field;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -2264,10 +284,9 @@ namespace Cindalnet.SQLBot.Database
 		
 		public SQLBot_Table()
 		{
-			this._SQLBot_Field = new EntitySet<SQLBot_Field>(new Action<SQLBot_Field>(this.attach_SQLBot_Field), new Action<SQLBot_Field>(this.detach_SQLBot_Field));
 			this._SQLBot_TableJoin = new EntitySet<SQLBot_TableJoin>(new Action<SQLBot_TableJoin>(this.attach_SQLBot_TableJoin), new Action<SQLBot_TableJoin>(this.detach_SQLBot_TableJoin));
 			this._SQLBot_TableJoin1 = new EntitySet<SQLBot_TableJoin>(new Action<SQLBot_TableJoin>(this.attach_SQLBot_TableJoin1), new Action<SQLBot_TableJoin>(this.detach_SQLBot_TableJoin1));
-			this._SQLBot_TableDefault = new EntitySet<SQLBot_TableDefault>(new Action<SQLBot_TableDefault>(this.attach_SQLBot_TableDefault), new Action<SQLBot_TableDefault>(this.detach_SQLBot_TableDefault));
+			this._SQLBot_Field = new EntitySet<SQLBot_Field>(new Action<SQLBot_Field>(this.attach_SQLBot_Field), new Action<SQLBot_Field>(this.detach_SQLBot_Field));
 			OnCreated();
 		}
 		
@@ -2351,19 +370,6 @@ namespace Cindalnet.SQLBot.Database
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="SQLBot_Table_SQLBot_Field", Storage="_SQLBot_Field", ThisKey="sqlt_ID", OtherKey="sqlf_Table")]
-		public EntitySet<SQLBot_Field> SQLBot_Field
-		{
-			get
-			{
-				return this._SQLBot_Field;
-			}
-			set
-			{
-				this._SQLBot_Field.Assign(value);
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="SQLBot_Table_SQLBot_TableJoin", Storage="_SQLBot_TableJoin", ThisKey="sqlt_ID", OtherKey="sqltj_Table1")]
 		public EntitySet<SQLBot_TableJoin> SQLBot_TableJoin
 		{
@@ -2390,16 +396,16 @@ namespace Cindalnet.SQLBot.Database
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="SQLBot_Table_SQLBot_TableDefault", Storage="_SQLBot_TableDefault", ThisKey="sqlt_ID", OtherKey="sqld_Table")]
-		public EntitySet<SQLBot_TableDefault> SQLBot_TableDefault
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="SQLBot_Table_SQLBot_Field", Storage="_SQLBot_Field", ThisKey="sqlt_ID", OtherKey="sqlf_Table")]
+		public EntitySet<SQLBot_Field> SQLBot_Field
 		{
 			get
 			{
-				return this._SQLBot_TableDefault;
+				return this._SQLBot_Field;
 			}
 			set
 			{
-				this._SQLBot_TableDefault.Assign(value);
+				this._SQLBot_Field.Assign(value);
 			}
 		}
 		
@@ -2421,18 +427,6 @@ namespace Cindalnet.SQLBot.Database
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
-		}
-		
-		private void attach_SQLBot_Field(SQLBot_Field entity)
-		{
-			this.SendPropertyChanging();
-			entity.SQLBot_Table = this;
-		}
-		
-		private void detach_SQLBot_Field(SQLBot_Field entity)
-		{
-			this.SendPropertyChanging();
-			entity.SQLBot_Table = null;
 		}
 		
 		private void attach_SQLBot_TableJoin(SQLBot_TableJoin entity)
@@ -2459,813 +453,16 @@ namespace Cindalnet.SQLBot.Database
 			entity.SQLBot_Table1 = null;
 		}
 		
-		private void attach_SQLBot_TableDefault(SQLBot_TableDefault entity)
+		private void attach_SQLBot_Field(SQLBot_Field entity)
 		{
 			this.SendPropertyChanging();
 			entity.SQLBot_Table = this;
 		}
 		
-		private void detach_SQLBot_TableDefault(SQLBot_TableDefault entity)
+		private void detach_SQLBot_Field(SQLBot_Field entity)
 		{
 			this.SendPropertyChanging();
 			entity.SQLBot_Table = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Towar")]
-	public partial class Towar : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _IdTowaru;
-		
-		private System.Nullable<int> _IdKategorii;
-		
-		private System.Nullable<int> _IdProducenta;
-		
-		private string _NazwaTowaru;
-		
-		private System.Nullable<decimal> _Cena;
-		
-		private System.Nullable<decimal> _CenaZakupu;
-		
-		private EntitySet<Transakcje> _Transakcje;
-		
-		private EntityRef<Kategorie> _Kategorie;
-		
-		private EntityRef<Producenci> _Producenci;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIdTowaruChanging(int value);
-    partial void OnIdTowaruChanged();
-    partial void OnIdKategoriiChanging(System.Nullable<int> value);
-    partial void OnIdKategoriiChanged();
-    partial void OnIdProducentaChanging(System.Nullable<int> value);
-    partial void OnIdProducentaChanged();
-    partial void OnNazwaTowaruChanging(string value);
-    partial void OnNazwaTowaruChanged();
-    partial void OnCenaChanging(System.Nullable<decimal> value);
-    partial void OnCenaChanged();
-    partial void OnCenaZakupuChanging(System.Nullable<decimal> value);
-    partial void OnCenaZakupuChanged();
-    #endregion
-		
-		public Towar()
-		{
-			this._Transakcje = new EntitySet<Transakcje>(new Action<Transakcje>(this.attach_Transakcje), new Action<Transakcje>(this.detach_Transakcje));
-			this._Kategorie = default(EntityRef<Kategorie>);
-			this._Producenci = default(EntityRef<Producenci>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdTowaru", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int IdTowaru
-		{
-			get
-			{
-				return this._IdTowaru;
-			}
-			set
-			{
-				if ((this._IdTowaru != value))
-				{
-					this.OnIdTowaruChanging(value);
-					this.SendPropertyChanging();
-					this._IdTowaru = value;
-					this.SendPropertyChanged("IdTowaru");
-					this.OnIdTowaruChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdKategorii", DbType="Int")]
-		public System.Nullable<int> IdKategorii
-		{
-			get
-			{
-				return this._IdKategorii;
-			}
-			set
-			{
-				if ((this._IdKategorii != value))
-				{
-					if (this._Kategorie.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnIdKategoriiChanging(value);
-					this.SendPropertyChanging();
-					this._IdKategorii = value;
-					this.SendPropertyChanged("IdKategorii");
-					this.OnIdKategoriiChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdProducenta", DbType="Int")]
-		public System.Nullable<int> IdProducenta
-		{
-			get
-			{
-				return this._IdProducenta;
-			}
-			set
-			{
-				if ((this._IdProducenta != value))
-				{
-					if (this._Producenci.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnIdProducentaChanging(value);
-					this.SendPropertyChanging();
-					this._IdProducenta = value;
-					this.SendPropertyChanged("IdProducenta");
-					this.OnIdProducentaChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NazwaTowaru", DbType="VarChar(20)")]
-		public string NazwaTowaru
-		{
-			get
-			{
-				return this._NazwaTowaru;
-			}
-			set
-			{
-				if ((this._NazwaTowaru != value))
-				{
-					this.OnNazwaTowaruChanging(value);
-					this.SendPropertyChanging();
-					this._NazwaTowaru = value;
-					this.SendPropertyChanged("NazwaTowaru");
-					this.OnNazwaTowaruChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Cena", DbType="Money")]
-		public System.Nullable<decimal> Cena
-		{
-			get
-			{
-				return this._Cena;
-			}
-			set
-			{
-				if ((this._Cena != value))
-				{
-					this.OnCenaChanging(value);
-					this.SendPropertyChanging();
-					this._Cena = value;
-					this.SendPropertyChanged("Cena");
-					this.OnCenaChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CenaZakupu", DbType="Money")]
-		public System.Nullable<decimal> CenaZakupu
-		{
-			get
-			{
-				return this._CenaZakupu;
-			}
-			set
-			{
-				if ((this._CenaZakupu != value))
-				{
-					this.OnCenaZakupuChanging(value);
-					this.SendPropertyChanging();
-					this._CenaZakupu = value;
-					this.SendPropertyChanged("CenaZakupu");
-					this.OnCenaZakupuChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Towar_Transakcje", Storage="_Transakcje", ThisKey="IdTowaru", OtherKey="IdTowaru")]
-		public EntitySet<Transakcje> Transakcje
-		{
-			get
-			{
-				return this._Transakcje;
-			}
-			set
-			{
-				this._Transakcje.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Kategorie_Towar", Storage="_Kategorie", ThisKey="IdKategorii", OtherKey="IdKategorii", IsForeignKey=true)]
-		public Kategorie Kategorie
-		{
-			get
-			{
-				return this._Kategorie.Entity;
-			}
-			set
-			{
-				Kategorie previousValue = this._Kategorie.Entity;
-				if (((previousValue != value) 
-							|| (this._Kategorie.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Kategorie.Entity = null;
-						previousValue.Towar.Remove(this);
-					}
-					this._Kategorie.Entity = value;
-					if ((value != null))
-					{
-						value.Towar.Add(this);
-						this._IdKategorii = value.IdKategorii;
-					}
-					else
-					{
-						this._IdKategorii = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("Kategorie");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Producenci_Towar", Storage="_Producenci", ThisKey="IdProducenta", OtherKey="IdProducenta", IsForeignKey=true)]
-		public Producenci Producenci
-		{
-			get
-			{
-				return this._Producenci.Entity;
-			}
-			set
-			{
-				Producenci previousValue = this._Producenci.Entity;
-				if (((previousValue != value) 
-							|| (this._Producenci.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Producenci.Entity = null;
-						previousValue.Towar.Remove(this);
-					}
-					this._Producenci.Entity = value;
-					if ((value != null))
-					{
-						value.Towar.Add(this);
-						this._IdProducenta = value.IdProducenta;
-					}
-					else
-					{
-						this._IdProducenta = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("Producenci");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_Transakcje(Transakcje entity)
-		{
-			this.SendPropertyChanging();
-			entity.Towar = this;
-		}
-		
-		private void detach_Transakcje(Transakcje entity)
-		{
-			this.SendPropertyChanging();
-			entity.Towar = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Transakcje")]
-	public partial class Transakcje : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _IdTransakcji;
-		
-		private System.Nullable<int> _IdFaktury;
-		
-		private System.Nullable<int> _IdTowaru;
-		
-		private System.Nullable<int> _szt;
-		
-		private EntityRef<Faktury> _Faktury;
-		
-		private EntityRef<Towar> _Towar;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIdTransakcjiChanging(int value);
-    partial void OnIdTransakcjiChanged();
-    partial void OnIdFakturyChanging(System.Nullable<int> value);
-    partial void OnIdFakturyChanged();
-    partial void OnIdTowaruChanging(System.Nullable<int> value);
-    partial void OnIdTowaruChanged();
-    partial void OnsztChanging(System.Nullable<int> value);
-    partial void OnsztChanged();
-    #endregion
-		
-		public Transakcje()
-		{
-			this._Faktury = default(EntityRef<Faktury>);
-			this._Towar = default(EntityRef<Towar>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdTransakcji", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int IdTransakcji
-		{
-			get
-			{
-				return this._IdTransakcji;
-			}
-			set
-			{
-				if ((this._IdTransakcji != value))
-				{
-					this.OnIdTransakcjiChanging(value);
-					this.SendPropertyChanging();
-					this._IdTransakcji = value;
-					this.SendPropertyChanged("IdTransakcji");
-					this.OnIdTransakcjiChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdFaktury", DbType="Int")]
-		public System.Nullable<int> IdFaktury
-		{
-			get
-			{
-				return this._IdFaktury;
-			}
-			set
-			{
-				if ((this._IdFaktury != value))
-				{
-					if (this._Faktury.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnIdFakturyChanging(value);
-					this.SendPropertyChanging();
-					this._IdFaktury = value;
-					this.SendPropertyChanged("IdFaktury");
-					this.OnIdFakturyChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdTowaru", DbType="Int")]
-		public System.Nullable<int> IdTowaru
-		{
-			get
-			{
-				return this._IdTowaru;
-			}
-			set
-			{
-				if ((this._IdTowaru != value))
-				{
-					if (this._Towar.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnIdTowaruChanging(value);
-					this.SendPropertyChanging();
-					this._IdTowaru = value;
-					this.SendPropertyChanged("IdTowaru");
-					this.OnIdTowaruChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_szt", DbType="Int")]
-		public System.Nullable<int> szt
-		{
-			get
-			{
-				return this._szt;
-			}
-			set
-			{
-				if ((this._szt != value))
-				{
-					this.OnsztChanging(value);
-					this.SendPropertyChanging();
-					this._szt = value;
-					this.SendPropertyChanged("szt");
-					this.OnsztChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Faktury_Transakcje", Storage="_Faktury", ThisKey="IdFaktury", OtherKey="IdFaktury", IsForeignKey=true)]
-		public Faktury Faktury
-		{
-			get
-			{
-				return this._Faktury.Entity;
-			}
-			set
-			{
-				Faktury previousValue = this._Faktury.Entity;
-				if (((previousValue != value) 
-							|| (this._Faktury.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Faktury.Entity = null;
-						previousValue.Transakcje.Remove(this);
-					}
-					this._Faktury.Entity = value;
-					if ((value != null))
-					{
-						value.Transakcje.Add(this);
-						this._IdFaktury = value.IdFaktury;
-					}
-					else
-					{
-						this._IdFaktury = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("Faktury");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Towar_Transakcje", Storage="_Towar", ThisKey="IdTowaru", OtherKey="IdTowaru", IsForeignKey=true)]
-		public Towar Towar
-		{
-			get
-			{
-				return this._Towar.Entity;
-			}
-			set
-			{
-				Towar previousValue = this._Towar.Entity;
-				if (((previousValue != value) 
-							|| (this._Towar.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Towar.Entity = null;
-						previousValue.Transakcje.Remove(this);
-					}
-					this._Towar.Entity = value;
-					if ((value != null))
-					{
-						value.Transakcje.Add(this);
-						this._IdTowaru = value.IdTowaru;
-					}
-					else
-					{
-						this._IdTowaru = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("Towar");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Wojewodztwa")]
-	public partial class Wojewodztwa : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _IdWojewodztwa;
-		
-		private string _Wojewodztwo;
-		
-		private EntitySet<Miasta> _Miasta;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIdWojewodztwaChanging(int value);
-    partial void OnIdWojewodztwaChanged();
-    partial void OnWojewodztwoChanging(string value);
-    partial void OnWojewodztwoChanged();
-    #endregion
-		
-		public Wojewodztwa()
-		{
-			this._Miasta = new EntitySet<Miasta>(new Action<Miasta>(this.attach_Miasta), new Action<Miasta>(this.detach_Miasta));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdWojewodztwa", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int IdWojewodztwa
-		{
-			get
-			{
-				return this._IdWojewodztwa;
-			}
-			set
-			{
-				if ((this._IdWojewodztwa != value))
-				{
-					this.OnIdWojewodztwaChanging(value);
-					this.SendPropertyChanging();
-					this._IdWojewodztwa = value;
-					this.SendPropertyChanged("IdWojewodztwa");
-					this.OnIdWojewodztwaChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Wojewodztwo", DbType="NVarChar(55)")]
-		public string Wojewodztwo
-		{
-			get
-			{
-				return this._Wojewodztwo;
-			}
-			set
-			{
-				if ((this._Wojewodztwo != value))
-				{
-					this.OnWojewodztwoChanging(value);
-					this.SendPropertyChanging();
-					this._Wojewodztwo = value;
-					this.SendPropertyChanged("Wojewodztwo");
-					this.OnWojewodztwoChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Wojewodztwa_Miasta", Storage="_Miasta", ThisKey="IdWojewodztwa", OtherKey="IdWojewodztwa")]
-		public EntitySet<Miasta> Miasta
-		{
-			get
-			{
-				return this._Miasta;
-			}
-			set
-			{
-				this._Miasta.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_Miasta(Miasta entity)
-		{
-			this.SendPropertyChanging();
-			entity.Wojewodztwa = this;
-		}
-		
-		private void detach_Miasta(Miasta entity)
-		{
-			this.SendPropertyChanging();
-			entity.Wojewodztwa = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Zarobki")]
-	public partial class Zarobki : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _IdZarobku;
-		
-		private System.Nullable<int> _IdOsoby;
-		
-		private System.Nullable<decimal> _Brutto;
-		
-		private System.Nullable<System.DateTime> _DataWyplaty;
-		
-		private EntityRef<Osoby> _Osoby;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIdZarobkuChanging(int value);
-    partial void OnIdZarobkuChanged();
-    partial void OnIdOsobyChanging(System.Nullable<int> value);
-    partial void OnIdOsobyChanged();
-    partial void OnBruttoChanging(System.Nullable<decimal> value);
-    partial void OnBruttoChanged();
-    partial void OnDataWyplatyChanging(System.Nullable<System.DateTime> value);
-    partial void OnDataWyplatyChanged();
-    #endregion
-		
-		public Zarobki()
-		{
-			this._Osoby = default(EntityRef<Osoby>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdZarobku", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int IdZarobku
-		{
-			get
-			{
-				return this._IdZarobku;
-			}
-			set
-			{
-				if ((this._IdZarobku != value))
-				{
-					this.OnIdZarobkuChanging(value);
-					this.SendPropertyChanging();
-					this._IdZarobku = value;
-					this.SendPropertyChanged("IdZarobku");
-					this.OnIdZarobkuChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdOsoby", DbType="Int")]
-		public System.Nullable<int> IdOsoby
-		{
-			get
-			{
-				return this._IdOsoby;
-			}
-			set
-			{
-				if ((this._IdOsoby != value))
-				{
-					if (this._Osoby.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnIdOsobyChanging(value);
-					this.SendPropertyChanging();
-					this._IdOsoby = value;
-					this.SendPropertyChanged("IdOsoby");
-					this.OnIdOsobyChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Brutto", DbType="Money")]
-		public System.Nullable<decimal> Brutto
-		{
-			get
-			{
-				return this._Brutto;
-			}
-			set
-			{
-				if ((this._Brutto != value))
-				{
-					this.OnBruttoChanging(value);
-					this.SendPropertyChanging();
-					this._Brutto = value;
-					this.SendPropertyChanged("Brutto");
-					this.OnBruttoChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DataWyplaty", DbType="DateTime")]
-		public System.Nullable<System.DateTime> DataWyplaty
-		{
-			get
-			{
-				return this._DataWyplaty;
-			}
-			set
-			{
-				if ((this._DataWyplaty != value))
-				{
-					this.OnDataWyplatyChanging(value);
-					this.SendPropertyChanging();
-					this._DataWyplaty = value;
-					this.SendPropertyChanged("DataWyplaty");
-					this.OnDataWyplatyChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Osoby_Zarobki", Storage="_Osoby", ThisKey="IdOsoby", OtherKey="IdOsoby", IsForeignKey=true)]
-		public Osoby Osoby
-		{
-			get
-			{
-				return this._Osoby.Entity;
-			}
-			set
-			{
-				Osoby previousValue = this._Osoby.Entity;
-				if (((previousValue != value) 
-							|| (this._Osoby.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Osoby.Entity = null;
-						previousValue.Zarobki.Remove(this);
-					}
-					this._Osoby.Entity = value;
-					if ((value != null))
-					{
-						value.Zarobki.Add(this);
-						this._IdOsoby = value.IdOsoby;
-					}
-					else
-					{
-						this._IdOsoby = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("Osoby");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
 		}
 	}
 	
@@ -3584,6 +781,298 @@ namespace Cindalnet.SQLBot.Database
 		}
 	}
 	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.SQLBot_Field")]
+	public partial class SQLBot_Field : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _sqlf_ID;
+		
+		private int _sqlf_Table;
+		
+		private string _sqlf_SQLColumnName;
+		
+		private string _sqlf_ColumnName;
+		
+		private int _sqlf_Type;
+		
+		private string _sqlf_Description;
+		
+		private EntitySet<SQLBot_TableDefault> _SQLBot_TableDefault;
+		
+		private EntityRef<SQLBot_FieldType> _SQLBot_FieldType;
+		
+		private EntityRef<SQLBot_Table> _SQLBot_Table;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void Onsqlf_IDChanging(int value);
+    partial void Onsqlf_IDChanged();
+    partial void Onsqlf_TableChanging(int value);
+    partial void Onsqlf_TableChanged();
+    partial void Onsqlf_SQLColumnNameChanging(string value);
+    partial void Onsqlf_SQLColumnNameChanged();
+    partial void Onsqlf_ColumnNameChanging(string value);
+    partial void Onsqlf_ColumnNameChanged();
+    partial void Onsqlf_TypeChanging(int value);
+    partial void Onsqlf_TypeChanged();
+    partial void Onsqlf_DescriptionChanging(string value);
+    partial void Onsqlf_DescriptionChanged();
+    #endregion
+		
+		public SQLBot_Field()
+		{
+			this._SQLBot_TableDefault = new EntitySet<SQLBot_TableDefault>(new Action<SQLBot_TableDefault>(this.attach_SQLBot_TableDefault), new Action<SQLBot_TableDefault>(this.detach_SQLBot_TableDefault));
+			this._SQLBot_FieldType = default(EntityRef<SQLBot_FieldType>);
+			this._SQLBot_Table = default(EntityRef<SQLBot_Table>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sqlf_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int sqlf_ID
+		{
+			get
+			{
+				return this._sqlf_ID;
+			}
+			set
+			{
+				if ((this._sqlf_ID != value))
+				{
+					this.Onsqlf_IDChanging(value);
+					this.SendPropertyChanging();
+					this._sqlf_ID = value;
+					this.SendPropertyChanged("sqlf_ID");
+					this.Onsqlf_IDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sqlf_Table", DbType="Int NOT NULL")]
+		public int sqlf_Table
+		{
+			get
+			{
+				return this._sqlf_Table;
+			}
+			set
+			{
+				if ((this._sqlf_Table != value))
+				{
+					if (this._SQLBot_Table.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.Onsqlf_TableChanging(value);
+					this.SendPropertyChanging();
+					this._sqlf_Table = value;
+					this.SendPropertyChanged("sqlf_Table");
+					this.Onsqlf_TableChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sqlf_SQLColumnName", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string sqlf_SQLColumnName
+		{
+			get
+			{
+				return this._sqlf_SQLColumnName;
+			}
+			set
+			{
+				if ((this._sqlf_SQLColumnName != value))
+				{
+					this.Onsqlf_SQLColumnNameChanging(value);
+					this.SendPropertyChanging();
+					this._sqlf_SQLColumnName = value;
+					this.SendPropertyChanged("sqlf_SQLColumnName");
+					this.Onsqlf_SQLColumnNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sqlf_ColumnName", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string sqlf_ColumnName
+		{
+			get
+			{
+				return this._sqlf_ColumnName;
+			}
+			set
+			{
+				if ((this._sqlf_ColumnName != value))
+				{
+					this.Onsqlf_ColumnNameChanging(value);
+					this.SendPropertyChanging();
+					this._sqlf_ColumnName = value;
+					this.SendPropertyChanged("sqlf_ColumnName");
+					this.Onsqlf_ColumnNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sqlf_Type", DbType="Int NOT NULL")]
+		public int sqlf_Type
+		{
+			get
+			{
+				return this._sqlf_Type;
+			}
+			set
+			{
+				if ((this._sqlf_Type != value))
+				{
+					if (this._SQLBot_FieldType.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.Onsqlf_TypeChanging(value);
+					this.SendPropertyChanging();
+					this._sqlf_Type = value;
+					this.SendPropertyChanged("sqlf_Type");
+					this.Onsqlf_TypeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sqlf_Description", DbType="VarChar(200)")]
+		public string sqlf_Description
+		{
+			get
+			{
+				return this._sqlf_Description;
+			}
+			set
+			{
+				if ((this._sqlf_Description != value))
+				{
+					this.Onsqlf_DescriptionChanging(value);
+					this.SendPropertyChanging();
+					this._sqlf_Description = value;
+					this.SendPropertyChanged("sqlf_Description");
+					this.Onsqlf_DescriptionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="SQLBot_Field_SQLBot_TableDefault", Storage="_SQLBot_TableDefault", ThisKey="sqlf_ID", OtherKey="sqld_SQLColumn")]
+		public EntitySet<SQLBot_TableDefault> SQLBot_TableDefault
+		{
+			get
+			{
+				return this._SQLBot_TableDefault;
+			}
+			set
+			{
+				this._SQLBot_TableDefault.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="SQLBot_FieldType_SQLBot_Field", Storage="_SQLBot_FieldType", ThisKey="sqlf_Type", OtherKey="sqlft_ID", IsForeignKey=true)]
+		public SQLBot_FieldType SQLBot_FieldType
+		{
+			get
+			{
+				return this._SQLBot_FieldType.Entity;
+			}
+			set
+			{
+				SQLBot_FieldType previousValue = this._SQLBot_FieldType.Entity;
+				if (((previousValue != value) 
+							|| (this._SQLBot_FieldType.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._SQLBot_FieldType.Entity = null;
+						previousValue.SQLBot_Field.Remove(this);
+					}
+					this._SQLBot_FieldType.Entity = value;
+					if ((value != null))
+					{
+						value.SQLBot_Field.Add(this);
+						this._sqlf_Type = value.sqlft_ID;
+					}
+					else
+					{
+						this._sqlf_Type = default(int);
+					}
+					this.SendPropertyChanged("SQLBot_FieldType");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="SQLBot_Table_SQLBot_Field", Storage="_SQLBot_Table", ThisKey="sqlf_Table", OtherKey="sqlt_ID", IsForeignKey=true)]
+		public SQLBot_Table SQLBot_Table
+		{
+			get
+			{
+				return this._SQLBot_Table.Entity;
+			}
+			set
+			{
+				SQLBot_Table previousValue = this._SQLBot_Table.Entity;
+				if (((previousValue != value) 
+							|| (this._SQLBot_Table.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._SQLBot_Table.Entity = null;
+						previousValue.SQLBot_Field.Remove(this);
+					}
+					this._SQLBot_Table.Entity = value;
+					if ((value != null))
+					{
+						value.SQLBot_Field.Add(this);
+						this._sqlf_Table = value.sqlt_ID;
+					}
+					else
+					{
+						this._sqlf_Table = default(int);
+					}
+					this.SendPropertyChanged("SQLBot_Table");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_SQLBot_TableDefault(SQLBot_TableDefault entity)
+		{
+			this.SendPropertyChanging();
+			entity.SQLBot_Field = this;
+		}
+		
+		private void detach_SQLBot_TableDefault(SQLBot_TableDefault entity)
+		{
+			this.SendPropertyChanging();
+			entity.SQLBot_Field = null;
+		}
+	}
+	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.SQLBot_TableDefault")]
 	public partial class SQLBot_TableDefault : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -3592,13 +1081,9 @@ namespace Cindalnet.SQLBot.Database
 		
 		private int _sqld_ID;
 		
-		private int _sqld_Table;
-		
 		private int _sqld_SQLColumn;
 		
 		private EntityRef<SQLBot_Field> _SQLBot_Field;
-		
-		private EntityRef<SQLBot_Table> _SQLBot_Table;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -3606,8 +1091,6 @@ namespace Cindalnet.SQLBot.Database
     partial void OnCreated();
     partial void Onsqld_IDChanging(int value);
     partial void Onsqld_IDChanged();
-    partial void Onsqld_TableChanging(int value);
-    partial void Onsqld_TableChanged();
     partial void Onsqld_SQLColumnChanging(int value);
     partial void Onsqld_SQLColumnChanged();
     #endregion
@@ -3615,7 +1098,6 @@ namespace Cindalnet.SQLBot.Database
 		public SQLBot_TableDefault()
 		{
 			this._SQLBot_Field = default(EntityRef<SQLBot_Field>);
-			this._SQLBot_Table = default(EntityRef<SQLBot_Table>);
 			OnCreated();
 		}
 		
@@ -3635,30 +1117,6 @@ namespace Cindalnet.SQLBot.Database
 					this._sqld_ID = value;
 					this.SendPropertyChanged("sqld_ID");
 					this.Onsqld_IDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sqld_Table", DbType="Int NOT NULL")]
-		public int sqld_Table
-		{
-			get
-			{
-				return this._sqld_Table;
-			}
-			set
-			{
-				if ((this._sqld_Table != value))
-				{
-					if (this._SQLBot_Table.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.Onsqld_TableChanging(value);
-					this.SendPropertyChanging();
-					this._sqld_Table = value;
-					this.SendPropertyChanged("sqld_Table");
-					this.Onsqld_TableChanged();
 				}
 			}
 		}
@@ -3721,40 +1179,6 @@ namespace Cindalnet.SQLBot.Database
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="SQLBot_Table_SQLBot_TableDefault", Storage="_SQLBot_Table", ThisKey="sqld_Table", OtherKey="sqlt_ID", IsForeignKey=true)]
-		public SQLBot_Table SQLBot_Table
-		{
-			get
-			{
-				return this._SQLBot_Table.Entity;
-			}
-			set
-			{
-				SQLBot_Table previousValue = this._SQLBot_Table.Entity;
-				if (((previousValue != value) 
-							|| (this._SQLBot_Table.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._SQLBot_Table.Entity = null;
-						previousValue.SQLBot_TableDefault.Remove(this);
-					}
-					this._SQLBot_Table.Entity = value;
-					if ((value != null))
-					{
-						value.SQLBot_TableDefault.Add(this);
-						this._sqld_Table = value.sqlt_ID;
-					}
-					else
-					{
-						this._sqld_Table = default(int);
-					}
-					this.SendPropertyChanged("SQLBot_Table");
-				}
-			}
-		}
-		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -3772,6 +1196,141 @@ namespace Cindalnet.SQLBot.Database
 			if ((this.PropertyChanged != null))
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.vSQLBotFields")]
+	public partial class vSQLBotFields
+	{
+		
+		private string _TableNameSQL;
+		
+		private string _TableName;
+		
+		private string _TableDescription;
+		
+		private string _FieldNameSQL;
+		
+		private string _FieldName;
+		
+		private string _FieldType;
+		
+		private string _FieldDescription;
+		
+		public vSQLBotFields()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TableNameSQL", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string TableNameSQL
+		{
+			get
+			{
+				return this._TableNameSQL;
+			}
+			set
+			{
+				if ((this._TableNameSQL != value))
+				{
+					this._TableNameSQL = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TableName", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string TableName
+		{
+			get
+			{
+				return this._TableName;
+			}
+			set
+			{
+				if ((this._TableName != value))
+				{
+					this._TableName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TableDescription", DbType="VarChar(200)")]
+		public string TableDescription
+		{
+			get
+			{
+				return this._TableDescription;
+			}
+			set
+			{
+				if ((this._TableDescription != value))
+				{
+					this._TableDescription = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FieldNameSQL", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string FieldNameSQL
+		{
+			get
+			{
+				return this._FieldNameSQL;
+			}
+			set
+			{
+				if ((this._FieldNameSQL != value))
+				{
+					this._FieldNameSQL = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FieldName", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string FieldName
+		{
+			get
+			{
+				return this._FieldName;
+			}
+			set
+			{
+				if ((this._FieldName != value))
+				{
+					this._FieldName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FieldType", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string FieldType
+		{
+			get
+			{
+				return this._FieldType;
+			}
+			set
+			{
+				if ((this._FieldType != value))
+				{
+					this._FieldType = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FieldDescription", DbType="VarChar(200)")]
+		public string FieldDescription
+		{
+			get
+			{
+				return this._FieldDescription;
+			}
+			set
+			{
+				if ((this._FieldDescription != value))
+				{
+					this._FieldDescription = value;
+				}
 			}
 		}
 	}
