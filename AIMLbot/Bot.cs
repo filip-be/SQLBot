@@ -285,7 +285,7 @@ namespace AIMLbot
         {
             get
             {
-                return Path.Combine(Environment.CurrentDirectory, this.GlobalSettings.grabSetting("ignoreditemvalue"));
+                return this.GlobalSettings.grabSetting("ignoreditemvalue");
             }
         }
 

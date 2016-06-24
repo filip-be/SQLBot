@@ -223,8 +223,6 @@ namespace Cindalnet.SQLBot.Query
                         QueryInterpreter queryInterp = new QueryInterpreter(parameters[argsNum]);
                         if (queryInterp.IsInterpreted)
                         {
-                            //string field = queryInterp.DesiredParameter;
-                            //
                             List<Tuple<int, SQLWord>> unknownWords = new List<Tuple<int, SQLWord>>();
 
                             for(int wordNum = 0; wordNum < queryInterp.Words.Count; wordNum++)
@@ -234,13 +232,13 @@ namespace Cindalnet.SQLBot.Query
                                 string FieldName = word.FormBase;
                                 SQLWord sqlWord = new SQLWord();
                                 sqlWord.Initialize(ChatBot, ChatUser, FieldName);
+                                bool isKnown = sqlWord.isValidWord();
+
                                 if (sqlWord.Word == ChatBot.IgnoredItemValue)
                                     continue;
 
-                                if(word.PartOfSpeech == Word.SpeechPart.Noun || word.PartOfSpeech == Word.SpeechPart.Other)
+                                if(word.PartOfSpeech == Word.SpeechPart.Noun || word.PartOfSpeech == Word.SpeechPart.Other || isKnown )
                                 {
-                                    bool isKnown = sqlWord.isValidWord();
-
                                     Tuple<int, SQLWord> unknownWord;
 
                                     if (unknownWords.Count > 0
@@ -356,8 +354,9 @@ namespace Cindalnet.SQLBot.Query
                             {
                                 foreach (var unknownWord in unknownWords)
                                 {
-                                    wordsToPush.Insert(0, new Tuple<string, string>("UNKNOWN", 
-                                        string.Format("{0} MISSING {1}", unknownWord.Item2.Word, unknownWord.Item2.MissingObject())));
+                                    if(unknownWord.Item2.Definition != ChatBot.IgnoredItemValue)
+                                        wordsToPush.Insert(0, new Tuple<string, string>("UNKNOWN", 
+                                            string.Format("{0} MISSING {1}", unknownWord.Item2.Word, unknownWord.Item2.MissingObject())));
                                 }
                                 //throw new QueryExceptionUnknownParameter(unknownWords.First().Item2);
                             }

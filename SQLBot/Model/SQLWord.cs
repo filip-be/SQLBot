@@ -16,6 +16,7 @@ namespace Cindalnet.SQLBot.Model
             Field,
             Table,
             Join,
+            Special,
             Unknown
         };
 
