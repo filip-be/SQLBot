@@ -5,6 +5,7 @@
       <Column Name="sqlft_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="sqlft_Name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Association Name="SQLBot_FieldType_SQLBot_Field" Member="SQLBot_Field" ThisKey="sqlft_ID" OtherKey="sqlf_Type" Type="SQLBot_Field" />
+      <Association Name="SQLBot_FieldType_SQLBot_Function" Member="SQLBot_Function" ThisKey="sqlft_ID" OtherKey="sqlfn_RequiredFieldType" Type="SQLBot_Function" />
     </Type>
   </Table>
   <Table Name="dbo.SQLBot_Table" Member="SQLBot_Table">
@@ -66,6 +67,35 @@
       <Column Name="FieldName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="FieldType" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="FieldDescription" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SQLBot_Function" Member="SQLBot_Function">
+    <Type Name="SQLBot_Function">
+      <Column Name="sqlfn_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="sqlfn_Name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="sqlfn_Description" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="sqlfn_RequiredFieldType" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="sqlfn_FunctionLocation" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="sqlfn_ColumnLocation" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="sqlfn_SQL" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="sqlfn_RequireGroupBy" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="SQLBot_FieldType_SQLBot_Function" Member="SQLBot_FieldType" ThisKey="sqlfn_RequiredFieldType" OtherKey="sqlft_ID" Type="SQLBot_FieldType" IsForeignKey="true" />
+      <Association Name="SQLBot_FunctionColumnLocation_SQLBot_Function" Member="SQLBot_FunctionColumnLocation" ThisKey="sqlfn_ColumnLocation" OtherKey="sqlfncl_ID" Type="SQLBot_FunctionColumnLocation" IsForeignKey="true" />
+      <Association Name="SQLBot_FunctionLocation_SQLBot_Function" Member="SQLBot_FunctionLocation" ThisKey="sqlfn_FunctionLocation" OtherKey="sqlfl_ID" Type="SQLBot_FunctionLocation" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SQLBot_FunctionColumnLocation" Member="SQLBot_FunctionColumnLocation">
+    <Type Name="SQLBot_FunctionColumnLocation">
+      <Column Name="sqlfncl_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="sqlfncl_Name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="SQLBot_FunctionColumnLocation_SQLBot_Function" Member="SQLBot_Function" ThisKey="sqlfncl_ID" OtherKey="sqlfn_ColumnLocation" Type="SQLBot_Function" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SQLBot_FunctionLocation" Member="SQLBot_FunctionLocation">
+    <Type Name="SQLBot_FunctionLocation">
+      <Column Name="sqlfl_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="sqlfl_Name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="SQLBot_FunctionLocation_SQLBot_Function" Member="SQLBot_Function" ThisKey="sqlfl_ID" OtherKey="sqlfn_FunctionLocation" Type="SQLBot_Function" />
     </Type>
   </Table>
 </Database>

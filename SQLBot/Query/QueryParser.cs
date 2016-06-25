@@ -40,8 +40,9 @@ namespace Cindalnet.SQLBot.Query
             try
             {
                 BazaRelacyjnaDataContext dc = new BazaRelacyjnaDataContext();
-                SQLBot_Field[] fields = dc.SQLBot_Field.Take(10).ToArray();
+                SQLBot_Field[] fields = dc.SQLBot_Field.ToArray();
                 SQLBot_Table[] tables = dc.SQLBot_Table.ToArray();
+                SQLBot_Function[] functions = dc.SQLBot_Function.ToArray();
 
                 foreach (var field in fields)
                 {
@@ -52,6 +53,12 @@ namespace Cindalnet.SQLBot.Query
                 foreach (var table in tables)
                 {
                     ChatBot.Chat(string.Format("SQLBOT LEARN WHAT IS {0} | {1} | TABLE", table.sqlt_Name, table.sqlt_Description),
+                        ChatUser.UserID);
+                }
+
+                foreach(var function in functions)
+                {
+                    ChatBot.Chat(string.Format("SQLBOT LEARN WHAT IS {0} | {1} | FUNCTION", function.sqlfn_Name, function.sqlfn_Description),
                         ChatUser.UserID);
                 }
             }
@@ -132,16 +139,49 @@ namespace Cindalnet.SQLBot.Query
             }
         }
 
-        private class QueryExceptionUnknownParameter : Exception
+        private bool IsValidRecursiveJoin(string tableSource, string tableDest, int recursionDepth, out string[] Joins)
         {
-            public QueryExceptionUnknownParameter(string _ParameterName)
+            if(recursionDepth < 1)
             {
-                this.ParameterName = _ParameterName;
+                Joins = null;
+                return false;
             }
-
-            public string ParameterName { get; set; }
+            else
+            {
+                List<string> newJoins = new List<string>();
+                bool res = false;
+                foreach (var table in findConnectedTables(tableSource))
+                {
+                    string currentJoin;
+                    if (table != tableSource && IsValidJoin(tableSource, table, out currentJoin))
+                    {
+                        string JoinString;
+                        string[] temporaryJoins;
+                        if (IsValidJoin(table, tableDest, out JoinString))
+                        {
+                            newJoins.Add(
+                                string.Format("{0} ON {1}", table, currentJoin));
+                            newJoins.Add(
+                                string.Format("{0} ON {1}", tableDest, JoinString));
+                            res = true;
+                            break;
+                        }
+                        else if (IsValidRecursiveJoin(table, tableDest, recursionDepth - 1, out temporaryJoins))
+                        {
+                            newJoins.Add(
+                                string.Format("{0} ON {1}", table, currentJoin));
+                            newJoins.AddRange(temporaryJoins);
+                            res = true;
+                            break;
+                        }
+                    }
+                }
+                Joins = newJoins.ToArray();
+                return res;
+            }
+            
         }
-
+        
         private SQLWord checkIfBelongsToTable(string fieldName, string TableName)
         {
             try
@@ -186,24 +226,130 @@ namespace Cindalnet.SQLBot.Query
             return null;
         }
 
+        private List<SQLWord> InterpretQuery(string query)
+        {
+            List<SQLWord> sqlWords = new List<SQLWord>();
+
+            QueryInterpreter queryInterp = new QueryInterpreter(query);
+            string Table = string.Empty;
+            if (queryInterp.IsInterpreted)
+            {
+                List<Tuple<int, SQLWord>> unknownWords = new List<Tuple<int, SQLWord>>();
+
+                for (int wordNum = 0; wordNum < queryInterp.Words.Count; wordNum++)
+                {
+                    Word word = queryInterp.Words[wordNum];
+
+                    string FieldName = word.FormBase;
+                    SQLWord sqlWord = new SQLWord();
+                    sqlWord.Initialize(ChatBot, ChatUser, FieldName);
+                    bool isKnown = sqlWord.isValidWord();
+
+                    if (sqlWord.Word == ChatBot.IgnoredItemValue)
+                        continue;
+
+                    if (word.PartOfSpeech == Word.SpeechPart.Noun || word.PartOfSpeech == Word.SpeechPart.Other || isKnown)
+                    {
+                        Tuple<int, SQLWord> unknownWord;
+
+                        if (unknownWords.Count > 0
+                            && unknownWords.Last().Item1 + 1 == wordNum)
+                        {
+                            unknownWord = unknownWords.Last();
+                            SQLWord sqlWordConcat = new SQLWord();
+                            sqlWordConcat.Initialize(ChatBot, ChatUser, unknownWord.Item2.Word + " " + FieldName);
+                            unknownWord = new Tuple<int, SQLWord>(wordNum, sqlWordConcat);
+
+                            if (sqlWordConcat.isValidWord())
+                            {
+                                sqlWords.RemoveAt(sqlWords.Count - 1);
+
+                                unknownWords.RemoveAt(unknownWords.Count - 1);
+                                sqlWord = sqlWordConcat;
+                                isKnown = true;
+                            }
+                            else if (!isKnown)
+                            {
+                                unknownWords.RemoveAt(unknownWords.Count - 1);
+
+                                sqlWords.RemoveAt(sqlWords.Count - 1);
+                                //wyświetl towary wyprodukowane przez optyka zoo
+                            }
+                        }
+                        else
+                        {
+                            unknownWord = new Tuple<int, SQLWord>(wordNum, sqlWord);
+                        }
+
+                        if (!isKnown)
+                        {
+                            SQLWord inTableValue = checkIfBelongsToTable(unknownWord.Item2.Word, Table);
+                            if (inTableValue == null)
+                            {
+                                // Spróbuj wykonać to samo dla elementów w ich oryginalnych formach
+                                int wordCount = unknownWord.Item2.Word.Split(' ').Length;
+                                string originalPhrase = string.Empty;
+                                for (int wordNumber = unknownWord.Item1; wordNumber > unknownWord.Item1 - wordCount; wordNumber--)
+                                {
+                                    originalPhrase = string.Format("{0} {1}", queryInterp.Words[wordNumber].Form, originalPhrase);
+                                }
+                                inTableValue = checkIfBelongsToTable(originalPhrase, Table);
+
+                                if (inTableValue == null)
+                                {
+                                    sqlWord = unknownWord.Item2;
+                                    unknownWords.Add(unknownWord);
+                                }
+                            }
+
+                            if (inTableValue != null)
+                            {
+                                sqlWord = inTableValue;
+                                isKnown = sqlWord.isValidWord();
+                            }
+                        }
+
+                        sqlWords.Add(sqlWord);
+                    }
+                    else
+                    {
+                        Console.WriteLine(string.Format("{0}: {1}", word.PartOfSpeech, word.FormBase));
+                        int x = 0;
+                        x = x + 1;
+                    }
+                }
+            }
+
+            return sqlWords;
+        }
+
+        private string AnalyzeFunctions(ref List<SQLWord> words)
+        {
+            string error = string.Empty;
+            for(int num = 0; num < words.Count;)
+            {
+                if(words[num].WordType == SQLWord.EWordType.Function)
+                {   // Może być kilka zagłębień - średnia wartość -> średnia
+                    
+
+                }
+                num++;
+            }
+            return error;
+        }
+
         private string prepareQuery(string chatResponse)
         {
             string res = "";
-
-            string Table = "";
-            List<SQLWord> LColumns = new List<SQLWord>();
-            List<SQLWord> LFrom = new List<SQLWord>();
-            List<SQLWord> LJoin = new List<SQLWord>();
-            List<SQLWord> LWhere = new List<SQLWord>();
 
             var parameters = TrimWord(chatResponse).Split('|');
             if (parameters.Length > 1)
             {
                 List<Tuple<string, string>> wordsToPush = new List<Tuple<string, string>>();
-                // Wyczyść stosy
+
                 try
-                {
-                    foreach(var fieldName in new string[]{"FIELD", "VALUE", "TABLE", "UNKNOWN", "JOIN"})
+                {   // Wyczyść stosy
+                    foreach(var fieldName in new string[]{"FIELD", "VALUE", "TABLE", "UNKNOWN", "JOIN", "GROUPBY"})
                     {
                         Request chatRequest = new Request(
                             string.Format("SQLBOT AIML STACK CLEAR {0}", fieldName),
@@ -219,111 +365,64 @@ namespace Cindalnet.SQLBot.Query
                 try
                 {
                     for (int argsNum = 1; argsNum < parameters.Length; argsNum++)
-                    {
-                        QueryInterpreter queryInterp = new QueryInterpreter(parameters[argsNum]);
-                        if (queryInterp.IsInterpreted)
+                    {   // Zinterpretuj wypowiedź
+                        List<SQLWord> words = InterpretQuery(parameters[argsNum]);
+
+                        string err = AnalyzeFunctions(ref words);
+
+                        if (err.Length > 0)
                         {
-                            List<Tuple<int, SQLWord>> unknownWords = new List<Tuple<int, SQLWord>>();
-
-                            for(int wordNum = 0; wordNum < queryInterp.Words.Count; wordNum++)
+                            res = string.Format("ERROR - {0}", err);
+                        }
+                        else
+                        {
+                            foreach (var sqlWord in words)
                             {
-                                Word word = queryInterp.Words[wordNum];
-                                
-                                string FieldName = word.FormBase;
-                                SQLWord sqlWord = new SQLWord();
-                                sqlWord.Initialize(ChatBot, ChatUser, FieldName);
-                                bool isKnown = sqlWord.isValidWord();
-
-                                if (sqlWord.Word == ChatBot.IgnoredItemValue)
-                                    continue;
-
-                                if(word.PartOfSpeech == Word.SpeechPart.Noun || word.PartOfSpeech == Word.SpeechPart.Other || isKnown )
+                                string Table = string.Empty;
+                                if (sqlWord.isValidWord())
                                 {
-                                    Tuple<int, SQLWord> unknownWord;
-
-                                    if (unknownWords.Count > 0
-                                        && unknownWords.Last().Item1 + 1 == wordNum)
+                                    if (sqlWord.isValidColumn())
                                     {
-                                        unknownWord = unknownWords.Last();
-                                        SQLWord sqlWordConcat = new SQLWord();
-                                        sqlWordConcat.Initialize(ChatBot, ChatUser, unknownWord.Item2.Word + " " + FieldName);
-                                        unknownWord = new Tuple<int, SQLWord>(wordNum, sqlWordConcat);
-
-                                        if(sqlWordConcat.isValidWord())
-                                        {
-                                            unknownWords.RemoveAt(unknownWords.Count - 1);
-                                            sqlWord = sqlWordConcat;
-                                            isKnown = true;
-                                        }
-                                        else if(!isKnown)
-                                        {
-                                            unknownWords.RemoveAt(unknownWords.Count - 1);
-                                            //wyświetl towary wyprodukowane przez optyka zoo
-                                        }
+                                        wordsToPush.Add(new Tuple<string, string>("FIELD", sqlWord.SQLColumn));
                                     }
-                                    else
+                                    else if (sqlWord.isValidValue())
                                     {
-                                        unknownWord = new Tuple<int, SQLWord>(wordNum, sqlWord);
+                                        wordsToPush.Add(
+                                            new Tuple<string, string>(
+                                                "VALUE",
+                                                string.Format("{0}='{1}'", sqlWord.SQLColumn, sqlWord.Word)));
                                     }
-                                    if (!isKnown)
+
+
+                                    if (sqlWord.SQLTable != null)
                                     {
-                                        SQLWord inTableValue = checkIfBelongsToTable(unknownWord.Item2.Word, Table);
-                                        if (inTableValue == null)
+                                        if (Table.Length == 0)
                                         {
-                                            // Spróbuj wykonać to samo dla elementów w ich oryginalnych formach
-                                            int wordCount = unknownWord.Item2.Word.Split(' ').Length;
-                                            string originalPhrase = string.Empty;
-                                            for (int wordNumber = unknownWord.Item1; wordNumber > unknownWord.Item1 - wordCount; wordNumber-- )
+                                            wordsToPush.Add(new Tuple<string, string>("TABLE", sqlWord.SQLTable));
+                                            Table = sqlWord.SQLTable;
+                                        }
+                                        else if (Table != sqlWord.SQLTable)
+                                        {
+                                            string JoinString;
+                                            string[] JoinStrings;
+                                            if (IsValidJoin(Table, sqlWord.SQLTable, out JoinString))
                                             {
-                                                originalPhrase = string.Format("{0} {1}", queryInterp.Words[wordNumber].Form, originalPhrase);
+                                                wordsToPush.Add(
+                                                    new Tuple<string, string>("JOIN",
+                                                        string.Format("{0} ON {1}", sqlWord.SQLTable, JoinString)));
                                             }
-                                            inTableValue = checkIfBelongsToTable(originalPhrase, Table);
-
-                                            if (inTableValue == null)
-                                                unknownWords.Add(unknownWord);
-                                        }
-                                        
-                                        if(inTableValue != null)
-                                        {
-                                            sqlWord = inTableValue;
-                                            isKnown = sqlWord.isValidWord();
-                                        }
-                                    }
-                                    
-                                    if(isKnown)
-                                    {
-                                        if (sqlWord.isValidColumn())
-                                        {
-                                            wordsToPush.Insert(0, new Tuple<string, string>("FIELD", sqlWord.SQLColumn));
-                                        }
-                                        else if (sqlWord.isValidValue())
-                                        {
-                                            wordsToPush.Insert(0,
-                                                new Tuple<string, string>(
-                                                    "VALUE",
-                                                    string.Format("{0}='{1}'", sqlWord.SQLColumn, sqlWord.Word)));
-                                        }
-
-
-                                        if (sqlWord.SQLTable != null)
-                                        {
-                                            if (Table.Length == 0)
-                                            {
-                                                wordsToPush.Insert(0, new Tuple<string, string>("TABLE", sqlWord.SQLTable));
-                                                Table = sqlWord.SQLTable;
-                                            }
-                                            else if (Table != sqlWord.SQLTable)
-                                            {
-                                                string JoinString;
-                                                if (IsValidJoin(Table, sqlWord.SQLTable, out JoinString))
+                                            else
+                                            {   // Nieprawidłowe złączenie - być może jest wielokrotne złączenie
+                                                if (IsValidRecursiveJoin(Table, sqlWord.SQLTable, 5, out JoinStrings))
                                                 {
-                                                    wordsToPush.Insert(0,
-                                                        new Tuple<string, string>("JOIN",
-                                                            string.Format("{0} ON {1}", sqlWord.SQLTable, JoinString)));
+                                                    foreach (var join in JoinStrings)
+                                                    {
+                                                        wordsToPush.Add(
+                                                            new Tuple<string, string>("JOIN", join));
+                                                    }
                                                 }
                                                 else
-                                                {   // Nieprawidłowe złączenie
-                                                    
+                                                {
                                                     int x = 0;
                                                     x = x + 1;
                                                 }
@@ -333,39 +432,13 @@ namespace Cindalnet.SQLBot.Query
                                 }
                                 else
                                 {
-                                    Console.WriteLine(string.Format("{0}: {1}", word.PartOfSpeech, word.FormBase));
-                                    int x = 0;
-                                    x = x + 1;
+                                    if (sqlWord.Definition != ChatBot.IgnoredItemValue)
+                                        wordsToPush.Add(new Tuple<string, string>("UNKNOWN",
+                                            string.Format("{0} MISSING {1}", sqlWord.Word, sqlWord.MissingObject())));
                                 }
-                                /*
-                                else if(
-                                    (word.PartOfSpeech == Word.SpeechPart.Conjuctiun
-                                    && wordNum > 0
-                                    && queryInterp.Words[wordNum-1].PartOfSpeech == Word.SpeechPart.Noun
-                                    && (wordNum + 1) < queryInterp.Words.Count
-                                    && queryInterp.Words[wordNum+1].PartOfSpeech == Word.SpeechPart.Noun))
-                                {
-                                    SELECT += ", ";
-                                }
-                                */
-                            }
-
-                            if(unknownWords.Count > 0)
-                            {
-                                foreach (var unknownWord in unknownWords)
-                                {
-                                    if(unknownWord.Item2.Definition != ChatBot.IgnoredItemValue)
-                                        wordsToPush.Insert(0, new Tuple<string, string>("UNKNOWN", 
-                                            string.Format("{0} MISSING {1}", unknownWord.Item2.Word, unknownWord.Item2.MissingObject())));
-                                }
-                                //throw new QueryExceptionUnknownParameter(unknownWords.First().Item2);
                             }
                         }
                     }
-                }
-                catch(QueryExceptionUnknownParameter exP)
-                {
-                    throw exP;
                 }
                 catch (Exception)
                 {
@@ -373,6 +446,7 @@ namespace Cindalnet.SQLBot.Query
                 }
 
                 wordsToPush = wordsToPush.Distinct().ToList();
+                wordsToPush.Reverse();
                 foreach(var wordToPush in wordsToPush)
                 {
                     Request chatRequest = new Request(
@@ -395,11 +469,14 @@ namespace Cindalnet.SQLBot.Query
             return res;
         }
 
+        private string QueryException { get; set; }
+
         private bool executeQuery(string SQLQuery)
         {
             bool res = false;
             try
             {
+                QueryException = string.Empty;
                 SqlConnection con = new SqlConnection(Properties.Settings.Default.BazaRelacyjnaCustomConnectionString);
                 {
                     con.Open();
@@ -436,9 +513,9 @@ namespace Cindalnet.SQLBot.Query
                     con.Close();
                 }
             }
-            catch(Exception)
+            catch(Exception ex)
             {
-
+                QueryException = ex.Message;
             }
             return res;
         }
@@ -447,28 +524,22 @@ namespace Cindalnet.SQLBot.Query
         {
             string res = chatResponse;
 
-            try
+            string SQLQuery;
+            if (isCleanSQLQuery)
             {
-                string SQLQuery;
-                if (isCleanSQLQuery)
-                {
-                    SQLQuery = TrimWord(chatResponse);
+                SQLQuery = TrimWord(chatResponse);
 
-                    bool QueryResult = executeQuery(SQLQuery);
+                bool QueryResult = executeQuery(SQLQuery);
 
-                    res = string.Format("QUERYDONE | {0} | {1}",
-                                            QueryResult ? "OK" : "ERROR",
-                                            SQLQuery);
-                }
-                else
-                {
-                    SQLQuery = prepareQuery(chatResponse);
-                    res = SQLQuery;
-                }
+                res = string.Format("QUERYDONE | {0} | {1} | {2}",
+                                        QueryResult ? "OK" : "ERROR",
+                                        SQLQuery,
+                                        !QueryResult && QueryException.Length > 0 ? QueryException : "NONE");
             }
-            catch(QueryExceptionUnknownParameter ex)
+            else
             {
-                res = string.Format("SQLBOT UNKNOWN PARAMETER {0}", ex.ParameterName);
+                SQLQuery = prepareQuery(chatResponse);
+                res = SQLQuery;
             }
 
             return res;

@@ -45,6 +45,15 @@ namespace Cindalnet.SQLBot.Database
     partial void InsertSQLBot_TableDefault(SQLBot_TableDefault instance);
     partial void UpdateSQLBot_TableDefault(SQLBot_TableDefault instance);
     partial void DeleteSQLBot_TableDefault(SQLBot_TableDefault instance);
+    partial void InsertSQLBot_Function(SQLBot_Function instance);
+    partial void UpdateSQLBot_Function(SQLBot_Function instance);
+    partial void DeleteSQLBot_Function(SQLBot_Function instance);
+    partial void InsertSQLBot_FunctionColumnLocation(SQLBot_FunctionColumnLocation instance);
+    partial void UpdateSQLBot_FunctionColumnLocation(SQLBot_FunctionColumnLocation instance);
+    partial void DeleteSQLBot_FunctionColumnLocation(SQLBot_FunctionColumnLocation instance);
+    partial void InsertSQLBot_FunctionLocation(SQLBot_FunctionLocation instance);
+    partial void UpdateSQLBot_FunctionLocation(SQLBot_FunctionLocation instance);
+    partial void DeleteSQLBot_FunctionLocation(SQLBot_FunctionLocation instance);
     #endregion
 		
 		public BazaRelacyjnaDataContext() : 
@@ -132,6 +141,30 @@ namespace Cindalnet.SQLBot.Database
 				return this.GetTable<vSQLBotFields>();
 			}
 		}
+		
+		public System.Data.Linq.Table<SQLBot_Function> SQLBot_Function
+		{
+			get
+			{
+				return this.GetTable<SQLBot_Function>();
+			}
+		}
+		
+		public System.Data.Linq.Table<SQLBot_FunctionColumnLocation> SQLBot_FunctionColumnLocation
+		{
+			get
+			{
+				return this.GetTable<SQLBot_FunctionColumnLocation>();
+			}
+		}
+		
+		public System.Data.Linq.Table<SQLBot_FunctionLocation> SQLBot_FunctionLocation
+		{
+			get
+			{
+				return this.GetTable<SQLBot_FunctionLocation>();
+			}
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.SQLBot_FieldType")]
@@ -146,6 +179,8 @@ namespace Cindalnet.SQLBot.Database
 		
 		private EntitySet<SQLBot_Field> _SQLBot_Field;
 		
+		private EntitySet<SQLBot_Function> _SQLBot_Function;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -159,6 +194,7 @@ namespace Cindalnet.SQLBot.Database
 		public SQLBot_FieldType()
 		{
 			this._SQLBot_Field = new EntitySet<SQLBot_Field>(new Action<SQLBot_Field>(this.attach_SQLBot_Field), new Action<SQLBot_Field>(this.detach_SQLBot_Field));
+			this._SQLBot_Function = new EntitySet<SQLBot_Function>(new Action<SQLBot_Function>(this.attach_SQLBot_Function), new Action<SQLBot_Function>(this.detach_SQLBot_Function));
 			OnCreated();
 		}
 		
@@ -215,6 +251,19 @@ namespace Cindalnet.SQLBot.Database
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="SQLBot_FieldType_SQLBot_Function", Storage="_SQLBot_Function", ThisKey="sqlft_ID", OtherKey="sqlfn_RequiredFieldType")]
+		public EntitySet<SQLBot_Function> SQLBot_Function
+		{
+			get
+			{
+				return this._SQLBot_Function;
+			}
+			set
+			{
+				this._SQLBot_Function.Assign(value);
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -242,6 +291,18 @@ namespace Cindalnet.SQLBot.Database
 		}
 		
 		private void detach_SQLBot_Field(SQLBot_Field entity)
+		{
+			this.SendPropertyChanging();
+			entity.SQLBot_FieldType = null;
+		}
+		
+		private void attach_SQLBot_Function(SQLBot_Function entity)
+		{
+			this.SendPropertyChanging();
+			entity.SQLBot_FieldType = this;
+		}
+		
+		private void detach_SQLBot_Function(SQLBot_Function entity)
 		{
 			this.SendPropertyChanging();
 			entity.SQLBot_FieldType = null;
@@ -1332,6 +1393,587 @@ namespace Cindalnet.SQLBot.Database
 					this._FieldDescription = value;
 				}
 			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.SQLBot_Function")]
+	public partial class SQLBot_Function : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _sqlfn_ID;
+		
+		private string _sqlfn_Name;
+		
+		private string _sqlfn_Description;
+		
+		private int _sqlfn_RequiredFieldType;
+		
+		private int _sqlfn_FunctionLocation;
+		
+		private int _sqlfn_ColumnLocation;
+		
+		private string _sqlfn_SQL;
+		
+		private bool _sqlfn_RequireGroupBy;
+		
+		private EntityRef<SQLBot_FieldType> _SQLBot_FieldType;
+		
+		private EntityRef<SQLBot_FunctionColumnLocation> _SQLBot_FunctionColumnLocation;
+		
+		private EntityRef<SQLBot_FunctionLocation> _SQLBot_FunctionLocation;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void Onsqlfn_IDChanging(int value);
+    partial void Onsqlfn_IDChanged();
+    partial void Onsqlfn_NameChanging(string value);
+    partial void Onsqlfn_NameChanged();
+    partial void Onsqlfn_DescriptionChanging(string value);
+    partial void Onsqlfn_DescriptionChanged();
+    partial void Onsqlfn_RequiredFieldTypeChanging(int value);
+    partial void Onsqlfn_RequiredFieldTypeChanged();
+    partial void Onsqlfn_FunctionLocationChanging(int value);
+    partial void Onsqlfn_FunctionLocationChanged();
+    partial void Onsqlfn_ColumnLocationChanging(int value);
+    partial void Onsqlfn_ColumnLocationChanged();
+    partial void Onsqlfn_SQLChanging(string value);
+    partial void Onsqlfn_SQLChanged();
+    partial void Onsqlfn_RequireGroupByChanging(bool value);
+    partial void Onsqlfn_RequireGroupByChanged();
+    #endregion
+		
+		public SQLBot_Function()
+		{
+			this._SQLBot_FieldType = default(EntityRef<SQLBot_FieldType>);
+			this._SQLBot_FunctionColumnLocation = default(EntityRef<SQLBot_FunctionColumnLocation>);
+			this._SQLBot_FunctionLocation = default(EntityRef<SQLBot_FunctionLocation>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sqlfn_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int sqlfn_ID
+		{
+			get
+			{
+				return this._sqlfn_ID;
+			}
+			set
+			{
+				if ((this._sqlfn_ID != value))
+				{
+					this.Onsqlfn_IDChanging(value);
+					this.SendPropertyChanging();
+					this._sqlfn_ID = value;
+					this.SendPropertyChanged("sqlfn_ID");
+					this.Onsqlfn_IDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sqlfn_Name", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string sqlfn_Name
+		{
+			get
+			{
+				return this._sqlfn_Name;
+			}
+			set
+			{
+				if ((this._sqlfn_Name != value))
+				{
+					this.Onsqlfn_NameChanging(value);
+					this.SendPropertyChanging();
+					this._sqlfn_Name = value;
+					this.SendPropertyChanged("sqlfn_Name");
+					this.Onsqlfn_NameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sqlfn_Description", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
+		public string sqlfn_Description
+		{
+			get
+			{
+				return this._sqlfn_Description;
+			}
+			set
+			{
+				if ((this._sqlfn_Description != value))
+				{
+					this.Onsqlfn_DescriptionChanging(value);
+					this.SendPropertyChanging();
+					this._sqlfn_Description = value;
+					this.SendPropertyChanged("sqlfn_Description");
+					this.Onsqlfn_DescriptionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sqlfn_RequiredFieldType", DbType="Int NOT NULL")]
+		public int sqlfn_RequiredFieldType
+		{
+			get
+			{
+				return this._sqlfn_RequiredFieldType;
+			}
+			set
+			{
+				if ((this._sqlfn_RequiredFieldType != value))
+				{
+					if (this._SQLBot_FieldType.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.Onsqlfn_RequiredFieldTypeChanging(value);
+					this.SendPropertyChanging();
+					this._sqlfn_RequiredFieldType = value;
+					this.SendPropertyChanged("sqlfn_RequiredFieldType");
+					this.Onsqlfn_RequiredFieldTypeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sqlfn_FunctionLocation", DbType="Int NOT NULL")]
+		public int sqlfn_FunctionLocation
+		{
+			get
+			{
+				return this._sqlfn_FunctionLocation;
+			}
+			set
+			{
+				if ((this._sqlfn_FunctionLocation != value))
+				{
+					if (this._SQLBot_FunctionLocation.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.Onsqlfn_FunctionLocationChanging(value);
+					this.SendPropertyChanging();
+					this._sqlfn_FunctionLocation = value;
+					this.SendPropertyChanged("sqlfn_FunctionLocation");
+					this.Onsqlfn_FunctionLocationChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sqlfn_ColumnLocation", DbType="Int NOT NULL")]
+		public int sqlfn_ColumnLocation
+		{
+			get
+			{
+				return this._sqlfn_ColumnLocation;
+			}
+			set
+			{
+				if ((this._sqlfn_ColumnLocation != value))
+				{
+					if (this._SQLBot_FunctionColumnLocation.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.Onsqlfn_ColumnLocationChanging(value);
+					this.SendPropertyChanging();
+					this._sqlfn_ColumnLocation = value;
+					this.SendPropertyChanged("sqlfn_ColumnLocation");
+					this.Onsqlfn_ColumnLocationChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sqlfn_SQL", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
+		public string sqlfn_SQL
+		{
+			get
+			{
+				return this._sqlfn_SQL;
+			}
+			set
+			{
+				if ((this._sqlfn_SQL != value))
+				{
+					this.Onsqlfn_SQLChanging(value);
+					this.SendPropertyChanging();
+					this._sqlfn_SQL = value;
+					this.SendPropertyChanged("sqlfn_SQL");
+					this.Onsqlfn_SQLChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sqlfn_RequireGroupBy", DbType="Bit NOT NULL")]
+		public bool sqlfn_RequireGroupBy
+		{
+			get
+			{
+				return this._sqlfn_RequireGroupBy;
+			}
+			set
+			{
+				if ((this._sqlfn_RequireGroupBy != value))
+				{
+					this.Onsqlfn_RequireGroupByChanging(value);
+					this.SendPropertyChanging();
+					this._sqlfn_RequireGroupBy = value;
+					this.SendPropertyChanged("sqlfn_RequireGroupBy");
+					this.Onsqlfn_RequireGroupByChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="SQLBot_FieldType_SQLBot_Function", Storage="_SQLBot_FieldType", ThisKey="sqlfn_RequiredFieldType", OtherKey="sqlft_ID", IsForeignKey=true)]
+		public SQLBot_FieldType SQLBot_FieldType
+		{
+			get
+			{
+				return this._SQLBot_FieldType.Entity;
+			}
+			set
+			{
+				SQLBot_FieldType previousValue = this._SQLBot_FieldType.Entity;
+				if (((previousValue != value) 
+							|| (this._SQLBot_FieldType.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._SQLBot_FieldType.Entity = null;
+						previousValue.SQLBot_Function.Remove(this);
+					}
+					this._SQLBot_FieldType.Entity = value;
+					if ((value != null))
+					{
+						value.SQLBot_Function.Add(this);
+						this._sqlfn_RequiredFieldType = value.sqlft_ID;
+					}
+					else
+					{
+						this._sqlfn_RequiredFieldType = default(int);
+					}
+					this.SendPropertyChanged("SQLBot_FieldType");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="SQLBot_FunctionColumnLocation_SQLBot_Function", Storage="_SQLBot_FunctionColumnLocation", ThisKey="sqlfn_ColumnLocation", OtherKey="sqlfncl_ID", IsForeignKey=true)]
+		public SQLBot_FunctionColumnLocation SQLBot_FunctionColumnLocation
+		{
+			get
+			{
+				return this._SQLBot_FunctionColumnLocation.Entity;
+			}
+			set
+			{
+				SQLBot_FunctionColumnLocation previousValue = this._SQLBot_FunctionColumnLocation.Entity;
+				if (((previousValue != value) 
+							|| (this._SQLBot_FunctionColumnLocation.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._SQLBot_FunctionColumnLocation.Entity = null;
+						previousValue.SQLBot_Function.Remove(this);
+					}
+					this._SQLBot_FunctionColumnLocation.Entity = value;
+					if ((value != null))
+					{
+						value.SQLBot_Function.Add(this);
+						this._sqlfn_ColumnLocation = value.sqlfncl_ID;
+					}
+					else
+					{
+						this._sqlfn_ColumnLocation = default(int);
+					}
+					this.SendPropertyChanged("SQLBot_FunctionColumnLocation");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="SQLBot_FunctionLocation_SQLBot_Function", Storage="_SQLBot_FunctionLocation", ThisKey="sqlfn_FunctionLocation", OtherKey="sqlfl_ID", IsForeignKey=true)]
+		public SQLBot_FunctionLocation SQLBot_FunctionLocation
+		{
+			get
+			{
+				return this._SQLBot_FunctionLocation.Entity;
+			}
+			set
+			{
+				SQLBot_FunctionLocation previousValue = this._SQLBot_FunctionLocation.Entity;
+				if (((previousValue != value) 
+							|| (this._SQLBot_FunctionLocation.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._SQLBot_FunctionLocation.Entity = null;
+						previousValue.SQLBot_Function.Remove(this);
+					}
+					this._SQLBot_FunctionLocation.Entity = value;
+					if ((value != null))
+					{
+						value.SQLBot_Function.Add(this);
+						this._sqlfn_FunctionLocation = value.sqlfl_ID;
+					}
+					else
+					{
+						this._sqlfn_FunctionLocation = default(int);
+					}
+					this.SendPropertyChanged("SQLBot_FunctionLocation");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.SQLBot_FunctionColumnLocation")]
+	public partial class SQLBot_FunctionColumnLocation : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _sqlfncl_ID;
+		
+		private string _sqlfncl_Name;
+		
+		private EntitySet<SQLBot_Function> _SQLBot_Function;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void Onsqlfncl_IDChanging(int value);
+    partial void Onsqlfncl_IDChanged();
+    partial void Onsqlfncl_NameChanging(string value);
+    partial void Onsqlfncl_NameChanged();
+    #endregion
+		
+		public SQLBot_FunctionColumnLocation()
+		{
+			this._SQLBot_Function = new EntitySet<SQLBot_Function>(new Action<SQLBot_Function>(this.attach_SQLBot_Function), new Action<SQLBot_Function>(this.detach_SQLBot_Function));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sqlfncl_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int sqlfncl_ID
+		{
+			get
+			{
+				return this._sqlfncl_ID;
+			}
+			set
+			{
+				if ((this._sqlfncl_ID != value))
+				{
+					this.Onsqlfncl_IDChanging(value);
+					this.SendPropertyChanging();
+					this._sqlfncl_ID = value;
+					this.SendPropertyChanged("sqlfncl_ID");
+					this.Onsqlfncl_IDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sqlfncl_Name", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string sqlfncl_Name
+		{
+			get
+			{
+				return this._sqlfncl_Name;
+			}
+			set
+			{
+				if ((this._sqlfncl_Name != value))
+				{
+					this.Onsqlfncl_NameChanging(value);
+					this.SendPropertyChanging();
+					this._sqlfncl_Name = value;
+					this.SendPropertyChanged("sqlfncl_Name");
+					this.Onsqlfncl_NameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="SQLBot_FunctionColumnLocation_SQLBot_Function", Storage="_SQLBot_Function", ThisKey="sqlfncl_ID", OtherKey="sqlfn_ColumnLocation")]
+		public EntitySet<SQLBot_Function> SQLBot_Function
+		{
+			get
+			{
+				return this._SQLBot_Function;
+			}
+			set
+			{
+				this._SQLBot_Function.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_SQLBot_Function(SQLBot_Function entity)
+		{
+			this.SendPropertyChanging();
+			entity.SQLBot_FunctionColumnLocation = this;
+		}
+		
+		private void detach_SQLBot_Function(SQLBot_Function entity)
+		{
+			this.SendPropertyChanging();
+			entity.SQLBot_FunctionColumnLocation = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.SQLBot_FunctionLocation")]
+	public partial class SQLBot_FunctionLocation : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _sqlfl_ID;
+		
+		private string _sqlfl_Name;
+		
+		private EntitySet<SQLBot_Function> _SQLBot_Function;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void Onsqlfl_IDChanging(int value);
+    partial void Onsqlfl_IDChanged();
+    partial void Onsqlfl_NameChanging(string value);
+    partial void Onsqlfl_NameChanged();
+    #endregion
+		
+		public SQLBot_FunctionLocation()
+		{
+			this._SQLBot_Function = new EntitySet<SQLBot_Function>(new Action<SQLBot_Function>(this.attach_SQLBot_Function), new Action<SQLBot_Function>(this.detach_SQLBot_Function));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sqlfl_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int sqlfl_ID
+		{
+			get
+			{
+				return this._sqlfl_ID;
+			}
+			set
+			{
+				if ((this._sqlfl_ID != value))
+				{
+					this.Onsqlfl_IDChanging(value);
+					this.SendPropertyChanging();
+					this._sqlfl_ID = value;
+					this.SendPropertyChanged("sqlfl_ID");
+					this.Onsqlfl_IDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sqlfl_Name", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string sqlfl_Name
+		{
+			get
+			{
+				return this._sqlfl_Name;
+			}
+			set
+			{
+				if ((this._sqlfl_Name != value))
+				{
+					this.Onsqlfl_NameChanging(value);
+					this.SendPropertyChanging();
+					this._sqlfl_Name = value;
+					this.SendPropertyChanged("sqlfl_Name");
+					this.Onsqlfl_NameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="SQLBot_FunctionLocation_SQLBot_Function", Storage="_SQLBot_Function", ThisKey="sqlfl_ID", OtherKey="sqlfn_FunctionLocation")]
+		public EntitySet<SQLBot_Function> SQLBot_Function
+		{
+			get
+			{
+				return this._SQLBot_Function;
+			}
+			set
+			{
+				this._SQLBot_Function.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_SQLBot_Function(SQLBot_Function entity)
+		{
+			this.SendPropertyChanging();
+			entity.SQLBot_FunctionLocation = this;
+		}
+		
+		private void detach_SQLBot_Function(SQLBot_Function entity)
+		{
+			this.SendPropertyChanging();
+			entity.SQLBot_FunctionLocation = null;
 		}
 	}
 }

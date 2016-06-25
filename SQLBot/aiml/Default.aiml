@@ -128,7 +128,7 @@
   </topic>
 
   <category>
-    <pattern>QUERYDONE | * | *</pattern>
+    <pattern>QUERYDONE | * | * | *</pattern>
     <template>
       <think>
         <set name="Result">
@@ -137,8 +137,17 @@
         <set name="SQLQuery">
           <star index="2"/>
         </set>
+        <set name="SQLError">
+          <star index="3"/>
+        </set>
       </think>
       <srai>SQLBOT AIML SHOW QUERY RESULT</srai>: <get name="SQLQuery"/>
+      <condition>
+        <li name="SQLError" value="NONE"></li>
+        <li>
+          Wyst¹pi³ b³¹d: <get name="SQLError"/>
+        </li>
+      </condition>
     </template>
   </category>
   

@@ -60,8 +60,23 @@
         <li name="ItemType" value="UNKNOWN">
           <think>
             <set name="topic">SQLBOT_WHAT_TYPE_IS</set>
+            <set name="ParentType">
+              <srai>SQLBOT WHAT TYPE IS <star index="2"/></srai>
+            </set>
           </think>
-          Jakiego typu jest <get name="ItemName"/>? Pole, tabela, wartoœæ?
+          <condition>
+            <li name="ParentType" value="FUNCTION">
+              <think>
+                <srai>
+                  SQLBOT LEARN WHAT TYPE IS <get name="ItemName"/> | <get name="ParentType"/>
+                </srai>
+              </think>
+              Teraz wiem, ¿e œrednia to <srai>SQLBOT WHAT IS <star index="2"/></srai>
+            </li>
+            <li>
+              Jakiego typu jest <get name="ItemName"/>? Pole, tabela, wartoœæ?
+            </li>
+          </condition>
         </li>
       </condition>
     </template>
@@ -477,6 +492,9 @@
         </li>
         <li name="ItemType" value="TABLE">
           <star index="1"/> to nazwa tabeli
+        </li>
+        <li name="ItemType" value="FUNCTION">
+          <star index="1"/> to nazwa funkcji SQL
         </li>
         <li name="ItemType" value="VALUE">
           <star index="1"/> to wartoœæ danej kolumny

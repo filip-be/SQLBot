@@ -36,7 +36,7 @@
           <srai>SQLBOT AIML SHOW STACK TABLE DELIMITER ,</srai>
         </set>
         <set name="parameter_joins">
-          <srai>SQLBOT AIML SHOW STACK JOIN DELIMITER ,</srai>
+          <srai>SQLBOT AIML SHOW STACK JOIN DELIMITER JOIN</srai>
         </set>
         <set name="parameter_value">
           <srai>SQLBOT AIML SHOW STACK VALUE DELIMITER AND</srai>

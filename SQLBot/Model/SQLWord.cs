@@ -16,7 +16,7 @@ namespace Cindalnet.SQLBot.Model
             Field,
             Table,
             Join,
-            Special,
+            Function,
             Unknown
         };
 
@@ -175,6 +175,9 @@ namespace Cindalnet.SQLBot.Model
                             break;
                         case "VALUE":
                             sqlWord.WordType = EWordType.Value;
+                            break;
+                        case "FUNCTION":
+                            sqlWord.WordType = EWordType.Function;
                             break;
                         case "UNKNOWN":
                         default:

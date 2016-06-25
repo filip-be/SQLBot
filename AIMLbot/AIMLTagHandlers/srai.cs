@@ -46,7 +46,7 @@ namespace AIMLbot.AIMLTagHandlers
                     this.request.hasTimedOut = subRequest.hasTimedOut;
                     // Disable ending dot
                     if (subQuery.Output != null && subQuery.Output.EndsWith("."))
-                        return subQuery.Output.Substring(0, subQuery.Output.Length - 1);
+                        return subQuery.Output.Substring(0, subQuery.Output.Length - 1) + " ";
                     else
                         return subQuery.Output;
                 }

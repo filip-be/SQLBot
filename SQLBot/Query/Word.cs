@@ -77,6 +77,7 @@ namespace Cindalnet.SQLBot.Query
                 case "adv":
                     this.PartOfSpeech = SpeechPart.Adverb;
                     break;
+                case "dig":
                 case "num":
                     this.PartOfSpeech = SpeechPart.Numeral;
                     break;

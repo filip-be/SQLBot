@@ -84,8 +84,14 @@ namespace Cindalnet.SQLBot.Query
                     {   // Dodaj słowo jeśli nie istnieje na liście słów
                         Words.Add(word);
                     }
-                    else if(word.PartOfSpeech == Word.SpeechPart.Noun)
-                    {   // Rzeczownik
+                    else if(word.PartOfSpeech == Word.SpeechPart.Numeral)
+                    {   // Słowo już istnieje na liście, jednak to wystąpienie jest prawdopodobnie liczebnikiem
+                        Words.Remove(Words.Last());
+                        Words.Add(word);
+                    }
+                    else if(word.PartOfSpeech == Word.SpeechPart.Noun
+                        && !(Words.Count > 1 && Words.Last().PartOfSpeech == Word.SpeechPart.Numeral))  
+                    {   // Słowo istnieje na liście, jednak to wystąpienie jest najprawdopodobniej rzeczowniwiem
                         if (word.Case == "nom"
                             && (_DesiredParameterIndex == item.k || _DesiredParameterIndex == -1))
                         {   // Mianownik oraz poszukiwane słowo
