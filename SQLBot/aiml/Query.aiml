@@ -29,6 +29,9 @@
         <set name="parameter_value_first">
           <srai>SQLBOT AIML SHOW STACK OBJECT VALUE NUM 0 UNKNOWN TRUE</srai>
         </set>
+        <set name="parameter_groupby_first">
+          <srai>SQLBOT AIML SHOW STACK OBJECT GROUPBY NUM 0 UNKNOWN TRUE</srai>
+        </set>
         <set name="parameter_fields">
           <srai>SQLBOT AIML SHOW STACK FIELD DELIMITER ,</srai>
         </set>
@@ -36,10 +39,13 @@
           <srai>SQLBOT AIML SHOW STACK TABLE DELIMITER ,</srai>
         </set>
         <set name="parameter_joins">
-          <srai>SQLBOT AIML SHOW STACK JOIN DELIMITER JOIN</srai>
+          <srai>SQLBOT AIML SHOW STACK JOIN DELIMITER FULL OUTER JOIN</srai>
         </set>
         <set name="parameter_value">
           <srai>SQLBOT AIML SHOW STACK VALUE DELIMITER AND</srai>
+        </set>
+        <set name="parameter_groupby">
+          <srai>SQLBOT AIML SHOW STACK GROUPBY DELIMITER ,</srai>
         </set>
       </think>
       
@@ -70,7 +76,7 @@
               <condition>
                 <li name="parameter_join_first" value="UNKNOWN"></li>
                 <li>
-                  JOIN <get name="parameter_joins"/>
+                  FULL OUTER JOIN <get name="parameter_joins"/>
                 </li>
               </condition>
             </set>
@@ -82,8 +88,16 @@
                 </li>
               </condition>
             </set>
+            <set name="query_groupby">
+              <condition>
+                <li name="parameter_groupby_first" value="UNKNOWN"></li>
+                <li>
+                  GROUP BY <get name="parameter_groupby"/>
+                </li>
+              </condition>
+            </set>
           </think>
-          SQLBOT APP QUERY SELECT <get name="query_fields"/> FROM <get name="query_tables"/> <get name="query_joins"/> <get name="query_value"/>
+          SQLBOT APP QUERY SELECT <get name="query_fields"/> FROM <get name="query_tables"/> <get name="query_joins"/> <get name="query_value"/> <get name="query_groupby"/>
         </li>
         <li>
           <srai>

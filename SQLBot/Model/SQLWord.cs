@@ -17,6 +17,8 @@ namespace Cindalnet.SQLBot.Model
             Table,
             Join,
             Function,
+            Number,
+            SQL,
             Unknown
         };
 
@@ -27,6 +29,8 @@ namespace Cindalnet.SQLBot.Model
 
         public string SQLColumn { get; set; }
         public string SQLTable { get; set; }
+
+        public SQLFunction SQLFunction { get; set; }
 
         public SQLWord Parent { get; set; }
         public SQLWord Child { get; set; }
@@ -127,6 +131,51 @@ namespace Cindalnet.SQLBot.Model
             }
         }
 
+        private SQLBot_Function findFunctionForWord(string word, Bot ChatBot, User ChatUser)
+        {
+            if (word == "UNKNOWN")
+                return null;
+            try
+            {
+                BazaRelacyjnaDataContext dc = new BazaRelacyjnaDataContext();
+                SQLBot_Function function = dc.SQLBot_Function.Where(fn => fn.sqlfn_Name == word).FirstOrDefault();
+                if (function != null)
+                {
+                    return function;
+                }
+                else
+                {
+                    return findFunctionForWord(AIMLWhatIs(word, ChatBot, ChatUser), ChatBot, ChatUser);
+                }
+            }
+            catch (Exception)
+            {
+            }
+            return null;
+        }
+
+        private bool IsFunctionName(string name, Bot ChatBot, User ChatUser, out SQLBot_Function function)
+        {
+            if (name == "UNKNOWN")
+            {
+                function = null;
+            }
+            else
+            {
+                try
+                {
+                    BazaRelacyjnaDataContext dc = new BazaRelacyjnaDataContext();
+                    function = dc.SQLBot_Function.Where(fn => fn.sqlfn_Name == name).FirstOrDefault();
+                }
+                catch (Exception)
+                {
+                    function = null;
+                }
+            }
+
+            return function != null;
+        }
+
         public string AIMLWhatIs(string FieldName, Bot ChatBot, User ChatUser)
         {
             Request chatRequest = new Request(string.Format("SQLBOT WHAT IS {0}", FieldName), ChatUser, ChatBot);
@@ -147,7 +196,7 @@ namespace Cindalnet.SQLBot.Model
             SQLWord sqlWord = this;
             SQLWord sqlWordParent = null;
 
-            while (sqlWord.Word != null)
+            while (sqlWord.Word != null && sqlWord.Word != string.Empty)
             {
                 try
                 {
@@ -187,6 +236,7 @@ namespace Cindalnet.SQLBot.Model
 
                     string[] sqlTables = null;
                     string[] sqlFields = null;
+                    SQLBot_Function function = null;
 
                     if (IsTableName(sqlWord.Word, out sqlTables) && sqlTables.Length > 0)
                         SQLTable = sqlTables[0];
@@ -197,18 +247,41 @@ namespace Cindalnet.SQLBot.Model
                             SQLColumn = sqlFields[0];
                         if (sqlTables.Length > 0)
                             SQLTable = sqlTables[0];
+
+                        if(SQLTable != null && SQLColumn !=null)
+                        {
+                            SQLColumn = string.Format("{0}.{1}", SQLTable, SQLColumn);
+                        }
+                    }
+
+                    if(IsFunctionName(sqlWord.Word, ChatBot, ChatUser, out function))
+                    {
+                        SQLFunction = new SQLFunction(function);
                     }
                 }
                 catch(Exception)
                 { }
                 finally
-                {
+                {   // Tutaj jest źle!
+                    if(sqlWordParent != null)
+                    {
+                        sqlWordParent.Child = sqlWord;
+                    }
+
+                    sqlWord.Parent = sqlWordParent;
+
+                    sqlWordParent = sqlWord;
+                    sqlWord = new SQLWord();
+                    sqlWord.Word = sqlWordParent.Definition;
+
+                    /*
                     sqlWord.Parent = sqlWordParent;
                     sqlWordParent = sqlWord;
                     sqlWord = new SQLWord();
                     sqlWord.Word = sqlWordParent.Definition;
 
                     sqlWordParent.Child = sqlWord;
+                    */
                 }
             };
 
@@ -252,6 +325,8 @@ namespace Cindalnet.SQLBot.Model
                 if (sqlWord.isValidColumn())
                 {
                     this.SQLColumn = sqlWord.SQLColumn;
+                    if(sqlWord.SQLTable != null)
+                        SQLColumn = string.Format("{0}.{1}", sqlWord.SQLTable, SQLColumn);
                     return true;
                 }
                 else
@@ -266,9 +341,14 @@ namespace Cindalnet.SQLBot.Model
                 && ((SQLTable != null && SQLColumn != null) || hasValidParentColumn());
         }
 
+        public bool isFunction()
+        {
+            return WordType == EWordType.Function;
+        }
+
         public bool isValidWord()
         {
-            return isValidTable() || isValidColumn() || isValidValue();
+            return isValidTable() || isValidColumn() || isValidValue() || isFunction() || this.WordType == EWordType.SQL;
         }
 
         public enum MissingParameter

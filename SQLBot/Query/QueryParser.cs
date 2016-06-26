@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using Cindalnet.SQLBot.Query;
 using Cindalnet.SQLBot.Model;
 using Cindalnet.SQLBot.Database;
+using System.Text.RegularExpressions;
 
 namespace Cindalnet.SQLBot.Query
 {
@@ -139,7 +140,7 @@ namespace Cindalnet.SQLBot.Query
             }
         }
 
-        private bool IsValidRecursiveJoin(string tableSource, string tableDest, int recursionDepth, out string[] Joins)
+        private bool IsValidRecursiveJoin(string tableSource, string tableCurrent, string tableDest, int recursionDepth, out string[] Joins)
         {
             if(recursionDepth < 1)
             {
@@ -153,7 +154,9 @@ namespace Cindalnet.SQLBot.Query
                 foreach (var table in findConnectedTables(tableSource))
                 {
                     string currentJoin;
-                    if (table != tableSource && IsValidJoin(tableSource, table, out currentJoin))
+                    if (table != tableSource 
+                        && table != tableCurrent
+                        && IsValidJoin(tableSource, table, out currentJoin))
                     {
                         string JoinString;
                         string[] temporaryJoins;
@@ -166,7 +169,7 @@ namespace Cindalnet.SQLBot.Query
                             res = true;
                             break;
                         }
-                        else if (IsValidRecursiveJoin(table, tableDest, recursionDepth - 1, out temporaryJoins))
+                        else if (IsValidRecursiveJoin(tableSource, table, tableDest, recursionDepth - 1, out temporaryJoins))
                         {
                             newJoins.Add(
                                 string.Format("{0} ON {1}", table, currentJoin));
@@ -323,17 +326,198 @@ namespace Cindalnet.SQLBot.Query
             return sqlWords;
         }
 
+        private static string COLUMNNAME = "COLUMNNAME";
+
+        private SQLBot_Field getColumn(SQLWord word, string TypeName)
+        {
+            SQLBot_Field field = null;
+            if (word.WordType == SQLWord.EWordType.Field)
+            {
+                field = new BazaRelacyjnaDataContext().
+                   SQLBot_Field.Where(f => f.SQLBot_FieldType.sqlft_Name == TypeName
+                    && f.sqlf_SQLColumnName == word.SQLColumn).FirstOrDefault();
+            }
+            else if (word.WordType == SQLWord.EWordType.Table)
+            {
+                field = new BazaRelacyjnaDataContext().
+                   SQLBot_Field.Where(f => f.SQLBot_FieldType.sqlft_Name == TypeName
+                    && f.SQLBot_Table.sqlt_SQLName == word.SQLTable).FirstOrDefault();
+            }else if (word.WordType == SQLWord.EWordType.Function)
+            {
+                
+            }
+
+            return field;
+        }
+
+        private bool getColumnName(SQLWord word, SQLFunction.ColumnType requiredType, out string columnName, out string tableName)
+        {
+            columnName = string.Empty;
+            tableName = string.Empty;
+
+            if (word == null)
+                return false;
+
+            SQLBot_Field field = null;
+            try
+            {   
+                switch (requiredType)
+                {
+                    case SQLFunction.ColumnType.Number:
+                        if (word.WordType == SQLWord.EWordType.Number)
+                        {   // number
+
+                            return true;
+                        }
+                        else
+                        {
+                            field = getColumn(word, "Number");
+                        }
+                        break;
+                    case SQLFunction.ColumnType.Date:
+                        break;
+                    case SQLFunction.ColumnType.String:
+                        break;
+                    case SQLFunction.ColumnType.Any:
+                        break;
+                    case SQLFunction.ColumnType.ID:
+                        field = getColumn(word, "ID");
+                        break;
+                    case SQLFunction.ColumnType.None:
+                        return true;
+                    default:
+                        break;
+                };
+            }
+            catch(Exception)
+            {
+            }
+
+            if (field != null)
+            {
+                columnName = field.sqlf_SQLColumnName;
+                tableName = field.SQLBot_Table.sqlt_SQLName;
+                return true;
+            }
+
+            return false;
+        }
+
         private string AnalyzeFunctions(ref List<SQLWord> words)
         {
             string error = string.Empty;
             for(int num = 0; num < words.Count;)
             {
-                if(words[num].WordType == SQLWord.EWordType.Function)
-                {   // Może być kilka zagłębień - średnia wartość -> średnia
-                    
+                if (words[num].WordType == SQLWord.EWordType.Function)
+                {   // Obsługa funkcji
+                    if (words[num].SQLFunction != null)
+                    {
+                        SQLFunction function = words[num].SQLFunction;
+                        string sqlQuery = function.SQLQuery;
+                        
+                        SQLWord wordBefore = null;
+                        SQLWord wordAfter = null;
+                        if (num > 0)
+                            wordBefore = words[num - 1];
+                        if ((num + 1) < words.Count)
+                            wordAfter = words[num + 1];
 
+                        string sqlColumn1 = string.Empty;
+                        string sqlColumn2 = string.Empty;
+                        string sqlTableName1 = string.Empty;
+                        string sqlTableName2 = string.Empty;
+
+                        switch(function.columnLocation)
+                        {
+                            case SQLFunction.ColumnLocation.BEFORE:
+                                if (!getColumnName(wordBefore, function.requiredColumnType, out sqlColumn1, out sqlTableName1))
+                                {
+                                    return "ERROR - INVALID BEFORE PARAMETER!";
+                                }
+                                else
+                                {
+                                    sqlQuery = sqlQuery.Replace(COLUMNNAME, sqlColumn1);
+                                    words.Remove(wordBefore);
+                                    num--;
+                                }
+                                break;
+                            case SQLFunction.ColumnLocation.AFTER:
+                                if (!getColumnName(wordAfter, function.requiredColumnType, out sqlColumn1, out sqlTableName1))
+                                {
+                                    return "ERROR - INVALID AFTER PARAMETER!";
+                                }
+                                else
+                                {
+                                    sqlQuery = sqlQuery.Replace(COLUMNNAME, sqlColumn1);
+                                    words.Remove(wordAfter);
+                                }
+                                break;
+                            case SQLFunction.ColumnLocation.BOTH:
+                                if (!getColumnName(wordBefore, function.requiredColumnType, out sqlColumn1, out sqlTableName1))
+                                {
+                                    return "ERROR - INVALID BEFORE PARAMETER!";
+                                }
+                                else if (!getColumnName(wordAfter, function.requiredColumnType, out sqlColumn2, out sqlTableName2))
+                                {
+                                    return "ERROR - INVALID AFTER PARAMETER!";
+                                }
+                                else
+                                {
+                                    var regex = new Regex(Regex.Escape(COLUMNNAME));
+                                    sqlQuery = regex.Replace(sqlQuery, sqlColumn1, 1);
+                                    sqlQuery = regex.Replace(sqlQuery, sqlColumn2, 1);
+                                    words.Remove(wordBefore);
+                                    words.Remove(wordAfter);
+                                    num--;
+                                }
+                                break;
+                            case SQLFunction.ColumnLocation.NONE:
+                                sqlQuery = sqlQuery.Replace(COLUMNNAME, "");
+                                break;
+                        };
+
+                        words[num].Word = string.Format("{0} as \"{1}\"", sqlQuery, words[num].Word);
+                        words[num].WordType = SQLWord.EWordType.SQL;
+                        if (sqlTableName1 != null)
+                        {
+                            words[num].SQLTable = sqlTableName1;
+                            if(sqlTableName2 != string.Empty && sqlTableName1 != sqlTableName2)
+                            {
+                                SQLWord newTable = new SQLWord();
+                                newTable.WordType = SQLWord.EWordType.Table;
+                                newTable.SQLTable = sqlTableName2;
+                                words.Add(newTable);
+                            }
+                        }
+
+
+                        SQLWord currentWord = words[num];
+                        switch(function.functionLocation)
+                        {
+                            case SQLFunction.FunctionLocation.FRONT:
+                                words.RemoveAt(num);
+                                words.Insert(0, currentWord);
+                                break;
+                            case SQLFunction.FunctionLocation.END:
+                                words.RemoveAt(num);
+                                words.Add(currentWord);
+                                break;
+                            case SQLFunction.FunctionLocation.INLINE:
+                                break;
+                            default: 
+                                break;
+                        };
+                    }
+                    else
+                    {
+                        return "ERROR - INVALID FUNCTION";
+                    }
+                    num++;
                 }
-                num++;
+                else
+                {
+                    num++;
+                }
             }
             return error;
         }
@@ -376,21 +560,28 @@ namespace Cindalnet.SQLBot.Query
                         }
                         else
                         {
+                            string Table = string.Empty;
                             foreach (var sqlWord in words)
                             {
-                                string Table = string.Empty;
                                 if (sqlWord.isValidWord())
                                 {
                                     if (sqlWord.isValidColumn())
                                     {
-                                        wordsToPush.Add(new Tuple<string, string>("FIELD", sqlWord.SQLColumn));
+                                        wordsToPush.Add(new Tuple<string, string>("FIELD", 
+                                            sqlWord.SQLColumn));
                                     }
                                     else if (sqlWord.isValidValue())
                                     {
                                         wordsToPush.Add(
                                             new Tuple<string, string>(
                                                 "VALUE",
-                                                string.Format("{0}='{1}'", sqlWord.SQLColumn, sqlWord.Word)));
+                                                string.Format("{0}='{1}'", 
+                                                    sqlWord.SQLColumn, sqlWord.Word)));
+                                    } else if(sqlWord.WordType == SQLWord.EWordType.SQL)
+                                    {
+                                        wordsToPush.Add(new Tuple<string, string>(
+                                                "FIELD",
+                                                sqlWord.Word));
                                     }
 
 
@@ -413,7 +604,7 @@ namespace Cindalnet.SQLBot.Query
                                             }
                                             else
                                             {   // Nieprawidłowe złączenie - być może jest wielokrotne złączenie
-                                                if (IsValidRecursiveJoin(Table, sqlWord.SQLTable, 5, out JoinStrings))
+                                                if (IsValidRecursiveJoin(Table, Table, sqlWord.SQLTable, 5, out JoinStrings))
                                                 {
                                                     foreach (var join in JoinStrings)
                                                     {
@@ -435,6 +626,25 @@ namespace Cindalnet.SQLBot.Query
                                     if (sqlWord.Definition != ChatBot.IgnoredItemValue)
                                         wordsToPush.Add(new Tuple<string, string>("UNKNOWN",
                                             string.Format("{0} MISSING {1}", sqlWord.Word, sqlWord.MissingObject())));
+                                }
+                            }
+
+                            foreach(var word in words)
+                            {
+                                if(word.WordType == SQLWord.EWordType.SQL 
+                                    && word.SQLFunction != null
+                                    && word.SQLFunction.GroupByRequired)
+                                {
+                                    foreach (var field in words)
+                                    {
+                                        if (field.isValidColumn())
+                                        {
+                                            Tuple<string, string> groupByTuple =
+                                                new Tuple<string, string>("GROUPBY", field.SQLColumn);
+                                            if (!wordsToPush.Contains(groupByTuple))
+                                                wordsToPush.Add(groupByTuple);
+                                        }
+                                    }
                                 }
                             }
                         }

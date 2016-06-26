@@ -61,6 +61,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>BazaRelacyjna.dbml</DependentUpon>
     </Compile>
+    <Compile Include="Model\SQLFunction.cs" />
     <Compile Include="Model\SQLWord.cs" />
     <Compile Include="Presenter\PresenterConnectToServer.cs" />
     <Compile Include="Query\MorfeuszDllWrapper.cs" />
@@ -136,9 +137,11 @@
     </None>
     <None Include="aiml\Query.aiml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </None>
     <None Include="aiml\Stack.aiml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </None>
     <None Include="Database\BazaRelacyjna.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>

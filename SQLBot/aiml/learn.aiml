@@ -275,6 +275,13 @@
     </category>
 
     <category>
+      <pattern>TO NIE ISTOTNE</pattern>
+      <template>
+        <srai>TO NIEISTOTNE</srai>
+      </template>
+    </category>
+
+    <category>
       <pattern>TO NIE MA ZNACZENIA</pattern>
       <template>
         <srai>TO NIEISTOTNE</srai>
