@@ -232,6 +232,7 @@ namespace Cindalnet.SQLBot.Query
         private List<SQLWord> InterpretQuery(string query)
         {
             List<SQLWord> sqlWords = new List<SQLWord>();
+            List<string> tables = new List<string>();
 
             QueryInterpreter queryInterp = new QueryInterpreter(query);
             string Table = string.Empty;
@@ -251,7 +252,7 @@ namespace Cindalnet.SQLBot.Query
                     if (sqlWord.Word == ChatBot.IgnoredItemValue)
                         continue;
 
-                    if (word.PartOfSpeech == Word.SpeechPart.Noun || word.PartOfSpeech == Word.SpeechPart.Other || isKnown)
+                    if (word.PartOfSpeech == Word.SpeechPart.Noun || word.PartOfSpeech == Word.SpeechPart.Other || isKnown || word.PartOfSpeech == Word.SpeechPart.Adjective)
                     {
                         Tuple<int, SQLWord> unknownWord;
 
@@ -286,7 +287,14 @@ namespace Cindalnet.SQLBot.Query
 
                         if (!isKnown)
                         {
-                            SQLWord inTableValue = checkIfBelongsToTable(unknownWord.Item2.Word, Table);
+                            SQLWord inTableValue = null;
+                            foreach (var tableName in tables)
+                            {
+                                inTableValue = checkIfBelongsToTable(unknownWord.Item2.Word, tableName);
+                                if (inTableValue != null)
+                                    break;
+                            }
+
                             if (inTableValue == null)
                             {
                                 // Spróbuj wykonać to samo dla elementów w ich oryginalnych formach
@@ -310,6 +318,11 @@ namespace Cindalnet.SQLBot.Query
                                 sqlWord = inTableValue;
                                 isKnown = sqlWord.isValidWord();
                             }
+                        }
+                        else if(sqlWord.SQLTable != null)
+                        {
+                            tables.Add(sqlWord.SQLTable);
+                            tables = tables.Distinct().ToList();
                         }
 
                         sqlWords.Add(sqlWord);

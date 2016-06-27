@@ -107,6 +107,7 @@ namespace Cindalnet.SQLBot.Query
                 case "prep":
                     this.PartOfSpeech = SpeechPart.Preposition;
                     break;
+                case "interj":
                 case "conj":
                     this.PartOfSpeech = SpeechPart.Conjuctiun;
                     break;
