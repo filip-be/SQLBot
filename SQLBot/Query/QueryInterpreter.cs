@@ -80,17 +80,27 @@ namespace Cindalnet.SQLBot.Query
                 foreach(var item in RawInput)
                 {
                     Word word = new Word(item);
-                    if(Words.Count == 0 || Words.Last().k < item.k)
+                    if (word.PartOfSpeech == Word.SpeechPart.Numeral
+                            && Words.Count > 0
+                            && Words.Last().PartOfSpeech == Word.SpeechPart.Numeral)
+                    {   // Wartość liczbowa występująca po sobie
+                        Word lastWord = Words.Last();
+                        Words.Remove(Words.Last());
+                        word.FormBase = lastWord.FormBase + word.FormBase;
+                        word.Form = lastWord.Form + word.Form;
+                        Words.Add(word);
+                    }
+                    else if (Words.Count == 0 || Words.Last().k < item.k)
                     {   // Dodaj słowo jeśli nie istnieje na liście słów
                         Words.Add(word);
                     }
-                    else if(word.PartOfSpeech == Word.SpeechPart.Numeral)
+                    else if (word.PartOfSpeech == Word.SpeechPart.Numeral)
                     {   // Słowo już istnieje na liście, jednak to wystąpienie jest prawdopodobnie liczebnikiem
                         Words.Remove(Words.Last());
                         Words.Add(word);
                     }
-                    else if(word.PartOfSpeech == Word.SpeechPart.Noun
-                        && !(Words.Count > 1 && Words.Last().PartOfSpeech == Word.SpeechPart.Numeral))  
+                    else if (word.PartOfSpeech == Word.SpeechPart.Noun
+                        && !(Words.Count > 1 && Words.Last().PartOfSpeech == Word.SpeechPart.Numeral))
                     {   // Słowo istnieje na liście, jednak to wystąpienie jest najprawdopodobniej rzeczowniwiem
                         if (word.Case == "nom"
                             && (_DesiredParameterIndex == item.k || _DesiredParameterIndex == -1))
@@ -119,7 +129,7 @@ namespace Cindalnet.SQLBot.Query
                     }
                     else
                     {   // Słowo już istnieje na liście
-                        
+
                     }
                 }
             }

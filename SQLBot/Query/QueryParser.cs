@@ -252,7 +252,11 @@ namespace Cindalnet.SQLBot.Query
                     if (sqlWord.Word == ChatBot.IgnoredItemValue)
                         continue;
 
-                    if (word.PartOfSpeech == Word.SpeechPart.Noun || word.PartOfSpeech == Word.SpeechPart.Other || isKnown || word.PartOfSpeech == Word.SpeechPart.Adjective)
+                    if (word.PartOfSpeech == Word.SpeechPart.Noun 
+                        || word.PartOfSpeech == Word.SpeechPart.Other 
+                        || isKnown 
+                        || word.PartOfSpeech == Word.SpeechPart.Adjective
+                        || word.PartOfSpeech == Word.SpeechPart.Numeral)
                     {
                         Tuple<int, SQLWord> unknownWord;
 
@@ -535,6 +539,20 @@ namespace Cindalnet.SQLBot.Query
             return error;
         }
 
+        private string AnalyzeNumbers(ref List<SQLWord> words)
+        {
+            string error = string.Empty;
+
+            for(int num = 0; num < words.Count;)
+            {
+                if (words[num].WordType == SQLWord.EWordType.Number)
+                    ;
+                num++;
+            }
+
+            return error;
+        }
+
         private string prepareQuery(string chatResponse)
         {
             string res = "";
@@ -565,7 +583,8 @@ namespace Cindalnet.SQLBot.Query
                     {   // Zinterpretuj wypowiedź
                         List<SQLWord> words = InterpretQuery(parameters[argsNum]);
 
-                        string err = AnalyzeFunctions(ref words);
+                        string err = AnalyzeNumbers(ref words);
+                        err = AnalyzeFunctions(ref words);
 
                         if (err.Length > 0)
                         {
