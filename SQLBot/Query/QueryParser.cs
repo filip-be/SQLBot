@@ -45,6 +45,9 @@ namespace Cindalnet.SQLBot.Query
                 SQLBot_Table[] tables = dc.SQLBot_Table.ToArray();
                 SQLBot_Function[] functions = dc.SQLBot_Function.ToArray();
 
+                ChatBot.Chat("SQLBOT AIML LEARN POLISH NUMBERS",
+                        ChatUser.UserID);
+
                 foreach (var field in fields)
                 {
                     ChatBot.Chat(string.Format("SQLBOT LEARN WHAT IS {0} | {1} | FIELD", field.sqlf_ColumnName, field.sqlf_Description),
@@ -252,11 +255,39 @@ namespace Cindalnet.SQLBot.Query
                     if (sqlWord.Word == ChatBot.IgnoredItemValue)
                         continue;
 
+                    if (sqlWord.WordType == SQLWord.EWordType.Number)
+                    {
+                        if (sqlWords.Count > 0
+                            && sqlWords.Last().WordType == SQLWord.EWordType.Number
+                            && sqlWords.Last().Word.EndsWith(queryInterp.Words[wordNum - 1].FormBase))
+                        {
+                            sqlWords.Last().Word += string.Format(" {0}", sqlWord.Word);
+                            switch (sqlWord.CharBeforeNumber)
+                            {
+                                case SQLWord.ECharBeforeNumber.Add:
+                                    sqlWords.Last().Number += sqlWord.Number;
+                                    break;
+                                case SQLWord.ECharBeforeNumber.Multiply:
+                                    sqlWords.Last().Number *= sqlWord.Number;
+                                    break;
+                                case SQLWord.ECharBeforeNumber.Divide:
+                                    sqlWords.Last().Number /= sqlWord.Number;
+                                    break;
+                                default:
+                                    break;
+                            }
+                        }
+                        else
+                        {
+                            sqlWords.Add(sqlWord);
+                        }
+                        continue;
+                    }
+
                     if (word.PartOfSpeech == Word.SpeechPart.Noun 
                         || word.PartOfSpeech == Word.SpeechPart.Other 
                         || isKnown 
-                        || word.PartOfSpeech == Word.SpeechPart.Adjective
-                        || word.PartOfSpeech == Word.SpeechPart.Numeral)
+                        || word.PartOfSpeech == Word.SpeechPart.Adjective)
                     {
                         Tuple<int, SQLWord> unknownWord;
 
@@ -545,8 +576,14 @@ namespace Cindalnet.SQLBot.Query
 
             for(int num = 0; num < words.Count;)
             {
-                if (words[num].WordType == SQLWord.EWordType.Number)
-                    ;
+                if (words[num].WordType == SQLWord.EWordType.Number
+                    && words.Count > 0
+                    && num > 0
+                    && words[num - 1].WordType == SQLWord.EWordType.Number)
+                {
+                    int x = 0;
+                    x = x + 1;
+                }
                 num++;
             }
 

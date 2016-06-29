@@ -135,6 +135,9 @@
     <None Include="aiml\Learn.aiml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="aiml\Numbers.aiml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="aiml\Query.aiml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <SubType>Designer</SubType>
@@ -171,6 +174,9 @@
     <EmbeddedResource Include="View\MaterialPanel.resx">
       <DependentUpon>MaterialPanel.cs</DependentUpon>
     </EmbeddedResource>
+    <Content Include="aiml\CustomConversations.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="aiml\Default.aiml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <SubType>Designer</SubType>

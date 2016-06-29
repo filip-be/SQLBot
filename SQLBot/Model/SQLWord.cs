@@ -23,9 +23,20 @@ namespace Cindalnet.SQLBot.Model
         };
 
 
+        public enum ECharBeforeNumber
+        {
+            Add,
+            Multiply,
+            Divide,
+            Unknown
+        };
+
         public string Word { get; set; }
         public string Definition { get; set; }
         public EWordType WordType { get; set; }
+
+        public double Number { get; set; }
+        public ECharBeforeNumber CharBeforeNumber { get; set; }
 
         public string SQLColumn { get; set; }
         public string SQLTable { get; set; }
@@ -45,6 +56,8 @@ namespace Cindalnet.SQLBot.Model
             SQLTable = null;
             Parent = null;
             Child = null;
+            Number = 0;
+            CharBeforeNumber = ECharBeforeNumber.Unknown;
         }
 
         private string TrimWord(string Word)
@@ -190,6 +203,55 @@ namespace Cindalnet.SQLBot.Model
             return FieldName = TrimWord(chatRes.Output);
         }
 
+        public bool IsNumber(string FieldName, Bot ChatBot, User ChatUser)
+        {
+            double numberValue;
+
+            if (double.TryParse(FieldName, out numberValue))
+            {
+                this.Number = numberValue;
+                this.CharBeforeNumber = ECharBeforeNumber.Add;
+                return true;
+            }
+            else
+            {
+                Request chatRequest = new Request(string.Format("SQLBOT WHAT NUMBER IS {0}", FieldName), ChatUser, ChatBot);
+                Result chatRes = ChatBot.Chat(chatRequest);
+                string chatOutput = TrimWord(chatRes.Output);
+
+                if (chatOutput != "UNKNOWN" && double.TryParse(chatOutput, out numberValue))
+                {
+                    this.Number = numberValue;
+
+                    chatRequest = new Request(string.Format("SQLBOT WHAT PRECEDES NUMBER {0}", FieldName), ChatUser, ChatBot);
+                    chatRes = ChatBot.Chat(chatRequest);
+                    chatOutput = TrimWord(chatRes.Output);
+
+                    switch (chatOutput)
+                    {
+                        case "ADD":
+                            this.CharBeforeNumber = ECharBeforeNumber.Add;
+                            break;
+                        case "MULTIPLY":
+                            this.CharBeforeNumber = ECharBeforeNumber.Multiply;
+                            break;
+                        case "DIVIDE":
+                            this.CharBeforeNumber = ECharBeforeNumber.Divide;
+                            break;
+                        default:
+                            this.CharBeforeNumber = ECharBeforeNumber.Unknown;
+                            break;
+                    };
+
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+        }
+
         public void Initialize(Bot ChatBot, User ChatUser, string FieldName)
         {
             this.Word = FieldName;
@@ -203,6 +265,11 @@ namespace Cindalnet.SQLBot.Model
                     string fieldDesc = AIMLWhatIs(sqlWord.Word, ChatBot, ChatUser);
                     string fieldType = AIMLWhatTypeIs(sqlWord.Word, ChatBot, ChatUser);
 
+                    if (IsNumber(FieldName, ChatBot, ChatUser))
+                    {
+                        fieldType = "NUMBER";
+                    }
+
                     switch (fieldDesc)
                     {
                         case "UNKNOWN":
@@ -215,7 +282,9 @@ namespace Cindalnet.SQLBot.Model
 
                     switch (fieldType)
                     {
-
+                        case "NUMBER":
+                            sqlWord.WordType = EWordType.Number;
+                            break;
                         case "TABLE":
                             sqlWord.WordType = EWordType.Table;
                             break;

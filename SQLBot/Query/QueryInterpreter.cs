@@ -80,9 +80,12 @@ namespace Cindalnet.SQLBot.Query
                 foreach(var item in RawInput)
                 {
                     Word word = new Word(item);
+                    double testNumber;
                     if (word.PartOfSpeech == Word.SpeechPart.Numeral
+                            && double.TryParse(word.FormBase, out testNumber)
                             && Words.Count > 0
-                            && Words.Last().PartOfSpeech == Word.SpeechPart.Numeral)
+                            && Words.Last().PartOfSpeech == Word.SpeechPart.Numeral
+                            && double.TryParse(Words.Last().FormBase, out testNumber))
                     {   // Wartość liczbowa występująca po sobie
                         Word lastWord = Words.Last();
                         Words.Remove(Words.Last());

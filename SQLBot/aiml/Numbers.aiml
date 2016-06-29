@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="windows-1250"?>
+<aiml>
+  <!-- Free software &copy; 2001-2003 ALICE A.I. Foundation. -->
+  <!-- This program is open source code released under -->
+  <!-- the terms of the GNU General Public License     -->
+  <!-- as published by the Free Software Foundation.   -->
+  <!-- Complies with AIML 1.01 Tag Set Specification -->
+  <!-- as adopted by the ALICE A.I. Foundation.  -->
+  <!-- Annotated Version updated September 2003 -->
+  <category>
+    <pattern>
+      SQLBOT WHAT NUMBER IS *
+    </pattern>
+    <template>
+      UNKNOWN
+    </template>
+  </category>
+  
+  <category>
+    <pattern>
+      SQLBOT WHAT PRECEDES NUMBER *
+    </pattern>
+    <template>
+      ADD
+    </template>
+  </category>
+
+  <category>
+    <pattern>
+      SQLBOT LEARN WHAT NUMBER IS * | *
+    </pattern>
+    <template>
+      <learn directory="aiml_learn" filename="PATTERN">
+        <aiml>
+          <category>
+            <pattern>
+              <eval>
+                <uppercase>SQLBOT WHAT NUMBER IS <star index="1"/></uppercase>
+              </eval>
+            </pattern>
+            <template>
+              <eval>
+                <uppercase>
+                  <star index="2"/>
+                </uppercase>
+              </eval>
+            </template>
+          </category>
+        </aiml>
+      </learn>
+    </template>
+  </category>
+
+  <category>
+    <pattern>
+      SQLBOT LEARN WHAT PRECEDES NUMBER * | *
+    </pattern>
+    <template>
+      <learn directory="aiml_learn" filename="PATTERN">
+        <aiml>
+          <category>
+            <pattern>
+              <eval>
+                <uppercase>SQLBOT WHAT PRECEDES NUMBER <star index="1"/></uppercase>
+              </eval>
+            </pattern>
+            <template>
+              <eval>
+                <uppercase>
+                  <star index="2"/>
+                </uppercase>
+              </eval>
+            </template>
+          </category>
+        </aiml>
+      </learn>
+    </template>
+  </category>
+
+  <category>
+    <pattern>
+      SQLBOT LEARN WHAT NUMBER IS * | * | *
+    </pattern>
+    <template>
+      <srai>
+        SQLBOT LEARN WHAT NUMBER IS <star index="1"/> | <star index="2"/>
+      </srai>
+      <srai>
+        SQLBOT LEARN WHAT PRECEDES NUMBER <star index="1"/> | <star index="3"/>
+      </srai>
+    </template>
+  </category>
+  
+  <category>
+    <pattern>
+      SQLBOT AIML LEARN POLISH NUMBERS
+    </pattern>
+    <template>
+      <srai>SQLBOT LEARN WHAT NUMBER IS ZERO | 0 | ADD</srai>
+
+      <srai>SQLBOT LEARN WHAT NUMBER IS JEDEN | 1 | ADD</srai>
+      <srai>SQLBOT LEARN WHAT NUMBER IS PIERWSZY | 1 | ADD</srai>
+      <srai>SQLBOT LEARN WHAT NUMBER IS PIERWSZA | 1 | ADD</srai>
+      <srai>SQLBOT LEARN WHAT NUMBER IS RAZ | 1 | ADD</srai>
+
+      <srai>SQLBOT LEARN WHAT NUMBER IS DWA | 2 | ADD</srai>
+      <srai>SQLBOT LEARN WHAT NUMBER IS DRUGI | 2 | ADD</srai>
+      <srai>SQLBOT LEARN WHAT NUMBER IS DRUGA | 2 | ADD</srai>
+
+      <srai>SQLBOT LEARN WHAT NUMBER IS TRZY | 3 | ADD</srai>
+      <srai>SQLBOT LEARN WHAT NUMBER IS TRZECI | 3 | ADD</srai>
+      <srai>SQLBOT LEARN WHAT NUMBER IS TRZECIA | 3 | ADD</srai>
+
+      <srai>SQLBOT LEARN WHAT NUMBER IS CZTERY | 4 | ADD</srai>
+      <srai>SQLBOT LEARN WHAT NUMBER IS CZWARTY | 4 | ADD</srai>
+      <srai>SQLBOT LEARN WHAT NUMBER IS CZWARTA | 4 | ADD</srai>
+
+      <srai>SQLBOT LEARN WHAT NUMBER IS PIĘĆ | 5 | ADD</srai>
+      <srai>SQLBOT LEARN WHAT NUMBER IS PIĄTY | 5 | ADD</srai>
+      <srai>SQLBOT LEARN WHAT NUMBER IS PIĄTA | 5 | ADD</srai>
+
+      <srai>SQLBOT LEARN WHAT NUMBER IS SZEŚĆ | 6 | ADD</srai>
+      <srai>SQLBOT LEARN WHAT NUMBER IS SZÓSTY | 6 | ADD</srai>
+      <srai>SQLBOT LEARN WHAT NUMBER IS SZÓSTA | 6 | ADD</srai>
+
+      <srai>SQLBOT LEARN WHAT NUMBER IS SIEDEM | 7 | ADD</srai>
+      <srai>SQLBOT LEARN WHAT NUMBER IS SIÓDMY | 7 | ADD</srai>
+      <srai>SQLBOT LEARN WHAT NUMBER IS SIÓDMA | 7 | ADD</srai>
+
+      <srai>SQLBOT LEARN WHAT NUMBER IS OSIEM | 8 | ADD</srai>
+      <srai>SQLBOT LEARN WHAT NUMBER IS ÓSMY | 8 | ADD</srai>
+      <srai>SQLBOT LEARN WHAT NUMBER IS ÓSMA | 8 | ADD</srai>
+                                           
+      <srai>SQLBOT LEARN WHAT NUMBER IS DZIEWIĘĆ | 9 | ADD</srai>
+      <srai>SQLBOT LEARN WHAT NUMBER IS DZIEWIĄTY | 9 | ADD</srai>
+      <srai>SQLBOT LEARN WHAT NUMBER IS DZIEWIĄTA | 9 | ADD</srai>
+
+      <srai>SQLBOT LEARN WHAT NUMBER IS DZIESIĘĆ | 10 | ADD</srai>
+      <srai>SQLBOT LEARN WHAT NUMBER IS DZIESIĄTY | 10 | ADD</srai>
+      <srai>SQLBOT LEARN WHAT NUMBER IS DZIESIĄTA | 10 | ADD</srai>
+                                           
+      <srai>SQLBOT LEARN WHAT NUMBER IS JEDENAŚCIE | 11 | ADD</srai>
+      <srai>SQLBOT LEARN WHAT NUMBER IS JEDENASTY | 11 | ADD</srai>
+      <srai>SQLBOT LEARN WHAT NUMBER IS JEDENASTA | 11 | ADD</srai>
+
+      <srai>SQLBOT LEARN WHAT NUMBER IS DWANAŚCIE | 12 | ADD</srai>
+      <srai>SQLBOT LEARN WHAT NUMBER IS DWUNASTY | 12 | ADD</srai>
+      <srai>SQLBOT LEARN WHAT NUMBER IS DWUNASTA | 12 | ADD</srai>
+
+      <srai>SQLBOT LEARN WHAT NUMBER IS TRZYNAŚCIE | 13 | ADD</srai>
+      <srai>SQLBOT LEARN WHAT NUMBER IS TRZYNASTY | 13 | ADD</srai>
+      <srai>SQLBOT LEARN WHAT NUMBER IS TRZYNASTA | 13 | ADD</srai>
+
+      <srai>SQLBOT LEARN WHAT NUMBER IS CZTERNAŚCIE | 14 | ADD</srai>
+      <srai>SQLBOT LEARN WHAT NUMBER IS CZTERNASTY | 14 | ADD</srai>
+      <srai>SQLBOT LEARN WHAT NUMBER IS CZTERNASTA | 14 | ADD</srai>
+
+      <srai>SQLBOT LEARN WHAT NUMBER IS PIĘTNAŚCIE | 15 | ADD</srai>
+      <srai>SQLBOT LEARN WHAT NUMBER IS PIĘTNASTY | 15 | ADD</srai>
+      <srai>SQLBOT LEARN WHAT NUMBER IS PIĘTNASTA | 15 | ADD</srai>
+
+      <srai>SQLBOT LEARN WHAT NUMBER IS SZESNAŚCIE | 16 | ADD</srai>
+      <srai>SQLBOT LEARN WHAT NUMBER IS SZESNASTY | 16 | ADD</srai>
+      <srai>SQLBOT LEARN WHAT NUMBER IS SZESNASTA | 16 | ADD</srai>
+
+      <srai>SQLBOT LEARN WHAT NUMBER IS SIEDEMNAŚCIE | 17 | ADD</srai>
+      <srai>SQLBOT LEARN WHAT NUMBER IS SIEDEMNASTY | 17 | ADD</srai>
+      <srai>SQLBOT LEARN WHAT NUMBER IS SIEDEMNASTA | 17 | ADD</srai>
+
+      <srai>SQLBOT LEARN WHAT NUMBER IS OSIEMNAŚCIE | 18 | ADD</srai>
+      <srai>SQLBOT LEARN WHAT NUMBER IS OSIEMNASTY | 18 | ADD</srai>
+      <srai>SQLBOT LEARN WHAT NUMBER IS OSIEMNASTA | 18 | ADD</srai>
+
+      <srai>SQLBOT LEARN WHAT NUMBER IS DZIEWIĘTNAŚCIE | 19 | ADD</srai>
+      <srai>SQLBOT LEARN WHAT NUMBER IS DZIEWIĘTNASTY | 19 | ADD</srai>
+      <srai>SQLBOT LEARN WHAT NUMBER IS DZIEWIĘTNASTA | 19 | ADD</srai>
+
+      <srai>SQLBOT LEARN WHAT NUMBER IS DWADZIEŚCIA | 20 | ADD</srai>
+      <srai>SQLBOT LEARN WHAT NUMBER IS DWUDZIESTY | 20 | ADD</srai>
+      <srai>SQLBOT LEARN WHAT NUMBER IS DWUDZIESTA | 20 | ADD</srai>
+
+      <srai>SQLBOT LEARN WHAT NUMBER IS TRZYDZIEŚCI | 30 | ADD</srai>
+      <srai>SQLBOT LEARN WHAT NUMBER IS TRZYDZIESTY | 30 | ADD</srai>
+      <srai>SQLBOT LEARN WHAT NUMBER IS TRZYDZIESTA | 30 | ADD</srai>
+
+      <srai>SQLBOT LEARN WHAT NUMBER IS CZTERDZIEŚCI | 40 | ADD</srai>
+      <srai>SQLBOT LEARN WHAT NUMBER IS CZTERDZIESTY | 40 | ADD</srai>
+      <srai>SQLBOT LEARN WHAT NUMBER IS CZTERDZIESTA | 40 | ADD</srai>
+
+      <srai>SQLBOT LEARN WHAT NUMBER IS PIĘĆDZIESIĄT | 50 | ADD</srai>
+      <srai>SQLBOT LEARN WHAT NUMBER IS PIĘĆDZIESIĄTY | 50 | ADD</srai>
+      <srai>SQLBOT LEARN WHAT NUMBER IS PIĘĆDZIESIĄTA | 50 | ADD</srai>
+
+      <srai>SQLBOT LEARN WHAT NUMBER IS SZEŚĆDZIESIĄT | 60 | ADD</srai>
+      <srai>SQLBOT LEARN WHAT NUMBER IS SZEŚĆDZIESIĄTY | 60 | ADD</srai>
+      <srai>SQLBOT LEARN WHAT NUMBER IS SZEŚĆDZIESIĄTA | 60 | ADD</srai>
+
+      <srai>SQLBOT LEARN WHAT NUMBER IS SIEDEMDZIESIĄT | 70 | ADD</srai>
+      <srai>SQLBOT LEARN WHAT NUMBER IS SIEDEMDZIESIĄTY | 70 | ADD</srai>
+      <srai>SQLBOT LEARN WHAT NUMBER IS SIEDEMDZIESIĄTA | 70 | ADD</srai>
+
+      <srai>SQLBOT LEARN WHAT NUMBER IS OSIEMDZIESIĄT | 80 | ADD</srai>
+      <srai>SQLBOT LEARN WHAT NUMBER IS OSIEMDZIESIĄTY | 80 | ADD</srai>
+      <srai>SQLBOT LEARN WHAT NUMBER IS OSIEMDZIESIĄTA | 80 | ADD</srai>
+
+      <srai>SQLBOT LEARN WHAT NUMBER IS DZIEWIĘĆDZIESIĄT | 90 | ADD</srai>
+      <srai>SQLBOT LEARN WHAT NUMBER IS DZIEWIĘĆDZIESIĄTY | 90 | ADD</srai>
+      <srai>SQLBOT LEARN WHAT NUMBER IS DZIEWIĘĆDZIESIĄTA | 90 | ADD</srai>
+      
+      <srai>SQLBOT LEARN WHAT NUMBER IS STO | 100 | ADD</srai>
+      <srai>SQLBOT LEARN WHAT NUMBER IS SETNY | 100 | ADD</srai>
+      <srai>SQLBOT LEARN WHAT NUMBER IS SETNA | 100 | ADD</srai>
+
+      <srai>SQLBOT LEARN WHAT NUMBER IS DWIEŚCIE | 200 | ADD</srai>
+      <srai>SQLBOT LEARN WHAT NUMBER IS DWUSETNY | 200 | ADD</srai>
+      <srai>SQLBOT LEARN WHAT NUMBER IS DWUSETNA | 200 | ADD</srai>
+
+      <srai>SQLBOT LEARN WHAT NUMBER IS TRZYSTA   | 300 | ADD</srai>
+      <srai>SQLBOT LEARN WHAT NUMBER IS TRZYSETNY | 300 | ADD</srai>
+      <srai>SQLBOT LEARN WHAT NUMBER IS TRZYSETNA | 300 | ADD</srai>
+
+      <srai>SQLBOT LEARN WHAT NUMBER IS CZTERYSTA   | 400 | ADD</srai>
+      <srai>SQLBOT LEARN WHAT NUMBER IS CZTEROSETNY | 400 | ADD</srai>
+      <srai>SQLBOT LEARN WHAT NUMBER IS CZTEROSETNA | 400 | ADD</srai>
+
+      <srai>SQLBOT LEARN WHAT NUMBER IS PIĘĆSET   | 500 | ADD</srai>
+      <srai>SQLBOT LEARN WHAT NUMBER IS PIĘĆSETNY | 500 | ADD</srai>
+      <srai>SQLBOT LEARN WHAT NUMBER IS PIĘĆSETNA | 500 | ADD</srai>
+
+      <srai>SQLBOT LEARN WHAT NUMBER IS SZEŚĆSET   | 600 | ADD</srai>
+      <srai>SQLBOT LEARN WHAT NUMBER IS SZEŚĆSETNY | 600 | ADD</srai>
+      <srai>SQLBOT LEARN WHAT NUMBER IS SZEŚĆSETNA | 600 | ADD</srai>
+
+      <srai>SQLBOT LEARN WHAT NUMBER IS SIEDEMSET   | 700 | ADD</srai>
+      <srai>SQLBOT LEARN WHAT NUMBER IS SIEDEMSETNY | 700 | ADD</srai>
+      <srai>SQLBOT LEARN WHAT NUMBER IS SIEDEMSETNA | 700 | ADD</srai>
+
+      <srai>SQLBOT LEARN WHAT NUMBER IS OSIEMSET   | 800 | ADD</srai>
+      <srai>SQLBOT LEARN WHAT NUMBER IS OSIEMSETNY | 800 | ADD</srai>
+      <srai>SQLBOT LEARN WHAT NUMBER IS OSIEMSETNA | 800 | ADD</srai>
+
+      <srai>SQLBOT LEARN WHAT NUMBER IS DZIEWIĘĆSET   | 900 | ADD</srai>
+      <srai>SQLBOT LEARN WHAT NUMBER IS DZIEWIĘĆSETNY | 900 | ADD</srai>
+      <srai>SQLBOT LEARN WHAT NUMBER IS DZIEWIĘĆSETNA | 900 | ADD</srai>
+
+      <srai>SQLBOT LEARN WHAT NUMBER IS TYSIĄC   | 1000 | MULTIPLY</srai>
+      <srai>SQLBOT LEARN WHAT NUMBER IS TYSIĄCE  | 1000 | MULTIPLY</srai>
+      <srai>SQLBOT LEARN WHAT NUMBER IS TYSIĘCZNY | 1000 | MULTIPLY</srai>
+      <srai>SQLBOT LEARN WHAT NUMBER IS TYSIĘCZNA | 1000 | MULTIPLY</srai>
+
+      <srai>SQLBOT LEARN WHAT NUMBER IS DWUTYSIĘCZNY | 2000 | ADD</srai>
+      <srai>SQLBOT LEARN WHAT NUMBER IS TRZYTYSIĘCZNY | 3000 | ADD</srai>
+      <srai>SQLBOT LEARN WHAT NUMBER IS CZTEROTYSIĘCZNY | 4000 | ADD</srai>
+      <srai>SQLBOT LEARN WHAT NUMBER IS PIĘCIOTYSIĘCZNY | 5000 | ADD</srai>
+      <srai>SQLBOT LEARN WHAT NUMBER IS SZEŚCIOTYSIĘCZNY | 6000 | ADD</srai>
+      <srai>SQLBOT LEARN WHAT NUMBER IS SIEDMIOTYSIĘCZNY | 7000 | ADD</srai>
+      <srai>SQLBOT LEARN WHAT NUMBER IS OŚMIOTYSIĘCZNY | 8000 | ADD</srai>
+      <srai>SQLBOT LEARN WHAT NUMBER IS DZIEWIĘCIOTYSIĘCZNY | 9000 | ADD</srai>
+
+      <srai>SQLBOT LEARN WHAT NUMBER IS MILION   | 1000000 | MULTIPLY</srai>
+      <srai>SQLBOT LEARN WHAT NUMBER IS MILIONY  | 1000000 | MULTIPLY</srai>
+      <srai>SQLBOT LEARN WHAT NUMBER IS MILIONOWY | 1000000 | MULTIPLY</srai>
+      <srai>SQLBOT LEARN WHAT NUMBER IS MILIONOWA | 1000000 | MULTIPLY</srai>
+
+      <srai>SQLBOT LEARN WHAT NUMBER IS MILIARD   | 1000000000 | MULTIPLY</srai>
+      <srai>SQLBOT LEARN WHAT NUMBER IS MILIARDY  | 1000000000 | MULTIPLY</srai>
+      <srai>SQLBOT LEARN WHAT NUMBER IS MILIARDOWY | 1000000000 | MULTIPLY</srai>
+      <srai>SQLBOT LEARN WHAT NUMBER IS MILIARDOWA | 1000000000 | MULTIPLY</srai>
+
+      <srai>SQLBOT LEARN WHAT NUMBER IS BILION   | 1000000000000 | MULTIPLY</srai>
+      <srai>SQLBOT LEARN WHAT NUMBER IS BILIONY  | 1000000000000 | MULTIPLY</srai>
+      <srai>SQLBOT LEARN WHAT NUMBER IS BILIONOWY | 1000000000000 | MULTIPLY</srai>
+      <srai>SQLBOT LEARN WHAT NUMBER IS BILIONOWA | 1000000000000 | MULTIPLY</srai>
+
+      <srai>SQLBOT LEARN WHAT NUMBER IS BILIARD   | 1000000000000000 | MULTIPLY</srai>
+      <srai>SQLBOT LEARN WHAT NUMBER IS BILIARDY  | 1000000000000000 | MULTIPLY</srai>
+      <srai>SQLBOT LEARN WHAT NUMBER IS BILIARDOWY | 1000000000000000 | MULTIPLY</srai>
+      <srai>SQLBOT LEARN WHAT NUMBER IS BILIARDOWA | 1000000000000000 | MULTIPLY</srai>
+
+      <srai>SQLBOT LEARN WHAT NUMBER IS TRYLION   | 1000000000000000000 | MULTIPLY</srai>
+      <srai>SQLBOT LEARN WHAT NUMBER IS TRYLIONY  | 1000000000000000000 | MULTIPLY</srai>
+      <srai>SQLBOT LEARN WHAT NUMBER IS TRYLIONOWY | 1000000000000000000 | MULTIPLY</srai>
+      <srai>SQLBOT LEARN WHAT NUMBER IS TRYLIONOWA | 1000000000000000000 | MULTIPLY</srai>
+
+      <srai>SQLBOT LEARN WHAT NUMBER IS TRYLIARD   | 1000000000000000000000 | MULTIPLY</srai>
+      <srai>SQLBOT LEARN WHAT NUMBER IS TRYLIARDY  | 1000000000000000000000 | MULTIPLY</srai>
+      <srai>SQLBOT LEARN WHAT NUMBER IS TRYLIARDOWY | 1000000000000000000000 | MULTIPLY</srai>
+      <srai>SQLBOT LEARN WHAT NUMBER IS TRYLIARDOWA | 1000000000000000000000 | MULTIPLY</srai>
+
+    </template>
+  </category>
+  
+</aiml>
