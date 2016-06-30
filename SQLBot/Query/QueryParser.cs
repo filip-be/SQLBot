@@ -413,8 +413,8 @@ namespace Cindalnet.SQLBot.Query
                 {
                     case SQLFunction.ColumnType.Number:
                         if (word.WordType == SQLWord.EWordType.Number)
-                        {   // number
-
+                        {   // Number
+                            columnName = string.Format("{0}", word.Number);
                             return true;
                         }
                         else
@@ -443,8 +443,8 @@ namespace Cindalnet.SQLBot.Query
 
             if (field != null)
             {
-                columnName = field.sqlf_SQLColumnName;
                 tableName = field.SQLBot_Table.sqlt_SQLName;
+                columnName = string.Format("{0}.{1}", tableName, field.sqlf_SQLColumnName);
                 return true;
             }
 
@@ -524,7 +524,10 @@ namespace Cindalnet.SQLBot.Query
                                 break;
                         };
 
-                        words[num].Word = string.Format("{0} as \"{1}\"", sqlQuery, words[num].Word);
+                        if (function.functionLocation == SQLFunction.FunctionLocation.SELECT)
+                            words[num].Word = string.Format("{0} as \"{1}\"", sqlQuery, words[num].Word);
+                        else
+                            words[num].Word = sqlQuery;
                         words[num].WordType = SQLWord.EWordType.SQL;
                         if (sqlTableName1 != null)
                         {
@@ -546,11 +549,22 @@ namespace Cindalnet.SQLBot.Query
                                 words.RemoveAt(num);
                                 words.Insert(0, currentWord);
                                 break;
-                            case SQLFunction.FunctionLocation.END:
+                            case SQLFunction.FunctionLocation.SELECT:
                                 words.RemoveAt(num);
                                 words.Add(currentWord);
                                 break;
-                            case SQLFunction.FunctionLocation.INLINE:
+                            case SQLFunction.FunctionLocation.WHERE:
+                                words.RemoveAt(num);
+                                if(words.Count > 0 
+                                    && words.Last().isFunction() 
+                                    && words.Last().SQLFunction.functionLocation == SQLFunction.FunctionLocation.END)
+                                    words.Insert(words.Count() - 1, currentWord);
+                                else
+                                    words.Add(currentWord);
+                                break;
+                            case SQLFunction.FunctionLocation.END:
+                                words.RemoveAt(num);
+                                words.Add(currentWord);
                                 break;
                             default: 
                                 break;
@@ -621,98 +635,127 @@ namespace Cindalnet.SQLBot.Query
                         List<SQLWord> words = InterpretQuery(parameters[argsNum]);
 
                         string err = AnalyzeNumbers(ref words);
+
+                        if (err.Length > 0)
+                        {
+                            return string.Format("ERROR - {0}", err);
+                        }
+
                         err = AnalyzeFunctions(ref words);
 
                         if (err.Length > 0)
                         {
-                            res = string.Format("ERROR - {0}", err);
+                            return string.Format("ERROR - {0}", err);
                         }
-                        else
+
+                        string Table = string.Empty;
+                        foreach (var sqlWord in words)
                         {
-                            string Table = string.Empty;
-                            foreach (var sqlWord in words)
+                            if (sqlWord.isValidWord())
                             {
-                                if (sqlWord.isValidWord())
+                                if (sqlWord.isValidColumn())
                                 {
-                                    if (sqlWord.isValidColumn())
+                                    wordsToPush.Add(new Tuple<string, string>("FIELD",
+                                        sqlWord.SQLColumn));
+                                }
+                                else if (sqlWord.isValidValue())
+                                {
+                                    wordsToPush.Add(
+                                        new Tuple<string, string>(
+                                            "VALUE",
+                                            string.Format("{0}='{1}'",
+                                                sqlWord.SQLColumn, sqlWord.Word)));
+                                }
+                                else if (sqlWord.WordType == SQLWord.EWordType.SQL)
+                                {
+                                    if (sqlWord.SQLFunction != null)
                                     {
-                                        wordsToPush.Add(new Tuple<string, string>("FIELD", 
-                                            sqlWord.SQLColumn));
+                                        switch(sqlWord.SQLFunction.functionLocation)
+                                        {
+                                            case SQLFunction.FunctionLocation.SELECT:
+                                                wordsToPush.Add(new Tuple<string, string>(
+                                                    "FIELD",
+                                                    sqlWord.Word));
+                                                break;
+                                            case SQLFunction.FunctionLocation.WHERE:
+                                                wordsToPush.Add(new Tuple<string, string>(
+                                                    "VALUE",
+                                                    sqlWord.Word));
+                                                break;
+                                            default:
+                                                wordsToPush.Add(new Tuple<string, string>(
+                                                    "FIELD",
+                                                    sqlWord.Word));
+                                                break;
+                                        };
                                     }
-                                    else if (sqlWord.isValidValue())
-                                    {
-                                        wordsToPush.Add(
-                                            new Tuple<string, string>(
-                                                "VALUE",
-                                                string.Format("{0}='{1}'", 
-                                                    sqlWord.SQLColumn, sqlWord.Word)));
-                                    } else if(sqlWord.WordType == SQLWord.EWordType.SQL)
+                                    else
                                     {
                                         wordsToPush.Add(new Tuple<string, string>(
                                                 "FIELD",
                                                 sqlWord.Word));
                                     }
+                                }
 
 
-                                    if (sqlWord.SQLTable != null)
+                                if (sqlWord.SQLTable != null)
+                                {
+                                    if (Table.Length == 0)
                                     {
-                                        if (Table.Length == 0)
+                                        wordsToPush.Add(new Tuple<string, string>("TABLE", sqlWord.SQLTable));
+                                        Table = sqlWord.SQLTable;
+                                    }
+                                    else if (Table != sqlWord.SQLTable)
+                                    {
+                                        string JoinString;
+                                        string[] JoinStrings;
+                                        if (IsValidJoin(Table, sqlWord.SQLTable, out JoinString))
                                         {
-                                            wordsToPush.Add(new Tuple<string, string>("TABLE", sqlWord.SQLTable));
-                                            Table = sqlWord.SQLTable;
+                                            wordsToPush.Add(
+                                                new Tuple<string, string>("JOIN",
+                                                    string.Format("{0} ON {1}", sqlWord.SQLTable, JoinString)));
                                         }
-                                        else if (Table != sqlWord.SQLTable)
-                                        {
-                                            string JoinString;
-                                            string[] JoinStrings;
-                                            if (IsValidJoin(Table, sqlWord.SQLTable, out JoinString))
+                                        else
+                                        {   // Nieprawidłowe złączenie - być może jest wielokrotne złączenie
+                                            if (IsValidRecursiveJoin(Table, Table, sqlWord.SQLTable, 5, out JoinStrings))
                                             {
-                                                wordsToPush.Add(
-                                                    new Tuple<string, string>("JOIN",
-                                                        string.Format("{0} ON {1}", sqlWord.SQLTable, JoinString)));
+                                                foreach (var join in JoinStrings)
+                                                {
+                                                    wordsToPush.Add(
+                                                        new Tuple<string, string>("JOIN", join));
+                                                }
                                             }
                                             else
-                                            {   // Nieprawidłowe złączenie - być może jest wielokrotne złączenie
-                                                if (IsValidRecursiveJoin(Table, Table, sqlWord.SQLTable, 5, out JoinStrings))
-                                                {
-                                                    foreach (var join in JoinStrings)
-                                                    {
-                                                        wordsToPush.Add(
-                                                            new Tuple<string, string>("JOIN", join));
-                                                    }
-                                                }
-                                                else
-                                                {
-                                                    int x = 0;
-                                                    x = x + 1;
-                                                }
+                                            {
+                                                int x = 0;
+                                                x = x + 1;
                                             }
                                         }
                                     }
                                 }
-                                else
-                                {
-                                    if (sqlWord.Definition != ChatBot.IgnoredItemValue)
-                                        wordsToPush.Add(new Tuple<string, string>("UNKNOWN",
-                                            string.Format("{0} MISSING {1}", sqlWord.Word, sqlWord.MissingObject())));
-                                }
                             }
-
-                            foreach(var word in words)
+                            else
                             {
-                                if(word.WordType == SQLWord.EWordType.SQL 
-                                    && word.SQLFunction != null
-                                    && word.SQLFunction.GroupByRequired)
+                                if (sqlWord.Definition != ChatBot.IgnoredItemValue)
+                                    wordsToPush.Add(new Tuple<string, string>("UNKNOWN",
+                                        string.Format("{0} MISSING {1}", sqlWord.Word, sqlWord.MissingObject())));
+                            }
+                        }
+
+                        foreach (var word in words)
+                        {
+                            if (word.WordType == SQLWord.EWordType.SQL
+                                && word.SQLFunction != null
+                                && word.SQLFunction.GroupByRequired)
+                            {
+                                foreach (var field in words)
                                 {
-                                    foreach (var field in words)
+                                    if (field.isValidColumn())
                                     {
-                                        if (field.isValidColumn())
-                                        {
-                                            Tuple<string, string> groupByTuple =
-                                                new Tuple<string, string>("GROUPBY", field.SQLColumn);
-                                            if (!wordsToPush.Contains(groupByTuple))
-                                                wordsToPush.Add(groupByTuple);
-                                        }
+                                        Tuple<string, string> groupByTuple =
+                                            new Tuple<string, string>("GROUPBY", field.SQLColumn);
+                                        if (!wordsToPush.Contains(groupByTuple))
+                                            wordsToPush.Add(groupByTuple);
                                     }
                                 }
                             }

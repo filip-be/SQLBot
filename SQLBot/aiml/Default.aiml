@@ -178,4 +178,11 @@
     <pattern>SQLBOT APP QUERY *</pattern>
     <template>SQLBOT APP QUERY <star/></template>
   </category>
+
+  <category>
+    <pattern>SQLBOT ECHO *</pattern>
+    <template>
+      <star/>
+    </template>
+  </category>
 </aiml>

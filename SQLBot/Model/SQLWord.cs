@@ -412,7 +412,7 @@ namespace Cindalnet.SQLBot.Model
 
         public bool isFunction()
         {
-            return WordType == EWordType.Function;
+            return WordType == EWordType.Function && SQLFunction != null;
         }
 
         public bool isValidWord()

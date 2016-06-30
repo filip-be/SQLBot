@@ -11,7 +11,8 @@ namespace Cindalnet.SQLBot.Model
         public enum FunctionLocation
         {
             FRONT,
-            INLINE,
+            SELECT,
+            WHERE,
             END
         };
 
@@ -45,7 +46,8 @@ namespace Cindalnet.SQLBot.Model
         {
             /*
              * FRONT
-             * INLINE
+             * SELECT
+             * WHERE
              * END
              */
             switch (location)
@@ -53,14 +55,17 @@ namespace Cindalnet.SQLBot.Model
                 case "FRONT":
                     functionLocation = FunctionLocation.FRONT;
                     break;
-                case "INLINE":
-                    functionLocation = FunctionLocation.INLINE;
+                case "SELECT":
+                    functionLocation = FunctionLocation.SELECT;
+                    break;
+                case "WHERE":
+                    functionLocation = FunctionLocation.WHERE;
                     break;
                 case "END":
                     functionLocation = FunctionLocation.END;
                     break;
                 default:
-                    functionLocation = FunctionLocation.INLINE;
+                    functionLocation = FunctionLocation.SELECT;
                     break;
             };
         }
@@ -131,7 +136,7 @@ namespace Cindalnet.SQLBot.Model
 
         public SQLFunction(SQLBot.Database.SQLBot_Function function)
         {
-            setFunctionLocation(function.SQLBot_FunctionColumnLocation.sqlfncl_Name);
+            setFunctionLocation(function.SQLBot_FunctionLocation.sqlfl_Name);
             setColumnLocation(function.SQLBot_FunctionColumnLocation.sqlfncl_Name);
             setRequiredWordType(function.SQLBot_FieldType.sqlft_Name);
 

@@ -97,10 +97,7 @@
               </condition>
             </set>
           </think>
-          SQLBOT APP QUERY SELECT <get name="query_fields"/> FROM <get name="query_tables"/> 
-            <get name="query_joins"/>
-            <get name="query_value"/> 
-            <get name="query_groupby"/>
+          SQLBOT APP QUERY SELECT <get name="query_fields"/> FROM <get name="query_tables"/> <get name="query_joins"/> <get name="query_value"/> <get name="query_groupby"/>
         </li>
         <li>
           <srai>
