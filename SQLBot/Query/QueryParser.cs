@@ -312,12 +312,31 @@ namespace Cindalnet.SQLBot.Query
                                 unknownWords.RemoveAt(unknownWords.Count - 1);
 
                                 sqlWords.RemoveAt(sqlWords.Count - 1);
-                                //wyświetl towary wyprodukowane przez optyka zoo
                             }
                         }
                         else
                         {
-                            unknownWord = new Tuple<int, SQLWord>(wordNum, sqlWord);
+                            if (sqlWords.Count() > 0)
+                            {
+                                SQLWord sqlWordConcat = new SQLWord();
+                                sqlWordConcat.Initialize(ChatBot, ChatUser, sqlWords.Last().Word + " " + FieldName);
+                                unknownWord = new Tuple<int, SQLWord>(wordNum, sqlWordConcat);
+
+                                if (sqlWordConcat.isValidWord())
+                                {
+                                    sqlWords.RemoveAt(sqlWords.Count - 1);
+                                    sqlWord = sqlWordConcat;
+                                    isKnown = true;
+                                }
+                                else if (!isKnown)
+                                {
+                                    unknownWord = new Tuple<int, SQLWord>(wordNum, sqlWord);
+                                }
+                            }
+                            else
+                            {
+                                unknownWord = new Tuple<int, SQLWord>(wordNum, sqlWord);
+                            }
                         }
 
                         if (!isKnown)
@@ -772,7 +791,7 @@ namespace Cindalnet.SQLBot.Query
                 foreach(var wordToPush in wordsToPush)
                 {
                     Request chatRequest = new Request(
-                        string.Format("SQLBOT AIML {0} PUSH {1}", wordToPush.Item1, wordToPush.Item2),
+                        string.Format("SQLBOT AIML {0} PUSH {1}", wordToPush.Item1, wordToPush.Item2.Replace("<", "&lt;")),
                         ChatUser,
                         ChatBot);
                     Result chatRes = ChatBot.Chat(chatRequest);
