@@ -400,9 +400,12 @@ namespace Cindalnet.SQLBot.Query
             SQLBot_Field field = null;
             if (word.WordType == SQLWord.EWordType.Field)
             {
+                string sqlColumn = word.SQLColumn;
+                if (word.SQLTable != null && sqlColumn.StartsWith(word.SQLTable + "."))
+                    sqlColumn = sqlColumn.Substring(word.SQLTable.Length + 1);
                 field = new BazaRelacyjnaDataContext().
                    SQLBot_Field.Where(f => f.SQLBot_FieldType.sqlft_Name == TypeName
-                    && f.sqlf_SQLColumnName == word.SQLColumn).FirstOrDefault();
+                    && f.sqlf_SQLColumnName == sqlColumn).FirstOrDefault();
             }
             else if (word.WordType == SQLWord.EWordType.Table)
             {
@@ -463,7 +466,7 @@ namespace Cindalnet.SQLBot.Query
             if (field != null)
             {
                 tableName = field.SQLBot_Table.sqlt_SQLName;
-                columnName = string.Format("{0}.{1}", tableName, field.sqlf_SQLColumnName);
+                columnName = field.sqlf_SQLColumnName;
                 return true;
             }
 
@@ -499,7 +502,7 @@ namespace Cindalnet.SQLBot.Query
                             case SQLFunction.ColumnLocation.BEFORE:
                                 if (!getColumnName(wordBefore, function.requiredColumnType, out sqlColumn1, out sqlTableName1))
                                 {
-                                    return "ERROR - INVALID BEFORE PARAMETER!";
+                                    return string.Format("Nieprawidłowy parametr funkcji - '{0}' powinien mieć wartość {1}", wordBefore.Word, function.requiredColumnType);
                                 }
                                 else
                                 {
@@ -511,7 +514,7 @@ namespace Cindalnet.SQLBot.Query
                             case SQLFunction.ColumnLocation.AFTER:
                                 if (!getColumnName(wordAfter, function.requiredColumnType, out sqlColumn1, out sqlTableName1))
                                 {
-                                    return "ERROR - INVALID AFTER PARAMETER!";
+                                    return string.Format("Nieprawidłowy parametr funkcji - '{0}' powinien mieć wartość {1}", wordAfter.Word, function.requiredColumnType);
                                 }
                                 else
                                 {
@@ -522,11 +525,11 @@ namespace Cindalnet.SQLBot.Query
                             case SQLFunction.ColumnLocation.BOTH:
                                 if (!getColumnName(wordBefore, function.requiredColumnType, out sqlColumn1, out sqlTableName1))
                                 {
-                                    return "ERROR - INVALID BEFORE PARAMETER!";
+                                    return string.Format("Nieprawidłowy parametr funkcji - '{0}' powinien mieć wartość {1}", wordBefore.Word, function.requiredColumnType);
                                 }
                                 else if (!getColumnName(wordAfter, function.requiredColumnType, out sqlColumn2, out sqlTableName2))
                                 {
-                                    return "ERROR - INVALID AFTER PARAMETER!";
+                                    return string.Format("Nieprawidłowy parametr funkcji - '{0}' powinien mieć wartość {1}", wordAfter.Word, function.requiredColumnType);
                                 }
                                 else
                                 {
@@ -540,6 +543,27 @@ namespace Cindalnet.SQLBot.Query
                                 break;
                             case SQLFunction.ColumnLocation.NONE:
                                 sqlQuery = sqlQuery.Replace(COLUMNNAME, "");
+                                break;
+                            case SQLFunction.ColumnLocation.ANY:
+                                if (getColumnName(wordBefore, function.requiredColumnType, out sqlColumn1, out sqlTableName1))
+                                {
+                                    var regex = new Regex(Regex.Escape(COLUMNNAME));
+                                    sqlQuery = regex.Replace(sqlQuery, sqlColumn1, 1);
+                                    words.Remove(wordBefore);
+                                    num--;
+                                }
+                                else if (getColumnName(wordAfter, function.requiredColumnType, out sqlColumn1, out sqlTableName1))
+                                {
+                                    var regex = new Regex(Regex.Escape(COLUMNNAME));
+                                    sqlQuery = regex.Replace(sqlQuery, sqlColumn1, 1);
+                                    words.Remove(wordAfter);
+                                }
+                                else
+                                {
+                                    return string.Format("Brak prawidłowego parametru funkcji '{0}' - poszukiwana wartość typu {1}", function.Name, function.requiredColumnType);
+                                }
+                                break;
+                            default:
                                 break;
                         };
 
@@ -600,6 +624,20 @@ namespace Cindalnet.SQLBot.Query
                     num++;
                 }
             }
+
+            if(error == string.Empty 
+                && words.Count> 0 
+                && words.Where(w => w.WordType == SQLWord.EWordType.Number).Count() > 0)
+            {   // TOP N ROWS
+                int indexOfNumber = words.IndexOf(words.Where(w => w.WordType == SQLWord.EWordType.Number).First());
+                SQLWord topWord = new SQLWord();
+                topWord.Initialize(ChatBot, ChatUser, "Pierwsze");
+                if (topWord.isFunction())
+                {
+                    words.Insert(indexOfNumber + 1, topWord);
+                    error = AnalyzeFunctions(ref words);
+                }
+            }
             return error;
         }
 
@@ -634,7 +672,7 @@ namespace Cindalnet.SQLBot.Query
 
                 try
                 {   // Wyczyść stosy
-                    foreach(var fieldName in new string[]{"FIELD", "VALUE", "TABLE", "UNKNOWN", "JOIN", "GROUPBY"})
+                    foreach(var fieldName in new string[]{"BEFORE FIELD", "FIELD", "VALUE", "TABLE", "UNKNOWN", "JOIN", "GROUPBY", "QUERY END"})
                     {
                         Request chatRequest = new Request(
                             string.Format("SQLBOT AIML STACK CLEAR {0}", fieldName),
@@ -699,6 +737,16 @@ namespace Cindalnet.SQLBot.Query
                                             case SQLFunction.FunctionLocation.WHERE:
                                                 wordsToPush.Add(new Tuple<string, string>(
                                                     "VALUE",
+                                                    sqlWord.Word));
+                                                break;
+                                            case SQLFunction.FunctionLocation.FRONT:
+                                                wordsToPush.Add(new Tuple<string, string>(
+                                                    "BEFORE FIELD",
+                                                    sqlWord.Word));
+                                                break;
+                                            case SQLFunction.FunctionLocation.END:
+                                                wordsToPush.Add(new Tuple<string, string>(
+                                                    "QUERY END",
                                                     sqlWord.Word));
                                                 break;
                                             default:
@@ -791,7 +839,7 @@ namespace Cindalnet.SQLBot.Query
                 foreach(var wordToPush in wordsToPush)
                 {
                     Request chatRequest = new Request(
-                        string.Format("SQLBOT AIML {0} PUSH {1}", wordToPush.Item1, wordToPush.Item2.Replace("<", "&lt;")),
+                        string.Format("SQLBOT AIML {0} PUSH {1}", wordToPush.Item1, wordToPush.Item2),
                         ChatUser,
                         ChatBot);
                     Result chatRes = ChatBot.Chat(chatRequest);
@@ -823,7 +871,7 @@ namespace Cindalnet.SQLBot.Query
                     con.Open();
                     DbCommand cmd = con.CreateCommand();
 
-                    cmd.CommandText = TrimWord(SQLQuery);
+                    cmd.CommandText = TrimWord(SQLQuery).Replace(SQLFunction.LessThanMark, "<");
 
                     // Create a reader that contains rows of entity data. 
                     using (DbDataReader rdr = cmd.ExecuteReader())
@@ -861,27 +909,19 @@ namespace Cindalnet.SQLBot.Query
             return res;
         }
 
-        private string queryDatabase(string chatResponse, bool isCleanSQLQuery)
+        private string queryDatabase(string chatResponse)
         {
             string res = chatResponse;
 
             string SQLQuery;
-            if (isCleanSQLQuery)
-            {
-                SQLQuery = TrimWord(chatResponse);
+            SQLQuery = TrimWord(chatResponse);
 
-                bool QueryResult = executeQuery(SQLQuery);
+            bool QueryResult = executeQuery(SQLQuery);
 
-                res = string.Format("QUERYDONE | {0} | {1} | {2}",
-                                        QueryResult ? "OK" : "ERROR",
-                                        SQLQuery,
-                                        !QueryResult && QueryException.Length > 0 ? QueryException : "NONE");
-            }
-            else
-            {
-                SQLQuery = prepareQuery(chatResponse);
-                res = SQLQuery;
-            }
+            res = string.Format("QUERYDONE | {0} | {1} | {2}",
+                                    QueryResult ? "OK" : "ERROR",
+                                    SQLQuery,
+                                    !QueryResult && QueryException.Length > 0 ? QueryException : "NONE");
 
             return res;
         }
@@ -949,11 +989,11 @@ namespace Cindalnet.SQLBot.Query
                 if (res.StartsWith(PatternPrepareQuery))
                 {   // 1. Odpytanie bazy danych na podstawie znanych informacji
                     // 2. Ponowne zapytanie systemu konwersacyjnego - rekurencja
-                    res = ParseQuery(queryDatabase(res, false));
+                    res = ParseQuery(prepareQuery(res));
                 }
                 else if(res.StartsWith(PatternSQLQuery))
                 {   // Wywołanie konretnego zapytania SQL
-                    res = ParseQuery(queryDatabase(res.Substring(PatternSQLQuery.Length), true));
+                    res = ParseQuery(queryDatabase(res.Substring(PatternSQLQuery.Length)));
                 }
                 else if(res.Contains(PatternGetFormBase))
                 {

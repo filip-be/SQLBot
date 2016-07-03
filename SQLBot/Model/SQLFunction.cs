@@ -21,7 +21,8 @@ namespace Cindalnet.SQLBot.Model
             BEFORE,
             AFTER,
             BOTH,
-            NONE
+            NONE,
+            ANY
         };
 
         public enum ColumnType
@@ -41,6 +42,8 @@ namespace Cindalnet.SQLBot.Model
         public string SQLQuery { get; set; }
         public string Description { get; set; }
         public bool GroupByRequired { get; set; }
+
+        public static string LessThanMark = "LESS_THAN_CHAR";
 
         private void setFunctionLocation(string location)
         {
@@ -77,6 +80,7 @@ namespace Cindalnet.SQLBot.Model
                 AFTER
                 BOTH
                 NONE
+                ANY
             */
             switch (location)
             {
@@ -91,6 +95,9 @@ namespace Cindalnet.SQLBot.Model
                     break;
                 case "NONE":
                     columnLocation = ColumnLocation.NONE;
+                    break;
+                case "ANY":
+                    columnLocation = ColumnLocation.ANY;
                     break;
                 default:
                     columnLocation = ColumnLocation.NONE;
@@ -141,7 +148,7 @@ namespace Cindalnet.SQLBot.Model
             setRequiredWordType(function.SQLBot_FieldType.sqlft_Name);
 
             this.Name = function.sqlfn_Name;
-            this.SQLQuery = function.sqlfn_SQL;
+            this.SQLQuery = function.sqlfn_SQL.Replace("<", LessThanMark);
             this.Description = function.sqlfn_Description;
             this.GroupByRequired = function.sqlfn_RequireGroupBy;
         }

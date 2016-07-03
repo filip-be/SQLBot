@@ -17,6 +17,9 @@
         <set name="parameter_unknown">
           <srai>SQLBOT AIML SHOW STACK OBJECT UNKNOWN NUM 0 UNKNOWN TRUE</srai>
         </set>
+        <set name="parameter_before_field_first">
+          <srai>SQLBOT AIML SHOW STACK OBJECT BEFORE FIELD NUM 0 UNKNOWN TRUE</srai>
+        </set>
         <set name="parameter_field_first">
           <srai>SQLBOT AIML SHOW STACK OBJECT FIELD NUM 0 UNKNOWN TRUE</srai>
         </set>
@@ -31,6 +34,12 @@
         </set>
         <set name="parameter_groupby_first">
           <srai>SQLBOT AIML SHOW STACK OBJECT GROUPBY NUM 0 UNKNOWN TRUE</srai>
+        </set>
+        <set name="parameter_query_end_first">
+          <srai>SQLBOT AIML SHOW STACK OBJECT QUERY END NUM 0 UNKNOWN TRUE</srai>
+        </set>
+        <set name="parameter_before_fields">
+          <srai>SQLBOT AIML SHOW STACK BEFORE FIELD DELIMITER ,</srai>
         </set>
         <set name="parameter_fields">
           <srai>SQLBOT AIML SHOW STACK FIELD DELIMITER ,</srai>
@@ -47,11 +56,22 @@
         <set name="parameter_groupby">
           <srai>SQLBOT AIML SHOW STACK GROUPBY DELIMITER ,</srai>
         </set>
+        <set name="parameter_query_end">
+          <srai>SQLBOT AIML SHOW STACK QUERY END DELIMITER ,</srai>
+        </set>
       </think>
       
       <condition>
         <li name="parameter_unknown" value="UNKNOWN">
           <think>
+            <set name="query_before_fields">
+              <condition>
+                <li name="parameter_beofore_field_first" value="UNKNOWN"></li>
+                <li>
+                  <get name="parameter_before_fields"/>
+                </li>
+              </condition>
+            </set>
             <set name="query_fields">
               <condition>
                 <li name="parameter_field_first" value="UNKNOWN">
@@ -96,8 +116,21 @@
                 </li>
               </condition>
             </set>
+            <set name="query_query_end">
+              <condition>
+                <li name="parameter_query_end_first" value="UNKNOWN"></li>
+                <li>
+                  <get name="parameter_query_end"/>
+                </li>
+              </condition>
+            </set>
           </think>
-          SQLBOT APP QUERY SELECT <get name="query_fields"/> FROM <get name="query_tables"/> <get name="query_joins"/> <get name="query_value"/> <get name="query_groupby"/>
+          SQLBOT APP QUERY SELECT <get name="query_before_fields"/> <get name="query_fields"/>
+          FROM <get name="query_tables"/>
+          <get name="query_joins"/>
+          <get name="query_value"/>
+          <get name="query_groupby"/>
+          <get name="query_query_end"/>
         </li>
         <li>
           <srai>
