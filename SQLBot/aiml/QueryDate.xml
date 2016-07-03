@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="windows-1250"?>
+<aiml>
+  <!-- Free software &copy; 2001-2003 ALICE A.I. Foundation. -->
+  <!-- This program is open source code released under -->
+  <!-- the terms of the GNU General Public License     -->
+  <!-- as published by the Free Software Foundation.   -->
+  <!-- Complies with AIML 1.01 Tag Set Specification -->
+  <!-- as adopted by the ALICE A.I. Foundation.  -->
+  <!-- Annotated Version updated September 2003 -->
+  <category>
+    <pattern>
+      SQLBOT AIML DATE QUERY year + *
+    </pattern>
+    <template>
+      DATEADD(yy, DATEDIFF(yy, 0, GETDATE()) - <star/>, 0)
+    </template>
+  </category>
+
+  <category>
+    <pattern>
+      SQLBOT AIML DATE QUERY quarter + *
+    </pattern>
+    <template>
+      DATEADD(qq, DATEDIFF(qq, 0, GETDATE()) - <star/>, 0)
+    </template>
+  </category>
+
+  <category>
+    <pattern>
+      SQLBOT AIML DATE QUERY month + *
+    </pattern>
+    <template>
+      DATEADD(mm, DATEDIFF(mm, 0, GETDATE()) - <star/>, 0)
+    </template>
+  </category>
+
+  <category>
+    <pattern>
+      SQLBOT AIML DATE QUERY day + *
+    </pattern>
+    <template>
+      DATEADD(dd, DATEDIFF(dd, 0, GETDATE()) - <star/>, 0)
+    </template>
+  </category>
+
+  <category>
+    <pattern>
+      SQLBOT AIML DATE QUERY hour + *
+    </pattern>
+    <template>
+      DATEADD(hh, DATEDIFF(hh, 0, GETDATE()) - <star/>, 0)
+    </template>
+  </category>
+
+  <category>
+    <pattern>
+      SQLBOT AIML DATE QUERY minute + *
+    </pattern>
+    <template>
+      DATEADD(mi, DATEDIFF(mi, 0, GETDATE()) - <star/>, 0)
+    </template>
+  </category>
+
+  <category>
+    <pattern>
+      SQLBOT AIML DATE QUERY second + *
+    </pattern>
+    <template>
+      DATEADD(ss, DATEDIFF(ss, 0, GETDATE()) - <star/>, 0)
+    </template>
+  </category>
+</aiml>

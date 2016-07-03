@@ -661,6 +661,14 @@ namespace Cindalnet.SQLBot.Query
             return error;
         }
 
+        private string AnalyzeDates(ref List<SQLWord> words)
+        {
+            string error = string.Empty;
+
+
+            return error;
+        }
+
         private string prepareQuery(string chatResponse)
         {
             string res = "";
@@ -692,6 +700,13 @@ namespace Cindalnet.SQLBot.Query
                         List<SQLWord> words = InterpretQuery(parameters[argsNum]);
 
                         string err = AnalyzeNumbers(ref words);
+
+                        if (err.Length > 0)
+                        {
+                            return string.Format("ERROR - {0}", err);
+                        }
+
+                        err = AnalyzeDates(ref words);
 
                         if (err.Length > 0)
                         {

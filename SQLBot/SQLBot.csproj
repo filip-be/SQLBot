@@ -139,8 +139,8 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="aiml\Query.aiml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="aiml\Stack.aiml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -206,6 +206,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="aiml\QueryDate.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="config\AIMLBot_DefaultPredicates.xml" />
     <Content Include="config\AIMLBot_GenderSubstitutions.xml" />
     <Content Include="config\AIMLBot_Person2Substitutions.xml" />
