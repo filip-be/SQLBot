@@ -174,9 +174,9 @@
     <EmbeddedResource Include="View\MaterialPanel.resx">
       <DependentUpon>MaterialPanel.cs</DependentUpon>
     </EmbeddedResource>
-    <Content Include="aiml\CustomConversations.xml">
+    <None Include="aiml\CustomConversations.aiml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    </None>
     <Content Include="aiml\Default.aiml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <SubType>Designer</SubType>
@@ -206,9 +206,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="aiml\QueryDate.xml">
+    <None Include="aiml\QueryDate.aiml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    </None>
     <Content Include="config\AIMLBot_DefaultPredicates.xml" />
     <Content Include="config\AIMLBot_GenderSubstitutions.xml" />
     <Content Include="config\AIMLBot_Person2Substitutions.xml" />

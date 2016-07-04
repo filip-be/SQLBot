@@ -7,5 +7,15 @@
   <!-- Complies with AIML 1.01 Tag Set Specification -->
   <!-- as adopted by the ALICE A.I. Foundation.  -->
   <!-- Annotated Version updated September 2003 -->
+  <category>
+    <pattern>
+      Ile lat ma *
+    </pattern>
+    <template>
+      <srai>
+        Wyœwietl rok urodzenia <star/>
+      </srai>
+    </template>
+  </category>
  
 </aiml>
