@@ -18,6 +18,9 @@ namespace Cindalnet.SQLBot.Model
             Join,
             Function,
             Number,
+            Date,
+            Month,
+            DateAffix,
             SQL,
             Unknown
         };
@@ -38,6 +41,8 @@ namespace Cindalnet.SQLBot.Model
         public double Number { get; set; }
         public ECharBeforeNumber CharBeforeNumber { get; set; }
 
+        public DateTime DateTime { get; set; }
+
         public string SQLColumn { get; set; }
         public string SQLTable { get; set; }
 
@@ -57,6 +62,7 @@ namespace Cindalnet.SQLBot.Model
             Parent = null;
             Child = null;
             Number = 0;
+            DateTime = new System.DateTime();
             CharBeforeNumber = ECharBeforeNumber.Unknown;
         }
 
@@ -251,6 +257,29 @@ namespace Cindalnet.SQLBot.Model
                 }
             }
         }
+        
+        public bool IsMonth(string FieldName, Bot ChatBot, User ChatUser)
+        {
+            bool res = false;
+            try
+            {
+                Request chatRequest = new Request(string.Format("SQLBOT WHAT MONTH IS {0}", FieldName), ChatUser, ChatBot);
+                Result chatRes = ChatBot.Chat(chatRequest);
+                string chatOutput = TrimWord(chatRes.Output);
+                int numberValue;
+
+                if (chatOutput != "UNKNOWN" && int.TryParse(chatOutput, out numberValue))
+                {
+                    this.Number = numberValue;
+                    res = true;
+                }
+            }
+            catch(Exception)
+            {
+                res = false;
+            }
+            return res;
+        }
 
         public void Initialize(Bot ChatBot, User ChatUser, string FieldName)
         {
@@ -269,6 +298,11 @@ namespace Cindalnet.SQLBot.Model
                     {
                         fieldType = "NUMBER";
                     }
+                    else if (IsMonth(FieldName, ChatBot, ChatUser))
+                    {
+                        fieldType = "MONTH";
+                    }
+
 
                     switch (fieldDesc)
                     {
@@ -296,6 +330,12 @@ namespace Cindalnet.SQLBot.Model
                             break;
                         case "FUNCTION":
                             sqlWord.WordType = EWordType.Function;
+                            break;
+                        case "MONTH":
+                            sqlWord.WordType = EWordType.Month;
+                            break;
+                        case "DATE AFFIX":
+                            sqlWord.WordType = EWordType.DateAffix;
                             break;
                         case "UNKNOWN":
                         default:

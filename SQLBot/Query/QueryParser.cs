@@ -47,6 +47,10 @@ namespace Cindalnet.SQLBot.Query
 
                 ChatBot.Chat("SQLBOT AIML LEARN POLISH NUMBERS",
                         ChatUser.UserID);
+                ChatBot.Chat("SQLBOT AIML LEARN POLISH MONTHS",
+                        ChatUser.UserID);
+                ChatBot.Chat("SQLBOT AIML LEARN DATE AFFIXES",
+                        ChatUser.UserID);
 
                 foreach (var field in fields)
                 {
@@ -445,6 +449,15 @@ namespace Cindalnet.SQLBot.Query
                         }
                         break;
                     case SQLFunction.ColumnType.Date:
+                        if(word.WordType == SQLWord.EWordType.Date)
+                        {
+                            columnName = string.Format("{0}", word.DateTime);
+                            return true;
+                        }
+                        else
+                        {
+                            field = getColumn(word, "Date");
+                        }
                         break;
                     case SQLFunction.ColumnType.String:
                         break;
@@ -832,7 +845,7 @@ namespace Cindalnet.SQLBot.Query
                             {
                                 foreach (var field in words)
                                 {
-                                    if (field.isValidColumn())
+                                    if (field.isValidColumn() || (field.isFunction() && field.SQLColumn != string.Empty))
                                     {
                                         Tuple<string, string> groupByTuple =
                                             new Tuple<string, string>("GROUPBY", field.SQLColumn);

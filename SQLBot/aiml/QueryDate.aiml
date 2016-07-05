@@ -69,4 +69,81 @@
       DATEADD(ss, DATEDIFF(ss, 0, GETDATE()) - <star/>, 0)
     </template>
   </category>
+
+  <category>
+    <pattern>
+      SQLBOT WHAT MONTH IS *
+    </pattern>
+    <template>
+      UNKNOWN
+    </template>
+  </category>
+
+  <category>
+    <pattern>
+      SQLBOT LEARN WHAT MONTH IS * | *
+    </pattern>
+    <template>
+      <learn directory="aiml_learn" filename="PATTERN">
+        <aiml>
+          <category>
+            <pattern>
+              <eval>
+                <uppercase>
+                  SQLBOT WHAT MONTH IS <star index="1"/>
+                </uppercase>
+              </eval>
+            </pattern>
+            <template>
+              <eval>
+                <uppercase>
+                  <star index="2"/>
+                </uppercase>
+              </eval>
+            </template>
+          </category>
+        </aiml>
+      </learn>
+    </template>
+  </category>
+
+  <category>
+    <pattern>
+      SQLBOT AIML LEARN POLISH MONTHS
+    </pattern>
+    <template>
+      <srai>SQLBOT LEARN WHAT MONTH IS STYCZE— | 1</srai>
+      <srai>SQLBOT LEARN WHAT MONTH IS LUTY | 2</srai>
+      <srai>SQLBOT LEARN WHAT MONTH IS MARZEC | 3</srai>
+      <srai>SQLBOT LEARN WHAT MONTH IS KWIECIE— | 4</srai>
+      <srai>SQLBOT LEARN WHAT MONTH IS MAJ | 5</srai>
+      <srai>SQLBOT LEARN WHAT MONTH IS MAJA | 5</srai>
+      <srai>SQLBOT LEARN WHAT MONTH IS CZERWIEC | 6</srai>
+      <srai>SQLBOT LEARN WHAT MONTH IS LIPIEC | 7</srai>
+      <srai>SQLBOT LEARN WHAT MONTH IS SIERPIE— | 8</srai>
+      <srai>SQLBOT LEARN WHAT MONTH IS WRZESIE— | 9</srai>
+      <srai>SQLBOT LEARN WHAT MONTH IS WRZEåNIA | 9</srai>
+      <srai>SQLBOT LEARN WHAT MONTH IS PAèDZIERNIK | 10</srai>
+      <srai>SQLBOT LEARN WHAT MONTH IS LISTOPAD | 11</srai>
+      <srai>SQLBOT LEARN WHAT MONTH IS GRUDZIE— | 12</srai>
+    </template>
+  </category>
+
+  <category>
+    <pattern>
+      SQLBOT AIML LEARN DATE AFFIXES
+    </pattern>
+    <template>
+      <srai>SQLBOT LEARN WHAT IS POPRZEDNI | BEFORE | DATE AFFIX</srai>
+      <srai>SQLBOT LEARN WHAT IS ZESZ£Y | BEFORE | DATE AFFIX</srai>
+      <srai>SQLBOT LEARN WHAT IS OSTATNI | BEFORE | DATE AFFIX</srai>
+      <srai>SQLBOT LEARN WHAT IS PRZESZ£Y | BEFORE | DATE AFFIX</srai>
+      <srai>SQLBOT LEARN WHAT IS UBIEG£Y | BEFORE | DATE AFFIX</srai>
+      <srai>SQLBOT LEARN WHAT IS MINIONY | BEFORE | DATE AFFIX</srai>
+      <srai>SQLBOT LEARN WHAT IS SPRZED | BEFORE | DATE AFFIX</srai>
+      <srai>SQLBOT LEARN WHAT IS PRZED | BEFORE | DATE AFFIX</srai>
+      <srai>SQLBOT LEARN WHAT IS PO | AFTER | DATE AFFIX</srai>
+    </template>
+  </category>
+  
 </aiml>
