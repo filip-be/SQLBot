@@ -14,7 +14,7 @@
   <item name="maxlogbuffersize" value="64"/>
   <item name="islogging" value="true"/>
   <item name="notacceptinguserinputmessage" value="W tej chwili nie ma możliwości odpytania serwera."/>
-  <item name="stripperregex" value="[^0-9a-zA-ZżźćńółęąśŻŹĆĄŚĘŁÓŃ$|*_.,;=()&apos;&quot;&gt;&lt;&amp;+]"/>
+  <item name="stripperregex" value="[^0-9a-zA-ZżźćńółęąśŻŹĆĄŚĘŁÓŃ$|*_.,;=()&apos;&quot;&gt;&lt;&amp;+-/]"/>
 
   <item name="culture" value="pl-pl"/>
   <item name="islogging" value="True"/>

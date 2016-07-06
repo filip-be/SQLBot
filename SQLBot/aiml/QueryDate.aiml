@@ -9,10 +9,19 @@
   <!-- Annotated Version updated September 2003 -->
   <category>
     <pattern>
+      SQLBOT AIML DATE CAST YEAR * MONTH * DAY *
+    </pattern>
+    <template>
+      CAST('<star index="1"/>/<star index="2"/>/<star index="3"/>' AS DATETIME)
+    </template>
+  </category>
+  
+  <category>
+    <pattern>
       SQLBOT AIML DATE QUERY year + *
     </pattern>
     <template>
-      DATEADD(yy, DATEDIFF(yy, 0, GETDATE()) - <star/>, 0)
+      DATEADD(yy, DATEDIFF(yy, 0, GETDATE()) + <star/>, 0)
     </template>
   </category>
 
@@ -21,7 +30,7 @@
       SQLBOT AIML DATE QUERY quarter + *
     </pattern>
     <template>
-      DATEADD(qq, DATEDIFF(qq, 0, GETDATE()) - <star/>, 0)
+      DATEADD(qq, DATEDIFF(qq, 0, GETDATE()) + <star/>, 0)
     </template>
   </category>
 
@@ -30,7 +39,7 @@
       SQLBOT AIML DATE QUERY month + *
     </pattern>
     <template>
-      DATEADD(mm, DATEDIFF(mm, 0, GETDATE()) - <star/>, 0)
+      DATEADD(mm, DATEDIFF(mm, 0, GETDATE()) + <star/>, 0)
     </template>
   </category>
 
@@ -39,7 +48,7 @@
       SQLBOT AIML DATE QUERY day + *
     </pattern>
     <template>
-      DATEADD(dd, DATEDIFF(dd, 0, GETDATE()) - <star/>, 0)
+      DATEADD(dd, DATEDIFF(dd, 0, GETDATE()) + <star/>, 0)
     </template>
   </category>
 
@@ -48,7 +57,7 @@
       SQLBOT AIML DATE QUERY hour + *
     </pattern>
     <template>
-      DATEADD(hh, DATEDIFF(hh, 0, GETDATE()) - <star/>, 0)
+      DATEADD(hh, DATEDIFF(hh, 0, GETDATE()) + <star/>, 0)
     </template>
   </category>
 
@@ -57,7 +66,7 @@
       SQLBOT AIML DATE QUERY minute + *
     </pattern>
     <template>
-      DATEADD(mi, DATEDIFF(mi, 0, GETDATE()) - <star/>, 0)
+      DATEADD(mi, DATEDIFF(mi, 0, GETDATE()) + <star/>, 0)
     </template>
   </category>
 
@@ -66,7 +75,7 @@
       SQLBOT AIML DATE QUERY second + *
     </pattern>
     <template>
-      DATEADD(ss, DATEDIFF(ss, 0, GETDATE()) - <star/>, 0)
+      DATEADD(ss, DATEDIFF(ss, 0, GETDATE()) + <star/>, 0)
     </template>
   </category>
 
@@ -134,16 +143,48 @@
       SQLBOT AIML LEARN DATE AFFIXES
     </pattern>
     <template>
-      <srai>SQLBOT LEARN WHAT IS POPRZEDNI | BEFORE | DATE AFFIX</srai>
-      <srai>SQLBOT LEARN WHAT IS ZESZ£Y | BEFORE | DATE AFFIX</srai>
-      <srai>SQLBOT LEARN WHAT IS OSTATNI | BEFORE | DATE AFFIX</srai>
-      <srai>SQLBOT LEARN WHAT IS PRZESZ£Y | BEFORE | DATE AFFIX</srai>
-      <srai>SQLBOT LEARN WHAT IS UBIEG£Y | BEFORE | DATE AFFIX</srai>
-      <srai>SQLBOT LEARN WHAT IS MINIONY | BEFORE | DATE AFFIX</srai>
+      <srai>SQLBOT LEARN WHAT IS POPRZEDNI | LAST | DATE AFFIX</srai>
+      <srai>SQLBOT LEARN WHAT IS ZESZ£Y | LAST | DATE AFFIX</srai>
+      <srai>SQLBOT LEARN WHAT IS OSTATNI | LAST | DATE AFFIX</srai>
+      <srai>SQLBOT LEARN WHAT IS PRZESZ£Y | LAST | DATE AFFIX</srai>
+      <srai>SQLBOT LEARN WHAT IS UBIEG£Y | LAST | DATE AFFIX</srai>
+      <srai>SQLBOT LEARN WHAT IS MINIONY | LAST | DATE AFFIX</srai>
       <srai>SQLBOT LEARN WHAT IS SPRZED | BEFORE | DATE AFFIX</srai>
       <srai>SQLBOT LEARN WHAT IS PRZED | BEFORE | DATE AFFIX</srai>
       <srai>SQLBOT LEARN WHAT IS PO | AFTER | DATE AFFIX</srai>
+      <srai>SQLBOT LEARN WHAT IS POMIÊDZY | BETWEEN | DATE AFFIX</srai>
+      <srai>SQLBOT LEARN WHAT IS MIÊDZY | BETWEEN | DATE AFFIX</srai>
     </template>
   </category>
-  
+
+  <category>
+    <pattern>
+      SQLBOT AIML LEARN DATE PERIODS
+    </pattern>
+    <template>
+      <srai>SQLBOT LEARN WHAT IS ROK | 1 YEAR | DATE PERIOD</srai>
+      <srai>SQLBOT LEARN WHAT IS LATO | 1 YEAR | DATE PERIOD</srai>
+      <srai>SQLBOT LEARN WHAT IS DEKADA | 10 YEAR | DATE PERIOD</srai>
+      <srai>SQLBOT LEARN WHAT IS STULECIE | 100 YEAR | DATE PERIOD</srai>
+      <srai>SQLBOT LEARN WHAT IS MILENIUM | 1000 YEAR | DATE PERIOD</srai>
+      <srai>SQLBOT LEARN WHAT IS MIESI¥C | 1 MONTH | DATE PERIOD</srai>
+      <srai>SQLBOT LEARN WHAT IS HALF | 3 MONTH | DATE PERIOD</srai>
+      <srai>SQLBOT LEARN WHAT IS DZIEÑ | 1 DAY | DATE PERIOD</srai>
+      <srai>SQLBOT LEARN WHAT IS TYDZIEÑ | 1 WEEK| DATE PERIOD</srai>
+      <srai>SQLBOT LEARN WHAT IS GODZINA | 1 HOUR | DATE PERIOD</srai>
+      <srai>SQLBOT LEARN WHAT IS MINUTA | 1 MINUTE | DATE PERIOD</srai>
+      <srai>SQLBOT LEARN WHAT IS SEKUNDA | 1 SECOND| DATE PERIOD</srai>
+    </template>
+  </category>
+
+  <category>
+    <pattern>
+      SQLBOT AIML LEARN POLISH DATES
+    </pattern>
+    <template>
+      <srai>SQLBOT AIML LEARN DATE PERIODS</srai>
+      <srai>SQLBOT AIML LEARN DATE AFFIXES</srai>
+      <srai>SQLBOT AIML LEARN POLISH MONTHS</srai>
+    </template>
+  </category>
 </aiml>

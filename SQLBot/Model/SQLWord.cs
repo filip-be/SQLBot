@@ -41,8 +41,6 @@ namespace Cindalnet.SQLBot.Model
         public double Number { get; set; }
         public ECharBeforeNumber CharBeforeNumber { get; set; }
 
-        public DateTime DateTime { get; set; }
-
         public string SQLColumn { get; set; }
         public string SQLTable { get; set; }
 
@@ -62,7 +60,6 @@ namespace Cindalnet.SQLBot.Model
             Parent = null;
             Child = null;
             Number = 0;
-            DateTime = new System.DateTime();
             CharBeforeNumber = ECharBeforeNumber.Unknown;
         }
 
@@ -331,6 +328,12 @@ namespace Cindalnet.SQLBot.Model
                         case "FUNCTION":
                             sqlWord.WordType = EWordType.Function;
                             break;
+                        case "DATE":
+                            sqlWord.WordType = EWordType.Date;
+                            break;
+                        case "DATE PERIOD":
+                            sqlWord.WordType = EWordType.Date;
+                            break;
                         case "MONTH":
                             sqlWord.WordType = EWordType.Month;
                             break;
@@ -457,7 +460,14 @@ namespace Cindalnet.SQLBot.Model
 
         public bool isValidWord()
         {
-            return isValidTable() || isValidColumn() || isValidValue() || isFunction() || this.WordType == EWordType.SQL;
+            return isValidTable() 
+                || isValidColumn() 
+                || isValidValue() 
+                || isFunction() 
+                || this.WordType == EWordType.SQL
+                || this.WordType == EWordType.Date
+                || this.WordType == EWordType.DateAffix
+                || this.WordType == EWordType.Month;
         }
 
         public enum MissingParameter

@@ -506,6 +506,9 @@
         <li name="ItemType" value="VALUE">
           <star index="1"/> to wartoœæ danej kolumny
         </li>
+        <li name="ItemType" value="DATE PERIOD">
+          <star index="1"/> to okreœlenie pewnej daty
+        </li>
         <li name="ItemType" value="DATE AFFIX">
           <star index="1"/> to afiks daty
         </li>

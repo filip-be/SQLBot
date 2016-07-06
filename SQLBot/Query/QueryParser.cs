@@ -47,9 +47,7 @@ namespace Cindalnet.SQLBot.Query
 
                 ChatBot.Chat("SQLBOT AIML LEARN POLISH NUMBERS",
                         ChatUser.UserID);
-                ChatBot.Chat("SQLBOT AIML LEARN POLISH MONTHS",
-                        ChatUser.UserID);
-                ChatBot.Chat("SQLBOT AIML LEARN DATE AFFIXES",
+                ChatBot.Chat("SQLBOT AIML LEARN POLISH DATES",
                         ChatUser.UserID);
 
                 foreach (var field in fields)
@@ -451,7 +449,7 @@ namespace Cindalnet.SQLBot.Query
                     case SQLFunction.ColumnType.Date:
                         if(word.WordType == SQLWord.EWordType.Date)
                         {
-                            columnName = string.Format("{0}", word.DateTime);
+                            columnName = "UNKNOWN";
                             return true;
                         }
                         else
@@ -638,19 +636,6 @@ namespace Cindalnet.SQLBot.Query
                 }
             }
 
-            if(error == string.Empty 
-                && words.Count> 0 
-                && words.Where(w => w.WordType == SQLWord.EWordType.Number).Count() > 0)
-            {   // TOP N ROWS
-                int indexOfNumber = words.IndexOf(words.Where(w => w.WordType == SQLWord.EWordType.Number).First());
-                SQLWord topWord = new SQLWord();
-                topWord.Initialize(ChatBot, ChatUser, "Pierwsze");
-                if (topWord.isFunction())
-                {
-                    words.Insert(indexOfNumber + 1, topWord);
-                    error = AnalyzeFunctions(ref words);
-                }
-            }
             return error;
         }
 
@@ -678,6 +663,266 @@ namespace Cindalnet.SQLBot.Query
         {
             string error = string.Empty;
 
+            for (int num = 0; num < words.Count; )
+            {
+                bool increment = true;
+                if(words[num].WordType == SQLWord.EWordType.Date)
+                {
+                    if(num > 0
+                       && words[num-1].WordType == SQLWord.EWordType.Number)
+                    {
+                        string[] fields = words[num].Definition.Split(' ');
+                        double multiplier;
+
+                        if(fields.Length == 2
+                            && double.TryParse(fields[0], out multiplier))
+                        {
+                            multiplier *= words[num - 1].Number;
+                            words[num].Definition = string.Format("{0} {1}", multiplier, fields[1]);
+                            words.RemoveAt(num - 1);
+                            increment = false;
+                        }
+                    }
+                }
+                else if(words[num].WordType == SQLWord.EWordType.Month)
+                {
+                    if(num > 0
+                        && words[num-1].WordType == SQLWord.EWordType.Number)
+                    {   // dzień miesiąca
+                        words[num].Word = string.Format("{0} {1}", words[num - 1].Number, words[num].Word);
+                        increment = false;
+                    }
+
+                    if (num < (words.Count - 1)
+                        && words[num + 1].WordType == SQLWord.EWordType.Number)
+                    {   // rok
+                        words[num].Word = string.Format("{0} {1}", words[num].Word, words[num + 1].Number);
+                        words.RemoveAt(num + 1);
+                    }
+
+                    if(!increment)
+                    {
+                        words.RemoveAt(num - 1);
+                    }
+                }
+
+                if(increment)
+                    num++;
+            }
+
+            return error;
+        }
+
+        private string GetDatesQuery(string columnName, double multiplier, SQLWord wordDate, string dateOpacity)
+        {
+            string res = string.Empty;
+
+            string dateOperator = ">=";
+
+            switch(dateOpacity)
+            {
+                case "FROM":
+                    dateOperator = "=";
+                    break;
+                case "LAST":
+                    dateOperator = ">=";
+                    break;
+                case "BEFORE":
+                    dateOperator = SQLFunction.LessThanMark;
+                    break;
+                case "AFTER":
+                    dateOperator = ">=";
+                    break;
+                default:
+                    dateOperator = ">=";
+                    break;
+            }
+
+            string[] fields = null;
+            if (wordDate.Definition != null && wordDate.Definition.Contains(' '))
+                fields = wordDate.Definition.Split(' ');
+            else if (wordDate.Word != null && wordDate.Word.Contains(' '))
+                fields = wordDate.Word.Split(' ');
+            else
+                fields = new string[0];
+
+            double inDateMultiplier;
+
+            if (fields != null
+                &&fields.Length > 1
+                && wordDate.WordType == SQLWord.EWordType.Date
+                && double.TryParse(fields[0], out inDateMultiplier))
+            {
+                multiplier *=  inDateMultiplier;
+            }
+
+            if(wordDate.WordType == SQLWord.EWordType.Date
+                && fields.Length == 2)
+            {
+                Request chatRequest = new Request(
+                        string.Format("SQLBOT AIML DATE QUERY {0} + - {1}", fields[1], multiplier),
+                        ChatUser,
+                        ChatBot);
+                Result chatRes = ChatBot.Chat(chatRequest);
+
+                res = string.Format("{0} {1} {2}", columnName, dateOperator, chatRes.Output);
+            }
+            else if(wordDate.WordType == SQLWord.EWordType.Month)
+            {
+                double day = -1;
+                double year = -1;
+                if (fields.Length > 1)
+                {   // dzień miesiąca
+                    double.TryParse(fields[0], out day);
+                }
+
+                if (fields.Length > 1
+                    && !double.TryParse(fields[1], out year)
+                    && fields.Length > 2)
+                {   // rok
+                    double.TryParse(fields[2], out year);
+                }
+
+                if (dateOpacity == "LAST" || dateOpacity == "FROM")
+                {
+                    if (dateOpacity == "LAST")
+                        year = DateTime.Now.Year - 1;
+
+                    string SQLQuery = string.Empty;
+                    if (day != -1)
+                    {
+                        SQLQuery += string.Format("DAY({0}) = '{1}' AND ", columnName, day);
+                    }
+
+                    SQLQuery += string.Format("MONTH({0}) = '{1}'", columnName, day);
+
+                    if (year != -1)
+                    {
+                        SQLQuery += string.Format(" AND YEAR({0}) = '{1}'", columnName, year);
+                    }
+                    res = SQLQuery;
+                }
+                else
+                {
+                    if (day == -1)
+                        day = 1;
+                    if (year == -1)
+                        year = DateTime.Now.Year;
+
+                    Request chatRequest = new Request(
+                        string.Format("SQLBOT AIML DATE CAST YEAR {0} MONTH {1} DAY {2}", year, wordDate.Number, day),
+                        ChatUser,
+                        ChatBot);
+                    Result chatRes = ChatBot.Chat(chatRequest);
+
+                    res = string.Format("{0} {1} {2}", columnName, dateOperator, chatRes.Output);
+                }
+            }
+
+            return res;
+        }
+
+        private string AnalyzeDateAffixes(ref List<SQLWord> words)
+        {
+            string error = string.Empty;
+            string columnName = string.Empty;
+            string tableName = string.Empty;
+
+            foreach(var word in words)
+            {
+                if(getColumnName(word, SQLFunction.ColumnType.Date, out columnName, out tableName))
+                {
+                    columnName = string.Format("{0}.{1}", tableName, columnName);
+                    break;
+                }
+            }
+
+            if (columnName == string.Empty)
+                return string.Format("Nie udał się znaleźć żadnej kolumny powiązanej z datą");
+
+
+            if (words.FindIndex(w => w.WordType == SQLWord.EWordType.DateAffix) != -1)
+            {   // określenie przedziału
+                for (int num = 0; num < words.Count; )
+                {
+                    if (words[num].WordType == SQLWord.EWordType.DateAffix)
+                    {
+                        string SQLQuery = string.Empty;
+
+                        double multiplier = 1;
+                        if(num > 0 && words[num - 1].WordType == SQLWord.EWordType.Number)
+                        {
+                            multiplier = words[num - 1].Number;
+                            words.RemoveAt(num - 1);
+                            num--;
+                        }
+
+                        if((num+1) >= words.Count
+                            || (words[num + 1].WordType != SQLWord.EWordType.Date && words[num + 1].WordType != SQLWord.EWordType.Month))
+                        {
+                            return string.Format("Brak opisu poszukiwanego zakresu dat po słowie '{0}'", words[num].Word);
+                        }
+                        //wyświetl zarobki pracowników z poprzedniego stycznia
+                        //wyświetl zarobki pracowników z poprzednich trzech lat
+                        //wyświetl zarobki pracowników z trzech poprzednich lat
+
+                        if(words[num].Definition == "BETWEEN")
+                        {
+                            if ((num + 2) >= words.Count
+                            || (words[num + 2].WordType != SQLWord.EWordType.Date && words[num + 1].WordType != SQLWord.EWordType.Month))
+                            {
+                                return string.Format("Brak opisu poszukiwanego zakresu dat po słowie '{0}'", words[num].Word);
+                            }
+
+                            SQLQuery = string.Format("{0} AND {1}",
+                                TrimWord(GetDatesQuery(columnName, multiplier, words[num + 1], "AFTER")),
+                                TrimWord(GetDatesQuery(columnName, multiplier, words[num + 2], "BEFORE")));
+
+                            words.RemoveAt(num + 1);
+                            words.RemoveAt(num + 1);
+                        }
+                        else
+                        {
+                            SQLQuery = GetDatesQuery(columnName, multiplier, words[num + 1], words[num].Definition);
+
+                            words.RemoveAt(num + 1);
+                        }
+
+                        words[num].SQLColumn = columnName;
+                        words[num].Definition = TrimWord(SQLQuery);
+                    }
+
+                    num++;
+                }
+            }
+            else if(words.FindIndex(w => w.WordType == SQLWord.EWordType.Date) != -1)
+            {   // zakres dat, np. wyświetl ... z 3 lat
+                for (int num = 0; num < words.Count; )
+                {
+                    if (words[num].WordType == SQLWord.EWordType.Date)
+                    {
+                        words[num].Definition = TrimWord(GetDatesQuery(columnName, 1, words[num], "LAST"));
+                        words[num].SQLColumn = columnName;
+                        words[num].WordType = SQLWord.EWordType.DateAffix;
+                    }
+
+                    num++;
+                }
+            }
+            else if(words.FindIndex(w => w.WordType == SQLWord.EWordType.Month) != -1)
+            {   // konkretna data, np. wyświetl ... ze stycznia 2015
+                for (int num = 0; num < words.Count; )
+                {
+                    if (words[num].WordType == SQLWord.EWordType.Month)
+                    {
+                        words[num].Definition = TrimWord(GetDatesQuery(columnName, 1, words[num], "FROM"));
+                        words[num].SQLColumn = columnName;
+                        words[num].WordType = SQLWord.EWordType.DateAffix;
+                    }
+
+                    num++;
+                }
+            }
 
             return error;
         }
@@ -731,6 +976,31 @@ namespace Cindalnet.SQLBot.Query
                         if (err.Length > 0)
                         {
                             return string.Format("ERROR - {0}", err);
+                        }
+
+                        err = AnalyzeDateAffixes(ref words);
+
+                        if(err.Length > 0)
+                        {
+                            return string.Format("ERROR - {0}", err);
+                        }
+
+
+                        if (words.Count > 0
+                            && words.Where(w => w.WordType == SQLWord.EWordType.Number).Count() > 0)
+                        {   // TOP N ROWS
+                            int indexOfNumber = words.IndexOf(words.Where(w => w.WordType == SQLWord.EWordType.Number).First());
+                            SQLWord topWord = new SQLWord();
+                            topWord.Initialize(ChatBot, ChatUser, "Pierwsze");
+                            if (topWord.isFunction())
+                            {
+                                words.Insert(indexOfNumber + 1, topWord);
+                                err = AnalyzeFunctions(ref words);
+                                if (err.Length > 0)
+                                {
+                                    return string.Format("ERROR - {0}", err);
+                                }
+                            }
                         }
 
                         string Table = string.Empty;
@@ -791,7 +1061,12 @@ namespace Cindalnet.SQLBot.Query
                                                 sqlWord.Word));
                                     }
                                 }
-
+                                else if (sqlWord.WordType == SQLWord.EWordType.DateAffix)
+                                {
+                                    wordsToPush.Add(new Tuple<string, string>(
+                                                "VALUE",
+                                                sqlWord.Definition));
+                                }
 
                                 if (sqlWord.SQLTable != null)
                                 {

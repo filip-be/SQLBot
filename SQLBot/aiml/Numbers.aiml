@@ -98,6 +98,9 @@
     <template>
       <srai>SQLBOT LEARN WHAT NUMBER IS ZERO | 0 | ADD</srai>
 
+      <srai>SQLBOT LEARN WHAT NUMBER IS PÓ£ | 0.5 | MULTIPLY</srai>
+      <srai>SQLBOT LEARN WHAT NUMBER IS PO£OWA | 0.5 | MULTIPLY</srai>
+
       <srai>SQLBOT LEARN WHAT NUMBER IS JEDEN | 1 | ADD</srai>
       <srai>SQLBOT LEARN WHAT NUMBER IS PIERWSZY | 1 | ADD</srai>
       <srai>SQLBOT LEARN WHAT NUMBER IS PIERWSZA | 1 | ADD</srai>
