@@ -441,6 +441,20 @@ namespace Cindalnet.SQLBot.Query
                             columnName = string.Format("{0}", word.Number);
                             return true;
                         }
+                        else if (word.WordType == SQLWord.EWordType.SQL && word.SQLFunction != null && 
+                            (word.SQLFunction.functionLocation == SQLFunction.FunctionLocation.SELECT
+                            || word.SQLFunction.functionLocation == SQLFunction.FunctionLocation.WHERE)
+                            && word.Word.Contains(" as "))
+                        {
+                            string[] functionParameters = word.Word.Split(new []{" as "}, StringSplitOptions.None);
+                            if (word.SQLTable != null)
+                                tableName = word.SQLTable;
+                            else
+                                tableName = string.Empty;
+
+                            columnName = functionParameters[1];
+                            return true;
+                        }
                         else
                         {
                             field = getColumn(word, "Number");
@@ -487,7 +501,8 @@ namespace Cindalnet.SQLBot.Query
         private string AnalyzeFunctions(ref List<SQLWord> words)
         {
             string error = string.Empty;
-            for(int num = 0; num < words.Count;)
+            SQLWord lastWord = null;
+            for(int num = words.Count - 1; num > 0;)
             {
                 if (words[num].WordType == SQLWord.EWordType.Function)
                 {   // Obsługa funkcji
@@ -523,9 +538,13 @@ namespace Cindalnet.SQLBot.Query
                                 }
                                 break;
                             case SQLFunction.ColumnLocation.AFTER:
-                                if (!getColumnName(wordAfter, function.requiredColumnType, out sqlColumn1, out sqlTableName1))
+                                if ((lastWord != null && wordAfter != lastWord && !getColumnName(lastWord, function.requiredColumnType, out sqlColumn1, out sqlTableName1))
+                                    || (lastWord == wordAfter && !getColumnName(wordAfter, function.requiredColumnType, out sqlColumn1, out sqlTableName1)))
                                 {
-                                    return string.Format("Nieprawidłowy parametr funkcji - '{0}' powinien mieć wartość {1}", wordAfter.Word, function.requiredColumnType);
+                                    if (lastWord != null && wordAfter != lastWord)
+                                        return string.Format("Nieprawidłowy parametr funkcji - '{0}' powinien mieć wartość {1}", lastWord.Word, function.requiredColumnType);
+                                    else
+                                        return string.Format("Nieprawidłowy parametr funkcji - '{0}' powinien mieć wartość {1}", wordAfter.Word, function.requiredColumnType);
                                 }
                                 else
                                 {
@@ -620,19 +639,21 @@ namespace Cindalnet.SQLBot.Query
                                 words.RemoveAt(num);
                                 words.Add(currentWord);
                                 break;
-                            default: 
+                            default:
                                 break;
                         };
+                        lastWord = currentWord;
                     }
                     else
                     {
                         return "ERROR - INVALID FUNCTION";
                     }
-                    num++;
+                    num--;
                 }
                 else
                 {
-                    num++;
+                    lastWord = words[num];
+                    num--;
                 }
             }
 
@@ -837,12 +858,11 @@ namespace Cindalnet.SQLBot.Query
                 }
             }
 
-            if (columnName == string.Empty)
-                return string.Format("Nie udał się znaleźć żadnej kolumny powiązanej z datą");
-
-
             if (words.FindIndex(w => w.WordType == SQLWord.EWordType.DateAffix) != -1)
             {   // określenie przedziału
+                if (columnName == string.Empty)
+                    return string.Format("Nie udał się znaleźć żadnej kolumny powiązanej z datą");
+
                 for (int num = 0; num < words.Count; )
                 {
                     if (words[num].WordType == SQLWord.EWordType.DateAffix)
@@ -897,6 +917,9 @@ namespace Cindalnet.SQLBot.Query
             }
             else if(words.FindIndex(w => w.WordType == SQLWord.EWordType.Date) != -1)
             {   // zakres dat, np. wyświetl ... z 3 lat
+                if (columnName == string.Empty)
+                    return string.Format("Nie udał się znaleźć żadnej kolumny powiązanej z datą");
+
                 for (int num = 0; num < words.Count; )
                 {
                     if (words[num].WordType == SQLWord.EWordType.Date)
@@ -911,6 +934,9 @@ namespace Cindalnet.SQLBot.Query
             }
             else if(words.FindIndex(w => w.WordType == SQLWord.EWordType.Month) != -1)
             {   // konkretna data, np. wyświetl ... ze stycznia 2015
+                if (columnName == string.Empty)
+                    return string.Format("Nie udał się znaleźć żadnej kolumny powiązanej z datą");
+
                 for (int num = 0; num < words.Count; )
                 {
                     if (words[num].WordType == SQLWord.EWordType.Month)
