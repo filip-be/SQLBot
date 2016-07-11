@@ -14,11 +14,12 @@
       SQLBot 2016 - Filip Bieleszuk
       Aplikacja s³u¿¹ca do wyœwietlania danych znajduj¹cych siê w relacyjnych bazach danych.
       
-      Aby wyœwietliæ dane dotycz¹ce tabel, pól, itd. nale¿y wywo³aæ polecenie:
+      Aby wyœwietliæ dane dotycz¹ce poszczególnych metadanych nale¿y wywo³aæ polecenie:
       - POMOC TABELE -> tabele obs³ugiwane przez system zapytañ
       - POMOC POLA -> poszczególne pola w tabelach
       - POMOC TYPY PÓL - > poszczególne typy pól
       - POMOC Z³¥CZENIA -> z³¹czenia tabel
+      - POMOC FUNKCJE -> dostêpne funkcje
     </template>
   </category>
 
@@ -50,6 +51,27 @@
       <pattern>POMOC TYPY PÓL</pattern>
       <template>
         <srai>SQLBOT APP QUERY SELECT * FROM SQLBot_FieldType</srai>
+      </template>
+    </category>
+
+    <category>
+      <pattern>POMOC FUNKCJE</pattern>
+      <template>
+        <srai>
+          SQLBOT APP QUERY SELECT 
+            [sqlfn_ID]
+            ,[sqlfn_Name]
+            ,[sqlfn_Description]
+            ,[sqlft_Name] AS "Required type"
+            ,[sqlfl_Name] AS "Function location"
+            ,[sqlfncl_Name] AS "Column location"
+            ,[sqlfn_SQL]
+            ,[sqlfn_RequireGroupBy]
+            FROM [BazaRelacyjna].[dbo].[SQLBot_Function]
+            JOIN SQLBot_FieldType ON sqlfn_RequiredFieldType = sqlft_ID
+            JOIN SQLBot_FunctionLocation ON sqlfn_FunctionLocation = sqlfl_ID
+            JOIN SQLBot_FunctionColumnLocation ON sqlfn_ColumnLocation = sqlfncl_ID
+        </srai>
       </template>
     </category>
 
