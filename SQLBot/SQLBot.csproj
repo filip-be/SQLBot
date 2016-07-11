@@ -206,7 +206,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="aiml\QueryDate.aiml">
+    <None Include="aiml\Dates.aiml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <Content Include="config\AIMLBot_DefaultPredicates.xml" />
