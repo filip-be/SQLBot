@@ -213,14 +213,21 @@ namespace Cindalnet.SQLBot.Query
                                 fieldName);
                             if (executeQuery(SQLQuery) && QueryResult.Row.Count > 0 && QueryResult.Row[0][0].Text == "TRUE")
                             {
+                                /*
                                 Result res = ChatBot.Chat(string.Format("SQLBOT LEARN WHAT IS {0} | {1} | {2}",
                                     fieldName,
                                     defaultColumn.SQLBot_Field.sqlf_ColumnName,
                                     "VALUE"),
                                     ChatUser.UserID);
-
+                                */
                                 SQLWord word = new SQLWord();
-                                word.Initialize(ChatBot, ChatUser, fieldName);
+                                word.Definition = defaultColumn.SQLBot_Field.sqlf_Description;
+                                word.SQLTable = defaultColumn.SQLBot_Field.SQLBot_Table.sqlt_SQLName;
+                                word.SQLColumn = string.Format("{0}.{1}", word.SQLTable, defaultColumn.SQLBot_Field.sqlf_SQLColumnName);
+                                word.Word = fieldName;
+                                word.WordType = SQLWord.EWordType.Value;
+                                
+                                //word.Initialize(ChatBot, ChatUser, fieldName);
                                 return word;
                             }
                         }
@@ -507,7 +514,7 @@ namespace Cindalnet.SQLBot.Query
         {
             string error = string.Empty;
             SQLWord lastWord = null;
-            for(int num = words.Count - 1; num > 0;)
+            for(int num = words.Count - 1; num >= 0;)
             {
                 if (words[num].WordType == SQLWord.EWordType.Function)
                 {   // Obsługa funkcji
@@ -785,13 +792,47 @@ namespace Cindalnet.SQLBot.Query
             if(wordDate.WordType == SQLWord.EWordType.Date
                 && fields.Length == 2)
             {
-                Request chatRequest = new Request(
-                        string.Format("SQLBOT AIML DATE QUERY {0} + - {1}", fields[1], multiplier),
-                        ChatUser,
-                        ChatBot);
-                Result chatRes = ChatBot.Chat(chatRequest);
+                if (dateOpacity == "FROM")
+                {
+                    switch(fields[1])
+                    {
+                        case "YEAR":
+                            res = string.Format("YEAR({0}) = '{1}'", columnName, multiplier);
+                            break;
+                        case "MONTH":
+                            res = string.Format("MONTH({0}) = '{1}'", columnName, multiplier);
+                            break;
+                        case "DAY":
+                            res = string.Format("DAY({0}) = '{1}'", columnName, multiplier);
+                            break;
+                        case "HOUR":
+                            res = string.Format("HOUR({0}) = '{1}'", columnName, multiplier);
+                            break;
+                        case "MINUTE":
+                            res = string.Format("MINUTE({0}) = '{1}'", columnName, multiplier);
+                            break;
+                        default:
+                            Request chatRequest = new Request(
+                                    string.Format("SQLBOT AIML DATE QUERY {0} = {1}", fields[1], multiplier),
+                                    ChatUser,
+                                    ChatBot);
+                            Result chatRes = ChatBot.Chat(chatRequest);
 
-                res = string.Format("{0} {1} {2}", columnName, dateOperator, chatRes.Output);
+                            res = string.Format("{0} {1} {2}", columnName, dateOperator, chatRes.Output);
+                            break;
+                    };
+                   
+                }
+                else
+                {
+                    Request chatRequest = new Request(
+                            string.Format("SQLBOT AIML DATE QUERY {0} + - {1}", fields[1], multiplier),
+                            ChatUser,
+                            ChatBot);
+                    Result chatRes = ChatBot.Chat(chatRequest);
+
+                    res = string.Format("{0} {1} {2}", columnName, dateOperator, chatRes.Output);
+                }
             }
             else if(wordDate.WordType == SQLWord.EWordType.Month)
             {
@@ -815,14 +856,14 @@ namespace Cindalnet.SQLBot.Query
                         year = DateTime.Now.Year - 1;
 
                     string SQLQuery = string.Empty;
-                    if (day != -1)
+                    if (day > 0)
                     {
                         SQLQuery += string.Format("DAY({0}) = '{1}' AND ", columnName, day);
                     }
 
-                    SQLQuery += string.Format("MONTH({0}) = '{1}'", columnName, day);
+                    SQLQuery += string.Format("MONTH({0}) = '{1}'", columnName, wordDate.Number);
 
-                    if (year != -1)
+                    if (year > 0)
                     {
                         SQLQuery += string.Format(" AND YEAR({0}) = '{1}'", columnName, year);
                     }
@@ -929,7 +970,7 @@ namespace Cindalnet.SQLBot.Query
                 {
                     if (words[num].WordType == SQLWord.EWordType.Date)
                     {
-                        words[num].Definition = TrimWord(GetDatesQuery(columnName, 1, words[num], "LAST"));
+                        words[num].Definition = TrimWord(GetDatesQuery(columnName, 1, words[num], "FROM"));
                         words[num].SQLColumn = columnName;
                         words[num].WordType = SQLWord.EWordType.DateAffix;
                     }
