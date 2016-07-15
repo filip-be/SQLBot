@@ -156,12 +156,12 @@ namespace Cindalnet.SQLBot.Query
             {
                 List<string> newJoins = new List<string>();
                 bool res = false;
-                foreach (var table in findConnectedTables(tableSource))
+                foreach (var table in findConnectedTables(tableCurrent))
                 {
                     string currentJoin;
                     if (table != tableSource 
                         && table != tableCurrent
-                        && IsValidJoin(tableSource, table, out currentJoin))
+                        && IsValidJoin(tableCurrent, table, out currentJoin))
                     {
                         string JoinString;
                         string[] temporaryJoins;
