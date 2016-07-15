@@ -194,6 +194,7 @@ namespace Cindalnet.SQLBot.Query
         {
             try
             {
+                fieldName = fieldName.Trim();
                 string[] tableNames = findConnectedTables(TableName);
                 foreach (var tableName in tableNames)
                 {
@@ -240,7 +241,6 @@ namespace Cindalnet.SQLBot.Query
             List<string> tables = new List<string>();
 
             QueryInterpreter queryInterp = new QueryInterpreter(query);
-            string Table = string.Empty;
             if (queryInterp.IsInterpreted)
             {
                 List<Tuple<int, SQLWord>> unknownWords = new List<Tuple<int, SQLWord>>();
@@ -360,12 +360,17 @@ namespace Cindalnet.SQLBot.Query
                                 {
                                     originalPhrase = string.Format("{0} {1}", queryInterp.Words[wordNumber].Form, originalPhrase);
                                 }
-                                inTableValue = checkIfBelongsToTable(originalPhrase, Table);
 
-                                if (inTableValue == null)
+                                foreach (var tableName in tables)
                                 {
-                                    sqlWord = unknownWord.Item2;
-                                    unknownWords.Add(unknownWord);
+                                    inTableValue = checkIfBelongsToTable(originalPhrase, tableName);
+
+                                    if (inTableValue == null)
+                                    {
+                                        sqlWord = unknownWord.Item2;
+                                        unknownWords.Add(unknownWord);
+                                        break;
+                                    }
                                 }
                             }
 
