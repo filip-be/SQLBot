@@ -1311,9 +1311,11 @@ namespace Cindalnet.SQLBot.Query
             string res;
             try
             {
+                ChatBot.writeToLog("Użytkownik: " + query);
                 Request chatRequest = new Request(query, ChatUser, ChatBot);
                 Result chatRes = ChatBot.Chat(chatRequest);
                 res = chatRes.Output;
+                ChatBot.writeToLog("SQLBot: " + res);
 
                 if (res.StartsWith(PatternPrepareQuery))
                 {   // 1. Odpytanie bazy danych na podstawie znanych informacji
